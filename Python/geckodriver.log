@@ -1,0 +1,14 @@
+1507609354554	geckodriver	INFO	geckodriver 0.18.0
+1507609354558	geckodriver	INFO	Listening on 127.0.0.1:39467
+1507609354723	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1507609358665	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1507609360746	Marionette	INFO	Enabled via --marionette
+1507609366818	Marionette	INFO	Listening on port 35183
+1507609366881	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507609366944	Marionette	DEBUG	Register listener.js for window 2147483649
+1507609366992	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507609369408	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507609369409	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507609370190	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.hackthissite.org/pages/index/index.php"
+1507609371338	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.hackthissite.org/pages/index/index.php"
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
