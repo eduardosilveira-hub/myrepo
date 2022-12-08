@@ -1,0 +1,149 @@
+<style>
+/* #loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.75) url(/spinner.gif) no-repeat center center;
+    z-index: 10000;
+} */
+.toastr-success{
+    background-color:darkcyan !important;
+}
+
+legend {
+    font-size: 12px!important;
+}
+.section tbody tr td div.control{
+    clear: none !important;
+    float: right;
+}
+.cmhc-account{
+    margin-bottom: 25px;
+}
+.cmhc-account .tab-title,
+.cmhc-account #UpdateButton {
+    display: none;
+}
+.cmhc-account .field-label {
+    margin-top: 10px;
+}
+.cmhc-account #profile-modal .modal-body {
+    overflow-y: scroll;
+    height: 305px;
+}
+
+.modal-form .modal-body iframe {
+    padding: 0px 20px 0px 20px; 
+    height: 300px;
+}
+
+.cmhc-account #error-message {
+    color: #504c4d;
+    display: inline-block;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+}
+.cmhc-account .cmhc-billing-options, .cmhc-account .update-my-profile {
+    padding: 0 10px 10px;
+}
+@media (max-width: 991px){
+    .modal-form .modal-body iframe {
+    height: 660px;
+    }
+    .cmhc-account #profile-modal .modal-body {
+    height: 665px;
+    }
+}
+@media (max-width: 539px) {
+    .cmhc-account .cmhc-button-account-options {
+    padding-top: 10px !important;
+    display: block;
+    width: 100%;
+    }
+}
+
+</style>
+<div class="cmhc-account cmhc-web-component">
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="first-panel">
+                <h3 class="font-bold cmhc-font-18">CHMC Announcements</h3>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="cmhc-label mt-1">Welcome</div>
+                            <div id="cmhc-contact-email-label" class="cmhc-font-data mt-2">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            </div>
+                            <hr class="solid">
+                            <div class="cmhc-font-10">
+                                Dec 8, 2022 11:34 AM
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div class="col-sm-8">
+            <div id="second-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        <!-- {% include 'LocationPicker' %} -->
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="cmhc-label">Arrears Submission Tool<span class="fas fa-caret-down first"></span></div>
+                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="third-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        <!-- {% include 'LocationPicker' %} -->
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="cmhc-label">Default Management Request Submission Tool</div>
+                                    <span class="fas fa-caret-down first"></span>
+                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="fourth-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        <!-- {% include 'LocationPicker' %} -->
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="cmhc-label">Homeowner Claims Submission Tool</div>
+                                    <span class="fas fa-caret-down first"></span>
+                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

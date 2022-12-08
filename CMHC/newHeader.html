@@ -1,0 +1,371 @@
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+  .navbar-static-top.navbar-inverse{
+    background-color: white;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .cmhc-logo {
+    display: flex;
+    margin: auto 0px;
+    padding-left: 15px !important;
+  }
+  
+  .cmhc-logo .imgLogo {
+    height: auto;
+    width: 100px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+      /* For mobile phones: */
+      .cssp-logo img {
+        height: 100px !important;
+        margin-top: -30px !important;
+      }
+    }
+    @media (max-width: 539px) {
+      /* For mobile phones: */
+      .imgLogo {
+          height: 60px !important;
+      }
+    }
+
+  a:hover, a:focus, .a:hover, .a:focus {
+    color: cyan;
+  }
+  .menubtn {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #0069a5;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .menubtn.click {
+    right: 307px;
+  }
+  .menubtn i {
+    color: white;
+    font-size: 28px;
+    line-height: 45px;
+  }
+  .menubtn.click i:before {
+    content: "\f00d";
+  }
+  .sidebar {
+    position: fixed;
+    width: 305px;
+    height: 100%;
+    right: -305px;
+    background: #1b1b1b;
+    transition: all 0.5s ease;
+  }
+  .sidebar.show {
+    right: 0px;
+  }
+  .sidebar .text {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px;
+  }
+  nav ul {
+    background: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+  }
+  nav ul li {
+    line-height: 45px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+  }
+  nav ul li.active a {
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+  }
+  nav ul li a:hover {
+    background: #1e1e1e;
+  }
+  nav ul ul {
+    position: static;
+    display: none;
+  }
+
+  nav ul .menu-submenu.show {
+    display: block;
+  }
+  nav ul ul li {
+    line-height: 42px;
+    border-top: none;
+  }
+  nav ul ul li a {
+    font-size: 14px;
+    color: #e6e6e6;
+    padding-left: 80px;
+  }
+  nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: #1b1b1b;
+    border-left-color: transparent;
+  }
+  nav ul ul li a:hover {
+    color: cyan !important;
+    background: #1e1e1e !important;
+  }
+  nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+  }
+  nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+  /* .content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #202020;
+  z-index: -1;
+  text-align: center;
+} */
+  .content .header {
+    font-size: 45px;
+    font-weight: 600;
+  }
+  /* .content p{
+  font-size: 30px;
+  font-weight: 500;
+} */
+</style>
+
+{% assign defaultlang = settings['LanguageLocale/Code'] | default: 'en-us' %} 
+
+{% assign homeurl = website.adx_partialurl %}
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="skip-to-content">
+    <div class="navbar-header">
+      <!--div class="visible-xs-block">
+        {% editable snippets 'Mobile Header' type: 'html' %}
+      </div-->
+      <div class="visible-sm-block visible-md-block visible-lg-block visible-xs-block navbar-brand cmhc-logo">
+        <img class="imgLogo" src="/Logo.png" />
+      </div>
+      <!-- <div class="visible-sm-block visible-md-block visible-lg-block visible-xs-block navbar-brand">
+          {% editable snippets 'Mobile Header' type: 'html' %}
+      </div> -->
+    </div>
+  </div>
+  <div class="container">
+    <div class="menubtn">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </div>
+    <nav class="sidebar">
+      <div class="text">CMHC Menu</div>
+      <ul>
+        <!-- If user is logged in -->
+        {% if user %}
+          <li>
+            {% assign username=user.fullname | escape %}
+            <a href="#" aria-roledescription="link" title="{{username | default: resx['Default_Profile_name'] }}" aria-haspopup="true" aria-expanded="false">
+              {{ username | default: resx['Default_Profile_name'] }}
+              <span class="fas fa-caret-down first"></span>
+            </a>
+            <ul class="menu-submenu">
+              {% assign show_profile_nav = settings["Header/ShowAllProfileNavigationLinks"] | boolean | default:true %}
+              {% if show_profile_nav %}
+                {% assign profile_nav = weblinks["Profile Navigation"] %}
+                {% if profile_nav %}
+                  {% for link in profile_nav.weblinks %}
+                    <li>
+                      <a aria-label="{{ link.name | escape }}" aria-roledescription="link" href="{{ link.url | escape }}" title="{{ link.name | escape }}">
+                        {{ link.name | escape }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              {% else %}
+                <li>
+                  <a aria-label="{{ snippets["Profile Link Text"] | default:resx["Profile_Text"] | escape }}" aria-roledescription="link" href="{{ sitemarkers['Profile'].url | escape }}">
+                    {{ snippets["Profile Link Text"] | default:resx["Profile_Text"] | escape }}
+                  </a>
+                </li>
+              {% endif %}
+              <li>
+                <a aria-label="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}" aria-roledescription="link" href="{% if homeurl%}/{{ homeurl }}{% endif %}{{ website.sign_out_url_substitution }}" title="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}">
+                    {{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- If user is logged off -->
+        {% else %}
+          <li>
+              <a aria-label="{{ snippets["links/login"] | default:resx["Sign_In"] | escape }}" aria-roledescription = "link" href="{% if homeurl%}/{{ homeurl }}{% endif %}{{ website.sign_in_url_substitution }}">
+                  {{ snippets["links/login"] | default:resx["Sign_In"] | escape }}
+              </a>
+          </li>
+        {% endif %}
+        {% assign primary_nav = weblinks["Primary Navigation"] %}
+        {% if primary_nav %}
+          <!-- Building Header links -->
+          {% for link in primary_nav.weblinks %}
+            {% if link.display_page_child_links %}
+              {% if link.url != null %}
+                {% assign sublinks = sitemap[link.url].children %}
+              {% endif %}
+            {% else %}
+              {% assign sublinks = link.weblinks %}
+            {% endif %}
+            <li>
+              <a href="{% if sublinks.size > 0 %}#{% else %} {{ link.url | escape }} {% endif %}" {%- if link.Open_In_New_Window %} target="_blank" {% endif -%}>
+                {{ link.name | escape }}{% if sublinks.size > 0 %} <span class="fas fa-caret-down first"></span> {% endif %}
+              </a>
+              {% if sublinks.size > 0 %}
+                <ul class="menu-submenu">
+                  <!-- Now showing all the links under the above Menu -->
+                  {% for sublink in sublinks %}
+                    <li>
+                      <a href="{{ sublink.url }}" {% if sublink.Open_In_New_Window %} target="_blank" {% endif %}>
+                        {{ sublink.name | default:sublink.title | escape }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
+        <!-- END Building Header links -->
+        <!-- If website has more than one language setup -->
+        {% if website.languages.size > 1 %}
+        <li>
+            <a aria-roledescription = "link" href="#" aria-label="{{ website.selected_language.name | escape }}" aria-haspopup="true" aria-expanded="false" title="{{ website.selected_language.name | escape }}">
+                {{ website.selected_language.name | escape }}
+                <span class="fas fa-caret-down first"></span>
+            </a>
+            {% include 'Languages Dropdown' %}
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="header">CMHC</div>
+    </div>
+  </div>
+</div>
+{% substitution %} 
+  {% assign current_page = page.id %}
+  {% assign sr_page = sitemarkers["Search"].id %}
+  {% assign forum_page = sitemarkers["Forums"].id %}
+  {% if current_page %}
+    {% if current_page == sr_page or current_page == forum_page %}
+      {% assign section_class = "section-landing-search" %}
+      {% if current_page == forum_page %}
+        {% assign section_class = "section-landing-forums" %} 
+      {% endif %}
+      <section class="page_section {{ section_class | h }} color-inverse">
+        <div
+          class="row sectionBlockLayout sectionFixedStyle"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            min-height: 420px;
+            background: url('/Homehero.png') center / cover no-repeat;
+            padding: 8px;
+            margin: 0px;
+          "
+        >
+          <div class="container" style="display: flex; flex-wrap: wrap">
+            <div
+              class="col-md-12 columnBlockLayout"
+              style="display: flex; flex-direction: column; justify-content: center"
+            >
+              {% if current_page == sr_page %}
+              <h1 id="mainContent">
+                {% editable snippets 'Search/Title' default: resx["Discover_Contoso"] %}
+              </h1>
+              {% include 'Search' search_id:'search_control' %} {% endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
+{% endsubstitution %}
+<script type="text/javascript">
+  window.onload = function () {
+    if (
+      window.navigator.appName == "Microsoft Internet Explorer" ||
+      window.navigator.userAgent.indexOf("Trident") > 0
+    ) {
+      var searchElement = document.getElementById("search");
+      if (searchElement != null) searchElement.setAttribute("href", "");
+    }
+  };
+  function setHeight() {
+    var windowHeight = window.innerHeight - 140;
+    var navbar = document.getElementById("navbar");
+    if (navbar) {
+      navbar.style.maxHeight = windowHeight + "px";
+    }
+  }
+  window.addEventListener("resize", function (event) {
+    setHeight();
+  });
+
+  // Click action on Menu Button
+  let menuBtn = document.querySelector('.menubtn');
+  menuBtn.addEventListener('click', (el) => {
+    menuBtn.classList.toggle('click');
+    document.querySelector('.sidebar').classList.toggle('show');
+  });
+  
+  // When a menu with submenus clicked - rotate the down arrow
+  // and show the submenu items
+  let dropdownClicked = document.querySelectorAll('.fas.fa-caret-down');
+  if (dropdownClicked) {
+    dropdownClicked.forEach((caret) => {
+      caret.addEventListener('click', (event) => {
+        debugger;
+        event.target.parentNode.nextElementSibling.classList.toggle("show");
+        event.target.classList.toggle("rotate");
+      });
+    });
+  }
+
+</script>
