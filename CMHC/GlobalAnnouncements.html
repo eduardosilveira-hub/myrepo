@@ -1,0 +1,161 @@
+{%- fetchxml fetchAnnouncements -%}
+<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+    <entity name='ava_announcements'>
+        <attribute name='ava_announcementsid' />
+        <attribute name='createdon' />
+        <attribute name='ava_name' />
+        <attribute name='ava_announcement' />
+        <attribute name='ava_from' />
+        <order attribute='createdon' descending='true' />
+        <filter type='and'>
+        <condition attribute='statecode' operator='eq' value='0' />
+        </filter>
+    </entity>
+</fetch>
+{%- endfetchxml -%}
+
+<div class='col-sm-4'>
+    <div id='first-panel'>
+        <h3 class='font-bold cmhc-font-18'>CHMC Announcements</h3>
+        <div class='card'>
+            <ul class='list-group list-group-flush'>
+                <li class='list-group-item'>
+                    <div class='cmhc-label mt-1'>Welcome</div>
+                    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                        <!-- Carousel Slides / Quotes -->
+                        <div class="carousel-inner">
+                          <!-- Quote 1 -->
+                            {% if fetchAnnouncements.results.entities.size > 1 %}
+                            {% for announcement in fetchAnnouncements.results.entities %}
+                                {% if forloop.first %}
+                                    <div class="item active">
+                                {% else %}
+                                    <div class="item">
+                                {% endif %}
+                                    <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <p>{{ announcement.ava_announcement }}</p>
+                                            <small>{{ announcement.ava_from }}</small>
+                                            <hr class='solid'>
+                                            <div class='cmhc-font-10 bottom'>
+                                                {{ announcement.createdon }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </blockquote>
+                                </div>
+                            {% endfor %}
+                            {% else if fetchAnnouncements.results.entities.size == 1 %}
+                                {% assign announcement = fetchAnnouncements.results.entities | first %}
+                                <div class="item active">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p>{{ announcement.ava_announcement }}</p>
+                                                <small>{{ announcement.ava_from }}</small>
+                                                <hr class='solid'>
+                                                <div class='cmhc-font-10 bottom'>
+                                                    {{ announcement.createdon }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            {% else %}
+                                <div class="item active">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p>No announcements for today</p>
+                                                <small></small>
+                                                <hr class='solid'>
+                                                <div class='cmhc-font-10 bottom'>
+                                                    {{ "today" }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            {% endif %}
+                        <!-- Carousel Buttons Next/Prev -->
+                        <!-- <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>  
+</div>
+
+<style>
+
+blockquote {
+    padding: 10px 0px !important;
+    margin: 0 0 21px;
+}
+
+blockquote .bottom{
+    text-align: right !important;
+}
+
+#quote-carousel 
+{
+  padding: 0px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: #222;
+  font-size: 2.3em;
+  text-shadow: none;
+  margin-top: 30px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left 
+{
+  left: -12px;
+}
+/* Next button  */
+#quote-carousel .carousel-control.right 
+{
+  right: -12px !important;
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators 
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+
+/* End carousel */
+
+.item blockquote {
+    border-left: none; 
+    margin: 0;
+}
+
+</style>
+
+<script>
+$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: {{ settings['announcement-timeout']}},
+  });
+});
+</script>

@@ -1,15 +1,8 @@
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
 <style>
-/* #loader {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.75) url(/spinner.gif) no-repeat center center;
-    z-index: 10000;
-} */
 .toastr-success{
     background-color:darkcyan !important;
 }
@@ -21,27 +14,22 @@ legend {
     clear: none !important;
     float: right;
 }
-.cmhc-account{
+/* cmhc-application */
+.cmhc-application{
     margin-bottom: 25px;
 }
-.cmhc-account .tab-title,
-.cmhc-account #UpdateButton {
+.cmhc-application .tab-title {
     display: none;
 }
-.cmhc-account .field-label {
+.cmhc-application .field-label {
     margin-top: 10px;
 }
-.cmhc-account #profile-modal .modal-body {
-    overflow-y: scroll;
-    height: 305px;
-}
-
-.modal-form .modal-body iframe {
+/* .modal-form .modal-body iframe {
     padding: 0px 20px 0px 20px; 
     height: 300px;
-}
+} */
 
-.cmhc-account #error-message {
+.cmhc-application #error-message {
     color: #504c4d;
     display: inline-block;
     font-style: italic;
@@ -49,19 +37,19 @@ legend {
     line-height: 15px;
     margin: 5px 0 0;
 }
-.cmhc-account .cmhc-billing-options, .cmhc-account .update-my-profile {
+.cmhc-application .cmhc-billing-options, .cmhc-application .update-my-profile {
     padding: 0 10px 10px;
 }
 @media (max-width: 991px){
-    .modal-form .modal-body iframe {
+    /* .modal-form .modal-body iframe {
     height: 660px;
     }
-    .cmhc-account #profile-modal .modal-body {
+    .cmhc-application #profile-modal .modal-body {
     height: 665px;
-    }
+    } */
 }
 @media (max-width: 539px) {
-    .cmhc-account .cmhc-button-account-options {
+    .cmhc-application .cmhc-button-account-options {
     padding-top: 10px !important;
     display: block;
     width: 100%;
@@ -69,27 +57,9 @@ legend {
 }
 
 </style>
-<div class="cmhc-account cmhc-web-component">
+<div class="cmhc-application cmhc-web-component">
     <div class="row">
-        <div class="col-sm-4">
-            <div id="first-panel">
-                <h3 class="font-bold cmhc-font-18">CHMC Announcements</h3>
-                <div class="card">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="cmhc-label mt-1">Welcome</div>
-                            <div id="cmhc-contact-email-label" class="cmhc-font-data mt-2">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                            </div>
-                            <hr class="solid">
-                            <div class="cmhc-font-10">
-                                Dec 8, 2022 11:34 AM
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>  
-        </div>
+        {% include 'Global Announcements' %}
         <div class="col-sm-8">
             <div id="second-panel">
                 <div class="card">
@@ -99,14 +69,126 @@ legend {
                         </li>
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="cmhc-label">Arrears Submission Tool<span class="fas fa-caret-down first"></span></div>
-                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Arrears Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-14 mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div class="mt-3">
+                                                    <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; EF Metadata - Upload a New Arrears Report</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="btnCreateApplication" data-toggle="modal" data-target="#createApplicationModal"><span class="fa-solid fa-circle-plus"></span>&nbsp; OOB EF - New Application</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a id="list-application" href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List - Modal</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <details>
+                                                        <summary>
+                                                            <span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List - expand
+                                                        </summary>
+                                                        <p>
+                                                            {% include 'entity_list' key: "Application List" %}
+                                                        </p>
+                                                    </details>
+                                                </div>
+
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
+
+                <div id="new-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="new-application-modal-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Upload New Arrears Report</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="new-arrears-modal">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="field-label" for="application-amount">Loan Amount</label>
+                                    <input id="application-amount" type="text" class="form-control" placeholder="0.00">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="field-label" for="application-taxrate">Tax rate</label>
+                                    <input id="application-taxrate" type="text" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+                          </div>
+                          <iframe id="application-iframe" class="d-none" src="/api/?entityform=Application Create" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="saveApplication(event)">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div id="createApplicationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="new-application-modal-label-oob" aria-hidden="true">
+                    <div class="modal-lg modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" title="My Modal Title">Create New Application</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-loading" style="display: none;">
+                                    <span class="fa fa-spinner fa-spin fa-4x" aria-hidden="true"></span>
+                                </div>
+                                <iframe id="createApplicationModal" src="" style="position: relative; height: 100%; width: 100%;"></iframe>
+                                <!-- <div class="form">
+                                    {% entityform name: 'Application Create' %}
+                                </div> -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="list-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="list-application-modal-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Your Applications</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            {% include 'Application List'%}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
             </div>
             <div id="third-panel">
                 <div class="card">
@@ -116,10 +198,29 @@ legend {
                         </li>
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="cmhc-label">Default Management Request Submission Tool</div>
-                                    <span class="fas fa-caret-down first"></span>
-                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Default Management Request Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-data mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div>
+                                                    <a href="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; Upload a New Arrears Report</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List</a>
+                                                </div>
+                                                <div>
+                                                    <div class="cmhc-label cmhc-font-10">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
                                 </div>
                             </div>
                         </li>
@@ -134,10 +235,29 @@ legend {
                         </li>
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="cmhc-label">Homeowner Claims Submission Tool</div>
-                                    <span class="fas fa-caret-down first"></span>
-                                    <div class="cmhc-font-data mt-2">{% if serviceLocation.cmhc_billdeliverymethod.label %} {{serviceLocation.cmhc_billdeliverymethod.label}} {% else %} <div class="general-information">no selection</div> {% endif%}</div>
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Homeowner Claims Submission<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-data mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div>
+                                                    <a href="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; Upload a New Arrears Report</a>
+                                                </div>
+                                                <div>
+                                                    <a href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List</a>
+                                                </div>
+                                                <div>
+                                                    <div class="cmhc-label cmhc-font-10">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
                                 </div>
                             </div>
                         </li>
@@ -147,3 +267,64 @@ legend {
         </div>
     </div>
 </div>
+
+<script>
+    var createApplicationURL = '/_portal/modal-form-template-path/f82dab33-566f-ed11-9562-000d3a8c6ab8?entityformid=ae46f8ae-ee77-ed11-81ab-000d3a8c6ab8';
+    let btnCreateApplication = document.querySelector("#btnCreateApplication");
+
+    btnCreateApplication.addEventListener('click', (event) => {
+        createApplicationHandler();
+    });
+
+    function createApplicationHandler(){
+        loadCreateApplicationModal();
+        // $("#createApplicationModal").css("display","block");
+        // $("div.fade",parent.document).addClass("in");
+        // $("div.fade.in",parent.document).addClass("modal-backdrop");
+    }
+
+    function loadCreateApplicationModal(){
+        var $modal = $("#createApplicationModal");
+        var $iFrame = $modal.find("iframe");
+        $iFrame.prop('src', createApplicationURL);
+
+        if($iFrame != undefined){
+            $iFrame.on("load",function(){
+                if($iFrame.contnets().find("#MessageLabel").length> 0 && $iFrame.contnets().find("#MessageLabel").text()=="Submission completed successfully."){
+                    $modal.modal('hide');
+                    window.location.href="/#";
+                    return;
+                }
+            });        
+        }
+    }
+
+    const applicationFields = {
+        'ava_loanamount': 'application-amount',
+        'ava_taxrate':'application-taxrate'
+    };
+
+    let listApplication = document.querySelector("#list-application");
+    listApplication.addEventListener('click', (el) => {
+        document.querySelector('#list-application-modal').classList.add('in');
+        document.querySelector('#list-application-modal').style.display = 'block';
+    });    
+
+    let applicationOrder = document.querySelectorAll('.application-order');
+    applicationOrder.forEach((ref) => {
+        ref.addEventListener('click', (ref) => {
+            ref.preventDefault();
+        });
+    });
+
+    function saveApplication (event) {
+        event.preventDefault();
+        const applicationIframe = document.querySelector('#application-iframe');
+        Object.keys(applicationFields).forEach((iframeField) => {
+            debugger;
+            let crmField = applicationFields[iframeField];
+            applicationIframe.contentDocument.querySelector('#' + iframeField).value = document.querySelector('#' + crmField).value;
+        });
+        applicationIframe.contentDocument.querySelector('#InsertButton')?.click();
+    };
+</script>

@@ -1,0 +1,71 @@
+{
+    "id":"ebd15046-1478-ed11-81ab-000d3a8c6ab8",
+    "name":"Application List",
+    "views":[
+       
+    ],
+    "search":{
+       "enabled":false,
+       "clear-url":"/api/?entitylist=Application%20List",
+       "term":"",
+       "placeholder":"Search",
+       "button":""
+    },
+    "create":{
+       "enabled":false,
+       "url":"",
+       "label":"Create"
+    },
+    "current-sort":"createdon DESC",
+    "columns":[
+       {
+          "name":"Contact Applicant",
+          "logical-name":"ava_contactapplicant",
+          "width":"100",
+          "order-enabled":true,
+          "url":"/api/?entitylist=Application%20List&order=ava_contactapplicant%20ASC"
+       },
+       {
+          "name":"Loan Amount",
+          "logical-name":"ava_loanamount",
+          "width":"100",
+          "order-enabled":true,
+          "url":"/api/?entitylist=Application%20List&order=ava_loanamount%20ASC"
+       },
+       {
+          "name":"Tax rate",
+          "logical-name":"ava_taxrate",
+          "width":"100",
+          "order-enabled":true,
+          "url":"/api/?entitylist=Application%20List&order=ava_taxrate%20ASC"
+       },
+       {
+          "name":"Created On",
+          "logical-name":"createdon",
+          "width":"125",
+          "order-enabled":true,
+          "url":"/api/?entitylist=Application%20List&order=createdon%20ASC"
+       }
+    ],
+    "records":[
+       {
+          "ava_contactapplicant":"Chris FernandoAD",
+          "ava_loanamount":"Liquid error: Object of type 'System.Double' cannot be converted to type 'System.String'.",
+          "ava_taxrate":"Liquid error: Object of type 'System.Double' cannot be converted to type 'System.String'.",
+          "createdon":"2022-12-09T21:26:47Z"
+       }
+    ],
+    "pages":{
+       "numbers":[
+          {
+             "active":true,
+             "page":1,
+             "url":"/api/?entitylist=Application%20List&page=1"
+          }
+       ],
+       "first-url":"",
+       "previous-url":"",
+       "next-url":"",
+       "last-url":""
+    }
+ }
