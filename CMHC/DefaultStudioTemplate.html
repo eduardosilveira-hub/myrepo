@@ -10,15 +10,23 @@
       <div class="container">
         <div class="col-sm-8 text-left">
           <h1 class="cmhc-page-title font-bold mt-5">
-            {% if page.adx_title == 'Home' %} Welcome{% if {{user.firstname}} %}, {{user.firstname}} {% else %}! {% endif %} {% else %}
-            {{page.adx_title}} {% endif %}
+            {% if page.adx_title == 'Home' %} 
+              Welcome 
+              {% if {{user.firstname}} %}
+                , {{user.firstname}} 
+              {% else %}
+                ! 
+              {% endif %} 
+            {% else %}
+              {{page.adx_title}} 
+            {% endif %}
           </h1>
         </div>
         <div class="col-sm-4 text-right mt-5 cssp-account-wrapper">
           <div class="cssp-font-12">
             {% if user %}
             <span class="cmhc-page-subtitle font-bold">Registration #: </span>
-            <span>{{contact['acc.accountnumber']}}</span>
+            <span>331122</span>
             {% endif %}
           </div>
         </div>

@@ -100,9 +100,9 @@ body {
   }
 
 /* for home page collapsible menus */
-  details {
+  /* details {
     user-select: none;
-  }
+  } */
   
   details>summary span.icon {
     width: 24px;

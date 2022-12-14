@@ -65,7 +65,6 @@ legend {
                 <div class="card">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item-header">&nbsp;
-                        <!-- {% include 'LocationPicker' %} -->
                         </li>
                         <li class="list-group-item">
                             <div class="row">
@@ -78,18 +77,21 @@ legend {
                                             <div class="cmhc-font-14 mt-2">
                                                 <div class="cmhc-label mt-1">Quick Links</div>
                                                 <div class="mt-3">
-                                                    <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; EF Metadata - Upload a New Arrears Report</a>
+                                                    <a href="/application-create-stepped" id="new-application-stepped"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Stepped Process</a>
                                                 </div>
                                                 <div class="mt-2">
-                                                    <a href="" id="btnCreateApplication" data-toggle="modal" data-target="#createApplicationModal"><span class="fa-solid fa-circle-plus"></span>&nbsp; OOB EF - New Application</a>
+                                                    <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal Stepped Process</a>
                                                 </div>
                                                 <div class="mt-2">
-                                                    <a id="list-application" href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List - Modal</a>
+                                                    <a href="" id="btnCreateApplication" data-toggle="modal" data-target="#createApplicationModal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Page with Entity Form</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="list-application" data-toggle="modal" data-target="#list-application-modal"><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - Modal</a>
                                                 </div>
                                                 <div class="mt-2">
                                                     <details>
                                                         <summary>
-                                                            <span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List - expand
+                                                            <a><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - expand</a>
                                                         </summary>
                                                         <p>
                                                             {% include 'entity_list' key: "Application List" %}
@@ -137,16 +139,15 @@ legend {
                           <iframe id="application-iframe" class="d-none" src="/api/?entityform=Application Create" frameborder="0"></iframe>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" onclick="saveApplication(event)">Save changes</button>
+                          <button type="button" class="btn btn-primary" onclick="dashboard.saveApplication(event)">Save changes</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>
                 </div>
 
-
-                <div id="createApplicationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="new-application-modal-label-oob" aria-hidden="true">
-                    <div class="modal-lg modal-dialog" role="document">
+                <div id="createApplicationModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="new-application-modal-label-oob" style="padding-right: 17px;" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" title="My Modal Title">Create New Application</h5>
@@ -158,10 +159,7 @@ legend {
                                 <div class="form-loading" style="display: none;">
                                     <span class="fa fa-spinner fa-spin fa-4x" aria-hidden="true"></span>
                                 </div>
-                                <iframe id="createApplicationModal" src="" style="position: relative; height: 100%; width: 100%;"></iframe>
-                                <!-- <div class="form">
-                                    {% entityform name: 'Application Create' %}
-                                </div> -->
+                                <iframe id="createApplicationFrame" src=""></iframe>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -171,7 +169,7 @@ legend {
                 </div>
 
                 <div id="list-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="list-application-modal-label" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-lg modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title">Your Applications</h5>
@@ -269,62 +267,31 @@ legend {
 </div>
 
 <script>
-    var createApplicationURL = '/_portal/modal-form-template-path/f82dab33-566f-ed11-9562-000d3a8c6ab8?entityformid=ae46f8ae-ee77-ed11-81ab-000d3a8c6ab8';
-    let btnCreateApplication = document.querySelector("#btnCreateApplication");
-
-    btnCreateApplication.addEventListener('click', (event) => {
-        createApplicationHandler();
-    });
-
-    function createApplicationHandler(){
-        loadCreateApplicationModal();
-        // $("#createApplicationModal").css("display","block");
-        // $("div.fade",parent.document).addClass("in");
-        // $("div.fade.in",parent.document).addClass("modal-backdrop");
-    }
-
-    function loadCreateApplicationModal(){
-        var $modal = $("#createApplicationModal");
-        var $iFrame = $modal.find("iframe");
-        $iFrame.prop('src', createApplicationURL);
-
-        if($iFrame != undefined){
-            $iFrame.on("load",function(){
-                if($iFrame.contnets().find("#MessageLabel").length> 0 && $iFrame.contnets().find("#MessageLabel").text()=="Submission completed successfully."){
-                    $modal.modal('hide');
-                    window.location.href="/#";
-                    return;
-                }
-            });        
-        }
-    }
-
     const applicationFields = {
         'ava_loanamount': 'application-amount',
         'ava_taxrate':'application-taxrate'
     };
+    const dashboard = {
+        init: () => {
+            let applicationOrder = document.querySelectorAll('.application-order');
+            applicationOrder.forEach((ref) => {
+                ref.addEventListener('click', (ref) => {
+                    ref.preventDefault();
+                });
+            });
+        },
 
-    let listApplication = document.querySelector("#list-application");
-    listApplication.addEventListener('click', (el) => {
-        document.querySelector('#list-application-modal').classList.add('in');
-        document.querySelector('#list-application-modal').style.display = 'block';
-    });    
+        saveApplication: (event) => {
+            event.preventDefault();
+            const applicationIframe = document.querySelector('#application-iframe');
+            Object.keys(applicationFields).forEach((iframeField) => {
+                debugger;
+                let crmField = applicationFields[iframeField];
+                applicationIframe.contentDocument.querySelector('#' + iframeField).value = document.querySelector('#' + crmField).value;
+            });
+            applicationIframe.contentDocument.querySelector('#InsertButton')?.click();
+        }
+    }
 
-    let applicationOrder = document.querySelectorAll('.application-order');
-    applicationOrder.forEach((ref) => {
-        ref.addEventListener('click', (ref) => {
-            ref.preventDefault();
-        });
-    });
-
-    function saveApplication (event) {
-        event.preventDefault();
-        const applicationIframe = document.querySelector('#application-iframe');
-        Object.keys(applicationFields).forEach((iframeField) => {
-            debugger;
-            let crmField = applicationFields[iframeField];
-            applicationIframe.contentDocument.querySelector('#' + iframeField).value = document.querySelector('#' + crmField).value;
-        });
-        applicationIframe.contentDocument.querySelector('#InsertButton')?.click();
-    };
+    dashboard.init();
 </script>
