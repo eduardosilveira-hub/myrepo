@@ -71,7 +71,7 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Arrears Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Arrears Submission Tool<span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
                                             <div class="cmhc-font-14 mt-2">
@@ -82,9 +82,9 @@ iframe {
                                                 <div class="mt-2">
                                                     <a href="/app-create-multi" id="new-application-multistep"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - OOB Multi Step Form</a>
                                                 </div>
-                                                <div class="mt-2">
+                                                <!-- <div class="mt-2">
                                                     <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal Custom Process</a>
-                                                </div>
+                                                </div> -->
                                                 <div class="mt-2">
                                                     <a href="" id="btnApplicationCreateModal" data-toggle="modal" data-target="#createApplicationModal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal OOB Entity Form</a>
                                                 </div>
@@ -139,7 +139,7 @@ iframe {
                                 </div>
                             </div>
                           </div>
-                          <iframe id="application-iframe" class="d-none" src="/api/?entityform=Application Create" frameborder="0"></iframe>
+                          <!-- <iframe id="application-iframe" class="d-none" src="/api/?entityform=Application Create" frameborder="0"></iframe> -->
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-primary" onclick="dashboard.saveApplication(event)">Save changes</button>
@@ -202,20 +202,26 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Default Management Request Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Default Management Request Submission Tool<span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
-                                            <div class="cmhc-font-data mt-2">
+                                            <div class="cmhc-font-14 mt-2">
                                                 <div class="cmhc-label mt-1">Quick Links</div>
-                                                <div>
-                                                    <a href="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; Upload a New Arrears Report</a>
+                                                <div class="mt-3">
+                                                    <a href="" id="newlink"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link</a>
                                                 </div>
-                                                <div>
-                                                    <a href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List</a>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink1"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 1</a>
                                                 </div>
-                                                <div>
-                                                    <div class="cmhc-label cmhc-font-10">Need help with Arrears Reporting? Contact CMHC:</div>
-                                                    <div class="general-information">
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink2" data-toggle="modal" data-target="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; New link 2</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink3" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 3</a>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
                                                         Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
                                                     </div>
                                                 </div>
@@ -239,20 +245,26 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span class="fa-regular fa-flag"></span>&nbsp;&nbsp;Homeowner Claims Submission<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Homeowner Claims Submission<span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
-                                            <div class="cmhc-font-data mt-2">
+                                            <div class="cmhc-font-14 mt-2">
                                                 <div class="cmhc-label mt-1">Quick Links</div>
-                                                <div>
-                                                    <a href="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; Upload a New Arrears Report</a>
+                                                <div class="mt-3">
+                                                    <a href="" id="newlink4"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 4</a>
                                                 </div>
-                                                <div>
-                                                    <a href="#"><span class="fa-regular fa-file-lines"></span>&nbsp; View Arrears Report Submission List</a>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink5"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 5</a>
                                                 </div>
-                                                <div>
-                                                    <div class="cmhc-label cmhc-font-10">Need help with Arrears Reporting? Contact CMHC:</div>
-                                                    <div class="general-information">
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink6" data-toggle="modal" data-target="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; New link 6</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink7" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 7</a>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
                                                         Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
                                                     </div>
                                                 </div>

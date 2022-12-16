@@ -1,4 +1,4 @@
-{% include 'entity_list' key: "Application List" %}
+<!-- {% include 'entity_list' key: "Application List" %} -->
 
 <!-- this part is not in the web template -->
 {% entitylist id:'ebd15046-1478-ed11-81ab-000d3a8c6ab8' %}
@@ -134,11 +134,12 @@
         
                     <td>
                     {% if entitylist.detail_enabled -%}
-                        <a class="btn btn-default btn-xs"
+                        <p>Edit</p>
+                        <!-- <a class="btn btn-default btn-xs"
                         href="{{ entitylist.detail_url}}?{{ entitylist.detail_id_parameter  | h }}={{ e.id }}"
                         title="{{ entitylist.detail_label  | h }}" >
                         <i class="fa fa-external-link"></i>
-                        </a>
+                        </a> -->
                     {% endif -%}
                     </td>
         

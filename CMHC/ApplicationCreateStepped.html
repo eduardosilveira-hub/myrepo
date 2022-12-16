@@ -1,3 +1,30 @@
+{% if request.params['id'] %}
+    {% assign applicationId = request.params['id'] %}
+    {% fetchxml fetchApplications %}
+        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+            <entity name="ava_application">
+                <attribute name="createdon"/>
+                <attribute name="ava_taxrate"/>
+                <attribute name="ava_loanamount"/>
+                <attribute name="ava_applicationid"/>
+                <attribute name="ava_period"/>
+                <attribute name="ava_name"/>
+                <order attribute="createdon" descending="true"/>
+                <filter type="and">
+                    <condition attribute="statecode" operator="eq" value="0"/>
+                    <condition attribute="ava_applicationid" operator="eq" value="{{ applicationId }}" />
+                    <condition attribute="ava_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}"/>
+                </filter>
+            </entity>
+        </fetch>
+    {% endfetchxml %}
+    {% if fetchApplications.results.entities.size >= 1 %}
+        {% assign application = fetchApplications.results.entities[0] %}
+    {% else %}
+        {% assign application = null %}
+    {% endif %}
+{% endif %}
+
 <style>
     /*custom font*/
     /* @import url(https://fonts.googleapis.com/css?family=Montserrat); */
@@ -218,8 +245,9 @@
         <form id="msform">
             <!-- progressbar -->
             <ul id="progressbar">
+                <!-- fetch to query application ID for editting -->
                 <li class="active">Personal Details</li>
-                <li>Load Information</li>
+                <li>Loan Information</li>
                 <li>Tax Information</li>
                 <li>Period Information</li>
             </ul>
@@ -230,7 +258,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="fieldgroup">
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="name" id="name" value="{{ application.ava_name }}" />
                             <label for="name">Name</label>
                         </div>
                     </div>
@@ -245,8 +273,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="fieldgroup">
-                            <input type="text" name="loan" id="loan" />
-                            <label for="loan">Loan Amount</label>
+                            <input type="text" name="loanamount" id="loanamount" value="{{ application.ava_loanamount }}"/>
+                            <label for="loanamount">Loan Amount</label>
                         </div>
                     </div>
                 </div>
@@ -261,8 +289,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="fieldgroup">
-                            <input type="text" name="tax" id="tax" />
-                            <label for="tax">Email</label>
+                            <input type="text" name="taxrate" id="taxrate" value="{{ application.ava_taxrate }}"/>
+                            <label for="taxrate">Email</label>
                         </div>
                     </div>
                 </div>
@@ -285,25 +313,39 @@
                 </div>
                 <div class="row">
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="submit" class="submit action-button" value="Submit"/>
+                    <input type="button" name="next" class="next action-button" value="Complete"/>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Period Information</h2>
+                <h3 class="fs-subtitle">Enter period for Loan</h3>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="fieldgroup">
+                            <div class="alert alert-success" role="alert">
+                                Your application was submitted!
+                                You can follow up by <a href="/">listing your applications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href='/'>Home</a>
                 </div>
             </fieldset>
         </form>
     </div>
 </div>
 
-<script>
+<script type="module">
+    import { utils as utils } from '../utils.js';
+
     var urlApplications = '/_api/ava_applications';
-    const applicationFields_tab1 = {
+    var applicationId = "{{ application.id }}";
+    const applicationFields = {
         'name':'ava_name',
-    };
-    const applicationFields_tab2 = {
-        'loanAmount' : 'ava_loanamount',
-    };
-    const applicationFields_tab3 = {
-        'tax' : 'ava_taxamount',
-    };
-    const applicationFields_tab4 = {
+        'loanamount' : 'ava_loanamount',
+        'taxrate' : 'ava_taxrate',
         'period' : 'ava_period'
     };
     const periodOptions = {
@@ -313,88 +355,76 @@
     };
     
     const application = {
-        applicationFields_tab1: {
-            'name':'ava_name',
-        },
-        applicationFields_tab2: {
-            'loanAmount' : 'ava_loanamount',
-        },
-        applicationFields_tab3: {
-            'tax' : 'ava_taxamount',
-        },
-        applicationFields_tab4: {
-            'period' : 'ava_period'
-        },
-        periodOptions: {
-            '3 Months' : 751960000,
-            '6 Months' : 751960001,
-            '12 Months' : 751960002,
-        },
         init: () => {
-            application.setupFormAnimation();
             application.setupFloatLabels();
             application.setupPeriodOptions();
+            application.setupFormAnimation();
+            //application.isApplicationEdit();   
+        },
+        isApplicationEdit: () => {
+            document.addEventListener('DOMContentLoaded', () => {
+                const msform = document.querySelector('#msform');
+                if(applicationId === null || applicationId === "")
+                    return;
+                else {
+
+                    // Object.keys(applicationFields).forEach((fieldskey) => {
+                    //     Object.keys(msform).forEach((element) => {
+                    //         if (msform[element].name === fieldskey){
+                    //             debugger;
+                    //             let fieldValue = "{{application." + "ava_name}}";
+                    //             msform[element].value = fieldValue;
+                    //         }
+                    //     });
+                    // });
+                }
+            })
         },
         setupFloatLabels: () => {
-            debugger;
             // Check the inputs to see if we should keep the label floating or not
             const allInputs = document.querySelector('#msform').elements;
             Object.keys(allInputs).forEach((key) => {
                 if (allInputs[key].type && allInputs[key].type.toUpperCase() !== 'BUTTON') 
                 {
-                    allInputs[key].addEventListener('blur', (element) => {
-                        // Different validation for different inputs
-                        switch (element.target.type.toUpperCase()) {                            
-                            case 'SELECT':
-                                if (element.target.value > 0) {
-                                    element.target.className = 'hasInput';
-                                } else {
-                                    element.target.className = '';
-                                }
-                                break;
+                    ['load','blur'].forEach( event => {
+                        allInputs[key].addEventListener(event, (element) => {
+                            // Different validation for different inputs
+                            switch (element.target.type.toUpperCase()) {                            
+                                case 'SELECT':
+                                    if (element.target.value > 0) {
+                                        element.target.className = 'hasInput';
+                                    } else {
+                                        element.target.className = '';
+                                    }
+                                    break;
 
-                            case 'TEXT':
-                                if (element.target.value !== '') {
-                                    element.target.className = 'hasInput';
-                                } else {
-                                    element.target.className = '';
-                                }
-                                break;
+                                case 'TEXT':
+                                    if (element.target.value !== '') {
+                                        element.target.className = 'hasInput';
+                                    } else {
+                                        element.target.className = '';
+                                    }
+                                    break;
 
-                            default:
-                                break;
-                        }
+                                default:
+                                    break;
+                            }
+                        });
                     });
                 }
             });
-
-
-            // $("input:not(:button)").on('blur', function() {
-            //     debugger;
-            //     // Different validation for different inputs
-            //     switch (this.type.toUpperCase()) {
-            //         case 'SELECT':
-            //             if (this.value > 0) {
-            //                 this.className = 'hasInput';
-            //             } else {
-            //                 this.className = '';
-            //             }
-            //             break;
-
-            //         case 'INPUT':
-            //             if (this.value !== '') {
-            //                 this.className = 'hasInput';
-            //             } else {
-            //                 this.className = '';
-            //             }
-            //             break;
-
-            //         default:
-            //             break;
-            //     }
-            // });
-            
+           
             return false;
+        },
+        setupPeriodOptions: () => {
+            let periodField = document.querySelector('#period');
+
+            Object.keys(periodOptions).forEach((key) => {
+                var option = document.createElement('option');
+                option.value = periodOptions[key];
+                option.text = key;
+                periodField.add(option);
+            });
         },
         setupFormAnimation: () => {
             var current_fs, next_fs, previous_fs; //fieldsets
@@ -406,29 +436,16 @@
                 animating = true;
                 
                 current_fs = $(this).closest('fieldset');
-                
+                next_fs = $(this).closest('fieldset').next();
+
                 // choose to create or update existing
                 debugger;
                 // if statement checking sessionStorage applicationId
-                switch($("fieldset").index(next_fs)) {
-                    case 1:
-                        application.createOnFirstStep(current_fs, applicationFields_tab1);
-                        break;
-                    case 2:
-                        application.updateOnNextSteps(current_fs, applicationFields_tab2);
-                        break;
-                    case 3:
-                        application.updateOnNextSteps(current_fs, applicationFields_tab3);
-                        break;
-                    case 4:
-                        application.updateOnNextSteps(current_fs, applicationFields_tab5);
-                        break;
-                    default: 
-                        break;
-                }
+                if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
+                    application.createOnFirstStep(current_fs, applicationFields);
+                else
+                    application.updateOnNextSteps(current_fs, applicationFields);
 
-                next_fs = $(this).closest('fieldset').next();
-                    
                 //activate next step on progressbar using the index of next_fs
                 $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
                 
@@ -494,36 +511,56 @@
                     easing: 'easeInOutBack'
                 });
             });
-
-            let submit = document.querySelector('.submit');
-            submit.addEventListener('click', (event) => {
-                return false;
-            });
-        },
-        setupPeriodOptions: () => {
-            let periodField = document.querySelector('#period');
-
-            Object.keys(periodOptions).forEach((key) => {
-                var option = document.createElement('option');
-                option.value = periodOptions[key];
-                option.text = key;
-                periodField.add(option);
-            });
         },
         createOnFirstStep: (current_fs, fieldset) => {
-            debugger;
-            var myJsonObject = {};
+            let myJsonObject = {};
             myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
-            webapi.safeAjax('POST', myJsonObject);
+            myJsonObject['ava_contactapplicant@odata.bind']  = `/contacts({{ user.id }})`;
+            
+            let operationType = 'POST';
+            webapi.safeAjax({
+                type: operationType,
+                url: `${urlApplications}`,
+                contentType: "application/json",
+                data: JSON.stringify(myJsonObject),
+                success: (res, status, xhr) => {
+                    sessionStorage.setItem('applicationId', `${xhr.getResponseHeader("entityid")}`);
+                    utils.showToastr('Information saved');
+                },
+                error: (res, status, xhr) => {
+                    console.error(`Error: ${res.responseJSON['error'].innererror.message}`);
+                },
+            });
+            //webapi.safeAjax('POST', myJsonObject);
         },
         updateOnNextSteps: (current_fs, fieldset) => {
             debugger;
             var applicationId = sessionStorage.getItem('applicationId');
-            var myJsonObject = {
-                id: applicationId
+            let myJsonObject = {
+                ava_applicationid: applicationId
             };
             myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
-            application.webApiCall('PATCH', myJsonObject, applicationId);
+            
+            let operationType = 'PATCH';
+            webapi.safeAjax({
+                type: operationType,
+                url: `${urlApplications}(${myJsonObject.ava_applicationid})`,
+                contentType: "application/json",
+                data: JSON.stringify(myJsonObject),
+                success: (res, status, xhr) => {
+                    debugger;
+                    var a = sessionStorage.getItem('applicationId');
+                    console.log(a);
+                    a = sessionStorage.getItem('applicationId');
+                    console.log(a);
+                    console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+                    utils.showToastr('Information saved');
+                },
+                error: (res, status, xhr) => {
+                    console.error(`Error: ${res.responseJSON['error'].innererror.message}`);
+                },
+            });
+            //application.webApiCall('PATCH', myJsonObject, applicationId);
         },
         buildMyObject: (currentTab, fieldset, myJsonObject) => {
             debugger;
@@ -536,31 +573,6 @@
                 })
             });
             return myJsonObject;
-        },
-        webApiCall: (operationType, data, id = null) => {
-            debugger;
-            if (operationType === 'PATCH' || operationType === 'DELETE') {
-                console.log(urlApplications);
-                urlApplications = `${urlApplications}(${id})`;
-                console.log(urlApplications);
-            };
-            debugger;
-            webapi.safeAjax({
-                type: operationType,
-                url: urlApplications,
-                contentType: "application/json",
-                data: JSON.stringify(myJsonObject),
-                success: (res, status, xhr) => {
-                    debugger;
-                    console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
-                    if (type === 'POST')
-                        sessionStorage.setItem('applicationId', `${xhr.getResponseHeader("entityid")}`);
-                },
-                error: (res, status, xhr) => {
-                    debugger;
-                    console.log(`Error: ${res.responseJSON['error'].innererror.message}`);
-                },
-            });
         },
     }
     application.init();

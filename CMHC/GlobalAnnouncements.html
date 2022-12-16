@@ -151,11 +151,18 @@ blockquote .bottom{
 </style>
 
 <script>
-$(document).ready(function() {
-  //Set the carousel options
-  $('#quote-carousel').carousel({
-    pause: true,
-    interval: {{ settings['announcement-timeout']}},
-  });
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        let timerSetting = "{{ settings['announcement-timeout']}}";
+        $('#quote-carousel').carousel({
+            pause: true,
+            interval: timerSetting,
+        });
+    });
+// $(document).ready(function() {
+//   //Set the carousel options
+//   $('#quote-carousel').carousel({
+//     pause: true,
+//     interval: {{ settings['announcement-timeout']}},
+//   });
+// });
 </script>
