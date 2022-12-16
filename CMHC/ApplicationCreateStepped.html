@@ -359,26 +359,6 @@
             application.setupFloatLabels();
             application.setupPeriodOptions();
             application.setupFormAnimation();
-            //application.isApplicationEdit();   
-        },
-        isApplicationEdit: () => {
-            document.addEventListener('DOMContentLoaded', () => {
-                const msform = document.querySelector('#msform');
-                if(applicationId === null || applicationId === "")
-                    return;
-                else {
-
-                    // Object.keys(applicationFields).forEach((fieldskey) => {
-                    //     Object.keys(msform).forEach((element) => {
-                    //         if (msform[element].name === fieldskey){
-                    //             debugger;
-                    //             let fieldValue = "{{application." + "ava_name}}";
-                    //             msform[element].value = fieldValue;
-                    //         }
-                    //     });
-                    // });
-                }
-            })
         },
         setupFloatLabels: () => {
             // Check the inputs to see if we should keep the label floating or not
