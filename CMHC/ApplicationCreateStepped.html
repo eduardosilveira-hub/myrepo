@@ -293,8 +293,9 @@
 </div>
 
 <script>
+    var urlApplications = '/_api/ava_applications';
     const applicationFields_tab1 = {
-        'ava_name':'name',
+        'name':'ava_name',
     };
     const applicationFields_tab2 = {
         'loanAmount' : 'ava_loanamount',
@@ -310,8 +311,25 @@
         '6 Months' : 751960001,
         '12 Months' : 751960002,
     };
-
+    
     const application = {
+        applicationFields_tab1: {
+            'name':'ava_name',
+        },
+        applicationFields_tab2: {
+            'loanAmount' : 'ava_loanamount',
+        },
+        applicationFields_tab3: {
+            'tax' : 'ava_taxamount',
+        },
+        applicationFields_tab4: {
+            'period' : 'ava_period'
+        },
+        periodOptions: {
+            '3 Months' : 751960000,
+            '6 Months' : 751960001,
+            '12 Months' : 751960002,
+        },
         init: () => {
             application.setupFormAnimation();
             application.setupFloatLabels();
@@ -388,7 +406,27 @@
                 animating = true;
                 
                 current_fs = $(this).closest('fieldset');
-                var result = application.saveOnClickNext(current_fs);
+                
+                // choose to create or update existing
+                debugger;
+                // if statement checking sessionStorage applicationId
+                switch($("fieldset").index(next_fs)) {
+                    case 1:
+                        application.createOnFirstStep(current_fs, applicationFields_tab1);
+                        break;
+                    case 2:
+                        application.updateOnNextSteps(current_fs, applicationFields_tab2);
+                        break;
+                    case 3:
+                        application.updateOnNextSteps(current_fs, applicationFields_tab3);
+                        break;
+                    case 4:
+                        application.updateOnNextSteps(current_fs, applicationFields_tab5);
+                        break;
+                    default: 
+                        break;
+                }
+
                 next_fs = $(this).closest('fieldset').next();
                     
                 //activate next step on progressbar using the index of next_fs
@@ -472,27 +510,51 @@
                 periodField.add(option);
             });
         },
-        saveOnClickNext: async (current_fs) => {
+        createOnFirstStep: (current_fs, fieldset) => {
             debugger;
-            const urlApplications = '/_api/ava_applications';
             var myJsonObject = {};
-            Object.keys(applicationFields_tab1).forEach((formKey) => {
-                Object.keys(current_fs[0].elements).forEach((objectKey) => {
+            myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
+            webapi.safeAjax('POST', myJsonObject);
+        },
+        updateOnNextSteps: (current_fs, fieldset) => {
+            debugger;
+            var applicationId = sessionStorage.getItem('applicationId');
+            var myJsonObject = {
+                id: applicationId
+            };
+            myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
+            application.webApiCall('PATCH', myJsonObject, applicationId);
+        },
+        buildMyObject: (currentTab, fieldset, myJsonObject) => {
+            debugger;
+            Object.keys(fieldset).forEach((formKey) => {
+                Object.keys(currentTab[0].elements).forEach((objectKey) => {
                     debugger;
-                    if (current_fs[0].elements[objectKey].name === formKey){
-                        myJsonObject[formKey] = current_fs[0].elements[objectKey].value;
+                    if (currentTab[0].elements[objectKey].name === formKey){
+                        myJsonObject[fieldset[formKey]] = currentTab[0].elements[objectKey].value;
                     }
                 })
             });
+            return myJsonObject;
+        },
+        webApiCall: (operationType, data, id = null) => {
             debugger;
-            const resp = webapi.safeAjax({
-                type:"POST",
+            if (operationType === 'PATCH' || operationType === 'DELETE') {
+                console.log(urlApplications);
+                urlApplications = `${urlApplications}(${id})`;
+                console.log(urlApplications);
+            };
+            debugger;
+            webapi.safeAjax({
+                type: operationType,
                 url: urlApplications,
                 contentType: "application/json",
                 data: JSON.stringify(myJsonObject),
                 success: (res, status, xhr) => {
                     debugger;
                     console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+                    if (type === 'POST')
+                        sessionStorage.setItem('applicationId', `${xhr.getResponseHeader("entityid")}`);
                 },
                 error: (res, status, xhr) => {
                     debugger;
