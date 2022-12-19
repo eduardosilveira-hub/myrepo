@@ -4,16 +4,16 @@ export const utils = {
         debugger;
         if (message){
             toastr.options = {
-                "closeButton": false,
+                "closeButton": true,
                 "debug": false,
-                "newestOnTop": true,
+                "newestOnTop": false,
                 "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
+                "positionClass": "toast-bottom-center",
+                "preventDuplicates": false,
                 "onclick": null,
-                "showDuration": "3000",
-                "hideDuration": "3000",
-                "timeOut": "4000",
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
                 "extendedTimeOut": "1000",
                 "showEasing": "swing",
                 "hideEasing": "linear",

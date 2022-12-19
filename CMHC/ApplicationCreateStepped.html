@@ -306,6 +306,7 @@
                     <div class="col-sm-12">
                         <div class="fieldgroup">
                             <select name="period" id="period">
+                                <!-- <option value="{{ application.ava_period }}">{{ application.ava_period.label }}</option> -->
                             </select>
                             <label for="period">Loan Period</label>
                         </div>
@@ -329,9 +330,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <a href='/'>Home</a>
-                </div>
             </fieldset>
         </form>
     </div>
@@ -341,7 +339,8 @@
     import { utils as utils } from '../utils.js';
 
     var urlApplications = '/_api/ava_applications';
-    var applicationId = "{{ application.id }}";
+    sessionStorage.setItem("applicationId", "{{ application.ava_applicationid }}");
+
     const applicationFields = {
         'name':'ava_name',
         'loanamount' : 'ava_loanamount',
@@ -361,46 +360,59 @@
             application.setupFormAnimation();
         },
         setupFloatLabels: () => {
+            var allInputs = document.querySelector('#msform').elements;
+            Object.keys(allInputs).forEach((key) => {
+                if (allInputs[key].type && allInputs[key].type.toUpperCase() !== 'BUTTON') 
+                    application.assignClass(allInputs[key]);
+            });
+
             // Check the inputs to see if we should keep the label floating or not
-            const allInputs = document.querySelector('#msform').elements;
             Object.keys(allInputs).forEach((key) => {
                 if (allInputs[key].type && allInputs[key].type.toUpperCase() !== 'BUTTON') 
                 {
-                    ['load','blur'].forEach( event => {
-                        allInputs[key].addEventListener(event, (element) => {
-                            // Different validation for different inputs
-                            switch (element.target.type.toUpperCase()) {                            
-                                case 'SELECT':
-                                    if (element.target.value > 0) {
-                                        element.target.className = 'hasInput';
-                                    } else {
-                                        element.target.className = '';
-                                    }
-                                    break;
-
-                                case 'TEXT':
-                                    if (element.target.value !== '') {
-                                        element.target.className = 'hasInput';
-                                    } else {
-                                        element.target.className = '';
-                                    }
-                                    break;
-
-                                default:
-                                    break;
-                            }
-                        });
+                    allInputs[key].addEventListener('blur', (element) => {
+                        // Different validation for different inputs
+                        application.assignClass(element);
                     });
                 }
             });
            
             return false;
         },
+        assignClass: (element) => {
+            debugger;
+            // Different validation for different inputs
+            switch (element.type.toUpperCase()) {                            
+                case 'SELECT-ONE':
+                    if (element.value > 0) {
+                        element.className = 'hasInput';
+                    } else {
+                        element.className = '';
+                    }
+                    break;
+
+                case 'TEXT':
+                    if (element.value !== '') {
+                        element.className = 'hasInput';
+                    } else {
+                        element.className = '';
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        },
         setupPeriodOptions: () => {
+            debugger;
+            var selectedPeriod = parseInt("{{ application.ava_period.value }}");
             let periodField = document.querySelector('#period');
 
             Object.keys(periodOptions).forEach((key) => {
+                debugger;
                 var option = document.createElement('option');
+                if (selectedPeriod && periodOptions[key] === selectedPeriod)
+                    option.selected = periodOptions[key];
                 option.value = periodOptions[key];
                 option.text = key;
                 periodField.add(option);
@@ -410,6 +422,7 @@
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
+            let applicationId = sessionStorage.getItem("applicationId");
 
             $(".next").click(function(){
                 if(animating) return false;
@@ -419,7 +432,6 @@
                 next_fs = $(this).closest('fieldset').next();
 
                 // choose to create or update existing
-                debugger;
                 // if statement checking sessionStorage applicationId
                 if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
                     application.createOnFirstStep(current_fs, applicationFields);
@@ -514,10 +526,8 @@
             //webapi.safeAjax('POST', myJsonObject);
         },
         updateOnNextSteps: (current_fs, fieldset) => {
-            debugger;
-            var applicationId = sessionStorage.getItem('applicationId');
             let myJsonObject = {
-                ava_applicationid: applicationId
+                ava_applicationid: sessionStorage.getItem("applicationId")
             };
             myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
             
@@ -528,11 +538,6 @@
                 contentType: "application/json",
                 data: JSON.stringify(myJsonObject),
                 success: (res, status, xhr) => {
-                    debugger;
-                    var a = sessionStorage.getItem('applicationId');
-                    console.log(a);
-                    a = sessionStorage.getItem('applicationId');
-                    console.log(a);
                     console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
                     utils.showToastr('Information saved');
                 },
@@ -543,10 +548,8 @@
             //application.webApiCall('PATCH', myJsonObject, applicationId);
         },
         buildMyObject: (currentTab, fieldset, myJsonObject) => {
-            debugger;
             Object.keys(fieldset).forEach((formKey) => {
                 Object.keys(currentTab[0].elements).forEach((objectKey) => {
-                    debugger;
                     if (currentTab[0].elements[objectKey].name === formKey){
                         myJsonObject[fieldset[formKey]] = currentTab[0].elements[objectKey].value;
                     }
