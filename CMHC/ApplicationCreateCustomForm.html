@@ -1,0 +1,392 @@
+{% if request.params['id'] %} 
+    {% assign applicationId = request.params['id'] %}
+    {% fetchxml fetchApplications %}
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="ava_application">
+        <attribute name="createdon" />
+        <attribute name="ava_taxrate" />
+        <attribute name="ava_loanamount" />
+        <attribute name="ava_applicationid" />
+        <attribute name="ava_period" />
+        <attribute name="ava_name" />
+        <order attribute="createdon" descending="true" />
+        <filter type="and">
+        <condition attribute="statecode" operator="eq" value="0" />
+        <condition attribute="ava_applicationid" operator="eq" value="{{ applicationId }}" />
+        <condition attribute="ava_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}" />
+        </filter>
+    </entity>
+    </fetch>
+    {% endfetchxml %}
+    {% if fetchApplications.results.entities.size >= 1 %}
+        {% assign application = fetchApplications.results.entities[0] %}
+    {% else %}
+        {% assign application = null %}
+    {% endif %}
+{% endif %}
+
+<style>
+  /*custom font*/
+  /* @import url(https://fonts.googleapis.com/css?family=Montserrat); */
+
+  /*form styles*/
+  #msform {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+  }
+
+  #msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+  }
+
+  /*Hide all except first fieldset*/
+  #msform fieldset:not(:first-of-type) {
+    display: none;
+  }
+
+  #msform label {
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+    display: block;
+    font-size: 1rem;
+    transition: 0.2s ease-out;
+    opacity: 0.5;
+    will-change: top, font-size;
+  }
+
+  #msform .fieldgroup {
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  #msform label:hover {
+    cursor: text;
+  }
+
+  #msform input {
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    padding-left: 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #444;
+    transition: 0.2s;
+    width: calc(100% - 0.6rem);
+    /* max-width: 350px; */
+    border-radius: 0;
+  }
+
+  #msform input:focus {
+    outline: none;
+  }
+
+  #msform input:valid {
+    border-color: #444;
+  }
+
+  #msform input:focus + label,
+  #msform input.hasInput + label {
+    top: -0.8rem;
+    font-size: 0.7rem;
+  }
+
+  /*buttons*/
+  #msform .action-button {
+    width: 100px;
+    background: #0056b3;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+  }
+
+  #msform .action-button:hover,
+  #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #0056b3;
+  }
+
+  #msform .action-button-reset {
+    width: 100px;
+    background: #c5c5f1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+  }
+
+  #msform .action-button-reset:hover,
+  #msform .action-button-reset:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #c5c5f1;
+  }
+
+  /*headings*/
+  .fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
+  .fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+</style>
+<!-- <h1 style="text-align: center;">{{ snippets['Application/HeadTitle'] | default: "Start your application"  }}</h1>
+<strong>{{ editable snippets['Application/TitleInstruction'] | default: "Click to continue" }}</strong><br>
+{{ editable snippets['Application/DetailInstruction'] | default: 'When you are done filling up this form, click "continue" for the submit step in the process.'}}  -->
+
+<!-- MultiStep Form -->
+<div class="row">
+  <div class="col-sm-12">
+    <form id="msform">
+      <!-- fieldsets -->
+      <fieldset>
+        <h2 class="fs-title">Personal Details</h2>
+        <h3 class="fs-subtitle">Tell us something more about you</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fieldgroup">
+              <input type="text" name="name" id="name" value="{{ application.ava_name }}"/>
+              <label for="name">Name</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="fieldgroup">
+              <input type="text" name="loanamount" id="loanamount" value="{{ application.ava_loanamount }}"/>
+              <label for="loanamount">Loan Amount</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fieldgroup">
+              <input type="text" name="taxrate" id="taxrate" value="{{ application.ava_taxrate }}"/>
+              <label for="taxrate">Email</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="fieldgroup">
+              <select name="period" id="period">
+                <!-- <option value="{{ application.ava_period }}">{{ application.ava_period.label }}</option> -->
+              </select>
+              <label for="period">Loan Period</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <input type="button" name="reset" class="reset action-button-reset" value="Reset"/>
+            <input type="button" name="submit" class="submit action-button" value="Submit"/>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<script type="module">
+  import { utils as utils } from "../utils.js";
+
+  var urlApplications = "/_api/ava_applications";
+  sessionStorage.setItem(
+    "applicationId",
+    "{{ application.ava_applicationid }}"
+  );
+
+  const applicationFields = {
+    name: "ava_name",
+    loanamount: "ava_loanamount",
+    taxrate: "ava_taxrate",
+    period: "ava_period",
+  };
+  const periodOptions = {
+    "3 Months": 751960000,
+    "6 Months": 751960001,
+    "12 Months": 751960002,
+  };
+
+  const application = {
+    init: () => {
+      application.setupFloatLabels();
+      application.setupPeriodOptions();
+      application.setupFormAnimation();
+      // Create a call to open gates to acquire token and make future calls faster
+      appAjax({
+        type: "GET",
+        url: "/_api/ava_applications?$select=ava_name&$top=1",
+        contentType: "application/json",
+      });
+    },
+    setupFloatLabels: () => {
+      var allInputs = document.querySelector("#msform").elements;
+      Object.keys(allInputs).forEach((key) => {
+        if (
+          allInputs[key].type &&
+          allInputs[key].type.toUpperCase() !== "BUTTON"
+        )
+          application.assignClass(allInputs[key]);
+      });
+
+      // Check the inputs to see if we should keep the label floating or not
+      Object.keys(allInputs).forEach((key) => {
+        if (
+          allInputs[key].type &&
+          allInputs[key].type.toUpperCase() !== "BUTTON"
+        ) {
+          allInputs[key].addEventListener("blur", (element) => {
+            // Different validation for different inputs
+            application.assignClass(element);
+          });
+        }
+      });
+
+      return false;
+    },
+    assignClass: (element) => {
+      debugger;
+      // Different validation for different inputs
+      switch (element.type.toUpperCase()) {
+        case "SELECT-ONE":
+          if (element.value > 0) {
+            element.className = "hasInput";
+          } else {
+            element.className = "";
+          }
+          break;
+
+        case "TEXT":
+          if (element.value !== "") {
+            element.className = "hasInput";
+          } else {
+            element.className = "";
+          }
+          break;
+
+        default:
+          break;
+      }
+    },
+    setupPeriodOptions: () => {
+      debugger;
+      var selectedPeriod = parseInt("{{ application.ava_period.value }}");
+      let periodField = document.querySelector("#period");
+
+      Object.keys(periodOptions).forEach((key) => {
+        debugger;
+        var option = document.createElement("option");
+        if (selectedPeriod && periodOptions[key] === selectedPeriod)
+          option.selected = periodOptions[key];
+        option.value = periodOptions[key];
+        option.text = key;
+        periodField.add(option);
+      });
+    },
+    setupFormAnimation: () => {
+      var current_fs, next_fs, reset_fs; //fieldsets
+      var left, opacity, scale; //fieldset properties which we will animate
+      var animating; //flag to prevent quick multi-click glitches
+      let applicationId = sessionStorage.getItem("applicationId");
+
+      $(".submit").click(function () {
+        // choose to create or update existing
+        // if statement checking sessionStorage applicationId
+
+        // function to validate form using the SHAKE css class
+
+        if (applicationId === null || applicationId === "")
+            application.createOnFirstStep(current_fs, applicationFields);
+        else
+            application.updateOnNextSteps(current_fs, applicationFields);
+ 
+      });
+
+      $(".reset").click(function () {
+        // function to reset form
+      });
+    },
+    createOnFirstStep: (current_fs, fieldset) => {
+      let myJsonObject = {};
+      myJsonObject = application.buildMyObject(
+        current_fs,
+        fieldset,
+        myJsonObject
+      );
+      myJsonObject[
+        "ava_contactapplicant@odata.bind"
+      ] = `/contacts({{ user.id }})`;
+
+      let operationType = "POST";
+
+      appAjax({
+        type: operationType,
+        url: `${urlApplications}`,
+        contentType: "application/json",
+        data: JSON.stringify(myJsonObject),
+        success: (res, status, xhr) => {
+          sessionStorage.setItem(
+            "applicationId",
+            `${xhr.getResponseHeader("entityid")}`
+          );
+          utils.showToastr("Data saved");
+        },
+      });
+    },
+    updateOnNextSteps: (current_fs, fieldset) => {
+      let myJsonObject = {
+        ava_applicationid: sessionStorage.getItem("applicationId"),
+      };
+      myJsonObject = application.buildMyObject(
+        current_fs,
+        fieldset,
+        myJsonObject
+      );
+
+      let operationType = "PATCH";
+
+      appAjax({
+        type: operationType,
+        url: `${urlApplications}(${myJsonObject.ava_applicationid})`,
+        contentType: "application/json",
+        data: JSON.stringify(myJsonObject),
+        success: (res, status, xhr) => {
+          console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+          utils.showToastr("Data updated");
+        },
+      });
+    },
+    buildMyObject: (currentTab, fieldset, myJsonObject) => {
+      Object.keys(fieldset).forEach((formKey) => {
+        Object.keys(currentTab[0].elements).forEach((objectKey) => {
+          if (currentTab[0].elements[objectKey].name === formKey) {
+            myJsonObject[fieldset[formKey]] =
+              currentTab[0].elements[objectKey].value;
+          }
+        });
+      });
+      return myJsonObject;
+    },
+  };
+  application.init();
+</script>

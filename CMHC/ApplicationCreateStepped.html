@@ -530,20 +530,6 @@
                     utils.showToastr('Data saved');
                 }
             })
-           
-            // webapi.safeAjax({
-            //     type: operationType,
-            //     url: `${urlApplications}`,
-            //     contentType: "application/json",
-            //     data: JSON.stringify(myJsonObject),
-            //     success: (res, status, xhr) => {
-            //         sessionStorage.setItem('applicationId', `${xhr.getResponseHeader("entityid")}`);
-            //         utils.showToastr('Information saved');
-            //     },
-            //     error: (res, status, xhr) => {
-            //         console.error(`Error: ${res.responseJSON['error'].innererror.message}`);
-            //     },
-            // });
         },
         updateOnNextSteps: (current_fs, fieldset) => {
             let myJsonObject = {
@@ -563,20 +549,6 @@
                     utils.showToastr('Data updated');
                 }
             });
-
-            // webapi.safeAjax({
-            //     type: operationType,
-            //     url: `${urlApplications}(${myJsonObject.ava_applicationid})`,
-            //     contentType: "application/json",
-            //     data: JSON.stringify(myJsonObject),
-            //     success: (res, status, xhr) => {
-            //         console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
-            //         utils.showToastr('Information saved');
-            //     },
-            //     error: (res, status, xhr) => {
-            //         console.error(`Error: ${res.responseJSON['error'].innererror.message}`);
-            //     },
-            // });
         },
         buildMyObject: (currentTab, fieldset, myJsonObject) => {
             Object.keys(fieldset).forEach((formKey) => {
