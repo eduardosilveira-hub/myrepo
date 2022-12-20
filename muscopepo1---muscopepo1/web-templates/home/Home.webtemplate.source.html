@@ -1,0 +1,314 @@
+<style>
+.modal-body {
+    height: 445px;
+}
+
+.toastr-success{
+    background-color:darkcyan !important;
+}
+
+legend {
+    font-size: 12px!important;
+}
+.section tbody tr td div.control{
+    clear: none !important;
+    float: right;
+}
+/* cmhc-application */
+.cmhc-application{
+    margin-bottom: 25px;
+}
+.cmhc-application .tab-title {
+    display: none;
+}
+.cmhc-application .field-label {
+    margin-top: 10px;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.cmhc-application #error-message {
+    color: #504c4d;
+    display: inline-block;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+}
+.cmhc-application .cmhc-billing-options, .cmhc-application .update-my-profile {
+    padding: 0 10px 10px;
+}
+@media (max-width: 991px){
+    /* .modal-form .modal-body iframe {
+    height: 660px;
+    }
+    .cmhc-application #profile-modal .modal-body {
+    height: 665px;
+    } */
+}
+@media (max-width: 539px) {
+    .cmhc-application .cmhc-button-account-options {
+    padding-top: 10px !important;
+    display: block;
+    width: 100%;
+    }
+}
+
+</style>
+<div class="cmhc-application cmhc-web-component">
+    <div class="row">
+        {% include 'Global Announcements' %}
+        <div class="col-sm-8">
+            <div id="second-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Arrears Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-14 mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div class="mt-3">
+                                                    <a href="/application-create-custom" id="new-application-stepped"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Stepped Process</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="/application-create-customsimpleform" id="new-application-simple"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Simple Custo Form</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="/app-create-multi" id="new-application-multistep"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - OOB Multi Step Form</a>
+                                                </div>
+                                                <!-- <div class="mt-2">
+                                                    <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal Custom Process</a>
+                                                </div> -->
+                                                <div class="mt-2">
+                                                    <a href="" id="btnApplicationCreateModal" data-toggle="modal" data-target="#createApplicationModal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal OOB Entity Form</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="list-application" data-toggle="modal" data-target="#list-application-modal"><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - Modal</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <details>
+                                                        <summary>
+                                                            <a><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - expand</a>
+                                                        </summary>
+                                                        <p>
+                                                            {% include 'entity_list' key: "Application List" %}
+                                                        </p>
+                                                    </details>
+                                                </div>
+
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="new-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="new-application-modal-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Upload New Arrears Report</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="new-arrears-modal">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="field-label" for="application-amount">Loan Amount</label>
+                                    <input id="application-amount" type="text" class="form-control" placeholder="0.00">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="field-label" for="application-taxrate">Tax rate</label>
+                                    <input id="application-taxrate" type="text" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+                          </div>
+                          <!-- <iframe id="application-iframe" class="d-none" src="/api/?entityform=Application Create" frameborder="0"></iframe> -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" onclick="dashboard.saveApplication(event)">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div id="createApplicationModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="new-application-modal-label-oob" style="padding-right: 17px;" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" title="My Modal Title">Create New Application</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-loading" style="display: none;">
+                                    <span class="fa fa-spinner fa-spin fa-4x" aria-hidden="true"></span>
+                                </div>
+                                <iframe id="createApplicationFrame" src=""></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="list-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="list-application-modal-label" aria-hidden="true">
+                    <div class="modal-lg modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Your Applications</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            {% include 'entity_list' key: "Application List" %}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="third-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        <!-- {% include 'LocationPicker' %} -->
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Default Management Request Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-14 mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div class="mt-3">
+                                                    <a href="" id="newlink"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink1"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 1</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink2" data-toggle="modal" data-target="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; New link 2</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink3" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 3</a>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="fourth-panel">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item-header">&nbsp;
+                        <!-- {% include 'LocationPicker' %} -->
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <details>
+                                        <summary>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Homeowner Claims Submission<span class="fas fa-caret-down first icon"></span>
+                                        </summary>
+                                        <p>
+                                            <div class="cmhc-font-14 mt-2">
+                                                <div class="cmhc-label mt-1">Quick Links</div>
+                                                <div class="mt-3">
+                                                    <a href="" id="newlink4"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 4</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink5"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Link 5</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink6" data-toggle="modal" data-target="#"><span class="fa-solid fa-circle-plus"></span>&nbsp; New link 6</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" id="newlink7" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 7</a>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="general-information font-bold">
+                                                        Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </details>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const applicationFields = {
+        'ava_loanamount': 'application-amount',
+        'ava_taxrate':'application-taxrate'
+    };
+    const dashboard = {
+        init: () => {
+            let btnApplicationCreateModal = document.querySelector('#btnApplicationCreateModal');
+            btnApplicationCreateModal.addEventListener('click', (event) => {
+                let createApplicationFrame = document.querySelector('#createApplicationFrame');
+                createApplicationFrame.src = '/_portal/modal-form-template-path/f82dab33-566f-ed11-9562-000d3a8c6ab8?entityformid=ae46f8ae-ee77-ed11-81ab-000d3a8c6ab8&languagecode=1033';
+            })
+        },
+
+        saveApplication: (event) => {
+            event.preventDefault();
+            const applicationIframe = document.querySelector('#application-iframe');
+            Object.keys(applicationFields).forEach((iframeField) => {
+                debugger;
+                let crmField = applicationFields[iframeField];
+                applicationIframe.contentDocument.querySelector('#' + iframeField).value = document.querySelector('#' + crmField).value;
+            });
+            applicationIframe.contentDocument.querySelector('#InsertButton')?.click();
+        }
+    }
+
+    dashboard.init();
+</script>

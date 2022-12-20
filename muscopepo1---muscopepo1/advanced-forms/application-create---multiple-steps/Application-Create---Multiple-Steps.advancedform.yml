@@ -1,0 +1,11 @@
+adx_authenticationrequired: true
+adx_editexistingrecordpermitted: true
+adx_multiplerecordsperuserpermitted: true
+adx_name: Application Create - Multiple Steps
+adx_progressindicatorenabled: true
+adx_progressindicatorignorelaststep: false
+adx_progressindicatorprependstepnum: true
+adx_savechangeswarningonclose: false
+adx_startnewsessiononload: true
+adx_startstep: e9019467-977c-ed11-81ad-000d3a8c6ab8
+adx_webformid: 6d2ef2bc-967c-ed11-81ad-000d3a8c6ab8

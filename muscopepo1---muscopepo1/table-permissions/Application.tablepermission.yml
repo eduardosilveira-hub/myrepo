@@ -1,0 +1,14 @@
+adx_append: true
+adx_appendto: true
+adx_create: true
+adx_delete: false
+adx_entitylogicalname: ava_application
+adx_entityname: Application
+adx_entitypermission_webrole:
+- baf5a62d-566f-ed11-9562-000d3a8c6ab8
+adx_entitypermissionid: d3ba9f33-747d-ed11-81ad-000d3a8c6ab8
+adx_parententitypermission: 29c9d1e2-727d-ed11-81ad-000d3a8c6ab8
+adx_parentrelationship: ava_contact_ava_application_contactapplicant
+adx_read: true
+adx_scope: 756150003
+adx_write: true
