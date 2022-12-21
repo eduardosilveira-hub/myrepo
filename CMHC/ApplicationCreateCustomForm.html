@@ -102,6 +102,10 @@
     border-color: #444;
   }
 
+  #msform input:invalid {
+    border-color: #aa3030;
+  }
+
   #msform input:focus + label,
   #msform input.hasInput + label {
     top: -0.8rem;
@@ -232,7 +236,7 @@
 
 <script type="module">
   import { utils as utils } from "../utils.js";
-
+  
   var urlApplications = "/_api/ava_applications";
   sessionStorage.setItem(
     "applicationId",
@@ -281,7 +285,7 @@
         ) {
           allInputs[key].addEventListener("blur", (element) => {
             // Different validation for different inputs
-            application.assignClass(element);
+            application.assignClass(element.srcElement);
           });
         }
       });
@@ -289,6 +293,7 @@
       return false;
     },
     assignClass: (element) => {
+      debugger;
       // Different validation for different inputs
       switch (element.type.toUpperCase()) {
         case "SELECT-ONE":
@@ -325,35 +330,41 @@
       });
     },
     setupFormAnimation: () => {
-      var current_fs, next_fs, reset_fs; //fieldsets
-      var left, opacity, scale; //fieldset properties which we will animate
-      var animating; //flag to prevent quick multi-click glitches
+      var current_fs, reset_fs; //fieldsets
       let applicationId = sessionStorage.getItem("applicationId");
 
       $(".submit").click(function (event) {
         event.preventDefault();
-        document.querySelectorAll('.required').forEach((child) => {
+        var fieldSetValid = true
+        current_fs = document.querySelectorAll('.required');
+        current_fs.forEach((child) => {
           child.childNodes.forEach((grandChild) => {
+            debugger;
             if (grandChild && (grandChild.value === '')){
+              debugger;
               grandChild.classList.toggle('shake');
+              grandChild.toggleAttribute('required');
               setTimeout(function() {
                 grandChild.classList.toggle('shake');
               }, 300);
-              const errMessage = document.createElement('div');
-              errMessage.innerHTML = 'This is a mandatory field.';
-              errMessage.classList.add('errortext');
-              grandChild.parentElement.appendChild(errMessage);
+              fieldSetValid = false;
+
+            }
+            else {
+              return;
+              //debugger;
             }
           });
         });
-
-        // function to validate form using the SHAKE css class
-
-        
-        // if (applicationId === null || applicationId === "")
-        //     application.createOnFirstStep(current_fs, applicationFields);
-        // else
-        //     application.updateOnNextSteps(current_fs, applicationFields);
+        if (fieldSetValid){        
+          if (applicationId === null || applicationId === "")
+              application.createOnFirstStep(current_fs, applicationFields);
+          else
+              application.updateOnNextSteps(current_fs, applicationFields);
+        }
+        else {
+          return;
+        }
  
       });
 
@@ -363,14 +374,8 @@
     },
     createOnFirstStep: (current_fs, fieldset) => {
       let myJsonObject = {};
-      myJsonObject = application.buildMyObject(
-        current_fs,
-        fieldset,
-        myJsonObject
-      );
-      myJsonObject[
-        "ava_contactapplicant@odata.bind"
-      ] = `/contacts({{ user.id }})`;
+      myJsonObject = application.buildMyObject(current_fs,fieldset,myJsonObject);
+      myJsonObject["ava_contactapplicant@odata.bind"] = `/contacts({{ user.id }})`;
 
       let operationType = "POST";
 
@@ -392,11 +397,7 @@
       let myJsonObject = {
         ava_applicationid: sessionStorage.getItem("applicationId"),
       };
-      myJsonObject = application.buildMyObject(
-        current_fs,
-        fieldset,
-        myJsonObject
-      );
+      myJsonObject = application.buildMyObject(current_fs,fieldset,myJsonObject);
 
       let operationType = "PATCH";
 

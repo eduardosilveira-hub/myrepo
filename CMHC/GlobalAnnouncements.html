@@ -1,11 +1,11 @@
 {%- fetchxml fetchAnnouncements -%}
 <fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
-    <entity name='ava_announcements'>
-        <attribute name='ava_announcementsid' />
+    <entity name='cmhc_pocportalannouncement'>
+        <attribute name='cmhc_pocportalannouncementid' />
         <attribute name='createdon' />
-        <attribute name='ava_name' />
-        <attribute name='ava_announcement' />
-        <attribute name='ava_from' />
+        <attribute name='cmhc_name' />
+        <attribute name='cmhc_announcement' />
+        <attribute name='cmhc_from' />
         <order attribute='createdon' descending='true' />
         <filter type='and'>
         <condition attribute='statecode' operator='eq' value='0' />
@@ -152,7 +152,7 @@ blockquote .bottom{
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        let timerSetting = "{{ settings['announcement-timeout']}}";
+        let timerSetting = "{{ settings['Home/AnnouncementTimeout']}}";
         $('#quote-carousel').carousel({
             pause: true,
             interval: timerSetting,

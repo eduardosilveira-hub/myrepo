@@ -9,6 +9,7 @@
                 <attribute name="ava_applicationid"/>
                 <attribute name="ava_period"/>
                 <attribute name="ava_name"/>
+                <attribute name="ava_loanstartdate"/>
                 <order attribute="createdon" descending="true"/>
                 <filter type="and">
                     <condition attribute="statecode" operator="eq" value="0"/>
@@ -71,6 +72,11 @@
         position: relative;
     }
 
+    .fieldgroup.required label:after {
+        content:"*";
+        color:red;
+    }
+
     #msform label:hover {
         cursor: text;
     }
@@ -95,6 +101,10 @@
 
     #msform input:valid {
         border-color: #444;
+    }
+
+    #msform input:invalid {
+        border-color: #aa3030;
     }
 
     #msform input:focus + label, #msform input.hasInput + label {
@@ -225,7 +235,7 @@
         100% { transform: translate(1px, -2px) rotate(-1deg); }
     }
 
-    #errortext{
+    .errortext{
         color:red;
     }
 
@@ -251,10 +261,20 @@
                 <h2 class="fs-title">Personal Details</h2>
                 <h3 class="fs-subtitle">Tell us something more about you</h3>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="fieldgroup">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
                             <input type="text" name="name" id="name" value="{{ application.ava_name }}" />
                             <label for="name">Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <!-- input-append input-group datetimepicker -->
+                            <input type="date" name="loanstartdate" id="loanstartdate" 
+                                class="hasInput" value='{{ application.ava_loanstartdate | date: "yyyy-MM-dd" }}'
+                            />
+                            <label for="loanstartdate">Loan Start Date</label>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -267,7 +287,7 @@
                 <h3 class="fs-subtitle">Your presence on the social network</h3>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="fieldgroup">
+                        <div class="fieldgroup required">
                             <input type="text" name="loanamount" id="loanamount" value="{{ application.ava_loanamount }}"/>
                             <label for="loanamount">Loan Amount</label>
                         </div>
@@ -335,12 +355,14 @@
 
     var urlApplications = '/_api/ava_applications';
     sessionStorage.setItem("applicationId", "{{ application.ava_applicationid }}");
+    var errMessageDisplay = false;
 
     const applicationFields = {
         'name':'ava_name',
         'loanamount' : 'ava_loanamount',
         'taxrate' : 'ava_taxrate',
-        'period' : 'ava_period'
+        'period' : 'ava_period',
+        'loanstartdate': 'ava_loanstartdate'
     };
     const periodOptions = {
         '3 Months' : 751960000,
@@ -352,7 +374,20 @@
         init: () => {
             application.setupFloatLabels();
             application.setupPeriodOptions();
-            application.setupFormAnimation();
+
+            // Add event Listeners to the next and previous buttons
+            document.querySelectorAll('.next').forEach((button) => {
+                button.addEventListener('click', (btn) => {
+                    application.onNextClick(btn);
+                })
+            });
+
+            document.querySelectorAll('.previous').forEach((button) => {
+                button.addEventListener('click', (btn) => {
+                    application.onPreviousClick(btn);
+                })
+            });
+
             // Create a call to open gates to acquire token and make future calls faster
             appAjax({
                 type: "GET",
@@ -374,7 +409,7 @@
                 {
                     allInputs[key].addEventListener('blur', (element) => {
                         // Different validation for different inputs
-                        application.assignClass(element);
+                        application.assignClass(element.srcElement);
                     });
                 }
             });
@@ -382,7 +417,6 @@
             return false;
         },
         assignClass: (element) => {
-            debugger;
             // Different validation for different inputs
             switch (element.type.toUpperCase()) {                            
                 case 'SELECT-ONE':
@@ -406,12 +440,10 @@
             }
         },
         setupPeriodOptions: () => {
-            debugger;
             var selectedPeriod = parseInt("{{ application.ava_period.value }}");
             let periodField = document.querySelector('#period');
 
             Object.keys(periodOptions).forEach((key) => {
-                debugger;
                 var option = document.createElement('option');
                 if (selectedPeriod && periodOptions[key] === selectedPeriod)
                     option.selected = periodOptions[key];
@@ -420,71 +452,112 @@
                 periodField.add(option);
             });
         },
-        setupFormAnimation: () => {
+        onNextClick: (button) => {
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
             let applicationId = sessionStorage.getItem("applicationId");
-
-            $(".next").click(function(){
-                if(animating) return false;
+            
+            if(animating) return false;
                 animating = true;
+                current_fs = button.target.closest('fieldset');
+                next_fs = button.target.closest('fieldset').nextElementSibling;
+                var fieldSetValid = true;
                 
-                current_fs = $(this).closest('fieldset');
-                next_fs = $(this).closest('fieldset').next();
+                current_fs.querySelectorAll('.required').forEach((child) => {
+                    child.childNodes.forEach((grandChild) => {
+                        if (grandChild && (grandChild.value === '')){
+                            grandChild.classList.toggle('shake');
+                            grandChild.setAttribute('required','true');
+                            setTimeout(function() {
+                                grandChild.classList.toggle('shake');
+                            }, 300);
+                            
+                            // if (!errMessageDisplay) {
+                            //     errMessageDisplay = true;
+                            //     const errMessage = document.createElement('div');
+                            //     errMessage.innerHTML = 'This is a mandatory field.';
+                            //     errMessage.classList.add('errortext');
+                            //     grandChild.parentElement.appendChild(errMessage);
 
-                // choose to create or update existing
-                // if statement checking sessionStorage applicationId
-                if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
-                    application.createOnFirstStep(current_fs, applicationFields);
-                else
-                    application.updateOnNextSteps(current_fs, applicationFields);
-
-                //activate next step on progressbar using the index of next_fs
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                
-                //show the next fieldset
-                next_fs.show(); 
-                //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
-                    step: function(now, mx) {
-                        //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale current_fs down to 80%
-                        scale = 1 - (1 - now) * 0.2;
-                        //2. bring next_fs from the right(50%)
-                        left = (now * 50)+"%";
-                        //3. increase opacity of next_fs to 1 as it moves in
-                        opacity = 1 - now;
-                        current_fs.css({
-                            'transform': 'scale('+scale+')',
-                            'position': 'absolute'
-                        });
-                        next_fs.css({'left': left, 'opacity': opacity});
-                    }, 
-                    duration: 800, 
-                    complete: function(){
-                        current_fs.hide();
-                        animating = false;
-                    }, 
-                    //this comes from the custom easing plugin
-                    easing: 'easeInOutBack'
+                            //     setTimeout(function() {
+                            //         grandChild.parentElement.removeChild(errMessage);
+                            //         errMessageDisplay = false;
+                            //     }, 1000);
+                            // }
+                           
+                            fieldSetValid = false;
+                        }
+                    });
                 });
-            });
+                if (fieldSetValid){
+                    // choose to create or update existing
+                    // if statement checking sessionStorage applicationId
+                    console.log(`index: ${$("fieldset").index(next_fs)}`);
+                    if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
+                        application.createOnFirstStep(current_fs, applicationFields);
+                    else
+                        application.updateOnNextSteps(current_fs, applicationFields);
 
-            $(".previous").click(function(){
-                if(animating) return false;
+                    //activate next step on progressbar using the index of next_fs
+                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                    
+                    //show the next fieldset
+                    $(next_fs).show(); 
+                    
+                    //hide the current fieldset with style
+                    debugger;
+                    $(current_fs).animate({opacity: 0}, {
+                        step: function(now, mx) {
+                            //as the opacity of current_fs reduces to 0 - stored in "now"
+                            //1. scale current_fs down to 80%
+                            scale = 1 - (1 - now) * 0.2;
+                            //2. bring next_fs from the right(50%)
+                            left = (now * 50)+"%";
+                            //3. increase opacity of next_fs to 1 as it moves in
+                            opacity = 1 - now;
+                            $(current_fs).css({
+                                'transform': 'scale('+scale+')',
+                                'position': 'absolute'
+                            });
+                            $(next_fs).css({'left': left, 'opacity': opacity});
+                        }, 
+                        duration: 800, 
+                        complete: function(){
+                            $(current_fs).hide();
+                            animating = false;
+                        }, 
+                        //this comes from the custom easing plugin
+                        easing: 'easeInOutBack'
+                    });
+                }
+                else {
+                    //application.setupFormAnimation();
+                };
+        },
+        onPreviousClick: (button) => {
+            debugger;
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var left, opacity, scale; //fieldset properties which we will animate
+            var animating; //flag to prevent quick multi-click glitches
+            let applicationId = sessionStorage.getItem("applicationId");
+            if(animating) return false;
                 animating = true;
                 
-                current_fs = $(this).closest('fieldset');
-                previous_fs = $(this).closest('fieldset').prev();
+                current_fs = button.target.closest('fieldset');
+                previous_fs = button.target.closest('fieldset').previousElementSibling;
                 
                 //de-activate current step on progressbar
                 $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
                 
+                console.log(`index: ${$("fieldset").index(previous_fs)}`);
+
                 //show the previous fieldset
-                previous_fs.show(); 
+                //previous_fs.show(); 
+                $(previous_fs).show();
+
                 //hide the current fieldset with style
-                current_fs.animate({opacity: 0}, {
+                $(current_fs).animate({opacity: 0}, {
                     step: function(now, mx) {
                         //as the opacity of current_fs reduces to 0 - stored in "now"
                         //1. scale previous_fs from 80% to 100%
@@ -493,18 +566,18 @@
                         left = ((1-now) * 50)+"%";
                         //3. increase opacity of previous_fs to 1 as it moves in
                         opacity = 1 - now;
-                        current_fs.css({'left': left});
-                        previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+                        $(current_fs).css({'left': left});
+                        $(previous_fs).css({'transform': 'scale('+scale+')', 'opacity': opacity});
                     }, 
                     duration: 800, 
                     complete: function(){
-                        current_fs.hide();
+                        $(current_fs).hide();
                         animating = false;
                     }, 
                     //this comes from the custom easing plugin
                     easing: 'easeInOutBack'
                 });
-            });
+                //application.setupFormAnimation();
         },
         createOnFirstStep: (current_fs, fieldset) => {
             let myJsonObject = {};
@@ -545,9 +618,9 @@
         },
         buildMyObject: (currentTab, fieldset, myJsonObject) => {
             Object.keys(fieldset).forEach((formKey) => {
-                Object.keys(currentTab[0].elements).forEach((objectKey) => {
-                    if (currentTab[0].elements[objectKey].name === formKey){
-                        myJsonObject[fieldset[formKey]] = currentTab[0].elements[objectKey].value;
+                Object.keys(currentTab.elements).forEach((objectKey) => {
+                    if (currentTab.elements[objectKey].name === formKey){
+                        myJsonObject[fieldset[formKey]] = currentTab.elements[objectKey].value;
                     }
                 })
             });
