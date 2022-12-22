@@ -1,0 +1,257 @@
+<style>
+    #msform {
+        text-align: center;
+        position: relative;
+    }
+
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 0px;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0 10%;
+
+        /*stacking fieldsets above each other*/
+        position: relative;
+    }
+
+    /*Hide all except first fieldset*/
+    #msform fieldset:not(:first-of-type) {
+        display: none;
+    }
+
+    #msform label {
+        position: absolute;
+        top: 0.8rem;
+        left: 0;
+        display: block;
+        font-size: 1rem;
+        transition: 0.2s ease-out;
+        opacity: 0.5;
+        will-change: top, font-size;
+    }
+
+    #msform .fieldgroup {
+        margin: 1.5rem 0;
+        position: relative;
+    }
+    
+    #msform input:focus + label, #msform input.hasInput + label {
+        top: -0.8rem;
+        font-size: 0.7rem;
+    }
+
+    #drop_zone {
+        border: 5px solid blue;
+        width: 200px;
+        height: 100px;
+    }
+
+    .drop-area {
+        border: 2px dashed #ccc;
+        border-radius: 20px;
+        width: 480px;
+        font-family: sans-serif;
+        margin: 100px auto;
+        padding: 20px;
+    }
+    .drop-area.highlight {
+        border-color: purple;
+    }
+
+    .table-area {
+        width: 80%;
+        font-family: sans-serif;
+        margin: 0px auto;
+    }
+
+    .crmEntityFormView, .entitylist, .modal-content, .popover-content {
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #f2f2f2;
+        border-radius: 14px;
+        padding: 20px;
+    }
+
+    .editable{
+        border: 1px solid black;
+    }
+
+</style>
+<div class="row drop-area">
+    <div class="col-sm-12">
+        <form id="msform">
+            <fieldset>
+                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+                <div class="fieldgroup required">
+                    <div id="dropzone" class="hasInput">
+                        <p>Drag one or more files to this <i>drop zone</i>.</p>
+                    </div>                    
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="row table-area">
+    <div class="entitylist">
+        <div class="entity-grid">
+            <div class="view-toolbar grid-actions clearfix">
+                <div class="pull-right toolbar-actions">
+                    <div class="input-group pull-left view-search entitylist-search" role="none">
+                        <input placeholder="Search" title="" aria-label="To search on partial text, use the asterisk (*) wildcard character. " 
+                            data-original-title="To search on partial text, use the asterisk (*) wildcard character. " class="query form-control">
+                            <div class="input-group-btn" role="presentation">
+                                <button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
+                                    <span class="sr-only">Search Results</span>
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-grid has-pagination">
+                    <table aria-relevant="additions" role="grid" class="table table-striped table-fluid" id="importedrows">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width:32%;" class="sort-enabled">
+                                    <a href="#" role="button" aria-label="Contact Applicant" tabindex="0">Name<span class="sr-only sort-hint">. sort descending</span></a>
+                                </th>
+                                <th scope="col" style="width:32%;" class="sort-enabled">
+                                    <a href="#" role="button" aria-label="Loan Amount" tabindex="0">Loan Amount<span class="sr-only sort-hint">. sort descending</span></a>
+                                </th>
+                                <th scope="col" style="width:32%;" class="sort-enabled">
+                                    <a href="#" role="button" aria-label="Tax rate" tabindex="0">Tax rate
+                                        <span class="fa fa-arrow-down" aria-hidden="true"></span>
+                                        <span class="sr-only sort-hint">. sort descending</span></a>
+                                </th>
+                                <th scope="col" style="width:3%;" class="sort-disabled" aria-label="Actions">
+                                    <span class="sr-only">Actions</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="view-empty message" style="display: none;">
+                    There are no records to display.
+                </div>
+                <div class="view-error message" style="display: none;">
+                    <div class="alert alert-block alert-danger">Error completing request. <span class="details"></span></div>
+                </div>
+                <div class="view-loading message text-center" style="display: none;">
+                    <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
+                </div>
+                <div class="view-pagination" data-current-page="1" data-pages="1" data-pagesize="" style="">
+                    <div class="jquery-bootstrap-pagination">
+                        <ul class="pagination">
+                        <li class="disabled"><a data-page="0" role="button" data-toggle="tooltip" aria-label="Previous page" title="" aria-disabled="true" data-original-title="Previous page">&lt;</a></li>
+                        <li class="active"><a href="#" data-page="1" role="button" aria-current="page">1</a></li>
+                        <li><a href="#" aria-label="page 2" data-page="2" role="button">2</a></li>
+                        <li><a href="#" data-page="2" role="button" data-toggle="tooltip" aria-label="Next page" title="" data-original-title="Next page">&gt;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const upload = {
+        init:() => {
+            ['dragenter','dragover'].forEach((eventName) => {
+                debugger;
+                document.querySelector('.drop-area').addEventListener(eventName, upload.highlight, false);
+            });
+
+            ['dragleave','drop'].forEach((eventName) => {
+                debugger;
+                document.querySelector('.drop-area').addEventListener(eventName, upload.unhighlight, false);
+            });
+
+            document.querySelector('#importedrows').addEventListener('click', (item) => {
+                debugger;
+                var row = item.path[1];
+                var row_value = "";
+  
+                for (var j = 0; j < row.cells.length; j++) {
+  
+                    row_value += row.cells[j].innerHTML;
+                    row_value += " | ";
+                }
+  
+                alert(row_value);
+            })
+
+        },
+        highlight: (eventName) => {
+            document.querySelector('.drop-area').classList.add('highlight');
+            eventName.stopPropagation();
+            eventName.preventDefault();
+        },
+
+        unhighlight: (eventName) => {
+            let dropbox = document.getElementById("dropzone");
+            document.querySelector('.drop-area').classList.remove('highlight');
+            eventName.stopPropagation();
+            eventName.preventDefault();
+
+            var tableRows = document.querySelector('#importedrows tbody')
+
+            if (eventName.type === 'drop') {
+                debugger;
+                const dt = eventName.dataTransfer.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    debugger;
+                    var data = e.target.result;
+                    var workbook = XLSX.read(data, {
+                        type: 'binary'
+                    });
+
+                    workbook.SheetNames.forEach(function(sheetName) {
+                        debugger;
+                        // Here is your object
+                        var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                        XL_row_object.forEach((row) => {
+                            debugger
+                            var tr = document.createElement('tr');
+                            Object.keys(row).forEach((el) => {
+                                debugger
+                                var td = document.createElement('td');
+                                td.dataType = "Microsoft.Xrm.Sdk.EntityReference";
+                                td.dataAttribute = "ava_contactapplicant";
+                                td.innerText = row[el];
+                                tr.insertBefore(td, td.nextElementSibling);
+                            });
+                            var span = document.createElement('span');
+                            span.classList.add('fas','fa-edit');
+                            span.ariaHidden = "true";
+                            tr.insertAdjacentElement('beforeend',span)
+                            tableRows.insertBefore(tr, tr.nextElementSibling);
+                        });
+                        //var json_object = JSON.stringify(XL_row_object);
+                        //console.log(json_object);
+                    });
+
+                };
+
+                reader.onerror = function(ex) {
+                    console.log(ex);
+                };
+                reader.readAsBinaryString(dt);
+            }
+        },
+    }
+
+    upload.init();
+
+</script>

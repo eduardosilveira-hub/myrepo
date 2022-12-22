@@ -375,13 +375,14 @@
             application.setupFloatLabels();
             application.setupPeriodOptions();
 
-            // Add event Listeners to the next and previous buttons
+            // Add event Listeners to the next buttons
             document.querySelectorAll('.next').forEach((button) => {
                 button.addEventListener('click', (btn) => {
                     application.onNextClick(btn);
                 })
             });
 
+            // Add event Listeners to the previous buttons
             document.querySelectorAll('.previous').forEach((button) => {
                 button.addEventListener('click', (btn) => {
                     application.onPreviousClick(btn);
