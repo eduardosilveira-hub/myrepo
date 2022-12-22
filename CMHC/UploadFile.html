@@ -178,16 +178,16 @@
 
             document.querySelector('#importedrows').addEventListener('click', (item) => {
                 debugger;
-                var row = item.path[1];
-                var row_value = "";
+                var cell = item.path[0];
+                var cell_value = "";
+                cell.classList.add('editable');
+                alert(cell_value);
   
                 for (var j = 0; j < row.cells.length; j++) {
   
-                    row_value += row.cells[j].innerHTML;
-                    row_value += " | ";
+                    cell_value += row.cells[j].innerHTML;
+                    cell_value += " | ";
                 }
-  
-                alert(row_value);
             })
 
         },
