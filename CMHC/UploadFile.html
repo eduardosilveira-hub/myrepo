@@ -117,77 +117,63 @@
 
 <div class="row table-area">
 	<div class="entitylist">
-		<div class="entity-grid">
-			<div class="view-toolbar grid-actions clearfix">
-                <div class="pull-left toolbar-actions">
-					<div class="input-group pull-left view-search entitylist-search">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default btn-hg">Submit
-							</button>
-						</div>
-					</div>
-				</div>				
-                <div class="pull-right toolbar-actions">
-					<div class="input-group pull-left view-search entitylist-search">
-						<input placeholder="Search" class="form-control">
-						<div class="input-group-btn" role="presentation">
-							<button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
-							<span class="sr-only">Search Results</span>
-							<span class="fa fa-search"></span>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="view-grid has-pagination">
-				<table role="grid" class="table table-striped table-fluid" id="importedrows">
-					<thead>
-						<tr>
-							<th class="sort-enabled" data-sort="name">
-								Name<span class="sr-only sort-hint">. sort descending</span>
-							</th>
-							<th class="sort-enabled" data-sort="loanamount">
-								Loan Amount<span class="sr-only sort-hint">. sort descending</span>
-							</th>
-							<th class="sort-enabled" data-sort="taxamount">
-								Tax rate
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-			</div>
-			<div class="view-loading message text-center" style="display: none;">
-				<span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
-			</div>
-            <!-- old pagination -->
-			<!-- <div class="view-pagination" data-current-page="1" data-pages="1" data-pagesize="">
-				<div class="jquery-bootstrap-pagination">
-					<ul class="pagination">
-						<li class="active" id="previous"><a href="">&lt;</a></li>
-						<li class=""><a role="button" id="currentpage"></a></li>
-						<li class="active" id="next"><a href="#">&gt;</a></li>
-					</ul>
-				</div>
-			</div> -->
-            <!-- end old pagination -->
-
-            <!-- New Pagination -->
-            <div class='pagination-container' >
-                <nav>
-                    <ul class="pagination">
-                        <li data-page="prev" >
-                            <span> << <span class="sr-only">(current)</span></span>
-                        </li>
-                        <!--	Here the JS Function Will Add the Rows -->
-                        <li data-page="next" id="prev">
-                            <span> >> <span class="sr-only">(current)</span></span>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="view-toolbar grid-actions clearfix">
+            <div class="pull-left toolbar-actions">
+                <div class="input-group pull-left view-search entitylist-search">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-primary" id="submitTable">Submit
+                        </button>
+                    </div>
+                </div>
+            </div>				
+            <div class="pull-right toolbar-actions">
+                <div class="input-group pull-left view-search entitylist-search">
+                    <input placeholder="Search" class="form-control">
+                    <div class="input-group-btn" role="presentation">
+                        <button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
+                        <span class="sr-only">Search Results</span>
+                        <span class="fa fa-search"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
-		</div>
+        </div>
+        <div class="view-grid has-pagination">
+            <table role="grid" class="table table-striped table-fluid" id="importedrows">
+                <thead>
+                    <tr>
+                        <th class="sort-enabled cmhc-font-12" data-sort="name">
+                            Name<span class="sr-only sort-hint">. sort descending</span>
+                        </th>
+                        <th class="sort-enabled cmhc-font-12" data-sort="loanamount">
+                            Loan Amount<span class="sr-only sort-hint">. sort descending</span>
+                        </th>
+                        <th class="sort-enabled cmhc-font-12" data-sort="taxamount">
+                            Tax rate
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="view-loading message text-center" style="display: none;">
+            <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
+        </div>
+        <!-- New Pagination -->
+        <div class='pagination-container' >
+            <nav>
+                <ul class="pagination">
+                    <li data-page="prev" >
+                        <span> << <span class="sr-only">(current)</span></span>
+                    </li>
+                    <!--	Here the JS Function Will Add the Rows -->
+                    <li data-page="next" id="prev">
+                        <span> >> <span class="sr-only">(current)</span></span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 	</div>
 </div>
 
@@ -215,6 +201,22 @@
             document.querySelectorAll('#importedrows thead tr th').forEach(t => {
                 t.addEventListener('click', upload.sort, false);
             });
+
+            document.querySelector('#submitTable').addEventListener('click', (event) => {
+                debugger;
+                var tableRows = document.querySelectorAll('#importedrows tbody tr');
+                var jsonObjectArray = [{}];
+                var jsonObject = {};
+                let counter = 0;
+                tableRows.forEach(row => {
+                    row.forEach(field => {
+                        jsonObject.name = field.innerText;
+                        console.log(`line ${counter}: ${field.innerText}`);
+                    });
+                    counter++;
+                });
+                
+            })
 
             // document.querySelector('#importedrows').addEventListener('click', (item) => {
                 // var cell = item.path[0];
