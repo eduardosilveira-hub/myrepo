@@ -75,10 +75,6 @@
         padding: 20px;
     }
 
-    .editable{
-        border: 1px solid black;
-    }
-
 </style>
 <div class="row drop-area">
     <div class="col-sm-12">
@@ -128,9 +124,6 @@
                                         <span class="fa fa-arrow-down" aria-hidden="true"></span>
                                         <span class="sr-only sort-hint">. sort descending</span></a>
                                 </th>
-                                <th scope="col" style="width:3%;" class="sort-disabled" aria-label="Actions">
-                                    <span class="sr-only">Actions</span>
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -164,7 +157,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    let sortCol;
+    let sortAsc = false;
+    
     const upload = {
+
         init:() => {
             ['dragenter','dragover'].forEach((eventName) => {
                 debugger;
@@ -176,18 +173,20 @@
                 document.querySelector('.drop-area').addEventListener(eventName, upload.unhighlight, false);
             });
 
+            document.querySelectorAll('#importedrows thead tr th').forEach(t => {
+                t.addEventListener('click', upload.sort, false);
+            });
+
             document.querySelector('#importedrows').addEventListener('click', (item) => {
                 debugger;
                 var cell = item.path[0];
-                var cell_value = "";
-                cell.classList.add('editable');
-                alert(cell_value);
+                // alert(cell);
   
-                for (var j = 0; j < row.cells.length; j++) {
+                // for (var j = 0; j < row.cells.length; j++) {
   
-                    cell_value += row.cells[j].innerHTML;
-                    cell_value += " | ";
-                }
+                //     cell_value += row.cells[j].innerHTML;
+                //     cell_value += " | ";
+                // }
             })
 
         },
@@ -221,23 +220,7 @@
                         debugger;
                         // Here is your object
                         var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-                        XL_row_object.forEach((row) => {
-                            debugger
-                            var tr = document.createElement('tr');
-                            Object.keys(row).forEach((el) => {
-                                debugger
-                                var td = document.createElement('td');
-                                td.dataType = "Microsoft.Xrm.Sdk.EntityReference";
-                                td.dataAttribute = "ava_contactapplicant";
-                                td.innerText = row[el];
-                                tr.insertBefore(td, td.nextElementSibling);
-                            });
-                            var span = document.createElement('span');
-                            span.classList.add('fas','fa-edit');
-                            span.ariaHidden = "true";
-                            tr.insertAdjacentElement('beforeend',span)
-                            tableRows.insertBefore(tr, tr.nextElementSibling);
-                        });
+                        upload.renderTable(XL_row_object, tableRows);
                         //var json_object = JSON.stringify(XL_row_object);
                         //console.log(json_object);
                     });
@@ -249,6 +232,31 @@
                 };
                 reader.readAsBinaryString(dt);
             }
+        },
+        renderTable: (XL_row_object, tableRows) => {
+            let result = '';
+            XL_row_object.forEach((row) => {
+                debugger
+                result += `
+                    <tr>
+                    <td contentEditable>${row.name}</td>
+                    <td contentEditable>${row.loanamount}</td>
+                    <td contentEditable>${row.taxamount}</td>
+                    </tr>
+                `;
+            });
+            tableRows.innerHTML = result;
+        },
+        sort: (e) => {
+            let thisSort = e.target.dataset.sort;
+            if(sortCol === thisSort) sortAsc = !sortAsc;
+            sortCol = thisSort;
+            data.sort((a, b) => {
+                if(a[sortCol] < b[sortCol]) return sortAsc?1:-1;
+                if(a[sortCol] > b[sortCol]) return sortAsc?-1:1;
+                return 0;
+            });
+            renderTable();
         },
     }
 
