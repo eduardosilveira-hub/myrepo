@@ -13,6 +13,7 @@ body {
   }
   .navbar {
     min-height:60px;
+    margin-bottom: 0px;
   }
   .navbar-toggle {
     background-color: #003F63 !important;
@@ -94,10 +95,6 @@ body {
   .cmhc-page .font-bold {
     font-weight: 600;
   }
-  
-  .navbar {
-	  margin-bottom: 0px;
-  }
 
 /* for home page collapsible menus */
   /* details {
@@ -124,15 +121,6 @@ body {
     display: none;
   }
 
-/* Modal related */
-
-/* .modal-content {
-    display: grid;
-}
-  .modal-body {
-    padding: 1rem !important;
-  }
-*/
   h5.modal-title{
     float: left;
     font-size: 1.0em;
@@ -165,7 +153,7 @@ body {
   }
   .cmhc-page ul {
     list-style: none;
-    padding: 0px;
+    padding: 2px;
   }
   .cmhc-page .divider {
     height: 1px;

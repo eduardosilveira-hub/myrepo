@@ -58,7 +58,7 @@
         padding: 20px;
     }
     .drop-area.highlight {
-        border-color: purple;
+        border-color: #29649c;
     }
 
     .table-area {
@@ -75,15 +75,39 @@
         padding: 20px;
     }
 
+    table tr:nth-child(even){
+        background-color: #f0f7ff;
+    }
+
+    .pagination li:hover{
+        cursor: pointer;
+    }
+
+    table tbody tr {
+        display: none;
+    }
+
+    nav ul {
+        background: #1e1e1e !important;
+    }
+
+    .pagination>.active>span {
+        background-color: #29649c;
+    }
+
+    .pagination {
+        background: #f0f7ff !important;
+    }
+
 </style>
 <div class="row drop-area">
     <div class="col-sm-12">
         <form id="msform">
             <fieldset>
-                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+                <p>Drag and drop the file here</p>
                 <div class="fieldgroup required">
                     <div id="dropzone" class="hasInput">
-                        <p>Drag one or more files to this <i>drop zone</i>.</p>
+                        <p>drop zone</i>.</p>
                     </div>                    
                 </div>
             </fieldset>
@@ -92,94 +116,108 @@
 </div>
 
 <div class="row table-area">
-    <div class="entitylist">
-        <div class="entity-grid">
-            <div class="view-toolbar grid-actions clearfix">
+	<div class="entitylist">
+		<div class="entity-grid">
+			<div class="view-toolbar grid-actions clearfix">
+                <div class="pull-left toolbar-actions">
+					<div class="input-group pull-left view-search entitylist-search">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-hg">Submit
+							</button>
+						</div>
+					</div>
+				</div>				
                 <div class="pull-right toolbar-actions">
-                    <div class="input-group pull-left view-search entitylist-search" role="none">
-                        <input placeholder="Search" title="" aria-label="To search on partial text, use the asterisk (*) wildcard character. " 
-                            data-original-title="To search on partial text, use the asterisk (*) wildcard character. " class="query form-control">
-                            <div class="input-group-btn" role="presentation">
-                                <button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
-                                    <span class="sr-only">Search Results</span>
-                                    <span class="fa fa-search"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="view-grid has-pagination">
-                    <table aria-relevant="additions" role="grid" class="table table-striped table-fluid" id="importedrows">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width:32%;" class="sort-enabled">
-                                    <a href="#" role="button" aria-label="Contact Applicant" tabindex="0">Name<span class="sr-only sort-hint">. sort descending</span></a>
-                                </th>
-                                <th scope="col" style="width:32%;" class="sort-enabled">
-                                    <a href="#" role="button" aria-label="Loan Amount" tabindex="0">Loan Amount<span class="sr-only sort-hint">. sort descending</span></a>
-                                </th>
-                                <th scope="col" style="width:32%;" class="sort-enabled">
-                                    <a href="#" role="button" aria-label="Tax rate" tabindex="0">Tax rate
-                                        <span class="fa fa-arrow-down" aria-hidden="true"></span>
-                                        <span class="sr-only sort-hint">. sort descending</span></a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="view-empty message" style="display: none;">
-                    There are no records to display.
-                </div>
-                <div class="view-error message" style="display: none;">
-                    <div class="alert alert-block alert-danger">Error completing request. <span class="details"></span></div>
-                </div>
-                <div class="view-loading message text-center" style="display: none;">
-                    <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
-                </div>
-                <div class="view-pagination" data-current-page="1" data-pages="1" data-pagesize="">
-                    <div class="jquery-bootstrap-pagination">
-                        <ul class="pagination">
-                        <li class="disabled"><a data-page="0" role="button" data-toggle="tooltip" aria-label="Previous page" title="" aria-disabled="true" data-original-title="Previous page">&lt;</a></li>
-                        <li class="active"><a href="#" data-page="1" role="button" aria-current="page">1</a></li>
-                        <li><a href="#" aria-label="page 2" data-page="2" role="button">2</a></li>
-                        <li><a href="#" data-page="2" role="button" data-toggle="tooltip" aria-label="Next page" title="" data-original-title="Next page">&gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
+					<div class="input-group pull-left view-search entitylist-search">
+						<input placeholder="Search" class="form-control">
+						<div class="input-group-btn" role="presentation">
+							<button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
+							<span class="sr-only">Search Results</span>
+							<span class="fa fa-search"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="view-grid has-pagination">
+				<table role="grid" class="table table-striped table-fluid" id="importedrows">
+					<thead>
+						<tr>
+							<th class="sort-enabled" data-sort="name">
+								Name<span class="sr-only sort-hint">. sort descending</span>
+							</th>
+							<th class="sort-enabled" data-sort="loanamount">
+								Loan Amount<span class="sr-only sort-hint">. sort descending</span>
+							</th>
+							<th class="sort-enabled" data-sort="taxamount">
+								Tax rate
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="view-loading message text-center" style="display: none;">
+				<span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
+			</div>
+            <!-- old pagination -->
+			<!-- <div class="view-pagination" data-current-page="1" data-pages="1" data-pagesize="">
+				<div class="jquery-bootstrap-pagination">
+					<ul class="pagination">
+						<li class="active" id="previous"><a href="">&lt;</a></li>
+						<li class=""><a role="button" id="currentpage"></a></li>
+						<li class="active" id="next"><a href="#">&gt;</a></li>
+					</ul>
+				</div>
+			</div> -->
+            <!-- end old pagination -->
+
+            <!-- New Pagination -->
+            <div class='pagination-container' >
+                <nav>
+                    <ul class="pagination">
+                        <li data-page="prev" >
+                            <span> << <span class="sr-only">(current)</span></span>
+                        </li>
+                        <!--	Here the JS Function Will Add the Rows -->
+                        <li data-page="next" id="prev">
+                            <span> >> <span class="sr-only">(current)</span></span>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>	
-    </div>
+		</div>
+	</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    let sortCol;
+    let table, sortCol;
+    var XL_row_object, tableRows;
     let sortAsc = false;
+    const pageSize = 10;
+    let curPage = 1;
+    var current = document.querySelector('#currentpage');
     
     const upload = {
 
         init:() => {
             ['dragenter','dragover'].forEach((eventName) => {
-                debugger;
-                document.querySelector('.drop-area').addEventListener(eventName, upload.highlight, false);
+                document.querySelector('.drop-area').addEventListener(eventName, upload.fileBeingDropped, false);
             });
 
             ['dragleave','drop'].forEach((eventName) => {
-                debugger;
-                document.querySelector('.drop-area').addEventListener(eventName, upload.unhighlight, false);
+                document.querySelector('.drop-area').addEventListener(eventName, upload.readFromFile, false);
             });
 
             document.querySelectorAll('#importedrows thead tr th').forEach(t => {
                 t.addEventListener('click', upload.sort, false);
             });
 
-            document.querySelector('#importedrows').addEventListener('click', (item) => {
-                debugger;
-                var cell = item.path[0];
+            // document.querySelector('#importedrows').addEventListener('click', (item) => {
+                // var cell = item.path[0];
                 // alert(cell);
   
                 // for (var j = 0; j < row.cells.length; j++) {
@@ -187,40 +225,36 @@
                 //     cell_value += row.cells[j].innerHTML;
                 //     cell_value += " | ";
                 // }
-            })
+            // });
 
         },
-        highlight: (eventName) => {
+        fileBeingDropped: (eventName) => {
             document.querySelector('.drop-area').classList.add('highlight');
             eventName.stopPropagation();
             eventName.preventDefault();
         },
-
-        unhighlight: (eventName) => {
+        readFromFile: (eventName) => {
             let dropbox = document.getElementById("dropzone");
             document.querySelector('.drop-area').classList.remove('highlight');
             eventName.stopPropagation();
             eventName.preventDefault();
 
-            var tableRows = document.querySelector('#importedrows tbody')
+            tableRows = document.querySelector('#importedrows tbody')
 
             if (eventName.type === 'drop') {
-                debugger;
                 const dt = eventName.dataTransfer.files[0];
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    debugger;
                     var data = e.target.result;
                     var workbook = XLSX.read(data, {
                         type: 'binary'
                     });
 
                     workbook.SheetNames.forEach(function(sheetName) {
-                        debugger;
                         // Here is your object
-                        var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-                        upload.renderTable(XL_row_object, tableRows);
+                        XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                        upload.renderTable();
                         //var json_object = JSON.stringify(XL_row_object);
                         //console.log(json_object);
                     });
@@ -233,10 +267,10 @@
                 reader.readAsBinaryString(dt);
             }
         },
-        renderTable: (XL_row_object, tableRows) => {
+        renderTable: () => {
             let result = '';
+
             XL_row_object.forEach((row) => {
-                debugger
                 result += `
                     <tr>
                     <td contentEditable>${row.name}</td>
@@ -246,20 +280,121 @@
                 `;
             });
             tableRows.innerHTML = result;
+            upload.getPagination('#importedrows');
+            // current.innerHTML = curPage;
         },
         sort: (e) => {
             let thisSort = e.target.dataset.sort;
             if(sortCol === thisSort) sortAsc = !sortAsc;
             sortCol = thisSort;
-            data.sort((a, b) => {
+            XL_row_object.sort((a, b) => {
                 if(a[sortCol] < b[sortCol]) return sortAsc?1:-1;
                 if(a[sortCol] > b[sortCol]) return sortAsc?-1:1;
                 return 0;
             });
-            renderTable();
+            upload.renderTable();
+        },
+        getPagination: (table) => {
+            var lastPage = 1;
+            $('.pagination')
+                .find('li')
+                .slice(1, -1)
+                .remove();
+            var trnum = 0; // reset tr counter
+            var maxRows = 10;
+
+            if (maxRows == 5000) {
+                $('.pagination').hide();
+            } else {
+                $('.pagination').show();
+            }
+
+            var totalRows = $(table + ' tbody tr').length; // numbers of rows
+
+            $(table + ' tr:gt(0)').each(function() {
+                trnum++; // Start Counter
+                if (trnum > maxRows) {
+                    $(this).hide();
+                }
+                if (trnum <= maxRows) {
+                    $(this).show();
+                }
+            });
+            debugger;
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                for (var i = 1; i <= pagenum; ) {
+                    $('.pagination #prev')
+                    .before('<li data-page="' + i + '"><span>' + i++ + '<span class="sr-only">(current)</span></span></li>')
+                    .show();
+                }
+            }
+            $('.pagination [data-page="1"]').addClass('active');
+            $('.pagination li').on('click', function(evt) {
+                debugger;
+                evt.stopImmediatePropagation();
+                evt.preventDefault();
+                var pageNum = $(this).attr('data-page'); // get it's number
+
+                // var maxRows = parseInt($('#maxRows').val()); // get Max Rows from select option
+
+                if (pageNum == 'prev') {
+                    // if (lastPage == 1) {
+                    //     return;
+                    // }
+                    if ((pageNum < 1 || pageNum === 'prev' ) && parseInt(lastPage) === 1) {
+                        pageNum = 1;
+                        return;
+                    }
+                    else
+                        pageNum = --lastPage;
+                }
+                if (pageNum == 'next') {
+                    if (lastPage == $('.pagination li').length - 2) {
+                        return;
+                    }
+                    else
+                        pageNum = ++lastPage;
+                }
+
+                lastPage = pageNum;
+                var trIndex = 0;
+                $('.pagination li').removeClass('active');
+                $('.pagination [data-page="' + lastPage + '"]').addClass('active');
+                upload.limitPagging();
+                
+                $(table + ' tr:gt(0)').each(function() {
+                    debugger;
+                    trIndex++;
+                    if (
+                        trIndex > maxRows * pageNum ||
+                        trIndex <= maxRows * pageNum - maxRows
+                    ) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            }); 
+            upload.limitPagging();
+        },
+        limitPagging:() => {
+            if($('.pagination li').length > 7 ){
+                if( $('.pagination li.active').attr('data-page') <= 3 ){
+                    $('.pagination li:gt(5)').hide();
+                    $('.pagination li:lt(5)').show();
+                    $('.pagination [data-page="next"]').show();
+                }
+                if ($('.pagination li.active').attr('data-page') > 3){
+                    $('.pagination li:gt(0)').hide();
+                    $('.pagination [data-page="next"]').show();
+                    for( let i = ( parseInt($('.pagination li.active').attr('data-page'))  -2 )  ; i <= ( parseInt($('.pagination li.active').attr('data-page'))  + 2 ) ; i++ ){
+                        $('.pagination [data-page="'+i+'"]').show();
+                    }
+                }
+            }
         },
     }
 
     upload.init();
-
 </script>
