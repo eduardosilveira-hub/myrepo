@@ -1,25 +1,5 @@
 <style>
-/* .box::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-  border-radius: 5px
-} */
-
-/* .box::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-  border-radius: 5px
-}
-
-.box::-webkit-scrollbar-thumb
-{
-	background-color: black;
-	border: 2px solid black;
-  border-radius: 5px
-} */
-
+/* Notification CSS */
 .icons{
   display: inline;
   float: right
@@ -65,14 +45,6 @@
   cursor: pointer
 }
 
-.fas {
-    font-size: 25pt;
-    padding-bottom: 10px;
-    color: black;
-    margin-right: 0;
-    margin-left: 0;
-}
-
 .box {
     width: 300px;
     height: 0px;
@@ -95,7 +67,15 @@
     height: 65.5px;
 }
 
-.fas:hover {
+.notificationFas {
+    font-size: 25pt;
+    padding-bottom: 10px;
+    color: black;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.notificationFas:hover {
   color: #6e8dc7;
 }
 
@@ -161,14 +141,13 @@
 .deleteBtn {
     border: none;
 }
-
 </style>
 <div class="notification" id="notificationComponent">
     <a href="#">
         <div class="notBtn" href="#">
             <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
             <div class="number" id="notificationCount"></div>
-            <i class="fas fa-bell"></i>
+            <i class="fas fa-bell notificationFas"></i>
             <div class="box">
                 <div class="display">
                     <div class="nothing"> 
@@ -196,14 +175,19 @@
     
     const notifications = {
         init: () => {
-            setInterval(notifications.getPortalNotification, 10000);
+            notifications.getPortalNotification();
+            setInterval(notifications.getPortalNotification, 100000);
             document.querySelector('.notBtn').addEventListener('click', (e) => {
-                debugger;
                 if (numberOfNewNotifications && numberOfNewNotifications !== 0) {
                     let box = document.querySelector('.box');
                     box.classList.toggle('box-open');
                     if (box.classList.contains('box-open')){
-                        box.style.height = `${numberOfNewNotifications * 65.5}px`;
+                        let heightCounter = 0;
+                        document.querySelectorAll('.sec').forEach((sec) => {
+                            heightCounter += sec.clientHeight;
+                        })
+                        box.style.height = `${heightCounter + (numberOfNewNotifications * 4)}px`;
+                        //box.style.height = `${numberOfNewNotifications * 65.5}px`;
                     }
                     else
                     box.style.height = `0px`;
@@ -211,26 +195,24 @@
             })
         },
         getPortalNotification: () => {
-            debugger
             let operationType = 'GET';
-            let notificationURL = '/_api/ava_portalnotifications?$select=ava_name,ava_portalnotificationid,createdon&$filter=_ava_portalcontact_value eq {{ user.id }} and ava_messageread eq false and statecode eq 0';
+            let notificationURL = '/_api/cmhc_pocportalnotifications?$select=cmhc_name,cmhc_pocportalnotificationid,createdon&$filter=_cmhc_portalcontact_value eq {{ user.id }} and cmhc_messageread eq false and statecode eq 0';
             appAjax({
                 type: operationType,
                 url: notificationURL,
                 contentType: "application/json",
                 success: (res, status, xhr) => {
-                    debugger;
                     var rows = ``;
                     res.value.forEach((notification) => {
                         rows += `
                             <div class="sec new">
                                 <div class="row">
                                     <div class="col-sm-10">
-                                        <div class="txt" id="notificationText">${notification.ava_name}</div>
+                                        <div class="txt" id="notificationText">${notification.cmhc_name}</div>
                                         <div class="txt sub" id="notificationCreatedon">${notification.createdon}</div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button class="deleteBtn" delete-id="${notification.ava_portalnotificationid}">
+                                        <button class="deleteBtn" delete-id="${notification.cmhc_portalnotificationid}">
                                             <span class="fa fa-trash"></span>
                                         </button>
                                     </div>
@@ -242,15 +224,18 @@
                     document.querySelector('.cont').innerHTML = rows;
 
                     document.querySelectorAll('.deleteBtn').forEach((btn) => {
-                        debugger;
                         btn.addEventListener('click', (e) => {
-                            debugger;
                             notifications.updateNotificationAsRead(e);
                         });
                     });
 
                     numberOfNewNotifications = res.value.length;
-                    document.querySelector('#notificationCount').textContent = numberOfNewNotifications;
+
+                    if (numberOfNewNotifications === 0)
+                        document.querySelector('#notificationCount').textContent = '';
+
+                    if (numberOfNewNotifications > 0)
+                        document.querySelector('#notificationCount').textContent = numberOfNewNotifications;
 
                     if (numberOfNewNotifications > numberOfOldNotifications){
                         document.querySelector('#notificationComponent').classList.toggle('shake');
@@ -260,23 +245,25 @@
 
                         numberOfOldNotifications = numberOfNewNotifications;
                     }
-                    else
-                        numberOfOldNotifications = numberOfNewNotifications;
+                    
+                    numberOfOldNotifications = numberOfNewNotifications;
                 },
             })
         },
         updateNotificationAsRead: (e) => {
             // when click trash can, mark notification as read
-            debugger;
-            let operationType = 'DELETE';
+            let operationType = 'PATCH';
             let notificationId = e.target.parentElement.getAttribute('delete-id');
-            let notificationURL = `/_api/ava_portalnotifications(${notificationId})`;
+            let myJsonObject = {
+                ava_messageread: true,
+            };
+            let notificationURL = `/_api/cmhc_pocportalnotifications(${notificationId})`;
             appAjax({
                 type: operationType,
                 url: notificationURL,
+                data: JSON.stringify(myJsonObject),
                 contentType: "application/json",
                 success: (res, status, xhr) => {
-                    debugger;
                     utils.showToastr('Notification cleared.', null, 'info');
                     notifications.getPortalNotification();
                 },

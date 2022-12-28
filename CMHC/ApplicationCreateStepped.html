@@ -1,21 +1,53 @@
+{% fetchxml getProgramMUMLI %}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="cmhc_program">
+      <attribute name="cmhc_name" />
+      <attribute name="cmhc_programid" />
+      <order attribute="cmhc_name" descending="false" />
+      <filter type="and">
+        <condition attribute="cmhc_name_en" operator="like" value="%MU MLI%" />
+      </filter>
+    </entity>
+  </fetch>
+{% endfetchxml %}
+{% if getProgramMUMLI.results.entities.size > 0 %}
+  {% assign programMuId = getProgramMUMLI.results.entities[0].cmhc_programid %}
+{% else %}
+    {% assign programMuId = null %}
+{% endif %}
+
 {% if request.params['id'] %}
     {% assign applicationId = request.params['id'] %}
     {% fetchxml fetchApplications %}
         <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
-            <entity name="ava_application">
-                <attribute name="createdon"/>
-                <attribute name="ava_taxrate"/>
-                <attribute name="ava_loanamount"/>
-                <attribute name="ava_applicationid"/>
-                <attribute name="ava_period"/>
-                <attribute name="ava_name"/>
-                <attribute name="ava_loanstartdate"/>
-                <order attribute="createdon" descending="true"/>
-                <filter type="and">
-                    <condition attribute="statecode" operator="eq" value="0"/>
-                    <condition attribute="ava_applicationid" operator="eq" value="{{ applicationId }}" />
-                    <condition attribute="ava_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}"/>
-                </filter>
+            <entity name="cmhc_muapplication">
+            <attribute name="cmhc_muapplicationid" />
+            <attribute name="cmhc_totalunitssubmitted" />
+            <attribute name="cmhc_totalrequestedloanamount" />
+            <attribute name="cmhc_totalbedssubmitted" />
+            <attribute name="cmhc_sheltermodel" />
+            <attribute name="cmhc_requireddocreceiveddate" />
+            <attribute name="cmhc_receiveddate" />
+            <attribute name="cmhc_programid" />
+            <attribute name="createdon" />
+            <attribute name="cmhc_originatorlendercontactid" />
+            <attribute name="cmhc_locationid" />
+            <attribute name="cmhc_islongtermcare" />
+            <attribute name="cmhc_isdocumentlanguage" />
+            <attribute name="cmhc_islanguageofdocumentsprovided" />
+            <attribute name="cmhc_eeandghglevelname" />
+            <attribute name="cmhc_comments" />
+            <attribute name="cmhc_loanpurpose" />
+            <attribute name="cmhc_isaffordablerentalhousing" />
+            <attribute name="cmhc_advancetype" />
+            <attribute name="cmhc_accessibilitylevelname" />
+            <order attribute="createdon" descending="true" />
+            <filter type="and">
+                <condition attribute="cmhc_programid" operator="eq" uiname="MU MLI" uitype="cmhc_program" value="{{ programMuId }}" />
+                <condition attribute="cmhc_originatorlendercontactid" operator="eq" uiname="MU Admin" uitype="contact" value="{{ user.id }}" />
+                <condition attribute="statecode" operator="eq" value="0" />
+                <condition attribute="cmhc_muapplicationid" operator="eq" uiname="00000000" uitype="cmhc_muapplication" value="{{ applicationId }}" />
+            </filter>
             </entity>
         </fetch>
     {% endfetchxml %}
@@ -27,14 +59,11 @@
 {% endif %}
 
 <style>
-    /*custom font*/
-    /* @import url(https://fonts.googleapis.com/css?family=Montserrat); */
-
-    /*form styles*/
     #msform {
         text-align: center;
         position: relative;
         margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     #msform fieldset {
@@ -81,7 +110,7 @@
         cursor: text;
     }
     
-    #msform input {
+    #msform input:not([type='radio']),select {
         border: 1px solid #fff;
         font-size: 1.2rem;
         padding: 0.6rem;
@@ -95,11 +124,11 @@
         border-radius: 0;
     }
 
-    #msform input:focus {
+    #msform input,select:focus {
         outline: none;
     }
 
-    #msform input:valid {
+    #msform input,select:valid {
         border-color: #444;
     }
 
@@ -108,6 +137,11 @@
     }
 
     #msform input:focus + label, #msform input.hasInput + label {
+        top: -0.8rem;
+        font-size: 0.7rem;
+    }
+
+    #msform select:focus + label, #msform select.hasInput + label {
         top: -0.8rem;
         font-size: 0.7rem;
     }
@@ -168,6 +202,8 @@
         overflow: hidden;
         /*CSS counters to number the steps*/
         counter-reset: step;
+        display: flex;
+        justify-content: center;
     }
 
     #progressbar li {
@@ -240,42 +276,152 @@
     }
 
 </style>
-<!-- <h1 style="text-align: center;">{{ snippets['Application/HeadTitle'] | default: "Start your application"  }}</h1>
-<strong>{{ editable snippets['Application/TitleInstruction'] | default: "Click to continue" }}</strong><br>
-{{ editable snippets['Application/DetailInstruction'] | default: 'When you are done filling up this form, click "continue" for the next step in the process.'}}  -->
-
 <!-- MultiStep Form -->
+ProgramID: {{ programMuId }}
 <div class="row">
     <div class="col-sm-12">
         <form id="msform">
             <!-- progressbar -->
             <ul id="progressbar">
                 <!-- fetch to query application ID for editting -->
-                <li class="active">Personal Details</li>
-                <li>Loan Information</li>
-                <li>Tax Information</li>
-                <li>Period Information</li>
+                <li class="active">Initial Application Info</li>
+                <li>MLI Flex Info</li>
+                <!-- <li>Tax Information</li>
+                <li>Period Information</li> -->
             </ul>
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Personal Details</h2>
-                <h3 class="fs-subtitle">Tell us something more about you</h3>
+                <h2 class="fs-title">Initial Application Info</h2>
+                <h3 class="fs-subtitle">Tell us something more about your application</h3>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="fieldgroup required">
-                            <input type="text" name="name" id="name" value="{{ application.ava_name }}" />
-                            <label for="name">Name</label>
+                            <!-- input-append input-group datetimepicker -->
+                            <input type="date" name="receivedDate" id="receivedDate" 
+                                class="hasInput" value='{{ application.cmhc_receiveddate | date: "yyyy-MM-dd" }}'
+                            />
+                            <label for="receivedDate">Received Date</label>
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <div class="fieldgroup">
+                                <select name="loanPurpose" class="optionSet hasInput pull-right" id="loanPurpose">
+                                </select>
+                                <label for="loanPurpose">Application Purpose</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <!-- input-append input-group datetimepicker -->
+                            <input type="date" name="docReceivedDate" id="docReceivedDate" 
+                                class="hasInput" value='{{ application.cmhc_requireddocreceiveddate | date: "yyyy-MM-dd" }}'
+                            />
+                            <label for="docReceivedDate">Doc Received Date</label>
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <div class="fieldgroup">
+                                <select name="shelterModel" class="optionSet hasInput pull-right" id="shelterModel">
+                                </select>
+                                <label for="shelterModel">Shelter Model</label>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <div class="fieldgroup">
+                                <div class="col-sm-6">
+                                    <input type="radio" class="hasInput" name="languagePreference" value="y" id="languagePreferenceen" />
+                                    text
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="radio" class="hasInput" name="languagePreference" value="z" id="languagePreferencefr" />
+                                    text
+                                </div>
+                                <!-- <radio name="languagePreference" class="optionSet hasInput pull-right" id="languagePreference">
+                                </select> -->
+                                <label for="languagePreferenceen">Language of Preference</label>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <select class="optionSet hasInput pull-right" name="affordableRentalHousing" id="affordableRentalHousing">
+                            </select>
+                            <label for="affordableRentalHousing">Afordable Rental Housing</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup">
+                            <select name="languageOfDocs" class="optionSet hasInput pull-right" id="languageOfDocs">
+                            </select>
+                            <label for="languageOfDocs">Language of Documents</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup">
+                            <select name="longTermCare" class="optionSet hasInput pull-right" id="longTermCare">
+                            </select>
+                            <label for="longTermCare">Long Term Care</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <input type="text" name="totalunitsSubmited" 
+                                id="totalunitsSubmited" value="{{ application.cmhc_totalunitssubmitted }}"
+                            />
+                            <label for="totalunitsSubmited">Total Units Submitted</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fieldgroup">
+                            <div class="fieldgroup">
+                                <select name="advanceType" class="optionSet hasInput pull-right" id="advanceType">
+                                </select>
+                                <label for="advanceType">Advance Type</label>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fieldgroup required">
+                            <input type="text" name="totalBedsSubmited" 
+                                id="totalBedsSubmited" value="{{ application.cmhc_totalbedssubmitted }}"
+                            />
+                            <label for="totalBedsSubmited">Total Beds Submitted</label>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="fieldgroup required">
-                            <!-- input-append input-group datetimepicker -->
-                            <input type="date" name="loanstartdate" id="loanstartdate" 
-                                class="hasInput" value='{{ application.ava_loanstartdate | date: "yyyy-MM-dd" }}'
+                            <input type="text" name="totalRequestedLoan" 
+                                id="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount }}"
                             />
-                            <label for="loanstartdate">Loan Start Date</label>
-                            </span>
-                        </div>
+                            <label for="totalRequestedLoan">Total Requested Loan</label>
+                        </div>                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="fieldgroup required">
+                            <input type="text" name="comments" 
+                                id="comments" value="{{ application.cmhc_comments }}"
+                            />
+                            <label for="comments">Additional Comments</label>
+                        </div>                       
                     </div>
                 </div>
                 <div class="row">
@@ -283,8 +429,8 @@
                 </div>
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Load Information</h2>
-                <h3 class="fs-subtitle">Your presence on the social network</h3>
+                <h2 class="fs-title">MLI Flex Info</h2>
+                <h3 class="fs-subtitle">Additional info for your application</h3>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="fieldgroup required">
@@ -295,10 +441,11 @@
                 </div>
                 <div class="row">
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Next"/>
+                    <input type="button" name="next" class="next action-button" value="Complete"/>
+                    <!-- <input type="button" name="next" class="next action-button" value="Next"/> -->
                 </div>
             </fieldset>
-            <fieldset>
+            <!--<fieldset>
                 <h2 class="fs-title">Tax Information</h2>
                 <h3 class="fs-subtitle">Provide tax information</h3>
                 <div class="row">
@@ -321,7 +468,6 @@
                     <div class="col-sm-12">
                         <div class="fieldgroup">
                             <select name="period" id="period">
-                                <!-- <option value="{{ application.ava_period }}">{{ application.ava_period.label }}</option> -->
                             </select>
                             <label for="period">Loan Period</label>
                         </div>
@@ -331,10 +477,10 @@
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                     <input type="button" name="next" class="next action-button" value="Complete"/>
                 </div>
-            </fieldset>
+            </fieldset> -->
             <fieldset>
-                <h2 class="fs-title">Period Information</h2>
-                <h3 class="fs-subtitle">Enter period for Loan</h3>
+                <h2 class="fs-title">Success</h2>
+                <h3 class="fs-subtitle"></h3>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="fieldgroup">
@@ -353,27 +499,66 @@
 <script type="module">
     import { utils as utils } from '../utils.js';
 
-    var urlApplications = '/_api/ava_applications';
-    sessionStorage.setItem("applicationId", "{{ application.ava_applicationid }}");
+    var urlApplications = '/_api/cmhc_muapplications';
+    sessionStorage.setItem("applicationId", "{{ application.cmhc_muapplicationid }}");
     var errMessageDisplay = false;
 
     const applicationFields = {
-        'name':'ava_name',
-        'loanamount' : 'ava_loanamount',
-        'taxrate' : 'ava_taxrate',
-        'period' : 'ava_period',
-        'loanstartdate': 'ava_loanstartdate'
+        'receivedDate':'cmhc_receiveddate',
+        'applicationPurpose' : 'cmhc_loanpurpose',
+        'docReceivedDate' : 'cmhc_requireddocreceiveddate',
+        'shelterModel':'cmhc_sheltermodel',
+        'languagePreference':'cmhc_isdocumentlanguage',
+        'affordableRentalHousing':'cmhc_isaffordablerentalhousing',
+        'languageOfDocs':'cmhc_islanguageofdocumentsprovided',
+        'longTermCare':'cmhc_islongtermcare',
+        'totalunitsSubmited':'cmhc_totalunitssubmitted',
+        'advanceType':'cmhc_advancetype',
+        'totalBedsSubmited':'cmhc_totalbedssubmitted',
+        'totalRequestedLoan':'cmhc_totalrequestedloanamount',
+        'comments':'cmhc_comments',
     };
-    const periodOptions = {
-        '3 Months' : 751960000,
-        '6 Months' : 751960001,
-        '12 Months' : 751960002,
+
+    const shelterModel = {
+        'Retirement Housing' : 0,
+        'Shelter' : 758280000,
+        'Single Room Occupancy' : 1,
+        'Standard Rental Housing' : 2,
+        'Student Housing':3,
+        'Supportive Housing':4,
+        'Transitional Housing':758280001,
     };
     
+    const loanPurpose = {
+        'Purchase' : 758280003,
+        'Purchase with Improvements' : 758280008,
+        'Refinance' : 758280005,
+        'Top Up Financing' : 758280009,
+        'Refinance Existing CMHC':758280010,
+        'Refinance with Improvements':758280011,
+        'RCFi - Conversion':758280012,
+        'Construction Financing':758280001,
+        'Completion Take-Out':758280004,
+        'NHCF - New Construction':758280000,
+        'NHCF - New Construction - Conversion':758280002,
+        'NHCF - Repairs/Renewal':758280006,
+        'NHCF - Repairs/Renewal - Conversion':758280007,
+    };
+
+    const advanceType = {
+        '<=2' : 1,
+        'Unlimited' : 2
+    }
+
     const application = {
         init: () => {
             application.setupFloatLabels();
-            application.setupPeriodOptions();
+            application.setupDropDowns(shelterModel, '#shelterModel', '{{ application.cmhc_sheltermodel.value }}');
+            application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ application.cmhc_loanpurpose.value }}');
+            application.setupDropDowns(advanceType, '#advanceType', '{{ application.cmhc_advancetype.value }}');
+            
+            // antigo
+            //application.setupDropDowns(periodOptions, '#period', '{{ application.ava_period.value }}');
 
             // Add event Listeners to the next buttons
             document.querySelectorAll('.next').forEach((button) => {
@@ -392,7 +577,7 @@
             // Create a call to open gates to acquire token and make future calls faster
             appAjax({
                 type: "GET",
-                url: "/_api/ava_applications?$select=ava_name&$top=1",
+                url: "/_api/cmhc_muapplications?$select=cmhc_programs&$top=1",
                 contentType: "application/json"
             });
 
@@ -419,14 +604,15 @@
         },
         assignClass: (element) => {
             // Different validation for different inputs
+            debugger;
             switch (element.type.toUpperCase()) {                            
-                case 'SELECT-ONE':
-                    if (element.value > 0) {
-                        element.className = 'hasInput';
-                    } else {
-                        element.className = '';
-                    }
-                    break;
+                // case 'SELECT-ONE':
+                //     if (element.value > 0) {
+                //         element.className = 'hasInput';
+                //     } else {
+                //         element.className = '';
+                //     }
+                //     break;
 
                 case 'TEXT':
                     if (element.value !== '') {
@@ -440,17 +626,26 @@
                     break;
             }
         },
-        setupPeriodOptions: () => {
-            var selectedPeriod = parseInt("{{ application.ava_period.value }}");
-            let periodField = document.querySelector('#period');
+        setupDropDowns: (optionSetVar, selector, dropDownValue) => {
+            var selectedOption = parseInt(dropDownValue);
+            let optionSetField = document.querySelector(selector);
 
-            Object.keys(periodOptions).forEach((key) => {
+            // Create empty option
+            if (dropDownValue === ''){
                 var option = document.createElement('option');
-                if (selectedPeriod && periodOptions[key] === selectedPeriod)
-                    option.selected = periodOptions[key];
-                option.value = periodOptions[key];
+                option.value = 10000000;
+                option.text = '';
+                option.selected = 10000000;
+                optionSetField.add(option);
+            }
+
+            Object.keys(optionSetVar).forEach((key) => {
+                var option = document.createElement('option');
+                if (selectedOption && optionSetVar[key] === selectedOption)
+                    option.selected = optionSetVar[key];
+                option.value = optionSetVar[key];
                 option.text = key;
-                periodField.add(option);
+                optionSetField.add(option);
             });
         },
         onNextClick: (button) => {
@@ -460,115 +655,55 @@
             let applicationId = sessionStorage.getItem("applicationId");
             
             if(animating) return false;
-                animating = true;
-                current_fs = button.target.closest('fieldset');
-                next_fs = button.target.closest('fieldset').nextElementSibling;
-                var fieldSetValid = true;
-                
-                current_fs.querySelectorAll('.required').forEach((child) => {
-                    child.childNodes.forEach((grandChild) => {
-                        if (grandChild && (grandChild.value === '')){
+            animating = true;
+            current_fs = button.target.closest('fieldset');
+            next_fs = button.target.closest('fieldset').nextElementSibling;
+            var fieldSetValid = true;
+            
+            current_fs.querySelectorAll('.required').forEach((child) => {
+                child.childNodes.forEach((grandChild) => {
+                    if (grandChild && (grandChild.value === '')){
+                        grandChild.classList.toggle('shake');
+                        grandChild.setAttribute('required','true');
+                        setTimeout(function() {
                             grandChild.classList.toggle('shake');
-                            grandChild.setAttribute('required','true');
-                            setTimeout(function() {
-                                grandChild.classList.toggle('shake');
-                            }, 300);
-                            
-                            // if (!errMessageDisplay) {
-                            //     errMessageDisplay = true;
-                            //     const errMessage = document.createElement('div');
-                            //     errMessage.innerHTML = 'This is a mandatory field.';
-                            //     errMessage.classList.add('errortext');
-                            //     grandChild.parentElement.appendChild(errMessage);
-
-                            //     setTimeout(function() {
-                            //         grandChild.parentElement.removeChild(errMessage);
-                            //         errMessageDisplay = false;
-                            //     }, 1000);
-                            // }
-                           
-                            fieldSetValid = false;
-                        }
-                    });
+                        }, 300);
+                        
+                        fieldSetValid = false;
+                    }
                 });
-                if (fieldSetValid){
-                    // choose to create or update existing
-                    // if statement checking sessionStorage applicationId
-                    console.log(`index: ${$("fieldset").index(next_fs)}`);
-                    if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
-                        application.createOnFirstStep(current_fs, applicationFields);
-                    else
-                        application.updateOnNextSteps(current_fs, applicationFields);
+            });
+            if (fieldSetValid){
+                // choose to create or update existing
+                // if statement checking sessionStorage applicationId
+                console.log(`index: ${$("fieldset").index(next_fs)}`);
+                if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
+                    application.createOnFirstStep(current_fs, applicationFields);
+                else
+                    application.updateOnNextSteps(current_fs, applicationFields);
 
-                    //activate next step on progressbar using the index of next_fs
-                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                    
-                    //show the next fieldset
-                    $(next_fs).show(); 
-                    
-                    //hide the current fieldset with style
-                    debugger;
-                    $(current_fs).animate({opacity: 0}, {
-                        step: function(now, mx) {
-                            //as the opacity of current_fs reduces to 0 - stored in "now"
-                            //1. scale current_fs down to 80%
-                            scale = 1 - (1 - now) * 0.2;
-                            //2. bring next_fs from the right(50%)
-                            left = (now * 50)+"%";
-                            //3. increase opacity of next_fs to 1 as it moves in
-                            opacity = 1 - now;
-                            $(current_fs).css({
-                                'transform': 'scale('+scale+')',
-                                'position': 'absolute'
-                            });
-                            $(next_fs).css({'left': left, 'opacity': opacity});
-                        }, 
-                        duration: 800, 
-                        complete: function(){
-                            $(current_fs).hide();
-                            animating = false;
-                        }, 
-                        //this comes from the custom easing plugin
-                        easing: 'easeInOutBack'
-                    });
-                }
-                else {
-                    //application.setupFormAnimation();
-                };
-        },
-        onPreviousClick: (button) => {
-            debugger;
-            var current_fs, next_fs, previous_fs; //fieldsets
-            var left, opacity, scale; //fieldset properties which we will animate
-            var animating; //flag to prevent quick multi-click glitches
-            let applicationId = sessionStorage.getItem("applicationId");
-            if(animating) return false;
-                animating = true;
+                //activate next step on progressbar using the index of next_fs
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
                 
-                current_fs = button.target.closest('fieldset');
-                previous_fs = button.target.closest('fieldset').previousElementSibling;
+                //show the next fieldset
+                $(next_fs).show(); 
                 
-                //de-activate current step on progressbar
-                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-                
-                console.log(`index: ${$("fieldset").index(previous_fs)}`);
-
-                //show the previous fieldset
-                //previous_fs.show(); 
-                $(previous_fs).show();
-
                 //hide the current fieldset with style
+                debugger;
                 $(current_fs).animate({opacity: 0}, {
                     step: function(now, mx) {
                         //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale previous_fs from 80% to 100%
-                        scale = 0.8 + (1 - now) * 0.2;
-                        //2. take current_fs to the right(50%) - from 0%
-                        left = ((1-now) * 50)+"%";
-                        //3. increase opacity of previous_fs to 1 as it moves in
+                        //1. scale current_fs down to 80%
+                        scale = 1 - (1 - now) * 0.2;
+                        //2. bring next_fs from the right(50%)
+                        left = (now * 50)+"%";
+                        //3. increase opacity of next_fs to 1 as it moves in
                         opacity = 1 - now;
-                        $(current_fs).css({'left': left});
-                        $(previous_fs).css({'transform': 'scale('+scale+')', 'opacity': opacity});
+                        $(current_fs).css({
+                            'transform': 'scale('+scale+')',
+                            'position': 'absolute'
+                        });
+                        $(next_fs).css({'left': left, 'opacity': opacity});
                     }, 
                     duration: 800, 
                     complete: function(){
@@ -578,12 +713,55 @@
                     //this comes from the custom easing plugin
                     easing: 'easeInOutBack'
                 });
-                //application.setupFormAnimation();
+            }
+        },
+        onPreviousClick: (button) => {
+            debugger;
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var left, opacity, scale; //fieldset properties which we will animate
+            var animating; //flag to prevent quick multi-click glitches
+            let applicationId = sessionStorage.getItem("applicationId");
+            if(animating) return false;
+            animating = true;
+            
+            current_fs = button.target.closest('fieldset');
+            previous_fs = button.target.closest('fieldset').previousElementSibling;
+            
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+            
+            console.log(`index: ${$("fieldset").index(previous_fs)}`);
+
+            //show the previous fieldset
+            //previous_fs.show(); 
+            $(previous_fs).show();
+
+            //hide the current fieldset with style
+            $(current_fs).animate({opacity: 0}, {
+                step: function(now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1-now) * 50)+"%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    $(current_fs).css({'left': left});
+                    $(previous_fs).css({'transform': 'scale('+scale+')', 'opacity': opacity});
+                }, 
+                duration: 800, 
+                complete: function(){
+                    $(current_fs).hide();
+                    animating = false;
+                }, 
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
         },
         createOnFirstStep: (current_fs, fieldset) => {
             let myJsonObject = {};
             myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
-            myJsonObject['ava_contactapplicant@odata.bind']  = `/contacts({{ user.id }})`;
+            myJsonObject['cmhc_originatorlendercontactid@odata.bind']  = `/contacts({{ user.id }})`;
             
             let operationType = 'POST';
 

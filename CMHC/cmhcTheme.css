@@ -136,6 +136,11 @@ body {
   .cmhc-page p {
     font-size: 14px;
   }
+
+  .cmhc-page a {
+    text-decoration: none !important;
+  }
+
   .cmhc-page a:hover {
     text-decoration: none !important;
   }
