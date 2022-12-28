@@ -1,3 +1,4 @@
+{% include 'Loading Spinner' %}
 <style>
     #msform {
         text-align: center;
@@ -49,22 +50,31 @@
         height: 100px;
     }
 
-    .drop-area {
+    /* .drop-area {
         border: 2px dashed #ccc;
         border-radius: 20px;
         width: 480px;
         font-family: sans-serif;
         margin: 100px auto;
         padding: 20px;
+    } */
+
+    .drop-area {
+        border: 2px dashed #ccc;
+        border-radius: 20px;
+        width: auto;
+        font-family: sans-serif;
+        padding: 20px;
     }
+
     .drop-area.highlight {
         border-color: #29649c;
     }
 
     .table-area {
-        width: 80%;
+        width: 100%;
         font-family: sans-serif;
-        margin: 0px auto;
+        /* margin: 0px auto; */
     }
 
     .crmEntityFormView, .entitylist, .modal-content, .popover-content {
@@ -100,86 +110,89 @@
     }
 
 </style>
-<div class="row drop-area">
-    <div class="col-sm-12">
-        <form id="msform">
-            <fieldset>
-                <p>Drag and drop the file here</p>
-                <div class="fieldgroup required">
-                    <div id="dropzone" class="hasInput">
-                        <p>drop zone</i>.</p>
-                    </div>                    
-                </div>
-            </fieldset>
-        </form>
+<div class="overlay"></div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="row drop-area">
+            <div class="col-sm-12">
+                <form id="msform">
+                    <fieldset>
+                        <p>Drag and drop the file here</p>
+                        <div class="fieldgroup required">
+                            <div id="dropzone" class="hasInput">
+                                <p>drop zone</i>.</p>
+                            </div>                    
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="row table-area">
-	<div class="entitylist">
-        <div class="view-toolbar grid-actions clearfix">
-            <div class="pull-left toolbar-actions">
-                <div class="input-group pull-left view-search entitylist-search">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-primary" id="submitTable">Submit
-                        </button>
+    <div class="col-sm-8">
+        <div class="table-area">
+            <div class="entitylist">
+                <div class="view-toolbar grid-actions clearfix">
+                    <div class="pull-left toolbar-actions">
+                        <div class="input-group pull-left view-search entitylist-search">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-primary" id="submitTable">Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>				
+                    <div class="pull-right toolbar-actions">
+                        <div class="input-group pull-left view-search entitylist-search">
+                            <input placeholder="Search" class="form-control">
+                        </div>
                     </div>
                 </div>
-            </div>				
-            <div class="pull-right toolbar-actions">
-                <div class="input-group pull-left view-search entitylist-search">
-                    <input placeholder="Search" class="form-control">
-                    <div class="input-group-btn" role="presentation">
-                        <button type="button" aria-label="Search Results" title="Search Results" class="btn btn-default btn-hg">
-                        <span class="sr-only">Search Results</span>
-                        <span class="fa fa-search"></span>
-                        </button>
-                    </div>
+                <div class="view-grid has-pagination">
+                    <table role="grid" class="table table-striped table-fluid" id="importedrows">
+                        <thead>
+                            <tr>
+                                <th class="sort-enabled cmhc-font-12" data-sort="name">
+                                    Name<span class="sr-only sort-hint">. sort descending</span>
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="loanamount">
+                                    Loan Amount<span class="sr-only sort-hint">. sort descending</span>
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="taxamount">
+                                    Tax rate
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="view-loading message text-center" style="display: none;">
+                    <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
+                </div>
+                <!-- New Pagination -->
+                <div class='pagination-container' >
+                    <nav>
+                        <ul class="pagination">
+                            <li data-page="prev" >
+                                <span> << <span class="sr-only">(current)</span></span>
+                            </li>
+                            <!--	Here the JS Function Will Add the Rows -->
+                            <li data-page="next" id="prev">
+                                <span> >> <span class="sr-only">(current)</span></span>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
-        <div class="view-grid has-pagination">
-            <table role="grid" class="table table-striped table-fluid" id="importedrows">
-                <thead>
-                    <tr>
-                        <th class="sort-enabled cmhc-font-12" data-sort="name">
-                            Name<span class="sr-only sort-hint">. sort descending</span>
-                        </th>
-                        <th class="sort-enabled cmhc-font-12" data-sort="loanamount">
-                            Loan Amount<span class="sr-only sort-hint">. sort descending</span>
-                        </th>
-                        <th class="sort-enabled cmhc-font-12" data-sort="taxamount">
-                            Tax rate
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="view-loading message text-center" style="display: none;">
-            <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
-        </div>
-        <!-- New Pagination -->
-        <div class='pagination-container' >
-            <nav>
-                <ul class="pagination">
-                    <li data-page="prev" >
-                        <span> << <span class="sr-only">(current)</span></span>
-                    </li>
-                    <!--	Here the JS Function Will Add the Rows -->
-                    <li data-page="next" id="prev">
-                        <span> >> <span class="sr-only">(current)</span></span>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-	</div>
+    </div>
 </div>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
+<script type="module">
+    import { utils as utils } from '../utils.js';
     let table, sortCol;
     var XL_row_object, tableRows;
     let sortAsc = false;
@@ -203,19 +216,46 @@
             });
 
             document.querySelector('#submitTable').addEventListener('click', (event) => {
+                upload.showHideLoader();
                 debugger;
                 var tableRows = document.querySelectorAll('#importedrows tbody tr');
-                var jsonObjectArray = [{}];
-                var jsonObject = {};
+                if (tableRows.length === 0){
+                    upload.showHideLoader();
+                    utils.showToastr('Please import the file before submitting the data.', null, 'error');
+                    return;
+                }
+                var jsonObjectArray = [];
                 let counter = 0;
-                tableRows.forEach(row => {
-                    row.forEach(field => {
-                        jsonObject.name = field.innerText;
-                        console.log(`line ${counter}: ${field.innerText}`);
+                Object.keys(tableRows).forEach(line => {
+                    var jsonObject = {};
+                    jsonObject["contactid"] = '{{ user.id }}';
+                    let tdObject = tableRows[line].children;
+                    Object.keys(tdObject).forEach(child => {
+                        console.log(`"${tableRows[line].children[child].dataset.name}" : "${tdObject[child].innerText}"`);
+                        jsonObject[tableRows[line].children[child].dataset.name] = tdObject[child].innerText;
                     });
-                    counter++;
+                    jsonObjectArray.push(jsonObject);
                 });
-                
+                console.log(jsonObjectArray);
+
+                let operationType = "POST";
+                var urlApplications = "https://prod-73.westus.logic.azure.com:443/workflows/9a38f0ef7ff142a996bb238937310602/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XOPOno2cXd4pV3-pPyOB6Vbx0gNHHZTgaj6A3uAJgVo";
+                fetch(urlApplications, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify(jsonObjectArray)
+                })
+                .then((response) => { 
+                    if (response.ok) {
+                        upload.showHideLoader();
+                        utils.showToastr('Load sent successfuly. It will be processed by a workflow in the backend');
+                        tableRows.innerHTML = '';
+                    }
+                    else
+                        utils.showToastr('There was an error processing the file. Please contact your advisor.', null, 'error');
+                });
             })
 
             // document.querySelector('#importedrows').addEventListener('click', (item) => {
@@ -230,12 +270,16 @@
             // });
 
         },
+        showHideLoader: (event) => {
+            document.querySelector('body').classList.toggle('loading');
+        },
         fileBeingDropped: (eventName) => {
             document.querySelector('.drop-area').classList.add('highlight');
             eventName.stopPropagation();
             eventName.preventDefault();
         },
         readFromFile: (eventName) => {
+            upload.showHideLoader();
             let dropbox = document.getElementById("dropzone");
             document.querySelector('.drop-area').classList.remove('highlight');
             eventName.stopPropagation();
@@ -268,6 +312,7 @@
                 };
                 reader.readAsBinaryString(dt);
             }
+            upload.showHideLoader();
         },
         renderTable: () => {
             let result = '';
@@ -275,9 +320,9 @@
             XL_row_object.forEach((row) => {
                 result += `
                     <tr>
-                    <td contentEditable>${row.name}</td>
-                    <td contentEditable>${row.loanamount}</td>
-                    <td contentEditable>${row.taxamount}</td>
+                    <td contentEditable data-name="name">${row.name}</td>
+                    <td contentEditable data-name="loanamount">${row.loanamount}</td>
+                    <td contentEditable data-name="taxamount">${row.taxamount}</td>
                     </tr>
                 `;
             });
@@ -322,7 +367,6 @@
                     $(this).show();
                 }
             });
-            debugger;
             if (totalRows > maxRows) {
                 var pagenum = Math.ceil(totalRows / maxRows);
                 for (var i = 1; i <= pagenum; ) {
@@ -333,7 +377,6 @@
             }
             $('.pagination [data-page="1"]').addClass('active');
             $('.pagination li').on('click', function(evt) {
-                debugger;
                 evt.stopImmediatePropagation();
                 evt.preventDefault();
                 var pageNum = $(this).attr('data-page'); // get it's number
@@ -366,7 +409,6 @@
                 upload.limitPagging();
                 
                 $(table + ' tr:gt(0)').each(function() {
-                    debugger;
                     trIndex++;
                     if (
                         trIndex > maxRows * pageNum ||

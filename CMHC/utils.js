@@ -1,5 +1,5 @@
 export const utils = { 
-    showToastr: (message = null, confirmation = false) => {
+    showToastr: (message = null, confirmation = false, type = 'info') => {
         debugger;
         if (message){
             toastr.options = {
@@ -20,9 +20,9 @@ export const utils = {
                 "hideMethod": "fadeOut"
             }
             if (confirmation)
-                toastr["info"](`${message}<br /><button type="button" class="btn clear">Yes</button>`);
+                toastr[type](`${message}<br /><button type="button" class="btn clear">Yes</button>`);
             else
-                toastr["info"](`${message}`);
+                toastr[type](`${message}`);
         }
     },
 }

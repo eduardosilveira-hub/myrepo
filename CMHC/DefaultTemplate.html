@@ -36,8 +36,14 @@
     </div>
   </div>
 </div>
+<script type="module">
+  import {utils as utils} from '../utils.js';
+  function toastr(message){ 
+    utils.showToastr(`Error: ${response.responseJSON.error.message}`, null, 'error');
+  }
+</script>
 <script>
-	(function(webapi, $){
+ 	(function(webapi, $){
 		function safeAjax(ajaxOptions) {
 			var deferredAjax = $.Deferred();
 	
@@ -71,9 +77,10 @@
     return webapi.safeAjax(ajaxOptions)
       .fail(function(response) {
         if (response.responseJSON) {
-          alert("Error: " + response.responseJSON.error.message)
+          alert(`Error: ${response.responseJSON.error.message}`);
         } else {
-          alert("Error: Web API is not available... ")
+          // utils.showToastr('Error: Web API is not available...');
+          alert(`Error: Web API is not available...`);
         }
       })
       // .always(notificationMsg.hide);

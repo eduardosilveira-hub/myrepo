@@ -1,0 +1,13 @@
+{% fetchxml query %}
+  <fetch version="1.0" mapping="logical">
+    <!-- Write FetchXML here, use Liquid in here if you want, to build XML dynamically. -->
+  </fetch>
+{% endfetchxml %}
+  
+{{ query.xml | escape }}
+{{ query.results.total_record_count }}
+{{ query.results.more_records }}
+{{ query.results.paging_cookie | escape }}
+{% for result in query.results.entities %}
+  {{ result.id | escape }}
+{% endfor %}

@@ -54,7 +54,7 @@
     transition: all 0.5s ease;
   }
   .menubtn.click {
-    right: 307px;
+    right: 310px;
   }
   .menubtn i {
     color: white;
@@ -153,23 +153,12 @@
   nav ul li a span.rotate {
     transform: translateY(-50%) rotate(-180deg);
   }
-  /* .content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: #202020;
-  z-index: -1;
-  text-align: center;
-} */
+
   .content .header {
     font-size: 45px;
     font-weight: 600;
   }
-  /* .content p{
-  font-size: 30px;
-  font-weight: 500;
-} */
+
 </style>
 
 {% assign defaultlang = settings['LanguageLocale/Code'] | default: 'en-us' %} 
@@ -193,6 +182,7 @@
     <div class="visible-sm-block visible-md-block visible-lg-block visible-xs-block navbar-brand cmhc-logo">
       <a href="/"><img class="imgLogo" src="/Logo.png" /></a>
     </div>
+    {% include 'Notification Component' %}
     <div class="menubtn">
       <i class="fa-solid fa-bars-staggered"></i>
     </div>
@@ -356,6 +346,7 @@
   menuBtn.addEventListener('click', (el) => {
     menuBtn.classList.toggle('click');
     document.querySelector('.sidebar').classList.toggle('show');
+    document.querySelector('#notificationComponent').classList.toggle('move');
   });
   
   // When a menu with submenus clicked - rotate the down arrow
