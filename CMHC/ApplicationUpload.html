@@ -125,10 +125,9 @@
                 <div class="view-toolbar grid-actions clearfix">
                     <div class="pull-left toolbar-actions">
                         <div class="input-group pull-left view-search entitylist-search">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-primary" id="submitTable">Submit
-                                </button>
-                            </div>
+                            <input type="button" name="submit" class="next action-button" value="Submit" id="submitTable"/>
+                            <!-- <div class="input-group-btn">
+                            </div> -->
                         </div>
                     </div>				
                     <div class="pull-right toolbar-actions">
@@ -207,46 +206,7 @@
             });
 
             document.querySelector('#submitTable').addEventListener('click', (event) => {
-                upload.showHideLoader();
-                debugger;
-                var tableRows = document.querySelectorAll('#importedrows tbody tr');
-                if (tableRows.length === 0){
-                    upload.showHideLoader();
-                    utils.showToastr('Please import the file before submitting the data.', null, 'error');
-                    return;
-                }
-                var jsonObjectArray = [];
-                let counter = 0;
-                Object.keys(tableRows).forEach(line => {
-                    var jsonObject = {};
-                    jsonObject["contactid"] = '{{ user.id }}';
-                    let tdObject = tableRows[line].children;
-                    Object.keys(tdObject).forEach(child => {
-                        console.log(`"${tableRows[line].children[child].dataset.name}" : "${tdObject[child].innerText}"`);
-                        jsonObject[tableRows[line].children[child].dataset.name] = tdObject[child].innerText;
-                    });
-                    jsonObjectArray.push(jsonObject);
-                });
-                console.log(jsonObjectArray);
-
-                let operationType = "POST";
-                var urlApplications = "https://prod-73.westus.logic.azure.com:443/workflows/9a38f0ef7ff142a996bb238937310602/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XOPOno2cXd4pV3-pPyOB6Vbx0gNHHZTgaj6A3uAJgVo";
-                fetch(urlApplications, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type':'application/json'
-                    },
-                    body: JSON.stringify(jsonObjectArray)
-                })
-                .then((response) => { 
-                    if (response.ok) {
-                        upload.showHideLoader();
-                        utils.showToastr('Load sent successfuly. It will be processed by a workflow in the backend');
-                        tableRows.innerHTML = '';
-                    }
-                    else
-                        utils.showToastr('There was an error processing the file. Please contact your advisor.', null, 'error');
-                });
+                upload.submitData();
             })
 
             // document.querySelector('#importedrows').addEventListener('click', (item) => {
@@ -260,6 +220,47 @@
                 // }
             // });
 
+        },
+        submitData: () => {
+            upload.showHideLoader();
+            var tableRows = document.querySelectorAll('#importedrows tbody tr');
+            if (tableRows.length === 0){
+                upload.showHideLoader();
+                utils.showToastr('Please import the file before submitting the data.', null, 'error');
+                return;
+            }
+            var jsonObjectArray = [];
+            let counter = 0;
+            Object.keys(tableRows).forEach(line => {
+                var jsonObject = {};
+                jsonObject["contactid"] = '{{ user.id }}';
+                let tdObject = tableRows[line].children;
+                Object.keys(tdObject).forEach(child => {
+                    console.log(`"${tableRows[line].children[child].dataset.name}" : "${tdObject[child].innerText}"`);
+                    jsonObject[tableRows[line].children[child].dataset.name] = tdObject[child].innerText;
+                });
+                jsonObjectArray.push(jsonObject);
+            });
+            console.log(jsonObjectArray);
+
+            let operationType = "POST";
+            var urlApplications = "https://prod-73.westus.logic.azure.com:443/workflows/9a38f0ef7ff142a996bb238937310602/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XOPOno2cXd4pV3-pPyOB6Vbx0gNHHZTgaj6A3uAJgVo";
+            fetch(urlApplications, {
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(jsonObjectArray)
+            })
+            .then((response) => { 
+                if (response.ok) {
+                    upload.showHideLoader();
+                    utils.showToastr('Load sent successfuly. It will be processed by a workflow in the backend');
+                    tableRows.innerHTML = '';
+                }
+                else
+                    utils.showToastr('There was an error processing the file. Please contact your advisor.', null, 'error');
+            });
         },
         showHideLoader: (event) => {
             document.querySelector('body').classList.toggle('loading');

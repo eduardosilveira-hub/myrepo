@@ -11,7 +11,7 @@
   </fetch>
 {% endfetchxml %}
 {% if getProgramMUMLI.results.entities.size > 0 %}
-  {% assign programMuId = getProgramMUMLI.results.entities[0].cmhc_programid %}
+  {% assign programMuId = getProgramMUMLI.results.entities[0] %}
 {% else %}
     {% assign programMuId = null %}
 {% endif %}
@@ -60,7 +60,6 @@
 
 <style>
     #msform {
-        text-align: center;
         position: relative;
         margin-top: 30px;
         margin-bottom: 30px;
@@ -73,8 +72,8 @@
         box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
         padding: 20px 30px;
         box-sizing: border-box;
-        width: 80%;
-        margin: 0 10%;
+        width: 100%;
+        /* margin: 0 10%; */
 
         /*stacking fieldsets above each other*/
         position: relative;
@@ -86,100 +85,14 @@
     }
 
     #msform label {
-        position: absolute;
-        top: 0.8rem;
-        left: 0;
-        display: block;
-        font-size: 1rem;
-        transition: 0.2s ease-out;
-        opacity: 0.5;
-        will-change: top, font-size;
-    }
-
-    #msform .fieldgroup {
-        margin: 1.5rem 0;
-        position: relative;
-    }
-
-    .fieldgroup.required label:after {
-        content:"*";
-        color:red;
-    }
-
-    #msform label:hover {
-        cursor: text;
-    }
-    
-    #msform input:not([type='radio']),select {
-        border: 1px solid #fff;
-        font-size: 1.2rem;
-        padding: 0.6rem;
-        padding-left: 0;
-        background: transparent;
-        border: none;
-        border-bottom: 2px solid #444;
-        transition: 0.2s;
-        width: calc(100% - .6rem);
-        /* max-width: 350px; */
-        border-radius: 0;
-    }
-
-    #msform input,select:focus {
-        outline: none;
-    }
-
-    #msform input,select:valid {
-        border-color: #444;
-    }
-
-    #msform input:invalid {
-        border-color: #aa3030;
-    }
-
-    #msform input:focus + label, #msform input.hasInput + label {
-        top: -0.8rem;
-        font-size: 0.7rem;
-    }
-
-    #msform select:focus + label, #msform select.hasInput + label {
-        top: -0.8rem;
-        font-size: 0.7rem;
-    }
-
-    /*buttons*/
-    #msform .action-button {
-        width: 100px;
-        background: #0056b3;
-        font-weight: bold;
-        color: white;
-        border: 0 none;
-        border-radius: 25px;
-        cursor: pointer;
-        padding: 10px 5px;
-        margin: 10px 5px;
-    }
-
-    #msform .action-button:hover, #msform .action-button:focus {
-        box-shadow: 0 0 0 2px white, 0 0 0 3px #0056b3;
-    }
-
-    #msform .action-button-previous {
-        width: 100px;
-        background: #C5C5F1;
-        font-weight: bold;
-        color: white;
-        border: 0 none;
-        border-radius: 25px;
-        cursor: pointer;
-        padding: 10px 5px;
-        margin: 10px 5px;
-    }
-
-    #msform .action-button-previous:hover, #msform .action-button-previous:focus {
-        box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+        font-weight:normal;
     }
 
     /*headings*/
+    #msform .fs-title,.fs-subtitle, #progressbar,#progressbar li, button {
+        text-align: center;
+    }
+
     .fs-title {
         font-size: 18px;
         text-transform: uppercase;
@@ -220,7 +133,7 @@
     #progressbar li:before {
         content: counter(step);
         counter-increment: step;
-        width: 24px;
+        width: 25px;
         height: 24px;
         line-height: 26px;
         display: block;
@@ -255,32 +168,11 @@
         color: white;
     }
 
-
-    /* Shake effect on form validation */
-    .shake {
-        animation: shake 0.3s; 
-        animation-iteration-count: infinite; 
-    }
-
-    @keyframes shake {
-        0% { transform: translate(1px, 1px) rotate(0deg); }
-        20% { transform: translate(-3px, 0px) rotate(1deg); }
-        40% { transform: translate(1px, -1px) rotate(1deg); }
-        60% { transform: translate(-3px, 1px) rotate(0deg); }
-        80% { transform: translate(-1px, -1px) rotate(1deg); }
-        100% { transform: translate(1px, -2px) rotate(-1deg); }
-    }
-
-    .errortext{
-        color:red;
-    }
-
 </style>
 <!-- MultiStep Form -->
-ProgramID: {{ programMuId }}
 <div class="row">
     <div class="col-sm-12">
-        <form id="msform">
+        <form id="msform" class="form-group">
             <!-- progressbar -->
             <ul id="progressbar">
                 <!-- fetch to query application ID for editting -->
@@ -295,137 +187,155 @@ ProgramID: {{ programMuId }}
                 <h3 class="fs-subtitle">Tell us something more about your application</h3>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <!-- input-append input-group datetimepicker -->
-                            <input type="date" name="receivedDate" id="receivedDate" 
-                                class="hasInput" value='{{ application.cmhc_receiveddate | date: "yyyy-MM-dd" }}'
-                            />
-                            <label for="receivedDate">Received Date</label>
-                            </span>
-                        </div>                        
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <div class="fieldgroup">
-                                <select name="loanPurpose" class="optionSet hasInput pull-right" id="loanPurpose">
-                                </select>
-                                <label for="loanPurpose">Application Purpose</label>
-                            </div>
+                        <div class="form-group required">
+                            <label for="receivedDate" class="control-label">Received Date</label>
+                            <input type="date" class="form-control" name="receivedDate" id="receivedDate" aria-describedby="receivedDate" value='{{ application.cmhc_receiveddate | date: "yyyy-MM-dd" }}'>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <!-- input-append input-group datetimepicker -->
-                            <input type="date" name="docReceivedDate" id="docReceivedDate" 
-                                class="hasInput" value='{{ application.cmhc_requireddocreceiveddate | date: "yyyy-MM-dd" }}'
-                            />
-                            <label for="docReceivedDate">Doc Received Date</label>
-                            </span>
-                        </div>                        
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <div class="fieldgroup">
-                                <select name="shelterModel" class="optionSet hasInput pull-right" id="shelterModel">
-                                </select>
-                                <label for="shelterModel">Shelter Model</label>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <div class="fieldgroup">
-                                <div class="col-sm-6">
-                                    <input type="radio" class="hasInput" name="languagePreference" value="y" id="languagePreferenceen" />
-                                    text
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="radio" class="hasInput" name="languagePreference" value="z" id="languagePreferencefr" />
-                                    text
-                                </div>
-                                <!-- <radio name="languagePreference" class="optionSet hasInput pull-right" id="languagePreference">
-                                </select> -->
-                                <label for="languagePreferenceen">Language of Preference</label>
-                            </div>
-                        </div>                        
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <select class="optionSet hasInput pull-right" name="affordableRentalHousing" id="affordableRentalHousing">
+                        <div class="form-group required">
+                            <label for="loanPurpose" class="control-label">Application Purpose</label>
+                            <select name="loanPurpose" class="form-control" id="loanPurpose" aria-describedby="loanPurpose">
                             </select>
-                            <label for="affordableRentalHousing">Afordable Rental Housing</label>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="fieldgroup">
-                            <select name="languageOfDocs" class="optionSet hasInput pull-right" id="languageOfDocs">
-                            </select>
-                            <label for="languageOfDocs">Language of Documents</label>
+                        <div class="form-group required">
+                            <label for="docReceivedDate" class="control-label">Doc Received Date</label>
+                            <input type="date" name="docReceivedDate" id="docReceivedDate" class="form-control" value='{{ application.cmhc_requireddocreceiveddate | date: "yyyy-MM-dd" }}'>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="fieldgroup">
-                            <select name="longTermCare" class="optionSet hasInput pull-right" id="longTermCare">
+                        <div class="form-group required">
+                            <label for="shelterModel" class="control-label">Shelter Model</label>
+                            <select name="shelterModel" class="form-control" id="shelterModel" aria-describedby="shelterModel">
                             </select>
-                            <label for="longTermCare">Long Term Care</label>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <input type="text" name="totalunitsSubmited" 
-                                id="totalunitsSubmited" value="{{ application.cmhc_totalunitssubmitted }}"
-                            />
-                            <label for="totalunitsSubmited">Total Units Submitted</label>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="languagePreference" class="control-label">Language of Preference</label>
+                            <select name="languagePreference" class="form-control" id="languagePreference" aria-describedby="languagePreference">
+                            </select>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="fieldgroup">
-                            <div class="fieldgroup">
-                                <select name="advanceType" class="optionSet hasInput pull-right" id="advanceType">
-                                </select>
-                                <label for="advanceType">Advance Type</label>
+                        <!-- <div class="col">
+                            <div class="form-group required">
+                                <label for="languagePreferenceenglish" class="control-label">Language of Preference &nbsp;&nbsp;</label>
+                                <input class="form-check-input" type="radio" name="languagePreference" id="languagePreferenceenglish" value="">
+                                <label class="form-check-label" for="languagePreferenceenglish"></label>
+                                &nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" name="languagePreference" id="languagePreferencefrench" value="">
+                                <label class="form-check-label" for="languagePreferencefrench"></label>
                             </div>
-                        </div>                        
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="languageOfDocs" class="control-label">Language of Documents</label>
+                            <select name="languageOfDocs" class="form-control" id="languageOfDocs" aria-describedby="languageOfDocs">
+                            </select>
+                        </div>
+                        <!-- <div class="col">
+                            <div class="form-group">
+                                <label for="languageOfDocs" class="control-label">Language of Documents &nbsp;&nbsp;</label>
+                                <input class="form-check-input" type="radio" name="languageOfDocs" id="languageOfDocsenglish" value="">
+                                <label class="form-check-label" for="languageOfDocsenglish"></label>
+                                &nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" name="languageOfDocs" id="languageOfDocsfrench" value="">
+                                <label class="form-check-label" for="languageOfDocsfrench"></label>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="affordableRentalHousing" class="control-label">Afordable Rental Housing</label>
+                            <select name="affordableRentalHousing" class="form-control" id="affordableRentalHousing" aria-describedby="affordableRentalHousing">
+                            </select>
+                        </div>
+                        <!-- <div class="col">
+                            <div class="form-group required">
+                                <label for="affordableRentalHousing" class="control-label">Afordable Rental Housing &nbsp;&nbsp;</label>
+                                <input class="form-check-input" type="radio" name="affordableRentalHousing" id="languagePreferenceYes" value="">
+                                <label class="form-check-label" for="languagePreferenceYes"></label>
+                                &nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" name="affordableRentalHousing" id="languagePreferenceNo" value="">
+                                <label class="form-check-label" for="languagePreferenceNo"></label>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <input type="text" name="totalBedsSubmited" 
-                                id="totalBedsSubmited" value="{{ application.cmhc_totalbedssubmitted }}"
+                        <div class="form-group">
+                            <label for="longTermCare" class="control-label">Long Term Care</label>
+                            <select name="longTermCare" class="form-control" id="longTermCare" aria-describedby="longTermCare">
+                            </select>
+                        </div>
+                        <!-- <div class="col">
+                            <div class="form-group">
+                                <label for="longTermCare" class="control-label">Long Term Care &nbsp;&nbsp;</label>
+                                <input class="form-check-input" type="radio" name="longTermCare" id="longTermCareYes" value="">
+                                <label class="form-check-label" for="longTermCareYes"></label>
+                                &nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" name="longTermCare" id="longTermCareNo" value="">
+                                <label class="form-check-label" for="longTermCareNo"></label>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="advanceType" class="control-label">Advance Type</label>
+                            <select name="advanceType" class="form-control" id="advanceType" aria-describedby="advanceType">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="totalunitsSubmitted" class="control-label">Total Units Submitted</label>
+                            <input type="text" name="totalunitsSubmitted" class="form-control" 
+                                id="totalunitsSubmitted" decimal-type="yes" aria-describedby="totalunitsSubmitted" value="{{ application.cmhc_totalunitssubmitted }}"
                             />
-                            <label for="totalBedsSubmited">Total Beds Submitted</label>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="fieldgroup required">
-                            <input type="text" name="totalRequestedLoan" 
-                                id="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount }}"
+                        <div class="form-group required">
+                            <label for="totalBedsSubmitted" class="control-label">Total Beds Submitted</label>
+                            <input type="text" name="totalBedsSubmitted" class="form-control" id="totalBedsSubmitted" 
+                                decimal-type="yes" aria-describedby="totalBedsSubmitted" value="{{ application.cmhc_totalbedssubmitted }}"
                             />
-                            <label for="totalRequestedLoan">Total Requested Loan</label>
-                        </div>                       
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="totalRequestedLoan" class="control-label">Total Requested Loan</label>
+                            <input type="text" name="totalRequestedLoan" class="form-control" id="totalRequestedLoan" 
+                                decimal-type="yes" aria-describedby="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount }}" 
+                            />
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="fieldgroup required">
-                            <input type="text" name="comments" 
-                                id="comments" value="{{ application.cmhc_comments }}"
+                        <div class="form-group">
+                            <label for="comments" class="control-label">Additional Comments</label>
+                            <input type="text" name="comments" class="form-control" id="comments" 
+                                aria-describedby="comments" value="{{ application.cmhc_comments }}"
                             />
-                            <label for="comments">Additional Comments</label>
-                        </div>                       
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="button" name="next" class="next action-button" value="Next"/>
+                    <ul class="pager">
+                        <li><input type="button" name="next" class="next action-button" value="Next"/></li>
+                    </ul>
                 </div>
             </fieldset>
             <fieldset>
@@ -433,16 +343,17 @@ ProgramID: {{ programMuId }}
                 <h3 class="fs-subtitle">Additional info for your application</h3>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="fieldgroup required">
-                            <input type="text" name="loanamount" id="loanamount" value="{{ application.ava_loanamount }}"/>
-                            <label for="loanamount">Loan Amount</label>
+                        <div class="form-group required">
+                            <label for="loanamount" class="control-label">Loan Amount</label>
+                            <input type="text" class="form-control" id="loanamount" aria-describedby="loanamount" value="{{ application.ava_loanamount }}" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Complete"/>
-                    <!-- <input type="button" name="next" class="next action-button" value="Next"/> -->
+                    <ul class="pager">
+                        <li><input type="button" name="previous" class="previous action-button-previous" value="Previous"/></li>
+                        <li><input type="button" name="next" class="next action-button" value="Complete"/></li>
+                    </ul>
                 </div>
             </fieldset>
             <!--<fieldset>
@@ -505,16 +416,16 @@ ProgramID: {{ programMuId }}
 
     const applicationFields = {
         'receivedDate':'cmhc_receiveddate',
-        'applicationPurpose' : 'cmhc_loanpurpose',
+        'loanPurpose' : 'cmhc_loanpurpose',
         'docReceivedDate' : 'cmhc_requireddocreceiveddate',
         'shelterModel':'cmhc_sheltermodel',
         'languagePreference':'cmhc_isdocumentlanguage',
         'affordableRentalHousing':'cmhc_isaffordablerentalhousing',
         'languageOfDocs':'cmhc_islanguageofdocumentsprovided',
         'longTermCare':'cmhc_islongtermcare',
-        'totalunitsSubmited':'cmhc_totalunitssubmitted',
         'advanceType':'cmhc_advancetype',
-        'totalBedsSubmited':'cmhc_totalbedssubmitted',
+        'totalunitsSubmitted':'cmhc_totalunitssubmitted',
+        'totalBedsSubmitted':'cmhc_totalbedssubmitted',
         'totalRequestedLoan':'cmhc_totalrequestedloanamount',
         'comments':'cmhc_comments',
     };
@@ -550,15 +461,37 @@ ProgramID: {{ programMuId }}
         'Unlimited' : 2
     }
 
+    const yesNo = {
+        'Yes':true,
+        'No': false
+    }
+
+    const language = {
+        'English': true,
+        'French': false
+    }
+
     const application = {
         init: () => {
-            application.setupFloatLabels();
             application.setupDropDowns(shelterModel, '#shelterModel', '{{ application.cmhc_sheltermodel.value }}');
             application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ application.cmhc_loanpurpose.value }}');
             application.setupDropDowns(advanceType, '#advanceType', '{{ application.cmhc_advancetype.value }}');
+            application.setupDropDowns(language, '#languagePreference', '{{ application.cmhc_isdocumentlanguage.value }}');
+            application.setupDropDowns(language, '#languageOfDocs', '{{ application.cmhc_islanguageofdocumentsprovided.value }}');            
+            application.setupDropDowns(yesNo, '#affordableRentalHousing', '{{ application.cmhc_isaffordablerentalhousing.value }}');
+            application.setupDropDowns(yesNo, '#longTermCare', '{{ application.cmhc_islongtermcare.value }}');
             
-            // antigo
-            //application.setupDropDowns(periodOptions, '#period', '{{ application.ava_period.value }}');
+            // application.setupTwoOptions(language, 'input[name=languagePreference]', '{{ application.cmhc_isdocumentlanguage.value }}');
+            // application.setupTwoOptions(language, 'input[name=languageOfDocs]', '{{ application.cmhc_islanguageofdocumentsprovided.value }}');            
+            // application.setupTwoOptions(yesNo, 'input[name=affordableRentalHousing]', '{{ application.cmhc_isaffordablerentalhousing.value }}');
+            // application.setupTwoOptions(yesNo, 'input[name=longTermCare]', '{{ application.cmhc_islongtermcare.value }}');
+
+            // Event listeners for date field changes
+            document.querySelectorAll('input[type=date]').forEach((dateField) => {
+                dateField.addEventListener('change', (dateField) => {
+                    console.log(dateField.value);
+                });
+            })
 
             // Add event Listeners to the next buttons
             document.querySelectorAll('.next').forEach((button) => {
@@ -577,68 +510,14 @@ ProgramID: {{ programMuId }}
             // Create a call to open gates to acquire token and make future calls faster
             appAjax({
                 type: "GET",
-                url: "/_api/cmhc_muapplications?$select=cmhc_programs&$top=1",
+                url: "/_api/cmhc_muapplications?$select=_cmhc_programid_value&$top=1",
                 contentType: "application/json"
             });
 
         },
-        setupFloatLabels: () => {
-            var allInputs = document.querySelector('#msform').elements;
-            Object.keys(allInputs).forEach((key) => {
-                if (allInputs[key].type && allInputs[key].type.toUpperCase() !== 'BUTTON') 
-                    application.assignClass(allInputs[key]);
-            });
-
-            // Check the inputs to see if we should keep the label floating or not
-            Object.keys(allInputs).forEach((key) => {
-                if (allInputs[key].type && allInputs[key].type.toUpperCase() !== 'BUTTON') 
-                {
-                    allInputs[key].addEventListener('blur', (element) => {
-                        // Different validation for different inputs
-                        application.assignClass(element.srcElement);
-                    });
-                }
-            });
-           
-            return false;
-        },
-        assignClass: (element) => {
-            // Different validation for different inputs
-            debugger;
-            switch (element.type.toUpperCase()) {                            
-                // case 'SELECT-ONE':
-                //     if (element.value > 0) {
-                //         element.className = 'hasInput';
-                //     } else {
-                //         element.className = '';
-                //     }
-                //     break;
-
-                case 'TEXT':
-                    if (element.value !== '') {
-                        element.className = 'hasInput';
-                    } else {
-                        element.className = '';
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        },
-        setupDropDowns: (optionSetVar, selector, dropDownValue) => {
+        setupDropDowns: (optionSetVar, element, dropDownValue) => {
             var selectedOption = parseInt(dropDownValue);
-            let optionSetField = document.querySelector(selector);
-
-            // Create empty option
-            if (dropDownValue === ''){
-                var option = document.createElement('option');
-                option.value = 10000000;
-                option.text = '';
-                option.selected = 10000000;
-                optionSetField.add(option);
-            }
-
+            let optionSetField = document.querySelector(element);
             Object.keys(optionSetVar).forEach((key) => {
                 var option = document.createElement('option');
                 if (selectedOption && optionSetVar[key] === selectedOption)
@@ -647,40 +526,45 @@ ProgramID: {{ programMuId }}
                 option.text = key;
                 optionSetField.add(option);
             });
+
+            if (dropDownValue === ''){
+                optionSetField.selectedIndex = -1;
+            }
         },
+        // setupTwoOptions: (twoOptionVar, element, value) => {
+        //     var radios = document.querySelectorAll(element);
+        //     Object.keys(radios).forEach((key) => {
+
+        //         if (value === ''){
+        //             radios[key].value = key;
+        //             radios[key].nextElementSibling.innerText = twoOptionVar[key];
+        //         }
+        //         else {
+        //             radios[key].value = value;
+        //             radios[key].nextElementSibling.innerText = twoOptionVar[value];
+        //         }
+        //     });
+        // },
         onNextClick: (button) => {
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
             let applicationId = sessionStorage.getItem("applicationId");
-            
+
             if(animating) return false;
             animating = true;
             current_fs = button.target.closest('fieldset');
             next_fs = button.target.closest('fieldset').nextElementSibling;
-            var fieldSetValid = true;
-            
-            current_fs.querySelectorAll('.required').forEach((child) => {
-                child.childNodes.forEach((grandChild) => {
-                    if (grandChild && (grandChild.value === '')){
-                        grandChild.classList.toggle('shake');
-                        grandChild.setAttribute('required','true');
-                        setTimeout(function() {
-                            grandChild.classList.toggle('shake');
-                        }, 300);
-                        
-                        fieldSetValid = false;
-                    }
-                });
-            });
-            if (fieldSetValid){
+
+            let isFormValid = application.validateForm(current_fs);
+            if (isFormValid){
                 // choose to create or update existing
                 // if statement checking sessionStorage applicationId
                 console.log(`index: ${$("fieldset").index(next_fs)}`);
                 if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
-                    application.createOnFirstStep(current_fs, applicationFields);
+                    application.createOnFirstStep(current_fs);
                 else
-                    application.updateOnNextSteps(current_fs, applicationFields);
+                    application.updateOnNextSteps(current_fs);
 
                 //activate next step on progressbar using the index of next_fs
                 $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
@@ -689,7 +573,6 @@ ProgramID: {{ programMuId }}
                 $(next_fs).show(); 
                 
                 //hide the current fieldset with style
-                debugger;
                 $(current_fs).animate({opacity: 0}, {
                     step: function(now, mx) {
                         //as the opacity of current_fs reduces to 0 - stored in "now"
@@ -703,20 +586,43 @@ ProgramID: {{ programMuId }}
                             'transform': 'scale('+scale+')',
                             'position': 'absolute'
                         });
+                        $('.footer').css('position','fixed');
                         $(next_fs).css({'left': left, 'opacity': opacity});
                     }, 
                     duration: 800, 
                     complete: function(){
                         $(current_fs).hide();
                         animating = false;
+                        $('.footer').css('position','');
                     }, 
                     //this comes from the custom easing plugin
                     easing: 'easeInOutBack'
                 });
             }
         },
+        validateForm: (current_fs) => {
+            let isValid = true;
+            current_fs.querySelectorAll('.required').forEach((child) => {
+                child.childNodes.forEach((grandChild) => {
+                    if (grandChild && (grandChild.value === '' || grandChild.value === null)){
+                        grandChild.classList.toggle('shake');
+                        grandChild.classList.add('required');
+                        setTimeout(function() {
+                            grandChild.classList.toggle('shake');
+                        }, 300);
+                        isValid = false;
+                        grandChild.addEventListener('change', (grandChild) => {
+                            grandChild.target.classList.remove('required');
+                        });
+                    }
+                    // else {
+                    //     grandChild.classList && grandChild.classList.contains('required') ? grandChild.classList.remove('required') : null;
+                    // }
+                });
+            });
+            return isValid;
+        },
         onPreviousClick: (button) => {
-            debugger;
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
@@ -733,7 +639,6 @@ ProgramID: {{ programMuId }}
             console.log(`index: ${$("fieldset").index(previous_fs)}`);
 
             //show the previous fieldset
-            //previous_fs.show(); 
             $(previous_fs).show();
 
             //hide the current fieldset with style
@@ -746,6 +651,7 @@ ProgramID: {{ programMuId }}
                     left = ((1-now) * 50)+"%";
                     //3. increase opacity of previous_fs to 1 as it moves in
                     opacity = 1 - now;
+                    $('.footer').css('position','fixed');
                     $(current_fs).css({'left': left});
                     $(previous_fs).css({'transform': 'scale('+scale+')', 'opacity': opacity});
                 }, 
@@ -753,16 +659,20 @@ ProgramID: {{ programMuId }}
                 complete: function(){
                     $(current_fs).hide();
                     animating = false;
+                    $(previous_fs).removeAttr('style');
+                    $('.footer').css('position','');
                 }, 
                 //this comes from the custom easing plugin
                 easing: 'easeInOutBack'
             });
         },
-        createOnFirstStep: (current_fs, fieldset) => {
+        createOnFirstStep: (current_fs) => {
             let myJsonObject = {};
-            myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
-            myJsonObject['cmhc_originatorlendercontactid@odata.bind']  = `/contacts({{ user.id }})`;
-            
+            myJsonObject = application.buildMyObject(current_fs, myJsonObject);
+            myJsonObject['cmhc_OriginatorLenderContactId@odata.bind']  = `/contacts({{ user.id }})`;
+            myJsonObject['cmhc_PrimaryBorrowerProponentId@odata.bind']  = `/cmhc_proponents(bd21d9db-9edd-eb11-bacb-000d3ae8bb2b)`;
+            myJsonObject['cmhc_OriginatorLenderId@odata.bind']  = `/accounts(e8cf6fde-3e6e-eb11-a812-000d3af30d7f)`;
+            console.log(JSON.stringify(myJsonObject));
             let operationType = 'POST';
 
             appAjax({
@@ -776,11 +686,11 @@ ProgramID: {{ programMuId }}
                 }
             })
         },
-        updateOnNextSteps: (current_fs, fieldset) => {
+        updateOnNextSteps: (current_fs) => {
             let myJsonObject = {
                 ava_applicationid: sessionStorage.getItem("applicationId")
             };
-            myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
+            myJsonObject = application.buildMyObject(current_fs, myJsonObject);
             
             let operationType = 'PATCH';
 
@@ -795,11 +705,18 @@ ProgramID: {{ programMuId }}
                 }
             });
         },
-        buildMyObject: (currentTab, fieldset, myJsonObject) => {
-            Object.keys(fieldset).forEach((formKey) => {
+        buildMyObject: (currentTab, myJsonObject) => {
+            Object.keys(applicationFields).forEach((formKey) => {
                 Object.keys(currentTab.elements).forEach((objectKey) => {
                     if (currentTab.elements[objectKey].name === formKey){
-                        myJsonObject[fieldset[formKey]] = currentTab.elements[objectKey].value;
+                        if (currentTab.elements[objectKey].value === '')
+                            myJsonObject[applicationFields[formKey]] = null;
+                        else {
+                            if (currentTab.elements[objectKey].hasAttribute('decimal-type'))
+                                myJsonObject[applicationFields[formKey]] = parseFloat(currentTab.elements[objectKey].value);
+                            else 
+                                myJsonObject[applicationFields[formKey]] = currentTab.elements[objectKey].value;
+                        }
                     }
                 })
             });
