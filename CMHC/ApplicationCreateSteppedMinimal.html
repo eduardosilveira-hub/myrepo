@@ -14,7 +14,7 @@
                 <filter type="and">
                     <condition attribute="statecode" operator="eq" value="0"/>
                     <condition attribute="cmhc_pocapplicationid" operator="eq" value="{{ applicationId }}" />
-                    <condition attribute="ava_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}"/>
+                    <condition attribute="cmhc_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}"/>
                 </filter>
             </entity>
         </fetch>
@@ -288,7 +288,7 @@
                     <div class="col-sm-12">
                         <div class="fieldgroup">
                             <select name="period" id="period">
-                                <!-- <option value="{{ application.ava_period }}">{{ application.ava_period.label }}</option> -->
+                                <!-- <option value="{{ application.cmhc_period }}">{{ application.cmhc_period.label }}</option> -->
                             </select>
                             <label for="period">Loan Period</label>
                         </div>
@@ -565,7 +565,7 @@
         },
         updateOnNextSteps: (current_fs, fieldset) => {
             let myJsonObject = {
-                ava_applicationid: sessionStorage.getItem("applicationId")
+                cmhc_applicationid: sessionStorage.getItem("applicationId")
             };
             myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
             
@@ -573,7 +573,7 @@
 
             appAjax({
                 type: operationType,
-                url: `${urlApplications}(${myJsonObject.ava_applicationid})`,
+                url: `${urlApplications}(${myJsonObject.cmhc_applicationid})`,
                 contentType: "application/json",
                 data: JSON.stringify(myJsonObject),
                 success: (res, status, xhr) => {

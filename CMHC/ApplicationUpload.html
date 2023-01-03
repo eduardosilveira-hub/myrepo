@@ -141,10 +141,10 @@
                         <thead>
                             <tr>
                                 <th class="sort-enabled cmhc-font-12" data-sort="name">
-                                    Name<span class="sr-only sort-hint">. sort descending</span>
+                                    Name
                                 </th>
                                 <th class="sort-enabled cmhc-font-12" data-sort="loanamount">
-                                    Loan Amount<span class="sr-only sort-hint">. sort descending</span>
+                                    Loan Amount
                                 </th>
                                 <th class="sort-enabled cmhc-font-12" data-sort="taxamount">
                                     Tax rate
@@ -244,7 +244,8 @@
             console.log(jsonObjectArray);
 
             let operationType = "POST";
-            var urlApplications = "https://prod-73.westus.logic.azure.com:443/workflows/9a38f0ef7ff142a996bb238937310602/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XOPOno2cXd4pV3-pPyOB6Vbx0gNHHZTgaj6A3uAJgVo";
+            // URL for Power Automate to process the data
+            var urlApplications = "";
             fetch(urlApplications, {
                 method: 'POST',
                 headers: {

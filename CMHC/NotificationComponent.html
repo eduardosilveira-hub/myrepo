@@ -176,7 +176,8 @@
     const notifications = {
         init: () => {
             notifications.getPortalNotification();
-            setInterval(notifications.getPortalNotification, 100000);
+            let timerSetting = "{{ settings['Home/NotificationTimeout']}}";
+            setInterval(notifications.getPortalNotification, timerSetting);
             document.querySelector('.notBtn').addEventListener('click', (e) => {
                 if (numberOfNewNotifications && numberOfNewNotifications !== 0) {
                     let box = document.querySelector('.box');
