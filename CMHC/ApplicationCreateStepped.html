@@ -11,9 +11,9 @@
   </fetch>
 {% endfetchxml %}
 {% if getProgramMUMLI.results.entities.size > 0 %}
-  {% assign programMuId = getProgramMUMLI.results.entities[0] %}
+  {% assign programMu = getProgramMUMLI.results.entities[0] %}
 {% else %}
-    {% assign programMuId = null %}
+    {% assign programMu = null %}
 {% endif %}
 
 {% if request.params['id'] %}
@@ -43,7 +43,7 @@
             <attribute name="cmhc_accessibilitylevelname" />
             <order attribute="createdon" descending="true" />
             <filter type="and">
-                <condition attribute="cmhc_programid" operator="eq" uiname="MU MLI" uitype="cmhc_program" value="{{ programMuId }}" />
+                <condition attribute="cmhc_programid" operator="eq" uiname="MU MLI" uitype="cmhc_program" value="{{ programMu.cmhc_programid }}" />
                 <condition attribute="cmhc_originatorlendercontactid" operator="eq" uiname="MU Admin" uitype="contact" value="{{ user.id }}" />
                 <condition attribute="statecode" operator="eq" value="0" />
                 <condition attribute="cmhc_muapplicationid" operator="eq" uiname="00000000" uitype="cmhc_muapplication" value="{{ applicationId }}" />
@@ -317,7 +317,7 @@
                         <div class="form-group required">
                             <label for="totalRequestedLoan" class="control-label">Total Requested Loan</label>
                             <input type="text" name="totalRequestedLoan" class="form-control" id="totalRequestedLoan" 
-                                decimal-type="yes" aria-describedby="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount }}" 
+                                decimal-type="yes" aria-describedby="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount | round: 2 }}" 
                             />
                         </div>
                     </div>
@@ -473,13 +473,14 @@
 
     const application = {
         init: () => {
+            debugger;
             application.setupDropDowns(shelterModel, '#shelterModel', '{{ application.cmhc_sheltermodel.value }}');
             application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ application.cmhc_loanpurpose.value }}');
             application.setupDropDowns(advanceType, '#advanceType', '{{ application.cmhc_advancetype.value }}');
-            application.setupDropDowns(language, '#languagePreference', '{{ application.cmhc_isdocumentlanguage.value }}');
-            application.setupDropDowns(language, '#languageOfDocs', '{{ application.cmhc_islanguageofdocumentsprovided.value }}');            
-            application.setupDropDowns(yesNo, '#affordableRentalHousing', '{{ application.cmhc_isaffordablerentalhousing.value }}');
-            application.setupDropDowns(yesNo, '#longTermCare', '{{ application.cmhc_islongtermcare.value }}');
+            application.setupDropDowns(language, '#languagePreference', '{{ application.cmhc_isdocumentlanguage }}');
+            application.setupDropDowns(language, '#languageOfDocs', '{{ application.cmhc_islanguageofdocumentsprovided }}');
+            application.setupDropDowns(yesNo, '#affordableRentalHousing', '{{ application.cmhc_isaffordablerentalhousing }}');
+            application.setupDropDowns(yesNo, '#longTermCare', '{{ application.cmhc_islongtermcare }}');
             
             // application.setupTwoOptions(language, 'input[name=languagePreference]', '{{ application.cmhc_isdocumentlanguage.value }}');
             // application.setupTwoOptions(language, 'input[name=languageOfDocs]', '{{ application.cmhc_islanguageofdocumentsprovided.value }}');            
@@ -688,7 +689,7 @@
         },
         updateOnNextSteps: (current_fs) => {
             let myJsonObject = {
-                ava_applicationid: sessionStorage.getItem("applicationId")
+                cmhc_muapplicationid: sessionStorage.getItem("applicationId")
             };
             myJsonObject = application.buildMyObject(current_fs, myJsonObject);
             
@@ -696,7 +697,7 @@
 
             appAjax({
                 type: operationType,
-                url: `${urlApplications}(${myJsonObject.ava_applicationid})`,
+                url: `${urlApplications}(${myJsonObject.cmhc_muapplicationid})`,
                 contentType: "application/json",
                 data: JSON.stringify(myJsonObject),
                 success: (res, status, xhr) => {
