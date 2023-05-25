@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b069289c-9c89-48a1-9ac5-c24ad9e67aac}</formid>
+    <IntroducedVersion>5.0.1.5</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="false" showImage="false" maxWidth="1900">
+      <tabs>
+        <tab id="{18889ce1-6e5d-a71b-7955-aa9d93311885}" name="tab_adobe_sign_iframe" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section id="{4c2d3da8-84cd-c2dd-a361-8ee34934d4bc}" height="auto" name="tab_adobe_sign_iframe_section" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{6cac719b-8507-41aa-b8ed-42a2c920983c}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{1ad36469-bbc1-98e9-e909-e7bb994521c8}" showlabel="false" colspan="1" rowspan="15" ordinalvalue="10001" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{982035aa-e2b0-369a-0b8d-a434d16569b6}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="Track Status Change" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_trackstatuschange" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_trackstatuschange" disabled="false" uniqueid="{4b46bc18-ee26-8ce5-374b-aa4715a3c9bb}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{7941d11d-8d32-b8bc-e4a4-2576571b02b7}" name="request_signature_tab" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" labelid="{68d8f7f0-dfa8-489d-b523-007d8aeb5078}" ordinalvalue="1">
+          <columns>
+            <column width="66%" id="0">
+              <sections>
+                <section name="tab_recipients_section_message" showlabel="true" showbar="false" locklevel="0" id="{984cd60b-958b-de0d-1b97-8d2823e31133}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" height="auto" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="2">
+                  <rows>
+                    <row>
+                      <cell id="{3c658bb7-0cda-43fc-b63d-97f3e87d12c7}" showlabel="false" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3031a207-edd7-4418-b70b-5dce2a04566a}" showlabel="false" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d3f4d0fc-520f-4dcd-be77-b81cf3bb9e7c}" showlabel="false" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="34%" id="1">
+              <sections>
+                <section name="section_request_signatures_options_3" showlabel="true" showbar="false" locklevel="0" id="{c00695ac-1901-392e-92d9-9eb075ab90dd}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{6582a832-cdd8-1e8d-44e4-65619e9beb2c}" showlabel="false" labelid="{01e442b9-e759-47dc-b8fe-86e00c3fea1a}" colspan="1" rowspan="2" auto="false" visible="false" ordinalvalue="10011">
+                        <events solutionaction="Removed" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{71a1a0b5-3ba3-a076-ac60-0a3bb2d509b8}" name="confirmation_tab" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="2">
+          <columns>
+            <column width="67%" id="0">
+              <sections>
+                <section name="confirmation_tab_whats_next_section" showlabel="false" showbar="false" locklevel="0" id="{4ee22c09-b3b2-d061-8a06-9220eae40d0a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" height="auto" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{14b59465-9568-7a86-80ee-5821060e5301}" showlabel="false" colspan="1" auto="true" rowspan="3" ordinalvalue="10000">
+                        <events solutionaction="Removed" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab id="{a3a8706a-b4c2-5abb-a8b2-1a7497be3304}" name="tab_5" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true" visible="false" labelid="{b88581e6-1d1a-4af6-a9a5-adbfe35f654a}" ordinalvalue="4">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section id="{4d0c7a49-abbb-a555-bbb7-eedde6b5982a}" name="AgreementDetails_tab_hiddenfields_section" IsUserDefined="0" locklevel="0" showlabel="false" visible="false" showbar="false" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{0541923f-f274-471e-8008-1dca456784de}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{7a30e40c-6479-5d77-5453-a591586c8a36}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{38131e39-1a5b-9bc6-06dc-c376aaa885cb}" locklevel="0" showlabel="true" visible="false" ordinalvalue="10001" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{eaaa4114-ad95-0e56-2d7a-199410a3e585}" locklevel="0" showlabel="true" labelid="{a388cbe9-840c-41b9-9890-b77c8b9e3ebc}" ordinalvalue="10002" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{e6b91aac-6569-944c-b4b1-1c81174b7034}" locklevel="0" showlabel="true" labelid="{1d1c01a4-6a0d-4b81-8915-8a10bb5e479d}" ordinalvalue="10003" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{459650b9-0d0c-1a89-85aa-e430174db2c5}" locklevel="0" showlabel="true" visible="false" ordinalvalue="10004" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{15beb06e-2a6d-5945-b2cd-c1746040dc14}" locklevel="0" showlabel="true" visible="false" ordinalvalue="10005" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{4d17aad0-d9e8-13c2-c371-1b4c8265935a}" locklevel="0" showlabel="true" labelid="{5f71130b-7ed1-45ea-9b27-ea9087c87366}" ordinalvalue="10006" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{b080a38e-5604-6244-d89a-4d4871a550c3}" locklevel="0" showlabel="true" labelid="{63656d13-dca5-4edd-b43b-f3aa10576df2}" ordinalvalue="10007" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{a8b664eb-581b-6a90-6812-16985934d9ba}" locklevel="0" showlabel="true" labelid="{f70fd7b2-84cd-4ad2-ad79-9c31e533af3b}" ordinalvalue="10008" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{98a65092-9595-3edc-be38-9eb64ed9d40b}" showlabel="true" locklevel="0" ordinalvalue="10009" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{1b36a7e7-e3a2-25b2-0a43-6ebe7aaa8e0a}" locklevel="0" showlabel="true" labelid="{136d6456-898a-48a2-bf9e-72a542c5c5a6}" ordinalvalue="10010" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{997c168c-469c-92c8-8595-65a82dddc544}" showlabel="true" locklevel="0" ordinalvalue="10011" solutionaction="Added">
+                        <labels>
+                          <label description="Agreement Status" languagecode="1033" />
+                        </labels>
+                        <control id="adobe_esagreementstatus" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="adobe_esagreementstatus" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <events>
+        <event name="onchange" application="false" active="false" attribute="sxp_trackstatuschange" solutionaction="Added">
+          <Handlers>
+            <Handler functionName="Agreement1.OnChange" libraryName="adobe_/Scripts/dist/Agreement.js" handlerUniqueId="{0ed2b88b-1994-a9e1-dc23-ee2c3883dbe9}" enabled="true" parameters="" passExecutionContext="false" ordinalvalue="0" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Agreement" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3a6ed453-5f36-4eef-99ed-0dbb8561e81f}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{2257599a-d9c3-4cd2-be35-fce4eac6a121}" IsUserDefined="1" labelid="{ef6a9d0e-cbdb-4f9c-8d02-b5539cfee184}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{aa5bfdac-8acb-4045-a755-1d7ea4bf3715}" name="{aa5bfdac-8acb-4045-a755-1d7ea4bf3715}" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" labelid="{959d1a7c-62cc-4360-92c2-a296ea867f63}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{24e212c0-447f-40c8-96fb-e2440cb614fd}" labelid="{b16b92b4-9b9a-4ec2-b501-d799976971f8}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_name" />
+                      </cell>
+                      <cell id="{a038aa85-845e-1491-94da-7779a6be827c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Company" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_company" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cssp_company" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3bceec4a-7246-e1a9-7544-2ab80c54386c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Due Date" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_duedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cssp_duedate" disabled="false" />
+                      </cell>
+                      <cell id="{7e76d691-57b1-b97e-8e85-898d509558b4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Location" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_location" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cssp_location" disabled="false" uniqueid="{cbe37332-e012-8d6a-1364-e3516a286a57}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{C61B9023-3105-4B3B-B3ED-CABD113E4171}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e2a83aec-7424-46bb-1521-83b909239c0b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Amount Due" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_amountdue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="cssp_amountdue" disabled="false" />
+                      </cell>
+                      <cell id="{c2e19d9b-9818-d155-5166-6290a1b3d958}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Invoice Date" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_invoicedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cssp_invoicedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{21a78656-d92b-38c1-9722-ed669b4dab06}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bill Current Lines Count" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billcurrentlinescount" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="cssp_billcurrentlinescount" disabled="true" uniqueid="{8850a39d-4e76-b4ba-1330-e58407e57b3b}" />
+                      </cell>
+                      <cell id="{2626b421-8e29-5a1a-2eed-8e5c52a26deb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bill History Lines Count" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billhistorylinescount" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="cssp_billhistorylinescount" disabled="true" uniqueid="{513ea165-6e02-46aa-dc2a-20ca395eccc0}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{2257599a-d9c3-4cd2-be35-fce4eac6a121}_section_5" showlabel="true" showbar="false" locklevel="0" id="{3692943a-97eb-4cc2-cbad-c682686dde4b}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Top">
+                  <labels>
+                    <label description="Statement Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{58494060-51a0-2043-928c-262182e3e7d9}" showlabel="true" colspan="1" auto="false" rowspan="8">
+                        <labels>
+                          <label description="Statement Lines" languagecode="1033" />
+                        </labels>
+                        <control id="StatementLines" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{94345671-dbc1-76ed-840d-8dc2894ac28c}">
+                          <parameters>
+                            <ViewId>{230191E1-F751-47FF-B6B6-084E8C318D7A}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>cssp_cssp_billheader_cssp_billline_billheader</RelationshipName>
+                            <TargetEntityType>cssp_billline</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{230191E1-F751-47FF-B6B6-084E8C318D7A}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{4acb422b-9d15-9d46-5c61-cb38c7ad72c6}" showlabel="true" colspan="1" auto="false" rowspan="8">
+                        <labels>
+                          <label description="Statement Detail Histories" languagecode="1033" />
+                        </labels>
+                        <control id="DetailsHistory" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{ccd995ad-ec7d-15de-8374-00b8413e350a}">
+                          <parameters>
+                            <ViewId>{A3657CAF-A5E6-4F4A-B466-F9756D258111}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>cssp_cssp_billheader_cssp_billlinehistory_billheader</RelationshipName>
+                            <TargetEntityType>cssp_billlinehistory</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{A3657CAF-A5E6-4F4A-B466-F9756D258111}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="{2257599a-d9c3-4cd2-be35-fce4eac6a121}_section_4" showlabel="true" showbar="false" locklevel="0" id="{a2517381-6ca8-83dd-b966-05a132092d50}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Statement Info" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2c8b8504-1502-3132-1531-7312d834e846}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="E Bill Enrolled" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_ebillenrolled" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_ebillenrolled" disabled="false" />
+                      </cell>
+                      <cell id="{266e3827-7961-d944-813e-332cdabbb97e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="MARK3" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_mark3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_mark3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aa11da07-04ed-24da-4e83-6cb4ac88b533}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Paymmethod" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_paymmethod" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_paymmethod" disabled="false" />
+                      </cell>
+                      <cell id="{73bd1bc7-dc50-0d27-2966-3c4a5c9edde9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bill Type" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_billtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{20c518bb-67cb-77ab-a84e-4bb5682e897b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Location ID" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_locationid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_locationid" disabled="false" />
+                      </cell>
+                      <cell id="{8e15677c-35b5-b5a1-e44a-ecd7d1ecacbe}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{963a2463-9701-e809-2de1-717ba844346d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service From" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_servicefrom" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cssp_servicefrom" disabled="false" />
+                      </cell>
+                      <cell id="{668283d8-842b-3b47-7633-c2855b62244a}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{21973789-35d4-00c8-7798-9447abb9b29a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service To" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_serviceto" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cssp_serviceto" disabled="false" />
+                      </cell>
+                      <cell id="{6d03cb7b-4906-6cdb-a68c-34bb757b26ec}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="{2257599a-d9c3-4cd2-be35-fce4eac6a121}_section_6" showlabel="true" showbar="false" locklevel="0" id="{a865301e-1504-e502-ca96-04521a8e2b78}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Attached File" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{473dd90e-9693-15bb-a10e-ab0b052d232a}" showlabel="false" rowspan="10" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{79643ce8-595a-db0e-364d-1a62c0940828}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Attachments</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>NotesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="{78ec148a-12a7-3534-9c43-917576acd02c}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+          <labels>
+            <label description="Payment History" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{1579a817-0c36-b3a3-c99a-5767c853c475}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0103d196-aeb8-5447-d804-d6b2594248ab}" showlabel="false" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Payment History" languagecode="1033" />
+                        </labels>
+                        <control id="Payment" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{2c3ec742-b6bd-e6de-9cea-911abbcc6d63}">
+                          <parameters>
+                            <ViewId>{BE2ADCCC-84C1-4429-9D80-6160637FAD23}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>cssp_cssp_billheader_cssp_billpayment_billheader</RelationshipName>
+                            <TargetEntityType>cssp_billpayment</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{BE2ADCCC-84C1-4429-9D80-6160637FAD23}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{c9eb0529-a50e-4606-870f-2e730640fe3b}" columns="111">
+        <rows>
+          <row>
+            <cell id="{a8e72c60-85f2-430f-bfdb-0436f3b0c195}" showlabel="false" labelid="{cb058f12-ac12-4b92-894a-11ff4bc4b3a8}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{350e3e1a-167b-4ae4-ba7d-78f6d1961437}" showlabel="false" labelid="{664c4265-806d-46e3-b881-5f9d649345db}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{37510c3b-c1ed-0d47-89a4-822757123ccb}" showlabel="true" locklevel="0" labelid="{1a65db54-3492-4f95-b443-e269587c997a}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <footer id="{64e6266e-0bd7-4626-be01-057c63bffe54}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{982cc351-3503-4926-8760-b4a1c8d481c2}" showlabel="false" labelid="{85ad5f62-26a9-4ce4-bf29-b54b00ab7b37}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0578d9ee-fb37-4c25-accd-718a3a73b96a}" showlabel="false" labelid="{2957c4ce-054f-43dc-ac97-bdea95b6e80d}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{22748159-fee8-439a-837b-93b806e45893}" showlabel="false" labelid="{a356f77e-6b2f-4f68-a0d7-1ee9d85c60ba}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="cssp_DownloadBillingStatementTemplate.js" libraryUniqueId="{7c442723-9aca-4782-3474-64ad87921e09}" />
+      </formLibraries>
+      <DisplayConditions Order="5" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Bill Header - CSSP" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

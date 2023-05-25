@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e750be9b-8b64-ec11-8f8f-000d3a8dc1a0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cssp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cssp_billheaderid">
+          <cell name="cssp_name" width="200" />
+          <cell name="cssp_amountdue" width="100" />
+          <cell name="cssp_billtype" width="100" />
+          <cell name="createdon" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="cssp_billheader">
+          <attribute name="cssp_name" />
+          <attribute name="cssp_billheaderid" />
+          <attribute name="cssp_amountdue" />
+          <attribute name="cssp_billtype" />
+          <attribute name="createdon" />
+          <link-entity name="annotation" alias="aa" link-type="inner" from="objectid" to="cssp_billheaderid">
+            <filter type="and">
+              <condition attribute="subject" operator="not-null" />
+            </filter>
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.4</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Bill Statements contains notes" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This view will filter all the Bill Statements which contains notes" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

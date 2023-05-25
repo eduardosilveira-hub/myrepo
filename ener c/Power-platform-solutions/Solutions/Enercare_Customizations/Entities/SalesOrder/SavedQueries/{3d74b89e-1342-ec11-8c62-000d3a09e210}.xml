@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{3d74b89e-1342-ec11-8c62-000d3a09e210}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" preview="1" icon="1">
+        <row name="result" id="salesorderid">
+          <cell name="a_2dd4359a9505ec11b6e7000d3af410ab.sxp_country" width="100" disableSorting="1" />
+          <cell name="a_2dd4359a9505ec11b6e7000d3af410ab.sxp_region" width="100" disableSorting="1" />
+          <cell name="a_2dd4359a9505ec11b6e7000d3af410ab.sxp_centername" width="100" disableSorting="1" />
+          <cell name="ownerid" width="100" />
+          <cell name="customerid" width="100" />
+          <cell name="sxp_totalinstalledcost" width="100" />
+          <cell name="sxp_totalordercost" width="100" />
+          <cell name="discountpercentage" width="100" />
+          <cell name="discountamount" width="100" />
+          <cell name="sxp_discountlookup" width="100" />
+          <cell name="sxp_typeofagreement" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="salesorder">
+          <attribute name="sxp_typeofagreement" />
+          <attribute name="discountamount" />
+          <attribute name="discountpercentage" />
+          <attribute name="sxp_discountlookup" />
+          <attribute name="customerid" />
+          <attribute name="ownerid" />
+          <order attribute="customerid" descending="false" />
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <link-entity name="sxp_servicecenter" from="sxp_servicecenterid" to="sxp_center" visible="false" link-type="outer" alias="a_2dd4359a9505ec11b6e7000d3af410ab">
+            <attribute name="sxp_region" />
+            <attribute name="sxp_country" />
+            <attribute name="sxp_centername" />
+          </link-entity>
+          <attribute name="sxp_totalordercost" />
+          <attribute name="sxp_totalinstalledcost" />
+          <attribute name="salesorderid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.2.890</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Discounting" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

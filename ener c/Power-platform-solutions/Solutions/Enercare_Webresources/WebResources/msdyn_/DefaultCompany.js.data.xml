@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{376fd4db-958e-ea11-a811-000d3a3156c1}</WebResourceId>
+  <Name>msdyn_/DefaultCompany.js</Name>
+  <DisplayName>DefaultCompany.js</DisplayName>
+  <Description>This library is used to default company on all solutions. </Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>2.0.666.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <FileName>/WebResources/msdyn_DefaultCompanyjs376FD4DB-958E-EA11-A811-000D3A3156C1</FileName>
+</WebResource>

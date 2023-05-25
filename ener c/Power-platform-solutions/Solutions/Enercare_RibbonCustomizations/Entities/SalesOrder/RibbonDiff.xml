@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="sxp.AccessChecker.OpenDialog.salesorder.Button.Hide" Location="AccessChecker.OpenDialog.salesorder.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.salesorder.SendCombo.Button.Hide" Location="adobe.ApplicationRibbon.salesorder.SendCombo.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.salesorder.SendForSignature.Button.Hide" Location="adobe.ApplicationRibbon.salesorder.SendForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.salesorder.SendReportForSignature.Button.Hide" Location="adobe.ApplicationRibbon.salesorder.SendReportForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.salesorder.SendTemplateForSignature.Button.Hide" Location="adobe.ApplicationRibbon.salesorder.SendTemplateForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.ava.salesorder.CalculateTax.Button.Hide" Location="ava.salesorder.CalculateTax.Button" />
+    <CustomAction Id="sxp.ava.salesorder.ValidateBillToAddress.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="9">
+      <CommandUIDefinition>
+        <Button Command="ava.salesorder.ValidateBillToAddress.Command" Id="ava.salesorder.ValidateBillToAddress.Button" Image32by32="$webresource:ava_ValidateAddressImage_32.png" Image16by16="$webresource:ava_ValidateAddressImage_16.png" LabelText="$LocLabels:ava.salesorder.ValidateBillToAddress.Button.LabelText" Sequence="9" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.ava.salesorder.ValidateShipToAddress.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="8">
+      <CommandUIDefinition>
+        <Button Command="ava.salesorder.ValidateShipToAddress.Command" Id="ava.salesorder.ValidateShipToAddress.Button" Image32by32="$webresource:ava_ValidateAddressImage_32.png" Image16by16="$webresource:ava_ValidateAddressImage_16.png" LabelText="$LocLabels:ava.salesorder.ValidateShipToAddress.Button.LabelText" Sequence="8" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.Flows.RefreshCommandBar.Flows.Hide" Location="Mscrm.Form.salesorder.Flows.RefreshCommandBar.Flows" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.Flows.RefreshCommandBar.Hide" Location="Mscrm.Form.salesorder.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.GetProducts.Hide" Location="Mscrm.Form.salesorder.GetProducts" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.InventOnHand.Hide" Location="Mscrm.Form.salesorder.InventOnHand" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.LockPricing.Hide" Location="Mscrm.Form.salesorder.LockPricing" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.LookupAddress.Hide" Location="Mscrm.Form.salesorder.LookupAddress" />
+    <CustomAction Id="sxp.Mscrm.Form.salesorder.NewRecord.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Save.Controls._children" Sequence="45">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.New" Command="Mscrm.NewRecordFromForm" Id="Mscrm.Form.salesorder.NewRecord" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/NewRecord_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.New" Sequence="45" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.New" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.New" ModernImage="New" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.PriceOrder.Hide" Location="Mscrm.Form.salesorder.PriceOrder" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.Recalculate.Hide" Location="Mscrm.Form.salesorder.Recalculate" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.Reports.Hide" Location="Mscrm.Form.salesorder.Reports" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.RunScript.Hide" Location="Mscrm.Form.salesorder.RunScript" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.RunWorkflow.Hide" Location="Mscrm.Form.salesorder.RunWorkflow" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.SaveAndClose.Hide" Location="Mscrm.Form.salesorder.SaveAndClose" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.SendSelected.Hide" Location="Mscrm.Form.salesorder.SendSelected" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.salesorder.WordTemplate.Hide" Location="Mscrm.Form.salesorder.WordTemplate" />
+    <HideCustomAction HideActionId="sxp.Mscrm.HomepageGrid.salesorder.MBPF.ConvertTo.Hide" Location="Mscrm.HomepageGrid.salesorder.MBPF.ConvertTo" />
+    <CustomAction Id="sxp.Mscrm.HomepageGrid.salesorder.NewRecord.CustomAction" Location="Mscrm.HomepageGrid.salesorder.MainTab.Management.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.New" Command="Mscrm.NewRecordFromGrid" Id="Mscrm.HomepageGrid.salesorder.NewRecord" Image32by32="/_imgs/ribbon/newrecord32.png" Image16by16="/_imgs/ribbon/New_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.New" Sequence="10" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.New" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.New" ModernImage="New" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.mscrmaddons.am.form.createworkingitem.salesorder.CustomAction" Location="salesorder.AutoMerge.mscrmAddons.FormGroupID.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Command="mscrmaddons.am.form.createworkingitem.all.Command" Id="mscrmaddons.am.form.createworkingitem.salesorder" Image32by32="$webresource:ptm_am_icon_globalbutton32x32.png" Image16by16="$webresource:ptm_am_icon_globalbutton16x16.png" LabelText="$LocLabels:mscrmaddons.am.form.createworkingitem.salesorder.LabelText" Sequence="10" TemplateAlias="o1" ModernImage="$webresource:ptm_am_icon_globalbutton_white.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.rm.salesorder.addCreditCard.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="1">
+      <CommandUIDefinition>
+        <Button Command="rm.salesorder.addCreditCard.Command" Id="rm.salesorder.addCreditCard.Button" LabelText="$LocLabels:rm.salesorder.addCreditCard.Button.LabelText" Sequence="1" TemplateAlias="o1" ModernImage="$webresource:rm_RedMaple.Crm.Icons.CreditCard" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.salesorder.calculatePurchaseTax.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.salesorder.calculatePurchaseTax.Button.Alt" Command="sxp.salesorder.calculatePurchaseTax.Command" CommandValueId="" Id="sxp.salesorder.calculatePurchaseTax.Button" LabelText="$LocLabels:sxp.salesorder.calculatePurchaseTax.Button.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:sxp.salesorder.calculatePurchaseTax.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.salesorder.calculatePurchaseTax.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.salesorder.CalculateTax.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="9">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.salesorder.CalculateTax.Button.Alt" Command="sxp.salesorder.CalculateTaxAgreement.Command" Id="sxp.salesorder.CalculateTax.Button" LabelText="$LocLabels:sxp.salesorder.CalculateTax.Button.LabelText" Sequence="9" TemplateAlias="o1" ToolTipTitle="$LocLabels:sxp.salesorder.CalculateTax.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.salesorder.CalculateTax.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.salesorder.CancelOrder.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Save.Controls._children" Sequence="75">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.salesorder.CancelOrder.Button.Alt" Command="sxp.salesorder.CancelOrder.Command" Id="sxp.salesorder.CancelOrder.Button" LabelText="$LocLabels:sxp.salesorder.CancelOrder.Button.LabelText" Sequence="75" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.salesorder.CancelOrder.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.salesorder.CancelOrder.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.salesorder.CreditCheck.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Save.Controls._children" Sequence="73">
+      <CommandUIDefinition>
+        <FlyoutAnchor Alt="$LocLabels:sxp.salesorder.CreditCheck.Button.Alt" Command="sxp.salesorder.CreditCheckFlyout.Command" Id="sxp.salesorder.CreditCheck.Button" LabelText="$LocLabels:sxp.salesorder.CreditCheck.Button.LabelText" Sequence="73" TemplateAlias="o2">
+          <Menu Id="sxp.salesorder.CreditCheck.Button.Menu">
+            <MenuSection Id="sxp.salesorder.CreditCheckMenu.Section" Sequence="5" DisplayMode="Menu16">
+              <Controls Id="sxp.salesorder.CreditCheckMenu.Section.Controls">
+                <Button Command="sxp.salesorder.InPersonCreditCheck.Command" Id="sxp.salesorder.Button22.Button" LabelText="$LocLabels:sxp.salesorder.Button22.Button.LabelText" Sequence="10" />
+                <Button Command="sxp.salesorder.RemoteCreditCheck.Command" Id="sxp.salesorder.Button23.Button" LabelText="$LocLabels:sxp.salesorder.Button23.Button.LabelText" Sequence="15" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.salesorder.getCustCreditCards.Button.CustomAction" Location="Mscrm.Form.salesorder.MainTab.Actions.Controls._children" Sequence="2">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.salesorder.getCustCreditCards.Button.Alt" Command="sxp.salesorder.getCustCreditCards.Command" CommandValueId="sxp.salesorder.getCustCreditCards.Command" Id="sxp.salesorder.getCustCreditCards.Button" LabelText="$LocLabels:sxp.salesorder.getCustCreditCards.Button.LabelText" Sequence="2" TemplateAlias="o1" ToolTipTitle="$LocLabels:sxp.salesorder.getCustCreditCards.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.salesorder.getCustCreditCards.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="ava.salesorder.CalculateTax.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.CalculateTaxOOB.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="ava.salesorder.CalculateTax.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="TaxCalculation" Library="$webresource:ava_CalculateTax.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="ava.salesorder.ValidateBillToAddress.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.EnableDisableAddressVerification.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="ava.salesorder.ValidateAddress.DisplayRule" />
+        <DisplayRule Id="sxp.salesorder.HideValidateToBillButton.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="IsAddressValid_BillTo" Library="$webresource:ava_AddressValidation.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="ava.salesorder.ValidateShipToAddress.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.EnableDisableAddressVerification.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="ava.salesorder.ValidateAddress.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="IsAddressValid_ShipTo" Library="$webresource:ava_AddressValidation.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="mscrmaddons.am.form.createworkingitem.all.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.CreateDocument.EnableRule" />
+        <EnableRule Id="MSCRMADDONS.Rules.all.DCPSbEnableFormAM" />
+        <EnableRule Id="MSCRMADDONS.Rules.all.EnableOnFormUpdate" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.SetAgreementSignedOnDate" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+        <JavaScriptFunction FunctionName="ptm_openLookupDlg" Library="$webresource:ptm_globalambutton.min.js">
+          <CrmParameter Value="CommandProperties" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="rm.salesorder.addCreditCard.Command">
+      <EnableRules>
+        <EnableRule Id="rm.salesorder.addCreditCard.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="RedMaple.Crm.Scripts.SalesOrder.AddCreditCard" Library="$webresource:rm_RedMaple.Crm.Scripts.SalesOrder">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="rm.salesorder.addTransaction.Command">
+      <EnableRules>
+        <EnableRule Id="rm.salesorder.addTransaction.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="sxp.salesorder.DisplayOnInvestmentDisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="RedMaple.Crm.Scripts.SalesOrder.AddTransaction" Library="$webresource:rm_RedMaple.Crm.Scripts.SalesOrder">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.calculatePurchaseTax.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.CalculateTaxOOB.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="ava.salesorder.CalculateTax.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.CalculatePurchaseTax" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.CalculateTaxAgreement.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.CalculateTax.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.RetrieveAdvantageFields" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.CancelOrder.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.CancelOrder.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.OnClickCancelOrderButton" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.CreditCheckFlyout.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.EnableDisableAddressVerification.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="sxp.salesorder.DisplayOnAdvantage.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.OnClickFlyout" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="CommandProperties" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.getCustCreditCards.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.getCustCreditCards.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.GetCustomerCreditCards" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.InPersonCreditCheck.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.OnClickInPersonCreditCheck" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.salesorder.RemoteCreditCheck.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.salesorder.RemoteCheck.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Order.OnClickRemoteCreditCheck" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="ava.salesorder.CalculateTax.DisplayRule">
+        <FormStateRule State="Existing" InvertResult="false" />
+      </DisplayRule>
+      <DisplayRule Id="ava.salesorder.ValidateAddress.DisplayRule">
+        <FormStateRule State="Existing" InvertResult="false" />
+      </DisplayRule>
+      <DisplayRule Id="sxp.salesorder.DisplayOnAdvantage.DisplayRule">
+        <ValueRule Field="sxp_typeofagreement" Value="275450000" />
+      </DisplayRule>
+      <DisplayRule Id="sxp.salesorder.DisplayOnInvestmentDisplayRule">
+        <ValueRule Field="sxp_typeofagreement" Value="275450001" />
+      </DisplayRule>
+      <DisplayRule Id="sxp.salesorder.DisplayRule1.DisplayRule">
+        <FormStateRule State="Existing" Default="true" />
+      </DisplayRule>
+      <DisplayRule Id="sxp.salesorder.HideValidateToBillButton.DisplayRule">
+        <ValueRule Field="sxp_ismailingaddresssameasinstallationaddress" Value="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="adobe.ApplicationRibbon.CreateNewNoTemplates.EnableRule">
+        <CustomRule FunctionName="Adobe.Common.Common.CreateNewAgreementNoTemplates" Library="$webresource:adobe_/Scripts/dist/Common.js" Default="false">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="MSCRMADDONS.Rules.all.DCPSbEnableFormAM">
+        <CustomRule FunctionName="ptm_mscrmaddons_DCPSBEnable.checkForm" Library="$webresource:ptm_AMEnableScript" Default="false" InvertResult="false">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="MSCRMADDONS.Rules.all.EnableOnFormUpdate">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="rm.salesorder.addCreditCard.EnableRule">
+        <CustomRule FunctionName="RedMaple.Crm.Scripts.SalesOrder.EnableAddCreditCardButton" Library="$webresource:rm_RedMaple.Crm.Scripts.SalesOrder" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+        <CustomRule FunctionName="Order.EnableDisableAddCreditCard" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="rm.salesorder.addTransaction.EnableRule">
+        <CustomRule FunctionName="RedMaple.Crm.Scripts.SalesOrder.EnableAddTransactionButton" Library="$webresource:rm_RedMaple.Crm.Scripts.SalesOrder" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+        <CustomRule FunctionName="Order.EnableDisableAddTransaction" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.CalculateTax.EnableRule">
+        <CustomRule FunctionName="Order.EnableDisableCalculateAdvantage" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.CalculateTaxOOB.EnableRule">
+        <CustomRule FunctionName="Order.EnableDisableCalculateTax" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.CancelOrder.EnableRule">
+        <CustomRule FunctionName="Order.ShowHideCancelOrderButton" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.CreateDocument.EnableRule">
+        <CustomRule FunctionName="Order.EnableDisableCreateDocument" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.EnableDisableAddressVerification.EnableRule">
+        <CustomRule FunctionName="Order.EnableDisableAddressVerification" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.getCustCreditCards.EnableRule">
+        <CustomRule FunctionName="RedMaple.Crm.Scripts.SalesOrder.EnableAddCreditCardButton" Library="$webresource:rm_RedMaple.Crm.Scripts.SalesOrder" Default="false">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+        <CustomRule FunctionName="Order.EnableDisableAddCreditCard" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.salesorder.RemoteCheck.EnableRule">
+        <CustomRule FunctionName="Order.EnableDisableRemoteCreditCheck" Library="$webresource:sxp_order.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="ava.salesorder.ValidateBillToAddress.Button.LabelText">
+      <Titles>
+        <Title description="Validate Mailing Address" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ava.salesorder.ValidateShipToAddress.Button.LabelText">
+      <Titles>
+        <Title description="Validate Installation Address" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="mscrmaddons.am.form.createworkingitem.salesorder.LabelText">
+      <Titles>
+        <Title description="Create Document" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="rm.salesorder.addCreditCard.Button.LabelText">
+      <Titles>
+        <Title description="Add Credit Card" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.Button22.Button.LabelText">
+      <Titles>
+        <Title description="In Person Credit Check" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.Button23.Button.LabelText">
+      <Titles>
+        <Title description="Remote Credit Check" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.calculatePurchaseTax.Button.Alt">
+      <Titles>
+        <Title description="Calculate Purchase Tax" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.calculatePurchaseTax.Button.LabelText">
+      <Titles>
+        <Title description="Calculate Purchase Tax" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.calculatePurchaseTax.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to calculate the tax on a purchase order" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.calculatePurchaseTax.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Calculate Purchase Tax" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CalculateTax.Button.Alt">
+      <Titles>
+        <Title description="Calculate Advantage" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CalculateTax.Button.LabelText">
+      <Titles>
+        <Title description="Calculate Advantage" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CalculateTax.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Calculate Advantage" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CalculateTax.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Calculate Advantage" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CancelOrder.Button.Alt">
+      <Titles>
+        <Title description="Cancel Order" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CancelOrder.Button.LabelText">
+      <Titles>
+        <Title description="Cancel Order" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CancelOrder.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click on Button to Cancel the Order" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CancelOrder.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Cancel Order" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CreditCheck.Button.Alt">
+      <Titles>
+        <Title description="Credit Check" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.CreditCheck.Button.LabelText">
+      <Titles>
+        <Title description="Credit Check" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.getCustCreditCards.Button.Alt">
+      <Titles>
+        <Title description="Retrieve Credit Cards" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.getCustCreditCards.Button.LabelText">
+      <Titles>
+        <Title description="Retrieve Credit Cards" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.getCustCreditCards.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to retrieve the customer's credit cards from RedMaple" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.salesorder.getCustCreditCards.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Retrieve Credit Cards" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

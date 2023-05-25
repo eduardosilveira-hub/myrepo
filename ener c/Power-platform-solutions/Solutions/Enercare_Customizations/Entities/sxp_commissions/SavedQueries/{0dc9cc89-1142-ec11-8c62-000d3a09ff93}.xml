@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0dc9cc89-1142-ec11-8c62-000d3a09ff93}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="sxp_name" select="1" preview="1" icon="1">
+        <row name="result" id="sxp_commissionsid">
+          <cell name="sxp_name" width="150" />
+          <cell name="statuscode" width="100" />
+          <cell name="a_f05816c11b12ec11b6e7000d3a09c25a.customerid" width="100" disableSorting="1" />
+          <cell name="sxp_totalinstalledcost" width="100" />
+          <cell name="sxp_commissionrate" width="100" />
+          <cell name="sxp_commissionamount" width="100" />
+          <cell name="sxp_commissionpenalty" width="100" />
+          <cell name="sxp_adjustmentreason" width="100" />
+          <cell name="sxp_totalcommissionamount" width="100" />
+          <cell name="sxp_tier23approval" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_overdueadjustment" width="100" />
+          <cell name="sxp_commissionpayablenew" width="100" disableSorting="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="sxp_commissions">
+          <attribute name="sxp_name" />
+          <attribute name="sxp_tier23approval" />
+          <attribute name="sxp_totalcommissionamount" />
+          <attribute name="sxp_commissionpayablenew" />
+          <attribute name="statuscode" />
+          <attribute name="sxp_totalinstalledcost" />
+          <attribute name="sxp_commissionrate" />
+          <attribute name="sxp_commissionpenalty" />
+          <attribute name="sxp_adjustmentreason" />
+          <attribute name="sxp_overdueadjustment" />
+          <attribute name="sxp_commissionamount" />
+          <order attribute="sxp_name" descending="true" />
+          <filter type="and">
+            <condition attribute="statuscode" operator="in">
+              <value>275450000</value>
+              <value>275450001</value>
+              <value>275450002</value>
+            </condition>
+          </filter>
+          <link-entity name="salesorder" from="salesorderid" to="sxp_salesorder" visible="false" link-type="outer" alias="a_f05816c11b12ec11b6e7000d3a09c25a">
+            <attribute name="customerid" />
+          </link-entity>
+          <attribute name="sxp_commissionsid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.2.890</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Pending Full Approval" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This view will provide the list of records which are pending for CPI approval." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

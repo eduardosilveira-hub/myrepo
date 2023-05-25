@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c0d7d7dd-afd0-4675-85fe-1cc5a48be6df}</formid>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form showImage="true">
+      <tabs>
+        <tab name="tab_recordwall" id="{e94e6ac4-12db-bc8c-ec81-8b20c5987655}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" labelid="{584c0470-bfa8-4926-906c-2a11118e6a65}" ordinalvalue="0" solutionaction="Modified">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="tab_recordwall_section_1" showlabel="false" showbar="false" locklevel="0" id="{ac0addcc-a626-6c98-40ee-b11edac36204}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{deca209f-63b6-45a7-9f7b-6ea45ecc3279}" ordinalvalue="0" solutionaction="Modified">
+                  <rows>
+                    <row>
+                      <cell id="{be13b312-b6ac-83d7-34e1-e90dc1ecbec7}" showlabel="false" colspan="1" auto="false" rowspan="15" labelid="{c88a64b4-1a19-40c3-94a8-7fd56d40c343}" ordinalvalue="10000" solutionaction="Modified" />
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="general" verticallayout="true" id="{ed7f865a-8800-40f6-8dcc-f01b2f04a734}" IsUserDefined="0" ordinalvalue="1">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="user information" showlabel="true" showbar="true" id="{a7f586b7-8ad4-4fbf-8567-ec4239338766}" IsUserDefined="0" locklevel="0" ordinalvalue="2">
+                  <rows>
+                    <row>
+                      <cell id="{db68b5bd-6263-4a64-a789-12e31d0b1922}" ordinalvalue="20013" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{e8da380a-702a-20ca-ea51-9699ede1c4e1}" showlabel="true" locklevel="0" ordinalvalue="20013" solutionaction="Added">
+                        <labels>
+                          <label description="Exponent HR" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_exponenthr" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_exponenthr" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7294c010-64a7-543b-33d0-deac794ca3c6}" showlabel="true" locklevel="0" ordinalvalue="10014" solutionaction="Added">
+                        <labels>
+                          <label description="STARS Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_starsarea" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_starsarea" disabled="false" uniqueid="{aee2a102-59e6-ea47-676e-93dc133e9c27}" />
+                      </cell>
+                      <cell id="{b4db0376-0e95-592e-a9e1-eb109660e8ba}" showlabel="false" ordinalvalue="20015" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="addresses" id="{2efb6f20-5b31-43e0-b932-805e2fd6bfbf}" IsUserDefined="0" ordinalvalue="2">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="mailing address" showlabel="true" showbar="true" id="{0c55f597-e6da-4363-9b40-e383dba991c4}" IsUserDefined="0" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{317b1f6c-1286-477a-8de4-9eab27eaabf3}" showlabel="false" ordinalvalue="20007" solutionaction="Modified" />
+                    </row>
+                  </rows>
+                </section>
+                <section name="other address" showlabel="true" showbar="true" id="{52311463-423a-484b-a299-4a2c27031523}" IsUserDefined="0" ordinalvalue="1">
+                  <rows>
+                    <row>
+                      <cell id="{02b3d352-ecbd-4b8d-b03d-0def9d9c624f}" showlabel="false" ordinalvalue="20007" solutionaction="Modified" />
+                    </row>
+                  </rows>
+                </section>
+                <section name="address preference" showlabel="false" showbar="false" id="{7171a1ba-38ca-43ed-b699-f624131160e1}" IsUserDefined="0" ordinalvalue="2">
+                  <rows>
+                    <row>
+                      <cell id="{258483a1-5a12-4938-abeb-2f8aa582ee57}" showlabel="false" ordinalvalue="20001" solutionaction="Modified" />
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation solutionaction="Added">
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions solutionaction="Added" />
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

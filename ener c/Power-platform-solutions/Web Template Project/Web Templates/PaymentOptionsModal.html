@@ -1,0 +1,183 @@
+<style>
+#payment-modal .cssp-payment-icon svg:hover,
+#payment-modal .cssp-easypay-icon svg:hover {
+  transform: scale(1.1);
+}
+#payment-modal .cssp-delete-icon {
+  cursor: pointer;
+}
+#payment-modal .cssp-check-icon {
+  color: #005485;
+}
+#payment-modal .cssp-delete-icon {
+  color: #CC0029;
+}
+#payment-modal .cssp-bank-payment, #payment-modal .cssp-card-payment {
+  padding: 0 10px 0px;
+}
+#payment-modal .btn {
+  padding: 5px 10px !important;
+}
+#payment-modal td {
+  vertical-align: middle !important;
+}
+@media (max-width: 539px) {
+  #payment-modal thead th:not(:first-child) {
+    display: none;
+  }
+  #payment-modal td, #payment-modal th {
+    display: block;
+  }
+  #payment-modal td[data-th]:before {
+    content: attr(data-th);
+  }
+  #payment-modal td:first-child {
+    font-weight: bold;
+  }
+  #payment-modal .table-responsive {
+    display: inline-table !important;
+  }
+  #payment-modal .table td, #payment-modal .table th {
+    padding: 0.15rem !important;
+    vertical-align: top !important;
+    border-top: 0px solid #dee2e6 !important;
+  }
+  #payment-modal tr:nth-child(even) {
+    background-color: #e9ecef;
+  }
+}
+@media (min-width: 539px) {
+  #payment-modal .table-responsive {
+    display: inline-table;
+  }
+}
+
+@media (min-width: 576px) {
+  #rm-Modal .modal-dialog {
+    max-width: none !important;
+  }
+}
+
+.modal-fullscreen {
+  padding: 0 !important;
+}
+.modal-fullscreen .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.modal-fullscreen .modal-content {
+  height: auto;
+  min-height: 100%;
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+</style>
+<div id="payment-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Payment Options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CSSP.Common.resetPaymentMethod(true)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body cssp-font-14">
+        <div class="cssp-easypay-picker row">
+          <div id="bankPayment" class="col text-center p-4" style="cursor: pointer;" onclick="CSSP.Payments.bankSelected(event)">
+            <div class="text-center">
+              <bank-icon class="cssp-payment-icon" />
+            </div>
+            <span class="link">Bank</span>
+          </div>
+          <div id="cardPayment" class="col text-center p-4" style="cursor: pointer;" onclick="CSSP.Payments.cardSelected(event)">
+            <div class="text-center">
+              <card-icon class="cssp-payment-icon" />
+            </div>
+            <span class="link">Card</span>
+          </div>
+        </div>
+
+        <div class="cssp-bank-payment" style="display: none;">
+          <div>
+            <input class="form-control" type="text" id="cssp-payment-name" value="" hidden>
+            <input class="form-control" type="text" id="cssp-payment-account" value="{{contact['acc.accountid']}}" hidden>
+            <input class="form-control" type="text" id="cssp-payment-accountname" value="{{contact['acc.name']}}" hidden>
+            <input class="form-control" type="text" id="cssp-payment_entityname" value="account" hidden>
+          </div>
+          <div>
+            <label class="field-label" for="cssp-payment-bankiden">Bank ID</label>
+            <input class="form-control" type="text" id="cssp-payment-bankiden">
+          </div>
+          <div>
+            <label class="field-label" for="cssp-payment-accountnumber">Account Number</label>
+            <input class="form-control" type="text" id="cssp-payment-accountnumber">
+          </div>
+          <div>
+            <label class="field-label" for="cssp-payment-routingnumber">Routing Number</label>
+            <input class="form-control" type="text" id="cssp-payment-routingnumber">
+          </div>
+
+          <div>
+            <label class="field-label" for="cssp-payment-routingnumbertype">Routing Type</label>
+            <div class="cssp-sxp_routingnumbertype">
+
+            </div>  
+          </div>
+          <div>
+            <label class="field-label" for="cssp-payment-defaultaccount">Default Account</label>
+            <div class="cssp-sxp_defaultbankaccount">
+  
+            </div>
+          </div>
+          <iframe id="cssp-bank-selection-iframe" class="d-none" src="/api/?entityform=Bank Selection" frameborder="0"></iframe>
+        </div>
+
+        <div class="cssp-card-payment" style="display: none;">
+          <div class="row mt-3" id="card-selection">
+            <div class="col-12">
+              <loading-icon id="cssp-payment-methods-loading"></loading-icon>
+              <div id="cssp-cards-wrapper"></div>
+              <div id="cssp-addcard-wrapper"></div>
+            </div>
+          </div>
+          <div class="row mt-3" id="confirmation-message">
+            <div class="col-12">
+              Are you sure you want to change your EasyPay setup?
+            </div>
+          </div>
+          <iframe id="cssp-card-selection-iframe" class="d-none" src="/api/?entityform=Card Selection&location={{serviceLocation.cssp_servicelocationid}}" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class="modal-footer cssp-confirm-message-footer" style="display: none;">
+        <button id="confirm-btn" type="button" data-dismiss="payment-modal" class="btn btn-primary" onclick="CSSP.Payments.savePaymentOptionsCard(event)">Confirm</button>
+        <button id="cancel-btn" type="button" data-dismiss="payment-modal" class="btn btn-default" onclick="CSSP.Payments.cardSelected(event)">Cancel</button>
+      </div>
+      <div class="modal-footer cssp-bank-footer" style="display: none;">
+        <button type="button" class="btn btn-default" onclick="CSSP.Common.resetPaymentMethod()">Back</button>
+        <button type="button" class="btn btn-primary" onclick="CSSP.Payments.savePaymentOptionsBank(event)">Save</button>
+      </div>
+      <div class="modal-footer cssp-card-footer" style="display: none;">
+        <button type="button" class="btn btn-default" onclick="CSSP.Common.resetPaymentMethod()">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modal-fullscreen" id="rm-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="CSSP.Payments.cardSelected(event)">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="iframeModalWindow" src="" name="iframe_modal" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0%;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="CSSP.Payments.cardSelected(event)">Close</button>
+      </div>
+    </div>
+  </div>      
+</div>

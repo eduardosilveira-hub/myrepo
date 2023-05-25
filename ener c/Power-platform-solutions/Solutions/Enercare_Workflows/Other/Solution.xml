@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.22021.126" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>Enercare_Workflows</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Enercare_Workflows" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.2.1307</Version>
+    <Managed>1</Managed>
+    <Publisher>
+      <UniqueName>serviceexperts</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Service Experts" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>sxp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>27545</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="sxp_creditcheckoverrideprocessing" behavior="1" />
+      <RootComponent type="1" schemaName="sxp_orderprocessing" behavior="1" />
+      <RootComponent type="29" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" behavior="0" />
+      <RootComponent type="29" id="{145a1c39-e331-ec11-b6e6-000d3a09e79e}" behavior="0" />
+      <RootComponent type="29" id="{146e1b5c-c820-ec11-b6e6-0022486da96b}" behavior="0" />
+      <RootComponent type="29" id="{1d50edc6-d952-ec11-8f8e-0022486dfdd7}" behavior="0" />
+      <RootComponent type="29" id="{2fcc841b-7a56-ec11-8f8e-000d3af4a312}" behavior="0" />
+      <RootComponent type="29" id="{30ade356-4f4d-ec11-8f8e-0022486dfdd7}" behavior="0" />
+      <RootComponent type="29" id="{3783f831-6f54-ec11-8f8e-0022486dfdd7}" behavior="0" />
+      <RootComponent type="29" id="{37bc7701-eb2c-ec11-b6e6-0022486dccdd}" behavior="0" />
+      <RootComponent type="29" id="{424c54ce-a325-ec11-b6e6-000d3a09d7ff}" behavior="0" />
+      <RootComponent type="29" id="{433633b6-d748-ec11-8c62-000d3a09f88c}" behavior="0" />
+      <RootComponent type="29" id="{4464d8cd-ac25-ec11-b6e6-000d3a09d416}" behavior="0" />
+      <RootComponent type="29" id="{485ca8b1-4310-4f0b-aee9-b2829dc3c409}" behavior="0" />
+      <RootComponent type="29" id="{54a649e0-8d05-ec11-b6e7-000d3af45ba0}" behavior="0" />
+      <RootComponent type="29" id="{5a599d57-a65e-ec11-8f8e-000d3a09f978}" behavior="0" />
+      <RootComponent type="29" id="{5c4404d2-214e-ec11-8f8e-0022486dc00f}" behavior="0" />
+      <RootComponent type="29" id="{6432c973-fb47-ec11-8c62-000d3a09f88c}" behavior="0" />
+      <RootComponent type="29" id="{686b52a0-7310-ec11-b6e6-000d3a09c993}" behavior="0" />
+      <RootComponent type="29" id="{75eb75c5-7029-4e65-9cc3-7041d2d325a6}" behavior="0" />
+      <RootComponent type="29" id="{765631f1-d41a-ec11-b6e7-000d3a09c974}" behavior="0" />
+      <RootComponent type="29" id="{787eab12-1f4e-ec11-8f8e-0022486dfdd7}" behavior="0" />
+      <RootComponent type="29" id="{7a570603-bc68-ec11-8f8e-000d3a09ddb7}" behavior="0" />
+      <RootComponent type="29" id="{823b8d15-9016-ec11-b6e7-000d3a09d4a7}" behavior="0" />
+      <RootComponent type="29" id="{a2931f2e-152d-ec11-b6e6-0022486d7047}" behavior="0" />
+      <RootComponent type="29" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" behavior="0" />
+      <RootComponent type="29" id="{aaf977db-4463-ec11-8f8e-0022486d91cb}" behavior="0" />
+      <RootComponent type="29" id="{b0157b01-735f-ec11-8f8e-000d3a09f978}" behavior="0" />
+      <RootComponent type="29" id="{b76b747f-ba14-ec11-b6e7-000d3a09dcd8}" behavior="0" />
+      <RootComponent type="29" id="{b92075cd-8f47-ec11-8c62-000d3a09f88c}" behavior="0" />
+      <RootComponent type="29" id="{ba248163-c825-ec11-b6e6-000d3a09d7ff}" behavior="0" />
+      <RootComponent type="29" id="{bc1e79e0-375f-ec11-8f8e-000d3a09f9ae}" behavior="0" />
+      <RootComponent type="29" id="{c269e63a-3740-ec11-8c62-000d3a09e210}" behavior="0" />
+      <RootComponent type="29" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" behavior="0" />
+      <RootComponent type="29" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" behavior="0" />
+      <RootComponent type="29" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" behavior="0" />
+      <RootComponent type="29" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" behavior="0" />
+      <RootComponent type="29" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" behavior="0" />
+      <RootComponent type="29" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" behavior="0" />
+      <RootComponent type="29" id="{d9069e31-4f4d-ec11-8f8e-0022486dfdd7}" behavior="0" />
+      <RootComponent type="29" id="{dae06d1e-a64e-ec11-8f8e-0022486dc00f}" behavior="0" />
+      <RootComponent type="29" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" behavior="0" />
+      <RootComponent type="29" id="{ddd3f59b-d526-ec11-b6e6-000d3a09d7ff}" behavior="0" />
+      <RootComponent type="29" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" behavior="0" />
+      <RootComponent type="29" id="{e14bf81b-034e-ec11-8f8e-0022486dc00f}" behavior="0" />
+      <RootComponent type="29" id="{ea80c53b-888e-471b-ab08-fcec146c85e4}" behavior="0" />
+      <RootComponent type="29" id="{f255e1b5-ac48-ec11-8c62-000d3a09f0fc}" behavior="0" />
+      <RootComponent type="29" id="{fa7354ea-1534-4435-9765-d7028b37fe86}" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="adobe_agreement" displayName="Agreement" solution="AdobeSign (9.5.4.0)">
+          <package>AdobeSign (9.5.4.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Signed Agreement Upload to Share Point (Digital Signature)" id="{30ade356-4f4d-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="adobe_agreement" displayName="Agreement" solution="AdobeSign (9.5.4.0)">
+          <package>AdobeSign (9.5.4.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Adobe Sign Agreement Status Updated" id="{3783f831-6f54-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Customer on SO Completion" id="{1d50edc6-d952-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{485ca8b1-4310-4f0b-aee9-b2829dc3c409}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Generic Product Update Extended Amount" id="{5a599d57-a65e-ec11-8f8e-000d3a09f978}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Product Hierarchy Path - Scheduled" id="{5c4404d2-214e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Product Hierarchy Path" id="{787eab12-1f4e-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Validation and Calculation" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="product" displayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="rm_creditcardsale" displayName="Credit Card Sale" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Funding Line from Credit Card Sale" id="{7a570603-bc68-ec11-8f8e-000d3a09ddb7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="rm_creditcardtable" displayName="Credit Card Table" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Welcome Email" id="{145a1c39-e331-ec11-b6e6-000d3a09e79e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Customer on SO Completion" id="{1d50edc6-d952-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName=" Update the Remaining Amount in credit check" id="{2fcc841b-7a56-ec11-8f8e-000d3af4a312}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Signed Agreement Upload to Share Point (Digital Signature)" id="{30ade356-4f4d-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Adobe Sign Agreement Status Updated" id="{3783f831-6f54-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order : Remote Credit Check" id="{37bc7701-eb2c-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Enercare - Update Commission Fields on update of related order " id="{424c54ce-a325-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order COI Document Upload to Share Point" id="{433633b6-d748-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Expiration of Credit Check" id="{54a649e0-8d05-ec11-b6e7-000d3af45ba0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Enercare - Update Order status to 'Expired'." id="{686b52a0-7310-ec11-b6e6-000d3a09c993}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Cancel Sales Order" id="{765631f1-d41a-ec11-b6e7-000d3a09c974}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Credit Check Override Approval" id="{823b8d15-9016-ec11-b6e7-000d3a09d4a7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Validation and Calculation" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calulate Tax for Agreement Order" id="{b76b747f-ba14-ec11-b6e7-000d3a09dcd8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Order Duration" id="{b92075cd-8f47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Stage of Order" id="{bc1e79e0-375f-ec11-8f8e-000d3a09f9ae}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Signed Agreement Upload to Share Point (Non Digital Signature)" id="{d9069e31-4f4d-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Approval Process" id="{dae06d1e-a64e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorder" displayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Cancellation Date on Order" id="{fa7354ea-1534-4435-9765-d7028b37fe86}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorderdetail" displayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorderdetail" displayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Generic Product Update Extended Amount" id="{5a599d57-a65e-ec11-8f8e-000d3a09f978}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorderdetail" displayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Validation and Calculation" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorderdetail" displayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="salesorderdetail" displayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_agreementfundingline" displayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Funding Line from Credit Card Sale" id="{7a570603-bc68-ec11-8f8e-000d3a09ddb7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_agreementfundingline" displayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Set Agreement Line Number" id="{aaf977db-4463-ec11-8f8e-0022486d91cb}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_agreementfundingline" displayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Active" />
+        <Dependent type="29" displayName="Update Customer on SO Completion" id="{1d50edc6-d952-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissiondiscountreduction" displayName="Commission Discount Reduction" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissionline" displayName="Commission Line" solution="Active" />
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissionrate" displayName="Commission Rate" solution="Active" />
+        <Dependent type="29" displayName="Commission Validation and Calculation" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissionrate" displayName="Commission Rate" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissionrate" displayName="Commission Rate" solution="Active" />
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Enercare - Update Commission Fields on update of related order " id="{424c54ce-a325-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Generate CSV file for Commissions" id="{4464d8cd-ac25-ec11-b6e6-000d3a09d416}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Cancel Sales Order" id="{765631f1-d41a-ec11-b6e7-000d3a09c974}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Commission Email Notification" id="{a2931f2e-152d-ec11-b6e6-0022486d7047}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Commission Validation and Calculation" id="{aa79316c-632a-ec11-b6e6-0022486dccdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Commission Approval Process" id="{dae06d1e-a64e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_commissions" displayName="Commissions" solution="Active" />
+        <Dependent type="29" displayName="Commission Approval : Update Overdue Adjustment and Commission Payable" id="{ddd3f59b-d526-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Active" />
+        <Dependent type="29" displayName="Expiration of Credit Check" id="{54a649e0-8d05-ec11-b6e7-000d3af45ba0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Active" />
+        <Dependent type="29" displayName="Enercare - Update Order status to 'Expired'." id="{686b52a0-7310-ec11-b6e6-000d3a09c993}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Active" />
+        <Dependent type="29" displayName="Commission Email Notification" id="{a2931f2e-152d-ec11-b6e6-0022486d7047}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Active" />
+        <Dependent type="29" displayName="Calulate Tax for Agreement Order" id="{b76b747f-ba14-ec11-b6e7-000d3a09dcd8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheck" displayName="Credit Check" solution="Active" />
+        <Dependent type="29" displayName="Process Credit Check Email" id="{146e1b5c-c820-ec11-b6e6-0022486da96b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheck" displayName="Credit Check" solution="Active" />
+        <Dependent type="29" displayName=" Update the Remaining Amount in credit check" id="{2fcc841b-7a56-ec11-8f8e-000d3af4a312}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheck" displayName="Credit Check" solution="Active" />
+        <Dependent type="29" displayName="Expiration of Credit Check" id="{54a649e0-8d05-ec11-b6e7-000d3af45ba0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheck" displayName="Credit Check" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Approval" id="{823b8d15-9016-ec11-b6e7-000d3a09d4a7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheckoverride" displayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Approval" id="{823b8d15-9016-ec11-b6e7-000d3a09d4a7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheckoverride" displayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheckoverride" displayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Update Status as PA on Credit Check Override" id="{e14bf81b-034e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_creditcheckoverrideprocessing" displayName="Credit Check Override Processing" solution="Active" />
+        <Dependent type="1" schemaName="sxp_creditcheckoverrideprocessing" displayName="Credit Check Override Processing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_orderprocessing" displayName="Order Processing" solution="Active" />
+        <Dependent type="1" schemaName="sxp_orderprocessing" displayName="Order Processing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_orderproductorderprofitcenterassociation" displayName="Order Product Order Department Association" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_orderprofitcenter" displayName="Order Department" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_partycontact" displayName="Party Contact" solution="Active" />
+        <Dependent type="29" displayName="Update Account on Party Contact" id="{6432c973-fb47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_partycontact" displayName="Party Contact" solution="Active" />
+        <Dependent type="29" displayName="Party Contact: Set Account" id="{f255e1b5-ac48-ec11-8c62-000d3a09f0fc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_payoutweek" displayName="Payout Week" solution="Active" />
+        <Dependent type="29" displayName="Generate CSV file for Commissions" id="{4464d8cd-ac25-ec11-b6e6-000d3a09d416}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_payoutweek" displayName="Payout Week" solution="Active" />
+        <Dependent type="29" displayName="Generate CSV file for Spiffs" id="{ba248163-c825-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_profitcenter" displayName="Profit Center" solution="Active" />
+        <Dependent type="29" displayName="Create/Update Order Department on Order" id="{ccf641c9-8a77-ec11-8942-000d3af4f6d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_profitcenter" displayName="Profit Center" solution="Active" />
+        <Dependent type="29" displayName="Commission Calculation" id="{d2ca360a-f03f-ec11-8c62-000d3a09ff93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_servicecenter" displayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Welcome Email" id="{145a1c39-e331-ec11-b6e6-000d3a09e79e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_servicecenter" displayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Commission Email Notification" id="{a2931f2e-152d-ec11-b6e6-0022486d7047}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_servicecenter" displayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Commission Approval Process" id="{dae06d1e-a64e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_servicecenter" displayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Update Service Center Name" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_spiff" displayName="Spiff" solution="Active" />
+        <Dependent type="29" displayName="Generate CSV file for Spiffs" id="{ba248163-c825-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_rm_creditcardtable_sxp_agreementfundingline" displayName="sxp_rm_creditcardtable_sxp_agreementfundingline" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_partynumber" displayName="Party Number" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_telephone1description" displayName="Phone Description" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_confirmemail" displayName="Confirm Email" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_firstname" displayName="First Name" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Update Account Name on Account" id="{75eb75c5-7029-4e65-9cc3-7041d2d325a6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_firstname" displayName="First Name" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_lastname" displayName="Last Name" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Update Account Name on Account" id="{75eb75c5-7029-4e65-9cc3-7041d2d325a6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_lastname" displayName="Last Name" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_middlename" displayName="MiddleName" parentSchemaName="account" parentDisplayName="Account" solution="Active" />
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="adobe_esagreementstatus" displayName="Agreement Status" parentSchemaName="adobe_agreement" parentDisplayName="Agreement" solution="AdobeSign (9.5.4.0)">
+          <package>AdobeSign (9.5.4.0)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Signed Agreement Upload to Share Point (Digital Signature)" id="{30ade356-4f4d-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_contactfor" displayName="Contact For" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_partynumber" displayName="Party Number" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_telephone1description" displayName="Phone Description" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.2.2.98)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.2.2.98)</package>
+        </Required>
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_confirmemailaddress1" displayName="Confirm Email" parentSchemaName="contact" parentDisplayName="Contact" solution="Active" />
+        <Dependent type="29" displayName="Create Primary Contact for Account" id="{c74d29c6-4ff8-482c-ab96-d35b15cffdf3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="hierarchypath" displayName="Hierarchy Path" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Product Hierarchy Path" id="{787eab12-1f4e-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{485ca8b1-4310-4f0b-aee9-b2829dc3c409}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Product Hierarchy Path" id="{787eab12-1f4e-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="productid" displayName="Product" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="productid" displayName="Product" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)">
+          <package>msdynce_ProductManagementAnchor (9.0.22015.10001)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{485ca8b1-4310-4f0b-aee9-b2829dc3c409}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_generic" displayName="Generic" parentSchemaName="product" parentDisplayName="Product" solution="Active" />
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_generic" displayName="Generic" parentSchemaName="product" parentDisplayName="Product" solution="Active" />
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{485ca8b1-4310-4f0b-aee9-b2829dc3c409}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="rm_creditcardtableid" displayName="Credit Card Table" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="rm_expirationdate" displayName="Expiration Date" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="rm_name" displayName="Name" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="rm_pansecure" displayName="PANSecure" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.19)" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="name" displayName="Name" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Cancellation Date on Order" id="{fa7354ea-1534-4435-9765-d7028b37fe86}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderid" displayName="Order" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderid" displayName="Order" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderid" displayName="Order" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderid" displayName="Order" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Update Cancellation Date on Order" id="{fa7354ea-1534-4435-9765-d7028b37fe86}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statuscode" displayName="Status Reason" parentSchemaName="salesorder" parentDisplayName="Order" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Commission Approval Process" id="{dae06d1e-a64e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_actualinstalldate" displayName="Actual Install Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Enercare - Update Commission Fields on update of related order " id="{424c54ce-a325-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_actualinstalldate" displayName="Actual Install Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Order Duration" id="{b92075cd-8f47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_actualinstalldate" displayName="Actual Install Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_addressvalidated" displayName="AddressValidated" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementamount" displayName="Funding Amount" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementsignedon" displayName="Agreement Signed On" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementstatus" displayName="Agreement Status" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Welcome Email" id="{145a1c39-e331-ec11-b6e6-000d3a09e79e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementstatus" displayName="Agreement Status" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementstatus" displayName="Agreement Status" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_cancellationthresholddate" displayName="Cancellation Threshold Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Cancellation Date on Order" id="{fa7354ea-1534-4435-9765-d7028b37fe86}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_coidocument" displayName="COI Document" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order COI Document Upload to Share Point" id="{433633b6-d748-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_customercomfortablesigningdigitally" displayName="Customer comfortable signing digitally?" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_customercomfortablesigningdigitally" displayName="Customer comfortable signing digitally?" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Signed On Date on Order - Non Digital" id="{d8697834-b2d1-4d7d-807c-24d3243bf5a2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_easypayoptout" displayName="Enroll in Easy Pay?" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_estimatedinstalldate" displayName="Estimated Install Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Update Order Duration" id="{b92075cd-8f47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_estimatedinstalldate" displayName="Estimated Install Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_ihavereadandreviewedtheagreement" displayName="I have read and reviewed the Agreement" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_installationstagecomplete" displayName="Installation Stage Complete" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_monthlypayment" displayName="Monthly Payment" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_paymentreceiveddate" displayName="Payment Received Date" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Enercare - Update Commission Fields on update of related order " id="{424c54ce-a325-ec11-b6e6-000d3a09d7ff}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_totalinstalledcost" displayName="Pre-Tax Installed Cost" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_totaltax" displayName="Total Tax" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_typeofagreement" displayName="Type of Agreement" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Processing" id="{c71422ee-5214-4c15-8a4f-a9e0793de6c9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_wetsignatureagreement" displayName="Wet Signature Agreement" parentSchemaName="salesorder" parentDisplayName="Order" solution="Active" />
+        <Dependent type="29" displayName="Order Signed Agreement Upload to Share Point (Non Digital Signature)" id="{d9069e31-4f4d-ec11-8f8e-0022486dfdd7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="productid" displayName="Existing Product" parentSchemaName="salesorderdetail" parentDisplayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderdetailid" displayName="Order Product" parentSchemaName="salesorderdetail" parentDisplayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderdetailname" displayName="Name" parentSchemaName="salesorderdetail" parentDisplayName="Order Product" solution="msdynce_SalesPatch (9.0.1904.3002)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="salesorderid" displayName="Order" parentSchemaName="salesorderdetail" parentDisplayName="Order Product" solution="msdynce_Sales (9.0.4.0076)">
+          <package>msdynce_SalesAnchor (9.0.22015.10002)</package>
+        </Required>
+        <Dependent type="29" displayName="Calculate the Extended Amount of a Generic Product" id="{13843bb9-4907-4cf8-8a44-23d8e4540e98}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_agreementfundinglineid" displayName="Agreement Funding Line" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_checknumber" displayName="Check Number" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_creditcard" displayName="Credit Card" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_downpayment" displayName="Down Payment" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_downpaymentdetails" displayName="Down Payment Details" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_financingoptions" displayName="Financing Options" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_fundingtype" displayName="Funding Type" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_loannumber" displayName="Account Reference" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_paymentmethoddetails" displayName="Payment Method Details" parentSchemaName="sxp_agreementfundingline" parentDisplayName="Agreement Funding Line" solution="Active" />
+        <Dependent type="29" displayName="Update Agreement Funding Line" id="{cbe63381-99d2-4aa4-af2e-6464538438b7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statuscode" displayName="Status Reason" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_approvallink" displayName="Approval link" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_approvalstatus" displayName="Approval Status" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Approval" id="{823b8d15-9016-ec11-b6e7-000d3a09d4a7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_approvalstatus" displayName="Approval Status" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_approvalstatus" displayName="Approval Status" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Update Status as PA on Credit Check Override" id="{e14bf81b-034e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_creditcheckoverrideid" displayName="Credit Check Override" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_creditcheckoverrideid" displayName="Credit Check Override" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Update Status as PA on Credit Check Override" id="{e14bf81b-034e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_creditscore" displayName="Credit Score" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_income" displayName="Income" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_increaseamount" displayName="Increase Amount" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Update Status as PA on Credit Check Override" id="{e14bf81b-034e-ec11-8f8e-0022486dc00f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_numberofsystems" displayName="Number of Systems" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_order" displayName="Order" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_percentofincome" displayName="Percent of Income" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicetype" displayName="Service Type" parentSchemaName="sxp_creditcheckoverride" parentDisplayName="Credit Check Override" solution="Active" />
+        <Dependent type="29" displayName="Credit Check Override Processing" id="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_partycontact" parentDisplayName="Party Contact" solution="Active" />
+        <Dependent type="29" displayName="Update Account on Party Contact" id="{6432c973-fb47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_partycontactid" displayName="Party Contact" parentSchemaName="sxp_partycontact" parentDisplayName="Party Contact" solution="Active" />
+        <Dependent type="29" displayName="Update Account on Party Contact" id="{6432c973-fb47-ec11-8c62-000d3a09f88c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_centername" displayName="Center Name" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Update Service Center Name" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_centernumber" displayName="Center Number" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Update Service Center Name" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Update Service Center Name" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicecenterid" displayName="Service Center" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Active" />
+        <Dependent type="29" displayName="Update Service Center Name" id="{e0ac2eef-db8e-449d-8f3c-1d33afd8014f}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

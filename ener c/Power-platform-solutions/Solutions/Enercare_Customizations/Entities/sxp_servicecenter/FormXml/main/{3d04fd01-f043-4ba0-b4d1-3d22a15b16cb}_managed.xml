@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3d04fd01-f043-4ba0-b4d1-3d22a15b16cb}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{bcb01188-4134-46be-a602-48ecc5c4889e}" IsUserDefined="1" expanded="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3dd69af9-1b52-4b7a-9ea7-f8f2be3b1d2d}" name="{3dd69af9-1b52-4b7a-9ea7-f8f2be3b1d2d}" columns="11" locklevel="0" labelwidth="100" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a9806dca-7935-06c7-b0e1-3bc3ee77cc34}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="false" uniqueid="{713323b1-3951-1de2-be65-516c7879dee7}" />
+                      </cell>
+                      <cell id="{5080a150-a4be-48fd-9ac8-1d7520c8d9f4}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Logo" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_logo" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="sxp_logo" disabled="false" uniqueid="{b0892bc6-cbb3-bada-8702-68298a659231}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{092138ac-5b0e-9242-9152-30e14c32864e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Center Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_centername" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_centername" disabled="false" />
+                      </cell>
+                      <cell id="{c40482d1-18a7-e8e1-a38b-ea20e367b69e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Website" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_website" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_website" disabled="false" uniqueid="{0c5b9c49-e5b9-40a3-d4ec-d52b8d4a2d2b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{85cd15ba-5dca-3a41-05a0-b077e4050275}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Center Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_centernumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_centernumber" disabled="false" />
+                      </cell>
+                      <cell id="{546e4773-c992-589e-d500-44ad0ca134b8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street 1" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_street1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_street1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9c85cb2c-1da8-8920-1ced-8bcd2a868678}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_phonenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_phonenumber" disabled="false" />
+                      </cell>
+                      <cell id="{4bb0b13c-03b5-653d-017e-bba215413cec}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street 2" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_street2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_street2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{729d7c33-4a7d-ce06-131a-d3d5e31321ab}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Center Email Address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_centeragreementdistributionemailaddress" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_centeragreementdistributionemailaddress" disabled="false" />
+                      </cell>
+                      <cell id="{b7db295c-c6c6-136e-5ecb-b7774c817564}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_city" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d3e6970-c78d-10d1-7348-85263418bbc0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Center Account" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_servicecenteraccount" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_servicecenteraccount" disabled="false" />
+                      </cell>
+                      <cell id="{c31c6b74-54ac-46a7-9dd5-b58b003ec4d6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="State" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_statevalue" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="sxp_statevalue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9ea0a826-218a-4226-c546-9c2476d58c6b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Center Team" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_servicecenterteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_servicecenterteam" disabled="false" />
+                      </cell>
+                      <cell id="{2ca0632a-6b8b-a189-5367-c9b9533bbc35}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="ZIP Code" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_zipcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_zipcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7015044-3780-a5ab-0a21-460a58c501ba}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Price List" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_pricelist" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_pricelist" disabled="false" uniqueid="{93b81994-8c20-70d7-0125-aad6bc15d080}" />
+                      </cell>
+                      <cell id="{5b40cecb-beb8-8605-e8e6-927896c1e396}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_country" disabled="false" uniqueid="{24ead398-4b9e-a004-6848-b1b125b06c80}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c6058d3c-0ab5-6d87-da3d-add7abbb8eb2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary Service Center Team" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primaryservicecenterteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_primaryservicecenterteam" disabled="false" />
+                      </cell>
+                      <cell id="{cc979c4e-08da-5271-c431-d2c9aa07ae43}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Region" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_region" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_region" disabled="false" uniqueid="{d79b1817-1150-b619-4d35-a3ac72db3cc5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c6cc790c-087a-6344-a4ea-61992bcc4dc8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Override 2 Service Center Team" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_overridetwoservicecenterteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_overridetwoservicecenterteam" disabled="false" />
+                      </cell>
+                      <cell id="{711cee19-7a38-58d1-4284-18120ac79a93}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="STARS area number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_starsareanumber" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sxp_starsareanumber" disabled="false" uniqueid="{95093530-90da-a924-511c-76655c4a5969}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{137ae899-c321-be76-c20d-92e1832635b9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Override 3 Service Center Team" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_overridethreeservicecenterteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_overridethreeservicecenterteam" disabled="false" />
+                      </cell>
+                      <cell id="{d81cc929-2102-6519-7bca-ee5ee23a2866}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Tranche" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_tranche" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_tranche" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{36733365-46d0-4256-4324-d04d32296eb7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CPI Team" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_cpiteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_cpiteam" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{0b645573-d4c6-4435-b64e-db063da29954}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="ServiceCenterLicense" showlabel="true" showbar="false" locklevel="0" id="{58d3760b-dcba-4da4-0b98-80141c8d492e}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Service Center Licenses" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c57ab310-67dd-3a94-6b82-9d404d9a401d}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Service Center Licenses " languagecode="1033" />
+                        </labels>
+                        <control id="StateLicenses" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{591a589b-d0c8-4226-36a7-bbcdc682c018}">
+                          <parameters>
+                            <ViewId>{7AB59247-BB0C-EC11-B6E6-000D3AF4F269}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>sxp_servicecenter_sxp_servicecenterlicense</RelationshipName>
+                            <TargetEntityType>sxp_servicecenterlicense</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{9CFA88F6-6C63-4439-AD64-3E3644B216F2},{7AB59247-BB0C-EC11-B6E6-000D3AF4F269}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Promotions" id="c835b26c-0bfe-4e22-afbc-147c968b2a3d" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Promotions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="Promotions_section_3" id="a5339861-1a25-431b-975e-8a93694c99ce" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1111" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a29c57fd-78a9-43e9-92d8-7e95de4c652f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Firecracker Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firecrackerdiscount" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_firecrackerdiscount" disabled="false" />
+                      </cell>
+                      <cell id="{f7cda6af-35b8-4384-8752-1b911debc043}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Firecracker Discount: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firecrackerdiscountfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_firecrackerdiscountfrom" disabled="false" />
+                      </cell>
+                      <cell id="{4ff84d08-10e3-40d3-8f61-f4ccfa2f2bb0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Firecracker Discount: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firecrackerdiscountto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_firecrackerdiscountto" disabled="false" />
+                      </cell>
+                      <cell id="{633b84a8-1f5b-42c6-baab-9be47d9da4df}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Firecracker Discount (%)" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firecrackerdiscountpercent" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="sxp_firecrackerdiscountpercent" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{855a25c4-6ba5-4ac5-9d0d-d380b686e440}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion: HVAC" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvac" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferralpromotionhvac" disabled="false" />
+                      </cell>
+                      <cell id="{7fca35b6-1aba-47a7-8246-a7a3de8686df}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion HVAC: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvacfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionhvacfrom" disabled="false" />
+                      </cell>
+                      <cell id="{ffbf65e2-69db-4c87-89a6-7ef621fec8a4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion HVAC: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvacto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionhvacto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{a7d591fe-adff-458b-8bab-3d5d85af1f36}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f704c17-1d83-48a6-b774-2370951c28b0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion: Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwater" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferralpromotionwater" disabled="false" />
+                      </cell>
+                      <cell id="{6596f664-0fcb-43d9-ae05-d13ec52884e0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{590763de-5335-402a-94d4-c59ffa769330}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{13210699-9bc8-4d49-89e0-d29e32a4b32b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{24d187a3-3145-45ce-8810-96a8457da1ce}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion: HVAC + Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvacwater" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferralpromotionhvacwater" disabled="false" />
+                      </cell>
+                      <cell id="{b3ed639f-6603-4292-adeb-d2ea87e91760}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion HVAC + Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvacwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionhvacwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{6de113a7-4ab4-44f2-9749-040d3c618437}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion HVAC + Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionhvacwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionhvacwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{f0f27a84-b4e4-4066-8517-ac721fd77c91}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{393bd75d-2564-40e7-88b1-7c9a5e9e2a84}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion: Water + Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwaterwater" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferralpromotionwaterwater" disabled="false" />
+                      </cell>
+                      <cell id="{ccf1ccf9-08b8-4b8e-9b59-91ea6c126714}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion Water + Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwaterwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionwaterwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{a332fc89-e5cd-440b-958a-e26105fa0921}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral Promotion Water + Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralpromotionwaterwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_deferralpromotionwaterwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{b09f0b07-ee2e-4182-a7c9-154e08a74598}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cbb7a3ea-f167-4b8f-992e-336420c90a81}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount: HVAC" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvac" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagediscounthvac" disabled="false" />
+                      </cell>
+                      <cell id="{f5d91d2c-7d02-40dd-90aa-074eee6990d8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount HVAC: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvacfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscounthvacfrom" disabled="false" />
+                      </cell>
+                      <cell id="{8413fbb9-973f-46c7-aef3-b07f7b45edd1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount HVAC: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvacto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscounthvacto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{2d05f247-ec5f-452a-a469-1d55ee96a7ce}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{114a5ee2-fc2b-467c-adcc-bd674e9326bb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount: Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwater" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagediscountwater" disabled="false" />
+                      </cell>
+                      <cell id="{d75638f6-d945-4ad3-8fd2-421f582c8a3e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscountwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{ecbe8fba-a95f-4056-bac2-7cbcc898b7da}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscountwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{72c4edb8-6136-4f72-87de-625c4c3d0a35}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{30f1260a-0993-47bd-aa3a-ec9d94dc305e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount: HVAC + Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvacwater" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagediscounthvacwater" disabled="false" />
+                      </cell>
+                      <cell id="{1b7ece00-5847-414c-8b88-03b94bc97f63}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount HVAC + Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvacwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscounthvacwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{46741740-a5dd-4434-a228-88593ac385f3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount HVAC + Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscounthvacwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscounthvacwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{f115b2b6-ae1f-402b-b908-4eba679679c5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99fce427-bf54-47aa-bbb0-457ad3887d89}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount: Water + Water" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwaterwater" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagediscountwaterwater" disabled="false" />
+                      </cell>
+                      <cell id="{dd041d02-56d1-49c8-a049-afadced6dad3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount Water+ Water: From" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwaterwaterfrom" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscountwaterwaterfrom" disabled="false" />
+                      </cell>
+                      <cell id="{7fe2879b-0843-4447-bf1f-4062e8a2cc67}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Discount Water+ Water: To" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagediscountwaterwaterto" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="sxp_advantagediscountwaterwaterto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{a29a0b30-b048-4fdc-a607-13e11c1023af}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ae0b9aab-8b7b-4518-b287-efa313a6ec41}" columns="111">
+        <rows>
+          <row>
+            <cell id="{6907a3ab-03a7-6e13-1e9a-11deb183ce71}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="true" uniqueid="{8771090e-cb23-5a70-d696-be1ce8c82978}" />
+            </cell>
+            <cell id="{c312116d-8005-69a7-9043-0d878ec790ad}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{6bb8650c-248a-5333-70e1-bd8786939948}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+            <cell id="{7d72d566-3b57-0b34-eb19-2a120c979b48}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" uniqueid="{72298191-de9d-e92a-c3da-d56ec0c59cb7}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <footer id="{f66d2e6a-9df9-45a7-b7b5-ab335c23afa9}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c40c2fda-4604-46fc-af97-8b476df28d7e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a5c6b1a1-8f02-46dc-94d0-ff4615e8c087}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c2648c24-8569-405b-a81b-c7ebadbd9388}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

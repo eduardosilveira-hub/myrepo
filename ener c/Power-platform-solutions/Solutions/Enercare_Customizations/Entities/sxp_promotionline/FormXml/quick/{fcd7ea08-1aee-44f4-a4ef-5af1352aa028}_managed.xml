@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{fcd7ea08-1aee-44f4-a4ef-5af1352aa028}</formid>
+    <IntroducedVersion>1.0.0.3</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{6763dea9-39b0-479c-ab55-e39a70b3417f}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{765912ed-8004-486f-aa57-968ce6082221}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3e707ee6-c8c5-e401-4a73-7b09333392cd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Promotion" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_promotion" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_promotion" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ea093aeb-e5b2-1d72-63a7-10174879c927}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_servicetype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_servicetype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b97a71dc-35d4-bcbd-a24d-4bac5ac45558}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount Amount Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discountamounttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_discountamounttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{745722ca-40b5-2751-d6eb-a7bd951e2848}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discountamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_discountamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8e03ded3-ed0a-22dd-2e7b-270c28c07a91}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount Percent" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discountpercent" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="sxp_discountpercent" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f766920c-8a1a-4c36-b070-9b6e0cd131d3}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{70222daf-5b6d-447f-8fb5-0e315da28f90}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

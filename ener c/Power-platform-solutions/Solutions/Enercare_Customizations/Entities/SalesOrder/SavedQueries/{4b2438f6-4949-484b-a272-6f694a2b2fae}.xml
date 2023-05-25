@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{4b2438f6-4949-484b-a272-6f694a2b2fae}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" icon="1" preview="1">
+        <row name="result" id="salesorderid">
+          <cell name="msdyn_company" width="100" />
+          <cell name="ordernumber" width="100" />
+          <cell name="name" width="300" />
+          <cell name="msdyn_processingstatus" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="sxp_totalinstalledcost" width="100" />
+          <cell name="sxp_totalordercost" width="100" />
+          <cell name="customerid" width="150" />
+          <cell name="salesordercustomeridcontactcontactid.emailaddress1" width="150" disableSorting="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="salesorder">
+          <attribute name="name" />
+          <order attribute="name" descending="false" />
+          <attribute name="statuscode" />
+          <attribute name="customerid" />
+          <link-entity alias="salesordercustomeridcontactcontactid" name="contact" from="contactid" to="customerid" link-type="outer" visible="false">
+            <attribute name="emailaddress1" />
+          </link-entity>
+          <attribute name="msdyn_company" />
+          <attribute name="msdyn_processingstatus" />
+          <attribute name="ordernumber" />
+          <attribute name="sxp_totalordercost" />
+          <attribute name="sxp_totalinstalledcost" />
+          <attribute name="salesorderid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Orders" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

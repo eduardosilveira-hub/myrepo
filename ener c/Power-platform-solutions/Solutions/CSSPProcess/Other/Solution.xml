@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.22012.140" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>CSSPProcess</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="CSSP Process" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Customer Self Service Portal Processes:&#xA;- Workflows&#xA;- Plugins&#xA;- Custom Actions&#xA;- Custom Workflows.&#xA;&#xA;Version1.0.3.3" languagecode="1033" />
+    </Descriptions>
+    <Version>2.0.0.1290</Version>
+    <Managed>1</Managed>
+    <Publisher>
+      <UniqueName>enercare</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Enercare" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Enercare" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>cssp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>68579</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="29" id="{021c7998-8838-ec11-b6e6-000d3a994e43}" behavior="0" />
+      <RootComponent type="29" id="{13409f34-244e-ec11-8c62-0022482a246b}" behavior="0" />
+      <RootComponent type="29" id="{1da6ddd4-918a-ec11-93b0-00224829607c}" behavior="0" />
+      <RootComponent type="29" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" behavior="0" />
+      <RootComponent type="29" id="{4e21cb30-6d79-ec11-8d21-002248300caa}" behavior="0" />
+      <RootComponent type="29" id="{73271c08-e279-ec11-8d21-002248300b77}" behavior="0" />
+      <RootComponent type="29" id="{7bcfbfff-6c52-ec11-8c62-0022482a246b}" behavior="0" />
+      <RootComponent type="29" id="{8000cdf4-c851-ec11-8c62-0022482a2f80}" behavior="0" />
+      <RootComponent type="29" id="{99c1884b-c363-ec11-8f8f-000d3a8dcea4}" behavior="0" />
+      <RootComponent type="29" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" behavior="0" />
+      <RootComponent type="29" id="{ab86f9e5-067b-ec11-8d21-002248300b77}" behavior="0" />
+      <RootComponent type="29" id="{b65fa28a-6746-ec11-8c62-0022482a8738}" behavior="0" />
+      <RootComponent type="29" id="{f0d5d449-7046-ec11-8c62-0022482a8738}" behavior="0" />
+      <RootComponent type="29" id="{f20cb78d-0d3a-ec11-b6e5-0022482a66f1}" behavior="0" />
+      <RootComponent type="29" id="{ff7706a6-be7f-ec11-8d21-000d3a8d0f36}" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_contentsnippet" displayName="Content Snippet" solution="MicrosoftPortalDependencies (9.2.2103.0)">
+          <package>StarterPortal (9.2.2108.4)</package>
+        </Required>
+        <Dependent type="29" displayName="Generate Billing Statement PDF - Blob" id="{13409f34-244e-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Generate Billing Statement PDF - Blob" id="{13409f34-244e-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="RedMaple Communications" id="{4e21cb30-6d79-ec11-8d21-002248300caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Original - Generate Billing Statement PDF - Blob" id="{73271c08-e279-ec11-8d21-002248300b77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Bill Header Conditions for Buyout Rental in Bill line" id="{8000cdf4-c851-ec11-8c62-0022482a2f80}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Validation For All the Bill Line and Bill Line Histories Populate" id="{99c1884b-c363-ec11-8f8f-000d3a8dcea4}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Update Bill Header From Service Location" id="{b65fa28a-6746-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billheader" displayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Update Service Location from Bill Header" id="{f0d5d449-7046-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billline" displayName="Billing Statement Line" solution="Active" />
+        <Dependent type="29" displayName="Generate Billing Statement PDF - Blob" id="{13409f34-244e-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billline" displayName="Billing Statement Line" solution="Active" />
+        <Dependent type="29" displayName="Bill Header Conditions for Buyout Rental in Bill line" id="{8000cdf4-c851-ec11-8c62-0022482a2f80}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billline" displayName="Billing Statement Line" solution="Active" />
+        <Dependent type="29" displayName="Validation For All the Bill Line and Bill Line Histories Populate" id="{99c1884b-c363-ec11-8f8f-000d3a8dcea4}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billlinehistory" displayName="Billing Statement history" solution="Active" />
+        <Dependent type="29" displayName="Generate Billing Statement PDF - Blob" id="{13409f34-244e-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billlinehistory" displayName="Billing Statement history" solution="Active" />
+        <Dependent type="29" displayName="Bill Header Conditions for Buyout Rental in Bill line" id="{8000cdf4-c851-ec11-8c62-0022482a2f80}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_billlinehistory" displayName="Billing Statement history" solution="Active" />
+        <Dependent type="29" displayName="Validation For All the Bill Line and Bill Line Histories Populate" id="{99c1884b-c363-ec11-8f8f-000d3a8dcea4}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Generate Billing Statement PDF - Blob" id="{13409f34-244e-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Bill delivery Method - propagate Account To Service Location" id="{1da6ddd4-918a-ec11-93b0-00224829607c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Service Location - On set primary copy address to Account" id="{7bcfbfff-6c52-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - Propagate Service Location to Account" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - propagate Account To Service Location" id="{ab86f9e5-067b-ec11-8d21-002248300b77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Update Bill Header From Service Location" id="{b65fa28a-6746-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Update Service Location from Bill Header" id="{f0d5d449-7046-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cssp_servicelocation" displayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Account - Mailing Address changed - No Primary Location" id="{ff7706a6-be7f-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_configuration" displayName="Configuration" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="RedMaple Communications" id="{4e21cb30-6d79-ec11-8d21-002248300caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_account_sxp_bankaccount_account" displayName="sxp_account_sxp_bankaccount_account" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Bill delivery Method - propagate Account To Service Location" id="{1da6ddd4-918a-ec11-93b0-00224829607c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Payment Option - propagate Account To Service Location" id="{ab86f9e5-067b-ec11-8d21-002248300b77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="adx_identity_username" displayName="User Name" parentSchemaName="contact" parentDisplayName="Contact" solution="MicrosoftIdentity (9.2.2103.1)">
+          <package>StarterPortal (9.2.2108.4)</package>
+        </Required>
+        <Dependent type="29" displayName="Send Registration Notification (CSSP)" id="{021c7998-8838-ec11-b6e6-000d3a994e43}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_ebillenrolled" displayName="E Bill Enrolled" parentSchemaName="cssp_billheader" parentDisplayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Update Service Location from Bill Header" id="{f0d5d449-7046-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_paymmethod" displayName="Paymmethod" parentSchemaName="cssp_billheader" parentDisplayName="Billing Statement" solution="Active" />
+        <Dependent type="29" displayName="Update Service Location from Bill Header" id="{f0d5d449-7046-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_bankaccountnumber" displayName="Bank Account Id" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - Propagate Service Location to Account" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_billdeliverymethod" displayName="Bill Delivery Method" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Update Bill Header From Service Location" id="{b65fa28a-6746-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_customerpaymentmethod" displayName="Customer Payment Method" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - Propagate Service Location to Account" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_isprimary" displayName="Set as primary" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Service Location - On set primary copy address to Account" id="{7bcfbfff-6c52-ec11-8c62-0022482a246b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_paymentmethod" displayName="Payment Method" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - Propagate Service Location to Account" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_paymentmethodtoken" displayName="Payment Method Token" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Payment Option - Propagate Service Location to Account" id="{9c999ffa-817c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cssp_paymentoptions" displayName="Payment Options" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" solution="Active" />
+        <Dependent type="29" displayName="Update Bill Header From Service Location" id="{b65fa28a-6746-ec11-8c62-0022482a8738}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_account" displayName="Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_bankaccountid" displayName="Bank Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_company" displayName="Company" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="29" displayName="Bank Account - Get Company from Account" id="{3d890c9f-d14e-4d67-886a-e5879dfe49be}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

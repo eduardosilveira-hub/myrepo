@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{de6e2973-7f89-4ccf-8efd-507a0641cece}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="sxp_name" select="1" icon="1" preview="1">
+        <row name="result" id="sxp_orderprofitcenterid">
+          <cell name="sxp_starsticketnumber" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_productservicetype" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_department" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_totalamount" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="sxp_orderprofitcenter">
+          <order attribute="sxp_starsticketnumber" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="sxp_starsticketnumber" />
+          <attribute name="sxp_productservicetype" />
+          <attribute name="sxp_totalamount" />
+          <attribute name="sxp_department" />
+          <attribute name="sxp_orderprofitcenterid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Order Department" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

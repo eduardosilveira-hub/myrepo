@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{3918cc6b-1b2d-ec11-b6e6-0022486dc34c}</savedqueryid>
+    <layoutxml>
+      <grid name="salesorderdetails" jump="" select="1" icon="1" preview="1">
+        <row name="salesorderdetail" id="salesorderdetailid" layoutstyle="ProductSubGrid">
+          <cell name="productname" LabelId="query.product.cell.productname.label" width="110" disableSorting="1" imageproviderfunctionname="Sales.ProductTypeImage.getProductTypeImageUrl" imageproviderwebresource="$webresource:Sales/ClientCommon/Sales_ClientCommon.js" />
+          <cell name="productid" ishidden="1" width="200" disableSorting="1" />
+          <cell name="producttypecode" ishidden="1" width="200" disableSorting="1" />
+          <cell name="parentbundleid" ishidden="1" width="200" disableSorting="1" />
+          <cell name="productdescription" ishidden="1" width="200" disableSorting="1" />
+          <cell name="primaryunit" width="80" ishidden="1" disableSorting="1" disableMetaDataBinding="1" LabelId="query.product.cell.unit.label" cellType="Crm.DisplayPrimaryUnit" />
+          <cell name="a_d2ebc328b0ddeb11bacd000d3a09d7a7.sxp_manufacturer" width="100" disableSorting="1" />
+          <cell name="a_d2ebc328b0ddeb11bacd000d3a09d7a7.sxp_shortmodel" width="100" disableSorting="1" />
+          <cell name="priceperunit" width="87" disableSorting="1" />
+          <cell name="quantity" width="83" disableSorting="1" />
+          <cell name="extendedamount" width="108" disableSorting="1" />
+          <cell name="isproductoverridden" ishidden="1" />
+          <cell name="sequencenumber" ishidden="1" width="100" />
+          <cell name="ispriceoverridden" ishidden="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="salesorderdetail">
+          <attribute name="productid" />
+          <attribute name="productdescription" />
+          <attribute name="productname" />
+          <attribute name="priceperunit" />
+          <attribute name="quantity" />
+          <attribute name="extendedamount" />
+          <attribute name="producttypecode" />
+          <attribute name="parentbundleid" />
+          <attribute name="sequencenumber" />
+          <attribute name="isproductoverridden" />
+          <attribute name="ispriceoverridden" />
+          <order attribute="sequencenumber" descending="true" />
+          <link-entity name="product" from="productid" to="productid" visible="false" link-type="outer" alias="a_d2ebc328b0ddeb11bacd000d3a09d7a7">
+            <attribute name="sxp_manufacturer" />
+            <attribute name="sxp_shortmodel" />
+          </link-entity>
+          <attribute name="salesorderdetailid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Order - Default View for Products and Pricing" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description=" Displays information about the products included in a product bundle in an sales order detail form of the associated sales order record. This view is in the Products side tab." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

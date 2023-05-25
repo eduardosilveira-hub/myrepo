@@ -1,0 +1,23 @@
+<style>
+    .cssp-pwd-reset #api {
+         margin-top: 10px;
+    }
+</style>
+
+<div class="cssp-page-title">Change Password</div>
+<div class="cssp-pwd-reset">
+    <div style="margin-top: 10px;">Enter your email below and we will send you a verification code to reset your password.</div>
+    <div id="api" data-name="Unified">
+    </div>
+    <div class="custom-divider"></div>
+</div>
+
+<script>
+    document.querySelector('.intro').remove();
+    document.querySelectorAll('.helpLink').forEach((link) => { link.remove(); });
+    document.querySelector('#requiredFieldMissing').remove();
+
+
+    let pageTitle = document.querySelector(".cssp-page-title");
+    pageTitle.innerText = "Change Password";
+</script>

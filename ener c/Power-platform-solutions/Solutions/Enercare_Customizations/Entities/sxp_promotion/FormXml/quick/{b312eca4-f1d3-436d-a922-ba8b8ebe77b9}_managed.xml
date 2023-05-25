@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b312eca4-f1d3-436d-a922-ba8b8ebe77b9}</formid>
+    <IntroducedVersion>1.0.0.3</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{0ed2bb59-4fc0-429e-b37e-8166138459ca}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{0d0e4ae9-fa52-4b3f-81a3-bf9032793710}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{972b3203-8750-4777-ad7d-3ba89e365a34}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Bundle" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bundle" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_bundle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b0472105-3395-4705-9054-34000b01d76a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deferral" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferral" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferral" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{63caf4e0-9d81-4923-b3e4-21ba4ed4e3f5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage HVAC Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagehvacdiscount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagehvacdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6e0f44eb-f139-48c2-b68a-8ffc5dfa71a1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Water Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagewaterdiscount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagewaterdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="c601e671-26a9-4bb7-8d31-0ed9c0e609a9" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5aeb8f3c-820c-4051-b150-cdcd4c402256}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Agreement Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_agreementtype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="sxp_agreementtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{94298df6-dc17-4c7e-9dd9-fa72a01af48d}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{96f1521d-495d-40c4-b812-85980e68edaf}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

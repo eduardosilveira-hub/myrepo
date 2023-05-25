@@ -1,0 +1,13 @@
+adx_append: true
+adx_appendto: true
+adx_create: true
+adx_delete: false
+adx_entitylogicalname: cssp_billheader
+adx_entityname: CSSP - Bill Header
+adx_entitypermission_webrole:
+- 6f2449bf-9988-4db2-b4b7-42a52c931cc5
+- 844598bc-d0cb-410a-b2de-b6f2c4dbc487
+adx_entitypermissionid: 09fd4d65-c532-ec11-b6e5-00224828d2ee
+adx_read: true
+adx_scope: 756150000
+adx_write: true

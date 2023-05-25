@@ -1,0 +1,14 @@
+adx_append: false
+adx_appendto: false
+adx_create: false
+adx_delete: false
+adx_entitylogicalname: adx_sitesetting
+adx_entityname: CSSP - Site Setting
+adx_entitypermission_webrole:
+- 50ff498c-7a26-e611-80d6-00155db46a72
+- 6f2449bf-9988-4db2-b4b7-42a52c931cc5
+- 844598bc-d0cb-410a-b2de-b6f2c4dbc487
+adx_entitypermissionid: e3c620b0-8d2c-ec11-b6e5-000d3a52d362
+adx_read: true
+adx_scope: 756150000
+adx_write: false

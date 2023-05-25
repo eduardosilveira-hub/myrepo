@@ -1,0 +1,13 @@
+adx_append: true
+adx_appendto: true
+adx_create: true
+adx_delete: false
+adx_entitylogicalname: sxp_bankaccount
+adx_entityname: Bank Account
+adx_entitypermission_webrole:
+- 99a454c4-a051-ec11-8c62-0022482a2f80
+- 844598bc-d0cb-410a-b2de-b6f2c4dbc487
+adx_entitypermissionid: ba6920ef-cc5e-ec11-8f8f-000d3a4d8d74
+adx_read: true
+adx_scope: 756150000
+adx_write: false

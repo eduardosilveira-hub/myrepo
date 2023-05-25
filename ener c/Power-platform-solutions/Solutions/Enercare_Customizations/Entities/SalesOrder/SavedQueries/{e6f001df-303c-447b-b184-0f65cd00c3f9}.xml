@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e6f001df-303c-447b-b184-0f65cd00c3f9}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="name" select="1" icon="1" preview="1">
+        <row name="result" id="salesorderid">
+          <cell name="name" width="129" />
+          <cell name="sxp_typeofagreement" width="100" />
+          <cell name="sxp_totalinstalledcost" width="100" />
+          <cell name="sxp_totalordercost" width="100" />
+          <cell name="customerid" width="119" />
+          <cell name="sxp_center" width="199" />
+          <cell name="a_45be2c33969b48fe8b2bf692042f0451.emailaddress1" width="100" />
+          <cell name="ownerid" width="100" />
+          <cell name="statuscode" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="salesorder">
+          <attribute name="name" />
+          <attribute name="statuscode" />
+          <attribute name="customerid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="ownerid" />
+          <attribute name="sxp_center" />
+          <attribute name="sxp_typeofagreement" />
+          <link-entity alias="a_45be2c33969b48fe8b2bf692042f0451" name="account" to="customerid" from="accountid" link-type="outer" visible="false">
+            <attribute name="emailaddress1" />
+          </link-entity>
+          <order attribute="name" descending="true" />
+          <attribute name="sxp_totalordercost" />
+          <attribute name="sxp_totalinstalledcost" />
+          <attribute name="salesorderid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Orders" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

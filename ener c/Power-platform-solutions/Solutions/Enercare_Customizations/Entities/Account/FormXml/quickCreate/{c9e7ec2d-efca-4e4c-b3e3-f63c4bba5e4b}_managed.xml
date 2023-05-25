@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b}</formid>
+    <IntroducedVersion>6.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1900">
+      <tabs>
+        <tab id="{8ca48364-f790-43e4-b753-aa35fa4f9c77}" name="tab_1" expanded="true" locklevel="0" showlabel="false" IsUserDefined="0" ordinalvalue="0">
+          <columns>
+            <column width="33%" id="0">
+              <sections>
+                <section id="{bcee7abc-6004-49f3-bc27-9eb7d1d3561b}" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0">
+                  <labels>
+                    <label description="Account Information" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{9a03a714-8dad-6d25-6094-c9426131e708}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10012" solutionaction="Modified">
+                        <control id="msdyn_company" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_company" disabled="true" uniqueid="{e5ae012a-66ce-e169-5d87-c75e4eb97758}" solutionaction="Modified">
+                          <parameters solutionaction="Added">
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9EDA5FB6-D9A6-47CF-BEF1-D1DFED3AA7E0}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6043d747-ce29-ada4-61e7-17243ec030d7}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{7697e89b-cb21-2809-82b3-dc18084c2d6a}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10002" solutionaction="Modified">
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="true" uniqueid="{9564d068-36cc-8bce-5358-57d33aea93ad}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01418852-d557-a2a2-0abe-d872b04c6413}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{41a3bdce-2a59-1ac3-2bd7-491bd1a7eeb3}" showlabel="true" locklevel="0" ordinalvalue="10004" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{1b493db6-167b-6b45-a790-8039e48ba201}" showlabel="true" locklevel="0" ordinalvalue="10009" solutionaction="Modified">
+                        <labels>
+                          <label description="Primary Phone" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                        <control id="telephone1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="telephone1" disabled="false" uniqueid="{951be683-44e8-83dd-c4ee-e478a7bc8185}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{74462bc8-31ba-726c-e195-bc30857d41e5}" showlabel="true" locklevel="0" ordinalvalue="10006" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{44ce809a-7cbd-0513-4022-a50838d190da}" showlabel="true" locklevel="1" visible="false" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" uniqueid="{b0dea0bc-ddba-8506-d9ee-426a62047acc}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b0a4a1ed-d086-5ab3-c6a5-0bd15d0a8217}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Service Center" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_servicecenter" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_servicecenter" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{10d80646-7509-9c9b-4880-81295d1a04c7}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_firstname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{554e2837-cd2d-680a-a6a8-79b89eb989d6}" showlabel="true" locklevel="0" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="MiddleName" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_middlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_middlename" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b588b0ae-2581-d527-cb81-98a127ec187d}" showlabel="true" locklevel="0" ordinalvalue="10005" solutionaction="Added">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_lastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{453668c4-b992-c69e-1b2c-87a608e4324b}" showlabel="true" locklevel="0" ordinalvalue="10006" solutionaction="Added">
+                        <labels>
+                          <label description="Email" languagecode="1033" />
+                        </labels>
+                        <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ab2d2b7a-00b2-53d9-9a70-9b57435e4b27}" showlabel="true" locklevel="0" ordinalvalue="10007" solutionaction="Added">
+                        <labels>
+                          <label description="Confirm Email" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_confirmemail" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="sxp_confirmemail" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ed7decc4-2ace-84a8-abe2-17c405933e8b}" showlabel="true" locklevel="0" ordinalvalue="10008" solutionaction="Added">
+                        <labels>
+                          <label description="Customer does not have an email address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_customerdoesnothaveanemailaddress" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="sxp_customerdoesnothaveanemailaddress" disabled="false" uniqueid="{837a1e7d-77d6-7de6-e59d-95e2e5b0920a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6a2b2630-efb9-474f-ac2f-fb8603bd0e17}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10010" solutionaction="Added">
+                        <labels>
+                          <label description="Phone Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_phonetype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="sxp_phonetype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{588cd02b-c182-13b2-7cd7-81622c506275}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10011" solutionaction="Added">
+                        <labels>
+                          <label description="Phone Description" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_telephone1description" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msdyn_telephone1description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9705aed0-3551-2c36-bdc6-8c0536881559}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10013" solutionaction="Added">
+                        <labels>
+                          <label description="DefaultDimensionDisplayValue" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_defaultdimensiondisplayvalue" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_defaultdimensiondisplayvalue" disabled="false" uniqueid="{56ba1de9-c9d9-9025-ac51-395e1baa667b}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a7c7b59-1c05-4874-71ad-9a8c4e69d675}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10014" solutionaction="Added">
+                        <labels>
+                          <label description="Currency" languagecode="1033" />
+                        </labels>
+                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="false" uniqueid="{18c0c965-16be-035c-9c56-1d04e298599a}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CD5625B0-DDA8-4EE2-B13F-B9331E027C8A}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a65e6d4a-96a4-9a6a-c93a-8b11900b6090}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10015" solutionaction="Added">
+                        <labels>
+                          <label description="Customer Group Id" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_customergroupid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_customergroupid" disabled="false" uniqueid="{2684c1a5-508a-0047-7617-863eddbcbd01}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{15FAFEF0-FDD2-4319-8205-7FC7FE8CE89D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7100e50-3d78-bea4-6a3c-32259b247215}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10016" solutionaction="Added">
+                        <labels>
+                          <label description="Payment Term" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_paymentterm" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_paymentterm" disabled="false" uniqueid="{11d00d52-8490-3a8d-e745-61ac140a6935}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{85721F2F-D176-4BF4-89A7-51163270F357}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c4c6c04d-7dc8-9aab-cc54-967750db12d0}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10017" solutionaction="Added">
+                        <labels>
+                          <label description="Customer Payment Method" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_customerpaymentmethod" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_customerpaymentmethod" disabled="false" uniqueid="{c9abc540-d011-d026-6460-836b2872934e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{6E1C5EFB-1877-4A5B-8620-61D53DE91B6C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c915e5ac-3bcd-52cc-0300-ce4b733c4724}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10018" solutionaction="Added">
+                        <labels>
+                          <label description="Invoice Profile Id" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_invoiceprofileid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_invoiceprofileid" disabled="false" uniqueid="{010ec49b-dadb-1cc0-b253-ee159cba43d6}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E5876BF0-CD53-4146-841B-B37C2876CCEE}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6e50ecae-31e0-b9b6-14c7-44d0b0d4cca7}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10019" solutionaction="Added">
+                        <labels>
+                          <label description="Party Number" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_partynumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msdyn_partynumber" disabled="false" uniqueid="{6b3b64d5-0b00-4b78-e6e1-b0774ca8ae60}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d655b8d8-c550-4779-e8c2-93aa2a038bd5}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10020" solutionaction="Added">
+                        <labels>
+                          <label description="Sales Tax Group" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_salestaxgroup" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_salestaxgroup" disabled="false" uniqueid="{4753ce19-aa69-6a81-c007-285e418ac290}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{3878031F-4A8D-479C-9CED-B9C0F3355185}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{97536806-c644-e791-496a-c6529aa86b90}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10021" solutionaction="Added">
+                        <labels>
+                          <label description="Avalara Tax" languagecode="1033" />
+                        </labels>
+                        <control id="ava_avalaratax" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ava_avalaratax" disabled="false" uniqueid="{0e8ec8c5-e3b7-b8e7-90aa-a9958ddaaabc}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{CEE546F1-94E1-4451-9BA5-85675EA5C940}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%" id="1">
+              <sections>
+                <section id="{32ff71fb-26e6-4b51-8e93-e94b5780a8ae}" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0" solutionaction="Modified">
+                  <labels>
+                    <label description="Installation Address" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0b52c646-e775-1bd7-5943-3b5397543993}" showlabel="false" userspacer="true" ordinalvalue="10000" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{c2240749-1b7b-7d54-3e11-61b947427447}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{ebb8e093-c034-a6d1-e4d3-e43923ec1d7d}" showlabel="true" locklevel="0" ordinalvalue="10002" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{d0c7e234-97a8-473c-39d9-78381c372375}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{4b76aee6-8414-a9d0-3066-78ed2ed42eb8}" showlabel="true" locklevel="0" rowspan="2" ordinalvalue="10004" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{8dd434a1-7a97-7529-47d9-5a7548bcb8ea}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="Installation Address Auto-Suggestion" languagecode="1033" />
+                        </labels>
+                        <control id="address1_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="address1_name" disabled="false" uniqueid="{8be17a12-b6e3-1955-5da6-b39ca88d9e51}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{62E808A5-4DB5-4D56-9620-37EBAC8AFF72}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Installation Street" languagecode="1033" />
+                        </labels>
+                        <control id="address1_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line1" disabled="false" uniqueid="{a07250ae-a1be-e517-14a5-9dca57c742c5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01c495c3-bc99-1ac8-7091-004c8d65e41b}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Installation  County" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_address1county" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_address1county" disabled="false" uniqueid="{c3b90b9e-3421-488d-8ceb-8a19e7b72adc}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0794FA63-F298-4831-BD5A-B3F46A91F146}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="Installation  City" languagecode="1033" />
+                        </labels>
+                        <control id="address1_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_city" disabled="false" uniqueid="{87468544-de51-b68b-4bb8-d02ce2639e70}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1401ea8c-b7a9-a775-d962-e8b1442cec16}" showlabel="true" locklevel="0" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="Installation  State/Province" languagecode="1033" />
+                        </labels>
+                        <control id="address1_stateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_stateorprovince" disabled="false" uniqueid="{682a2428-1c41-4b46-2b53-43b3e12ab524}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{C5E57D6C-8A9E-4A0D-89ED-D3F5B59B57AA}" showlabel="true" locklevel="0" ordinalvalue="10005" solutionaction="Added">
+                        <labels>
+                          <label description="Installation  ZIP/Postal Code" languagecode="1033" />
+                        </labels>
+                        <control id="address1_postalcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_postalcode" disabled="false" uniqueid="{78b180dd-162d-9413-a342-5075644ccc76}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e27c3e4-717e-e78b-490b-3be9e11bc90b}" showlabel="true" locklevel="0" ordinalvalue="10006" solutionaction="Added">
+                        <labels>
+                          <label description="Installation  Country/Region" languagecode="1033" />
+                        </labels>
+                        <control id="address1_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_country" disabled="false" uniqueid="{60acb312-6c4b-7a7a-3b65-0cd18b7e120e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0c09d431-49b9-480a-830d-c852999338e6}" showlabel="true" locklevel="0" ordinalvalue="10007" solutionaction="Added">
+                        <labels>
+                          <label description="Is Mailing Address Same as Installation Address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_ismailingaddresssameasinstallationaddress" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="sxp_ismailingaddresssameasinstallationaddress" disabled="false" uniqueid="{b69565eb-809c-25c9-6e70-3076c4de40ac}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%" id="2">
+              <sections>
+                <section id="{a549aa16-a731-41b7-9181-86710f8feef5}" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="0">
+                  <labels>
+                    <label description="Mailing Address" languagecode="1033" solutionaction="Modified" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{62E808A5-4DB5-4D56-9620-37EBAC8AFF72}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{30B0C670-408A-42B1-B373-607936DE2C8F}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{0794FA63-F298-4831-BD5A-B3F46A91F146}" showlabel="true" locklevel="0" ordinalvalue="10002" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{C5E57D6C-8A9E-4A0D-89ED-D3F5B59B57AA}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{2e487688-b1c9-ede6-2b70-9b0a4137b14c}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing Address Auto-Suggestion" languagecode="1033" />
+                        </labels>
+                        <control id="address2_name" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="address2_name" disabled="false" uniqueid="{9eee9388-d183-9d52-a2bd-3a98ba5b0723}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2b26465c-ce6d-20b3-e3b2-3288809c48da}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing Street" languagecode="1033" />
+                        </labels>
+                        <control id="address2_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address2_line1" disabled="false" uniqueid="{821d5391-92b7-d9cc-d74e-4293971d9d61}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bbb37160-8e57-eb89-044b-ed6908aa589c}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing  County" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_address2county" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_address2county" disabled="false" uniqueid="{296391d1-2453-267a-2e82-94b7064d2d00}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db44bd17-1398-34b4-9589-6858938c3593}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing  City" languagecode="1033" />
+                        </labels>
+                        <control id="address2_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address2_city" disabled="false" uniqueid="{cc8e8010-3c66-aaa0-7383-a7e29583e06c}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba3956b7-b8cc-06b1-c5ae-d19aec3b240d}" showlabel="true" locklevel="0" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing  State/Province" languagecode="1033" />
+                        </labels>
+                        <control id="address2_stateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address2_stateorprovince" disabled="false" uniqueid="{2ac17047-e246-7396-544a-0838b1d8cd32}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7c31cc0a-9185-30c3-c272-c5c55de44956}" showlabel="true" locklevel="0" ordinalvalue="10005" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing  ZIP/Postal Code" languagecode="1033" />
+                        </labels>
+                        <control id="address2_postalcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address2_postalcode" disabled="false" uniqueid="{c92b21c5-a04e-b5e7-0d92-14580daa05a8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{66de0579-1945-ad82-8463-dc36447c0eaa}" showlabel="true" locklevel="0" ordinalvalue="10006" solutionaction="Added">
+                        <labels>
+                          <label description="Mailing  Country/Region" languagecode="1033" />
+                        </labels>
+                        <control id="address2_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address2_country" disabled="false" uniqueid="{cdd65928-5220-91ae-0216-ceae89039144}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions>
+        <controlDescription forControl="{8be17a12-b6e3-1955-5da6-b39ca88d9e51}" solutionaction="Added">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>address1_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="ava_AC.BingAddressAutocomplete">
+            <parameters>
+              <value>address1_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address1_line1</street>
+              <city>address1_city</city>
+              <county>sxp_address1county</county>
+              <state>address1_stateorprovince</state>
+              <zipcode>address1_postalcode</zipcode>
+              <country>address1_country</country>
+              <countryCode>address1_country</countryCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="ava_AC.BingAddressAutocomplete">
+            <parameters>
+              <value>address1_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address1_line1</street>
+              <city>address1_city</city>
+              <county>sxp_address1county</county>
+              <state>address1_stateorprovince</state>
+              <zipcode>address1_postalcode</zipcode>
+              <country>address1_country</country>
+              <countryCode>address1_country</countryCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="ava_AC.BingAddressAutocomplete">
+            <parameters>
+              <value>address1_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address1_line1</street>
+              <city>address1_city</city>
+              <county>sxp_address1county</county>
+              <state>address1_stateorprovince</state>
+              <zipcode>address1_postalcode</zipcode>
+              <country>address1_country</country>
+              <countryCode>address1_country</countryCode>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{9eee9388-d183-9d52-a2bd-3a98ba5b0723}" solutionaction="Added">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>address2_name</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="ava_AC.BingAddressAutocompleteSecond">
+            <parameters>
+              <value>address2_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address2_line1</street>
+              <city>address2_city</city>
+              <county>sxp_address2county</county>
+              <state>address2_stateorprovince</state>
+              <zipcode>address2_postalcode</zipcode>
+              <country>address2_country</country>
+              <countryCode>address2_country</countryCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="ava_AC.BingAddressAutocompleteSecond">
+            <parameters>
+              <value>address2_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address2_line1</street>
+              <city>address2_city</city>
+              <county>sxp_address2county</county>
+              <state>address2_stateorprovince</state>
+              <zipcode>address2_postalcode</zipcode>
+              <country>address2_country</country>
+              <countryCode>address2_country</countryCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="ava_AC.BingAddressAutocompleteSecond">
+            <parameters>
+              <value>address2_name</value>
+              <bingapikey static="true" type="SingleLine.Text">Al8m_bsILqjJ2UMyzYdoD6ZptbbMAKhszjW92Glq60NPVd7jv8kteeOcicVZOu93</bingapikey>
+              <street>address2_line1</street>
+              <city>address2_city</city>
+              <county>sxp_address2county</county>
+              <state>address2_stateorprovince</state>
+              <zipcode>address2_postalcode</zipcode>
+              <country>address2_country</country>
+              <countryCode>address2_country</countryCode>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="sxp_commonhelper.js" libraryUniqueId="{6b872696-c2a7-5873-c774-db0475869e6b}" solutionaction="Added" />
+        <Library name="sxp_account.js" libraryUniqueId="{e8943b3e-b7a1-96db-32bd-638d06ee1223}" solutionaction="Added" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="defaultCompany" libraryName="msdyn_/DefaultCompany.js" handlerUniqueId="{8b912279-a6d3-28dc-ab6b-71a660e7a035}" enabled="true" parameters="'msdyn_company'" passExecutionContext="false" ordinalvalue="0" solutionaction="Modified" />
+            <Handler functionName="Account.OnLoad" libraryName="sxp_account.js" handlerUniqueId="{dac870cc-c02a-87a0-697e-b988bc338d48}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="1" solutionaction="Added" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="updateDefaultCompany" libraryName="msdyn_/DefaultCompany.js" handlerUniqueId="{7ec87ceb-74bc-14e9-c25e-36e965781eb1}" enabled="true" parameters="'msdyn_company'" passExecutionContext="false" ordinalvalue="0" solutionaction="Modified" />
+            <Handler functionName="Account.SetAccountName" libraryName="sxp_account.js" handlerUniqueId="{30307148-a917-60a1-0bc2-d58cb40cc1c2}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="1" solutionaction="Added" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="emailaddress1" solutionaction="Added">
+          <Handlers>
+            <Handler functionName="Account.OnChange" libraryName="sxp_account.js" handlerUniqueId="{e5d89bae-d0e3-e5e8-1582-688289aa5b23}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="0" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="sxp_ismailingaddresssameasinstallationaddress" solutionaction="Added">
+          <Handlers>
+            <Handler functionName="Account.OnChange" libraryName="sxp_account.js" handlerUniqueId="{d0c8671c-21bd-9162-c1a5-ca7674001743}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="0" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Account Quick Create" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Default quick create form for Account" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

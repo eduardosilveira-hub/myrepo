@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4bc680ee-5c9d-4b9a-b3fc-e33afbf7bdc3}</formid>
+    <IntroducedVersion>1.0.0.3</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{3771096d-519b-415f-9fc7-70fa66137a5e}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{f41149dc-f97d-445c-937a-61cdc7a23d42}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e6cf2a16-3b64-453d-82df-0fed3ce9e16e}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{17f2d9f5-095b-42e9-b030-1c987eec1d63}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Agreement Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_agreementtype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="sxp_agreementtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8b2c0829-da07-a5d4-c433-86c32db2a953}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bundle" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bundle" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_bundle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e54b813-dd8b-ca51-c8d4-b4017423b6b7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bundle discount type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bundletype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_bundletype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e747bb2-79c2-620e-ac6c-1a3644463a66}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Deferral" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferral" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_deferral" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{66fc0e7e-b2e6-4663-9678-ffa80c65b963}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage HVAC Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagehvacdiscount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagehvacdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{929e20f6-05f4-4b47-b863-477b1396ab8f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Advantage Water Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantagewaterdiscount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_advantagewaterdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a9ce1707-b88e-4023-94d8-0a58d09710b4}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <header id="{e14866c6-a890-4071-a940-5cb1a3d6521f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{820b47fd-05d6-44ce-a926-578f4b25ffed}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8bd6a827-497f-4fbf-9328-a42da6d3841e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{729a0133-d240-48ff-8814-582826589cce}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{53bb7364-5546-401a-9005-407c51a37f2d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{21ac5eea-b702-42bd-87f3-a0db71a22383}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e1e1f6d3-7134-4618-a66d-8685f605d68d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{019671a2-5581-4c13-adde-f4b3e6be225b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions />
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

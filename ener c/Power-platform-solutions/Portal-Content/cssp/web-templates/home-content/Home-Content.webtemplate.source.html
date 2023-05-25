@@ -1,0 +1,214 @@
+<style>
+    .cssp-home .list-group {
+        padding-left: 0;
+        margin-bottom: 0px;
+    }
+    .cssp-home #banner-panel {
+      background: url(https://www.serviceexperts.com/corporate/images/HomeScheduleOnline_ACEimage_photography_ACE_8.21_SE_575x250.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      /* margin-bottom: 150px; */
+    }
+    .cssp-home .cssp-schedule-content {
+      display: inline-block;
+      width: 45%;
+      height: 100%;
+      padding: 50px 70px;
+    }
+    .cssp-home .cssp-easypay-panel {
+      padding: 15px 20px;
+      background-color: #f5f5f5;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+    .cssp-home .cssp-easypay-panel .easypay-btn-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (min-width: 576px) {
+        #rm-Modal .modal-dialog {
+        max-width: none !important;
+        }
+    }
+
+    @media (max-width: 655px) {
+        .cssp-home .cssp-schedule-content {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding: 20px 135px 20px 10px;
+        }
+
+        .schedule-text {
+            display: none;
+        }
+
+        /* .cssp-home #banner-panel {
+            margin-bottom: 200px;
+        } */
+    }
+</style>
+{% if billHeader %}
+{%- fetchxml fetchLineHistories -%}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="cssp_billlinehistory">
+        <attribute name="cssp_billlinehistoryid" />
+        <attribute name="cssp_name" />
+        <attribute name="cssp_chargedescription" />
+        <attribute name="cssp_chargeamount" />
+        <attribute name="cssp_linenumber" />
+        <order attribute="cssp_linenumber" descending="false" />
+        <filter type="and">
+            <condition attribute="cssp_billheader" operator="eq" value="{{billHeader.cssp_billheaderid}}" />
+            <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+        </filter>
+    </entity>
+</fetch>
+{%- endfetchxml -%}
+{%- fetchxml fetchLines -%}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="cssp_billline">
+        <attribute name="cssp_billlineid" />
+        <attribute name="cssp_name" />
+        <attribute name="cssp_chargedescription" />
+        <attribute name="cssp_chargeamount" />
+        <attribute name="cssp_linenumber" />
+        <order attribute="cssp_linenumber" descending="false" />
+        <filter type="and">
+            <condition attribute="cssp_billheader" operator="eq" value="{{billHeader.cssp_billheaderid}}" />
+            <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+        </filter>
+    </entity>
+</fetch>
+{%- endfetchxml -%}
+{% endif %}
+<div class="cssp-home cssp-web-component">
+    <div id="first-panel" style="padding-bottom:30px;">
+        <div class="cssp-current-billing card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    {% include 'LocationPicker' %}
+                    <div id="test-location">
+                        
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <h3 class="font-bold cssp-font-22">Current Billing Statement</h3>
+                    <div class="row mt-5">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="cssp-label">Amount</div>
+                                <div class="cssp-font-data mt-2">${{billHeader.cssp_amountdue | round: 2}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="cssp-label">Due date</div>
+                            <div class="cssp-font-data mt-2">{{billHeader.cssp_duedate | date: 'MMMM dd, yyyy'}}</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="cssp-paid-label" class="text-center mr-3 d-none">
+                                <span class="glyphicon glyphicon-check mt-5">&nbsp;Paid</span>
+                            </div>
+                            <!-- <button id="cssp-paid-paynow-btn" class="btn btn-primary btn-block" disabled>Pay now</button> -->
+                            {% include 'Paynow Button' %}
+                            {% if billHeader.cssp_billheaderid %}
+                            <button class="btn btn-default btn-block btn-outlined mt-3 viewBill" billid="{{billHeader.cssp_billheaderid}}">View bill</button>
+                            {% else %}
+                            <button class="btn btn-default btn-block btn-outlined mt-3 disabled" billid="{{billHeader.cssp_billheaderid}}">View bill</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {% if serviceLocation.cssp_customerpaymentmethod.name == "CreditCard" or serviceLocation.cssp_customerpaymentmethod.name == "ACH" %}
+                    <div class="cssp-easypay-panel mt-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {% include 'snippet' snippet_name:'Home/EasyPayEnrolled' %}
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="cssp-easypay-panel mt-4">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                {% include 'snippet' snippet_name:'Home/EnrollEasyPay' %}
+                            </div>
+                            <div class="col-sm-4 easypay-btn-wrapper"><button class="btn btn-outlined btn-block px-1 payment-options">Set up EasyPay</button></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% include 'PaymentOptionsModal' %}
+                    {% include 'BillHeaderDetailModal' %}
+                </li>
+                <li class="list-group-item">
+                    <h3 class="font-bold cssp-font-18 mb-4">Summary of Charges</h3>
+                    <div class="cssp-font-14">
+                        <h1 class="font-bold cssp-font-12 mb-4">Balance from previous bill</h1>
+                        {% if fetchLineHistories.results.entities.size > 0 %}
+                            {% for history in fetchLineHistories.results.entities %}
+                            <div class="charge-row cssp-font-data py-2">
+                                <span>{{history.cssp_chargedescription}}&nbsp;</span>
+                                <span class="cssp-font-data float-right">$ {{history.cssp_chargeamount | round: 2}}</span>
+                            </div>
+                            <div class="divider"></div>
+                            {% endfor %}
+                        {% else %}
+                        <div class="charge-row cssp-font-12 py-2">
+                            <span>No balance from previous bill</span>
+                            <span class="cssp-font-data float-right">$ 0.00 </span>
+                        </div>
+                        <div class="divider"></div>
+                        {% endif %}
+                        <div>&nbsp;</div>
+                        <h1 class="font-bold cssp-font-12 mb-4">New Charges</h1>
+                        {% if fetchLines.results.entities.size > 0 %}
+                            {% for line in fetchLines.results.entities %}
+                            <div class="charge-row cssp-font-data py-2">
+                                <span>{{line.cssp_chargedescription}}&nbsp;</span>
+                                <span class="charge-value float-right">$ {{line.cssp_chargeamount | round: 2}}</span>
+                            </div>
+                            <div class="divider"></div>
+                            {% endfor %}
+                        {% else %}
+                        <div class="charge-row cssp-font-12 py-2">
+                            <span>No new charges</span>
+                            <span class="cssp-font-data float-right">$ 0.00 </span>
+                        </div>
+                        <div class="divider"></div>
+                        {% endif %}
+                        <div class="charge-row cssp-font-data cssp-bold py-2">
+                            <span>Total</span>
+                            <span class="cssp-font-data float-right">$ {{billHeader.cssp_amountdue | round: 2}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="banner-panel">
+    <div class="cssp-schedule-content">
+        <p class="cssp-font-16 cssp-bold">Schedule online</p>
+        <div class="schedule-text">Quickly and easily schedule your heating/AC repair service, maintenance tune-up, or free equipment upgrade consultant online.</div>
+        <div class="cssp-font-14 cssp-bold mt-3"><a href="https://www.serviceexperts.com/schedule-online" target="_blank">Schedule online &gt;</a></div>
+    </div>
+    </div>
+    <div id="grid-wrapper"></div>
+    <!-- <div class="modal fade modal-fullscreen" id="rm-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <img class="imgLogoRMModal" hidden/>
+            </div>
+            <div class="modal-body" style="width: 100vw; height: 80vh;">
+                <iframe id="iframeModalWindow" src="" name="iframe_modal" frameborder="0" style="height: 100%;width: 100%;overflow: hidden;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default closeRmModal" data-dismiss="modal">Back</button>
+            </div>
+            </div>
+        </div>      
+    </div> -->
+</div>
+{% include 'Home Javascript' %}

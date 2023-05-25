@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{832164e7-707f-45f6-aa5e-a73822e41e37}</formid>
+    <IntroducedVersion>1.0.0.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{e5430906-b18c-4b40-a7ad-c418c531afe8}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{a4c272b2-6577-4b57-b732-6276543b436e}" name="discount" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Discount" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b80148c4-00e5-3e9a-ad26-121cba242ecb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount %" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discount" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="sxp_discount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{198fbdaa-483b-404f-a742-fc71854eb799}">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2857ad42-5d55-e24a-e785-54a0941cb505}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Agreement Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_agreementtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_agreementtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{629a6903-d057-70ba-9879-b352c8a276bb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_startdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sxp_startdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e5e1842a-5575-9a49-2a7b-c00ca5a7e02c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="End Date" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_enddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sxp_enddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{92a99e0d-0c8a-36b6-814e-a4e18dddac5b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Editable" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_editable" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_editable" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b46354ca-78ff-453c-8c1a-3e992a0c2b03}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Firecracker Discount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firecrackerdiscount" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_firecrackerdiscount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{6715c658-b3ba-4b7a-aeed-ac1f63df3dec}" columns="111">
+        <rows>
+          <row>
+            <cell id="{aefc410c-d10b-40f6-b051-d4f1a0ac2090}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3513d95e-9c3b-4cd1-be40-ddf1c91a4d79}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d34b5a56-0213-a933-9b66-83792b1b60c7}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{354252b1-42d1-1315-6a60-03767ace00b9}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <footer id="{197a5799-9e52-4537-bbe7-5eb11404b302}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bdaa79ff-8ad0-498c-8301-3e2465796410}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2a60545e-3cce-48e0-ad22-aa98074bc494}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1f939df3-5240-425f-a80a-086c3ba5875e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

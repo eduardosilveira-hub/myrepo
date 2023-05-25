@@ -1,0 +1,694 @@
+var Spiff;
+if (Spiff === undefined || Spiff === null) {
+    Spiff = {};
+    Spiff = (function () {
+
+        var EntityNames = {
+            User: "systemuser",
+            ServiceCenter: "sxp_servicecenter",
+            Team: "team",
+            Spiff: "sxp_spiff"
+
+        }
+        var FieldNames = {
+            SpiffUnitAmount: "sxp_spiffunitamount",
+            SpiffProgramType: "sxp_spiffprogramtype",
+            Owner: "ownerid",
+            PrimaryApproverTeam: "sxp_primaryapprover",
+            PrimaryApproverUser: "sxp_primaryapproveruser",
+            CPIApproverTeam: "sxp_cpiapprover",
+            CPIApproverUser: "sxp_cpiapproveruser",
+            PrimaryApprovalStatus: "sxp_primaryapprovalstatus",
+            PrimaryApprovalDate: "sxp_primaryapprovaldate",
+            StatusReason: "statuscode",
+            CPIApprovalDate: "sxp_cpiapprovaldate",
+            CPIApprovalStatus: "sxp_cpiapprovalstatus",
+            RejectionReason: "sxp_rejectionreason",
+            PayoutWeek: "sxp_payoutweek",
+            Description: "sxp_description",
+            SpiffAmount: "sxp_spiffamount",
+            ServiceCenterLookup: "sxp_servicecenter"
+
+
+
+        };
+        var TabNames = {
+            GeneralTab: "tab_General",
+            ApprovalDetailsTab: "tab_ApprovalDetails"
+        };
+        var SectionNames = {
+            PrimaryApprovalSection: "section_PrimaryApproval",
+            CPIApprovalSection: "section_CpiApproval"
+        };
+
+        /*****************************************************/
+        //Owner : Shivanshu Sharma
+        // Function to be called onload of Spiff form
+        var onLoad = function (executionContext) {
+            onLoadSpiffRecord(executionContext);
+            saveIfDirty(executionContext);
+            setDefaultServiceCenter(executionContext);
+            getAllrelatedServiceCenters(executionContext);
+            disableFieldsOnSave(executionContext);
+        };
+
+        /*****************************************************/
+        //Owner : Shivanshu Sharma
+        // Function to be called on change of fields on Spiff form
+        var onChange = function (executionContext) {
+            var fieldName = executionContext.getEventSource().getName();
+            switch (fieldName) {
+                case FieldNames.SpiffProgramType:
+                    updateUnitAmount(executionContext);
+            }
+        };
+
+        /*****************************************************/
+        //Owner : Shivanshu Sharma
+        // Function to be called onsave  of Spiff form
+        var onSave = function (executionContext) {
+            onCreateSpiffRecord(executionContext);
+            checkRejectionReason(executionContext);
+            disableFieldsOnSave(executionContext);
+        };
+
+        /*****************************************************/
+        //Owner : Shivanshu Sharma
+        // Function to get all related ServiceCenters for loggedin user
+        var getAllrelatedServiceCenters = function (executionContext) {
+            var context = Xrm.Utility.getGlobalContext();
+            var serviceCenterArray = [];
+            var loggedInUserId = context.userSettings.userId.replace("{", "").replace("}", "");
+            var query = "?$filter=_sxp_servicecenter_value ne null&$select=name,_sxp_servicecenter_value,teammembership_association&$expand=teammembership_association($filter=systemuserid eq '" + loggedInUserId + "')";
+            Xrm.WebApi.retrieveMultipleRecords(EntityNames.Team, query).then(
+                function success(result) {
+                    if (result.entities.length > 0) {
+                        for (var i = 0; i < result.entities.length; i++) {
+                            if (result.entities[i].teammembership_association.length > 0) {
+                                serviceCenterArray.push(result.entities[i]._sxp_servicecenter_value)
+                            }
+                        }
+                        filterServiceCenterLookup(executionContext, serviceCenterArray);
+                    }
+                },
+                function (error) {
+                    return false;
+                    Xrm.Utility.alertDialog(error.message);
+                }
+            );
+        };
+
+        /*****************************************************/
+        //Owner : Shivanshu Sharma
+        // Function to filter serviceCenter Lookup
+        var filterServiceCenterLookup = function (executionContext, serviceCenterArray) {
+            var formContext = executionContext.getFormContext();
+            var serviceCenter = formContext.getControl(FieldNames.ServiceCenterLookup);
+            var fetchXMLCondition = "";
+            if (serviceCenterArray.length > 0) {
+                for (var i = 0; i < serviceCenterArray.length; i++) {
+                    fetchXMLCondition += "<condition attribute='sxp_servicecenterid' operator='eq' value='" + serviceCenterArray[i] + "'/>";
+                }
+                var fetchXML = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>" +
+                    "<entity name='sxp_servicecenter'>" +
+                    "<attribute name='sxp_servicecenterid' />" +
+                    "<attribute name='sxp_name' />" +
+                    "<attribute name='createdon' />" +
+                    "<order attribute='sxp_name' descending='false' />" +
+                    "<filter type='or'>" + fetchXMLCondition +
+                    "</filter>" +
+                    "</entity>" +
+                    "</fetch>";
+
+                var layoutXml = "<grid name='resultset' object='10612' jump='sxp_name' select='1' preview='1' icon='1'>" +
+                    "<row name='result' id='sxp_servicecenterid'>" +
+                    "<cell name='sxp_name' width='150' />" +
+                    "<cell name='createdon' width='100' />" +
+                    "</row>" +
+                    "</grid>"
+
+                if (serviceCenter !== null && serviceCenter !== undefined) {
+                    var viewId = formContext.getControl(FieldNames.ServiceCenterLookup).getDefaultView();
+                    formContext.getControl(FieldNames.ServiceCenterLookup).addCustomView(viewId, EntityNames.ServiceCenter, "Filter View", fetchXML, layoutXml, true);
+                }
+            }
+
+        };
+
+        /*****************************************************/
+        //Owner: Mervyn Martin
+        //Assign Default Service Center based on Team Assignment
+        var setDefaultServiceCenter = function (executionContext) {
+            var context = Xrm.Utility.getGlobalContext();
+            var formContext = executionContext.getFormContext();
+            var loggedInUserId = context.userSettings.userId.replace("{", "").replace("}", "");
+            var servicecenter = formContext.getAttribute(FieldNames.ServiceCenterLookup).getValue();
+            if (servicecenter == null && servicecenter == undefined) {
+                var fetchXml = "<fetch>" +
+                    "<entity name='sxp_servicecenter' >" +
+                    "<link-entity name='teammembership' from='teamid' to='sxp_servicecenterteam' >" +
+                    "<filter>" +
+                    "<condition attribute='systemuserid' operator='eq' value=' " + loggedInUserId + "' />" +
+                    "</filter>" +
+                    "</link-entity>" +
+                    "</entity>" +
+                    "</fetch>";
+
+                fetchXml = "?fetchXml=" + encodeURIComponent(fetchXml);
+                Xrm.WebApi.retrieveMultipleRecords(EntityNames.ServiceCenter, fetchXml).then(
+                    function success(result) {
+                        if (result.entities.length == 1) {
+                            Utilities.setLookupField(formContext, FieldNames.ServiceCenterLookup, result.entities[0].sxp_servicecenterid, result.entities[0].sxp_name, EntityNames.ServiceCenter);
+                        }
+                        else if (result.entities.length == 0) {
+                            Xrm.Utility.alertDialog("You are not assigned to any Service Centers. Please contact an administrator for further assistance.");
+                        }
+                        else if (result.entities.length > 1) {
+                            var defaultCenterFetchXml = "<fetch>" +
+                                "<entity name='sxp_servicecenter' >" +
+                                "<link-entity name='systemuser' from='sxp_primaryservicecenter' to='sxp_servicecenterid' >" +
+                                "<filter>" +
+                                "<condition attribute='systemuserid' operator='eq' value='" + loggedInUserId + "' />" +
+                                "</filter>" +
+                                "</link-entity>" +
+                                "</entity>" +
+                                "</fetch>"
+
+                            defaultCenterFetchXml = "?fetchXml=" + encodeURIComponent(defaultCenterFetchXml);
+
+                            Xrm.WebApi.retrieveMultipleRecords(EntityNames.ServiceCenter, defaultCenterFetchXml).then(
+                                function success(result) {
+
+                                    if (result.entities.length > 0) {
+
+                                        Utilities.setLookupField(formContext, FieldNames.ServiceCenterLookup, result.entities[0].sxp_servicecenterid, result.entities[0].sxp_name, EntityNames.ServiceCenter);
+                                        Xrm.Utility.alertDialog("You are assigned to multiple service centers. Your Primary Service Center has been selected. Please ensure that it is correct.");
+                                    }
+                                },
+                                function (error) {
+                                    return false;
+                                    Xrm.Utility.alertDialog(error.message);
+
+                                }
+                            );
+
+                        }
+                    },
+                    function (error) {
+                        return false;
+                        Xrm.Utility.alertDialog(error.message);
+
+                    }
+                );
+            }
+        };
+
+        /*****************************************************/
+        //Owner-Disha Sharma
+        //Created On- 20/08/2021
+        //Update unit Amount based on Program type
+        var updateUnitAmount = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            var programType = formContext.getAttribute(FieldNames.SpiffProgramType).getText();
+            if (programType != null) {
+                Xrm.WebApi.retrieveMultipleRecords("sxp_configuration", "?$select=sxp_programtype,sxp_value&$filter=sxp_programtype eq '" + programType + "'").then(
+                    function success(result) {
+                        if (result.entities.length > 0) {
+                            if (result.entities[0].sxp_value !== null && result.entities[0].sxp_value !== undefined) {
+                                formContext.getAttribute(FieldNames.SpiffUnitAmount).setValue(Number(result.entities[0].sxp_value));
+                                formContext.getControl(FieldNames.SpiffUnitAmount).setDisabled(true);
+                            }
+                            else {
+                                formContext.getControl(FieldNames.SpiffUnitAmount).setDisabled(false);
+                                formContext.getAttribute(FieldNames.SpiffUnitAmount).setValue(null);
+                            }
+                        }
+                    },
+                    function (error) {
+                        Xrm.Utility.alertDialog(error.message);
+                        formContext.getAttribute(FieldNames.SpiffUnitAmount).setValue(null);
+                        formContext.getControl(FieldNames.SpiffUnitAmount).setDisabled(false);
+                    }
+                );
+            }
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Created On- 23/09/2021
+        //Assign Record to Primary Approver on Create of Record
+        var onCreateSpiffRecord = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            if (formContext.ui.getFormType() == 1) {
+                var context = Xrm.Utility.getGlobalContext();
+                var userId = context.userSettings.userId.replace("{", "").replace("}", "");
+                var servicecenter = formContext.getAttribute(FieldNames.ServiceCenterLookup).getValue();
+                if (servicecenter !== null && servicecenter !== undefined) {
+                    Xrm.WebApi.retrieveRecord(EntityNames.ServiceCenter, servicecenter[0].id, "?$select=_sxp_primaryservicecenterteam_value,_sxp_cpiteam_value").then(
+                        function success(result) {
+                            debugger;
+                            if (result["_sxp_primaryservicecenterteam_value"] !== null && result["_sxp_primaryservicecenterteam_value"] !== undefined) {
+                                var primaryTeam = result["_sxp_primaryservicecenterteam_value"];
+                                var cpiTeam = result["_sxp_cpiteam_value"];
+
+                                Xrm.WebApi.retrieveRecord(EntityNames.Team, primaryTeam, "?$select=name").then(
+                                    function success(result) {
+                                        Utilities.setLookupField(formContext, FieldNames.PrimaryApproverTeam, primaryTeam, result["Name"], EntityNames.Team);
+                                        formContext.getAttribute(FieldNames.StatusReason).setValue(275450000);
+                                    },
+                                    function (error) {
+                                        Xrm.Utility.alertDialog(error.message);
+                                    }
+                                )
+                            }
+                            else {
+                                Xrm.Utility.alertDialog("Service Center is not selected or approval teams are not set in service center")
+                            }
+                        },
+                        function (error) {
+                            Xrm.Utility.alertDialog(error.message);
+                        }
+                    );
+                }
+            }
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function to open an entity form
+        var openEntityForm = function (entityName, entityId) {
+            var entityFormOptions = {};
+            entityFormOptions["entityName"] = entityName;
+            entityFormOptions["entityId"] = entityId;
+            Xrm.Navigation.openForm(entityFormOptions, null);
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function to onload of spiff record
+        var onLoadSpiffRecord = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            if (formContext.ui.getFormType() !== 1) {
+                var primaryApproverTeam = formContext.getAttribute(FieldNames.PrimaryApproverTeam).getValue();
+                var primaryApproverUser = formContext.getAttribute(FieldNames.PrimaryApproverUser).getValue();
+                var cpiApproverTeam = formContext.getAttribute(FieldNames.CPIApproverTeam).getValue();
+                var cpiApproverUser = formContext.getAttribute(FieldNames.CPIApproverUser).getValue();
+                var primaryApprovalStatus = formContext.getAttribute(FieldNames.PrimaryApprovalStatus).getValue();
+                var cpiApprovalStatus = formContext.getAttribute(FieldNames.CPIApprovalStatus).getValue();
+                if (primaryApprovalStatus == 275450001 || cpiApprovalStatus == 275450001) {
+                    formContext.getControl(FieldNames.RejectionReason).setVisible(true);
+                }
+                else if (cpiApprovalStatus == 275450000) {
+                    formContext.getControl(FieldNames.PayoutWeek).setVisible(true);
+                }
+
+                if (primaryApproverTeam !== null && primaryApproverTeam !== undefined && (primaryApproverUser == null || primaryApproverUser == undefined)) {
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).setVisible(true);
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).sections.get(SectionNames.PrimaryApprovalSection).setVisible(true);
+                    formContext.getControl(FieldNames.PrimaryApproverUser).setVisible(false);
+                    formContext.getControl(FieldNames.PrimaryApproverTeam).setVisible(true);
+                }
+                else if ((primaryApproverTeam !== null && primaryApproverTeam !== undefined) && (primaryApproverUser !== null && primaryApproverUser !== undefined)) {
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).setVisible(true);
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).sections.get(SectionNames.PrimaryApprovalSection).setVisible(true);
+                    formContext.getControl(FieldNames.PrimaryApproverUser).setVisible(true);
+                    formContext.getControl(FieldNames.PrimaryApproverTeam).setVisible(false);
+                }
+
+                if (cpiApproverTeam !== null && cpiApproverTeam !== undefined && (cpiApproverUser == null || cpiApproverUser == undefined)) {
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).setVisible(true);
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).sections.get(SectionNames.CPIApprovalSection).setVisible(true);
+                    formContext.getControl(FieldNames.CPIApproverUser).setVisible(false);
+                    formContext.getControl(FieldNames.CPIApproverTeam).setVisible(true);
+                }
+                else if ((cpiApproverTeam !== null && cpiApproverTeam !== undefined) && (cpiApproverUser !== null && cpiApproverUser !== undefined)) {
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).setVisible(true);
+                    formContext.ui.tabs.get(TabNames.ApprovalDetailsTab).sections.get(SectionNames.CPIApprovalSection).setVisible(true);
+                    formContext.getControl(FieldNames.CPIApproverUser).setVisible(true);
+                    formContext.getControl(FieldNames.CPIApproverTeam).setVisible(false);
+                }
+            }
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function onclick of Primary Approval Button
+        var onClickPrimaryApproval = function (formContext) {
+            var confirmStrings = { text: "Click on Approve to Approve the request. Click on Reject to Reject the request and deactivate the record", title: "Confirm", confirmButtonLabel: "Approve", cancelButtonLabel: "Reject" };
+            Xrm.Navigation.openConfirmDialog(confirmStrings, null).then(
+                function (success) {
+                    if (success.confirmed) {
+                        SetUserLookup(formContext, FieldNames.PrimaryApproverUser);
+                        formContext.getControl(FieldNames.PrimaryApproverUser).setVisible(true);
+                        formContext.getControl(FieldNames.PrimaryApproverTeam).setVisible(false);
+                        formContext.getAttribute(FieldNames.PrimaryApprovalDate).setValue(new Date());
+                        formContext.getAttribute(FieldNames.PrimaryApprovalStatus).setValue(275450000);
+                        getcpiApproval(formContext);
+                        formContext.ui.refreshRibbon(true);
+                    }
+                    else if (success.confirmed == false) {
+                        formContext.getControl(FieldNames.RejectionReason).setVisible(true);
+                        formContext.getAttribute(FieldNames.RejectionReason).setRequiredLevel('required');
+                        formContext.getControl(FieldNames.RejectionReason).setFocus();
+
+                    }
+                    else {
+                        formContext.getControl(FieldNames.RejectionReason).setVisible(false);
+                        formContext.getAttribute(FieldNames.RejectionReason).setRequiredLevel('none');
+                    }
+                });
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic for visiblity Primary Approval Button
+        var showHidePrimaryApproval = function (formContext) {
+            return (new Promise(function (resolve, reject) {
+                try {
+                    var statusReason = formContext.getAttribute(FieldNames.StatusReason).getValue();
+                    var primaryApproverUser = formContext.getAttribute(FieldNames.PrimaryApproverUser).getValue();
+                    var primaryApproverTeam = formContext.getAttribute(FieldNames.PrimaryApproverTeam).getValue();
+                    if (primaryApproverTeam == null || primaryApproverTeam == undefined ||
+                        statusReason == 2 || formContext.ui.getFormType() == 1 || formContext.ui.getFormType() == 3 ||
+                        (primaryApproverUser !== null && primaryApproverUser !== undefined)) {
+                        resolve(false);
+                    }
+                    var teamId = primaryApproverTeam[0].id;
+                    var context = Xrm.Utility.getGlobalContext();
+                    var loggedInUserId = context.userSettings.userId.replace("{", "").replace("}", "");
+                    var query = "?$filter=teamid eq '" + teamId + "'&$expand=teammembership_association($filter=systemuserid eq '" + loggedInUserId + "')";
+                    Xrm.WebApi.retrieveMultipleRecords(EntityNames.Team, query).then(
+                        function success(result) {
+                            if (result.entities.length > 0) {
+                                if (result.entities[0].teammembership_association.length) {
+                                    resolve(true);
+                                }
+                                else {
+                                    resolve(false);
+                                }
+                            }
+                            else {
+                                resolve(false);
+                            }
+                        },
+                        function (error) {
+                            return false;
+                            Xrm.Utility.alertDialog(error.message);
+                        }
+                    );
+
+
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            }));
+
+
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic to set user lookup field
+        var SetUserLookup = function (formContext, fieldName) {
+            var context = Xrm.Utility.getGlobalContext();
+            var userId = context.userSettings.userId.replace("{", "").replace("}", "");
+            var userName = context.userSettings.userName;
+            Utilities.setLookupField(formContext, fieldName, userId, userName, EntityNames.User);
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function to deactivate Spiff record
+        var deactivateSpiffRecord = function (formContext, fieldName) {
+            var spiffId = formContext.data.entity.getId();
+            var data = {
+                "statecode": 1,
+                "statuscode": 2,
+            }
+            if (fieldName == FieldNames.PrimaryApprovalDate) {
+                data.sxp_primaryapprovaldate = new Date();
+            }
+            else if (fieldName == FieldNames.CPIApprovalDate) {
+                data.sxp_cpiapprovaldate = new Date();
+            }
+            Xrm.WebApi.updateRecord(EntityNames.Spiff, spiffId, data).then(
+                function success(result) {
+                    var entityId = formContext.data.entity.getId().replace("{", "").replace("}", "");
+                    //formContext.data.entity.save();
+                    openEntityForm(EntityNames.Spiff, entityId);
+                    formContext.getAttribute(FieldNames.StatusReason).setValue(2);
+                    console.log("Spiff Deactivated");
+                },
+                function (error) {
+                    console.log(error.message);
+                }
+            );
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function to get CPI Approval
+        var getcpiApproval = function (formContext) {
+            var servicecenter = formContext.getAttribute(FieldNames.ServiceCenterLookup).getValue();
+            if (servicecenter !== null && servicecenter !== undefined) {
+                Xrm.WebApi.retrieveRecord(EntityNames.ServiceCenter, servicecenter[0].id, "?$select=_sxp_primaryservicecenterteam_value,_sxp_cpiteam_value").then(
+                    function success(result) {
+                        debugger;
+                        if (result["_sxp_primaryservicecenterteam_value"] !== null && result["_sxp_primaryservicecenterteam_value"] !== undefined) {
+
+                            var primaryTeam = result["_sxp_primaryservicecenterteam_value"];
+                            var cpiTeam = result["_sxp_cpiteam_value"];
+                            Xrm.WebApi.retrieveRecord(EntityNames.Team, cpiTeam, "?$select=name").then(
+                                function success(result) {
+                                    debugger;
+                                    Utilities.setLookupField(formContext, FieldNames.CPIApproverTeam, cpiTeam, result["Name"], EntityNames.Team);
+                                    formContext.getAttribute(FieldNames.StatusReason).setValue(275450001);
+                                },
+                                function (error) {
+                                    Xrm.Utility.alertDialog(error.message);
+                                }
+                            )
+                        }
+                        else {
+                            Xrm.Utility.alertDialog("Service Center is not selected or approval teams are not set in service center")
+                        }
+                    },
+                    function (error) {
+                        Xrm.Utility.alertDialog(error.message);
+                    }
+                );
+            }
+
+
+
+
+            /*
+            //var formContext = executionContext.getFormContext();
+            var context = Xrm.Utility.getGlobalContext();
+            var userId = context.userSettings.userId.replace("{", "").replace("}", "");;
+            Xrm.WebApi.online.retrieveRecord(EntityNames.User, userId, "?$select=_sxp_primaryservicecenter_value").then(
+                function success(result) {
+                    if (result["_sxp_primaryservicecenter_value"] !== null && result["_sxp_primaryservicecenter_value"] !== undefined) {
+                        var primaryServiceCenterId = result["_sxp_primaryservicecenter_value"];
+                        var cpiTeamQuery = "?$select=name,teamid&$filter=sxp_teamtype eq 275450001  and _sxp_servicecenter_value eq '" + primaryServiceCenterId + "'"
+                        getPrimaryandCpiApproverTeam(formContext, FieldNames.CPIApproverTeam, cpiTeamQuery);
+
+                    }
+                    else {
+                        Xrm.Utility.alertDialog("Owner is not associated with any Primary Service Center.")
+                    }
+
+                },
+                function (error) {
+                    Xrm.Utility.alertDialog(error.message);
+                }
+            );
+            */
+
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Function onclick of CPI Approval Button
+        var onClickCpiApproval = function (formContext) {
+            var confirmStrings = { text: "Click on Approve to Approve the request. Click on Reject to Reject the request and deactivate the record", title: "Confirm", confirmButtonLabel: "Approve", cancelButtonLabel: "Reject" };
+            Xrm.Navigation.openConfirmDialog(confirmStrings, null).then(
+                function (success) {
+                    if (success.confirmed) {
+                        SetUserLookup(formContext, FieldNames.CPIApproverUser);
+                        formContext.getControl(FieldNames.CPIApproverUser).setVisible(true);
+                        formContext.getControl(FieldNames.CPIApproverTeam).setVisible(false);
+                        formContext.getAttribute(FieldNames.CPIApprovalDate).setValue(new Date());
+                        formContext.getAttribute(FieldNames.CPIApprovalStatus).setValue(275450000);
+                        formContext.getAttribute(FieldNames.StatusReason).setValue(275450002);
+                        formContext.ui.refreshRibbon(true);
+                        formContext.getControl(FieldNames.PayoutWeek).setVisible(true);
+                    }
+                    else if (success.confirmed === false) {
+                        formContext.getControl(FieldNames.RejectionReason).setVisible(true);
+                        formContext.getAttribute(FieldNames.RejectionReason).setRequiredLevel('required');
+                        formContext.getControl(FieldNames.RejectionReason).setFocus();
+                    }
+                    else {
+                        formContext.getControl(FieldNames.RejectionReason).setVisible(false);
+                        formContext.getAttribute(FieldNames.RejectionReason).setRequiredLevel('none');
+                    }
+                });
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic for visiblity CPI Approval Button
+        var showHideCpiApproval = function (formContext) {
+            return (new Promise(function (resolve, reject) {
+                try {
+                    var primaryApprovalStatus = formContext.getAttribute(FieldNames.PrimaryApprovalStatus).getValue();
+                    var cpiApprovalStatus = formContext.getAttribute(FieldNames.CPIApprovalStatus).getValue();
+                    var statusReason = formContext.getAttribute(FieldNames.StatusReason).getValue();
+                    var cpiApprover = formContext.getAttribute(FieldNames.CPIApproverTeam).getValue();
+                    if ((cpiApprovalStatus !== null && cpiApprovalStatus !== undefined) ||
+                        statusReason == 2 ||
+                        formContext.ui.getFormType() == 1 || formContext.ui.getFormType() == 3 ||
+                        primaryApprovalStatus == 275450001 || primaryApprovalStatus == null || primaryApprovalStatus == undefined) {
+                        resolve(false);
+                    }
+                    var teamId = cpiApprover[0].id;
+                    var context = Xrm.Utility.getGlobalContext();
+                    var loggedInUserId = context.userSettings.userId.replace("{", "").replace("}", "");
+                    var query = "?$filter=teamid eq '" + teamId + "'&$expand=teammembership_association($filter=systemuserid eq '" + loggedInUserId + "')";
+                    Xrm.WebApi.retrieveMultipleRecords(EntityNames.Team, query).then(
+                        function success(result) {
+                            if (result.entities.length > 0) {
+                                if (result.entities[0].teammembership_association.length) {
+                                    resolve(true)
+                                }
+                                else {
+                                    resolve(false);
+                                }
+                            }
+                            else {
+                                resolve(false);
+                            }
+                        },
+                        function (error) {
+                            return false;
+                            Xrm.Utility.alertDialog(error.message);
+                        }
+                    );
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            }));
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic saving the form if modified
+        var saveIfDirty = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            if (formContext.data.entity.getIsDirty()) {
+                formContext.data.save();
+                formContext.data.entity.refresh();
+            }
+        }
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic to check if Team Member
+        var isTeamMember = function (query) {
+            return (new Promise(function (resolve, reject) {
+                try {
+                    Xrm.WebApi.retrieveMultipleRecords(EntityNames.Team, query).then(
+                        function success(result) {
+                            if (result.entities.length > 0) {
+                                resolve(true)
+                            }
+                            else {
+                                resolve(false);
+                            }
+                        },
+                        function (error) {
+                            resolve(false);
+                            Xrm.Utility.alertDialog(error.message);
+                        }
+                    );
+                }
+                catch (e) {
+                    Xrm.Utility.alertDialog(e.message);
+                }
+            }));
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic to check if Team Member Synchronously
+        var isTeamMemberSync = async function (executionContext) {
+            Xrm.WebApi.retrieveMultipleRecords(EntityNames.Team, query).then(
+                function success(result) {
+                    if (result.entities.length > 0) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                },
+                function (error) {
+                    return false;
+                    Xrm.Utility.alertDialog(error.message);
+
+                }
+            );
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic to check rejection Reason field
+        var checkRejectionReason = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            var rejectionReason = formContext.getAttribute(FieldNames.RejectionReason).getValue();
+            var primaryApproverTeam = formContext.getAttribute(FieldNames.PrimaryApproverTeam).getValue();
+            var cpiApproverTeam = formContext.getAttribute(FieldNames.CPIApproverTeam).getValue();
+            if (rejectionReason !== null && rejectionReason !== undefined && rejectionReason !== "") {
+                if (primaryApproverTeam !== null && primaryApproverTeam !== undefined && (cpiApproverTeam == null || cpiApproverTeam == undefined)) {
+                    SetUserLookup(formContext, FieldNames.PrimaryApproverUser);
+                    formContext.getControl(FieldNames.PrimaryApproverUser).setVisible(true);
+                    formContext.getControl(FieldNames.PrimaryApproverTeam).setVisible(false);
+                    formContext.getAttribute(FieldNames.PrimaryApprovalStatus).setValue(275450001);
+                    deactivateSpiffRecord(formContext, FieldNames.PrimaryApprovalDate);
+                }
+                else if (primaryApproverTeam !== null && primaryApproverTeam !== undefined && cpiApproverTeam !== null && cpiApproverTeam !== undefined) {
+                    SetUserLookup(formContext, FieldNames.CPIApproverUser);
+                    formContext.getControl(FieldNames.CPIApproverUser).setVisible(true);
+                    formContext.getControl(FieldNames.CPIApproverTeam).setVisible(false);
+                    formContext.getAttribute(FieldNames.CPIApprovalStatus).setValue(275450001);
+                    deactivateSpiffRecord(formContext, FieldNames.CPIApprovalDate);
+                }
+            }
+        };
+
+        /*****************************************************/
+        //Owner-Shivanshu Sharma
+        //Logic to disable fields onsave  of Spiff form
+        var disableFieldsOnSave = function (executionContext) {
+            var formContext = executionContext.getFormContext();
+            var formType = formContext.ui.getFormType();
+            if (formType !== 1) {
+                formContext.getControl(FieldNames.Description).setDisabled(true);
+                formContext.getControl(FieldNames.SpiffAmount).setDisabled(true);
+                formContext.getControl(FieldNames.SpiffProgramType).setDisabled(true);
+            }
+        };
+
+        return {
+            OnLoad: onLoad,
+            OnChange: onChange,
+            OnSave: onSave,
+            OnClickPrimaryApproval: onClickPrimaryApproval,
+            ShowHidePrimaryApproval: showHidePrimaryApproval,
+            OnClickCpiApproval: onClickCpiApproval,
+            ShowHideCpiApproval: showHideCpiApproval
+        };
+    }());
+}

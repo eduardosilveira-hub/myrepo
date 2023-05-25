@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{6e60ca3d-924c-ec11-8c62-0022482a246b}" name="CSR Admin" isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendcssp_billpayment" level="Local" />
+    <RolePrivilege name="prvAppendcssp_servicelocation" level="Local" />
+    <RolePrivilege name="prvAppendTocssp_billheader" level="Local" />
+    <RolePrivilege name="prvAppendTocssp_billline" level="Local" />
+    <RolePrivilege name="prvAppendTocssp_billlinehistory" level="Local" />
+    <RolePrivilege name="prvAppendTocssp_billpayment" level="Local" />
+    <RolePrivilege name="prvAppendTocssp_servicelocation" level="Local" />
+    <RolePrivilege name="prvAssigncssp_billheader" level="Local" />
+    <RolePrivilege name="prvAssigncssp_billline" level="Local" />
+    <RolePrivilege name="prvAssigncssp_billlinehistory" level="Local" />
+    <RolePrivilege name="prvAssigncssp_billpayment" level="Local" />
+    <RolePrivilege name="prvAssigncssp_servicelocation" level="Local" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvReadcssp_billheader" level="Local" />
+    <RolePrivilege name="prvReadcssp_billline" level="Local" />
+    <RolePrivilege name="prvReadcssp_billlinehistory" level="Local" />
+    <RolePrivilege name="prvReadcssp_billpayment" level="Local" />
+    <RolePrivilege name="prvReadcssp_servicelocation" level="Local" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvSharecssp_billheader" level="Local" />
+    <RolePrivilege name="prvSharecssp_billline" level="Local" />
+    <RolePrivilege name="prvSharecssp_billlinehistory" level="Local" />
+    <RolePrivilege name="prvSharecssp_billpayment" level="Local" />
+    <RolePrivilege name="prvSharecssp_servicelocation" level="Local" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

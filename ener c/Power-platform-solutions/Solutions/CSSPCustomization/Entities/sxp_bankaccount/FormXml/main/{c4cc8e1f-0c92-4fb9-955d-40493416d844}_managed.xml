@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c4cc8e1f-0c92-4fb9-955d-40493416d844}</formid>
+    <IntroducedVersion>1.0.0.4</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{5027f84d-e75b-4167-83f9-9d2a995c1be2}" IsUserDefined="1" name="general" locklevel="0" expanded="true" showlabel="true" labelid="{5ab494af-056a-4cc9-bd29-d3d4ad03194c}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{318a4bbb-0c20-4a4b-aaaf-729f9dac9dff}" labelid="{20623f66-8849-4511-8bc0-ef6f8125aff0}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d3dcc412-4566-6984-1b21-110bc0185637}" showlabel="true" locklevel="0" visible="false" labelid="{cb079745-1870-480a-b0a1-48da194c1b2d}">
+                        <labels>
+                          <label description="Company" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_company" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_company" disabled="false" uniqueid="{57cd0753-a5ed-019c-00e9-ea0a07ccca43}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9EDA5FB6-D9A6-47CF-BEF1-D1DFED3AA7E0}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2c2a7e3d-53e3-4e69-b0c9-02dd854b6ca2}" showlabel="true" locklevel="0" labelid="{a1fc9642-acca-41d2-8abc-5f6ab9148bc2}">
+                        <labels>
+                          <label description="Bank Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" uniqueid="{58e45b15-ee4a-6307-51e5-e599b8937401}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{928ed8c6-8c19-d247-e4be-6431127b76c7}" showlabel="true" locklevel="0" labelid="{4a45baf8-e830-4e15-9972-ec7efea73878}" visible="false">
+                        <labels>
+                          <label description="Account" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_account" disabled="true" uniqueid="{652cda15-0044-88a1-48b2-7ade15c1ec91}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d28d95b9-92e5-4567-5795-eda2ecd476a4}" showlabel="true" locklevel="0" labelid="{18a1f126-7657-4fd8-b4d3-ae1bd5341a98}">
+                        <labels>
+                          <label description="Bank Account ID" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bankaccountiden" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_bankaccountiden" disabled="false" uniqueid="{15404d79-5c43-e557-7409-dc103a4c3d3d}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c5addb6d-6c87-bb10-e3ad-41e59be5952e}" showlabel="true" locklevel="0" labelid="{5a2303ef-2f42-4c46-a1e8-c5a03a6ead32}">
+                        <labels>
+                          <label description="Bank Account Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bankaccountnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_bankaccountnumber" disabled="false" uniqueid="{5a190d4d-2e89-9590-d77b-d4d8c403ba26}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ed43d0bd-4dea-166c-6516-47de58a0cbda}" showlabel="true" locklevel="0" labelid="{46a38874-74e9-4e64-949e-3852e590f391}">
+                        <labels>
+                          <label description="Routing Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_routingnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_routingnumber" disabled="false" uniqueid="{59762cc0-e464-338d-64b1-e338867e1e12}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{90273c54-41d7-8317-e846-108d7c51a68c}" showlabel="true" locklevel="0" labelid="{b868ef72-de9d-4d31-b9bc-5ced16968aef}">
+                        <labels>
+                          <label description="Routing Number Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_routingnumbertype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_routingnumbertype" disabled="false" uniqueid="{83d65341-d061-e1eb-c4ce-8b721ee1c204}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0b18c290-e8b1-7524-44ae-b5c5044921b6}" showlabel="true" locklevel="0" labelid="{629f19ab-7a07-46ae-b60f-6068489b262a}">
+                        <labels>
+                          <label description="Default Bank Account" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_defaultbankaccount" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_defaultbankaccount" disabled="false" uniqueid="{9578b9b4-02a9-eecd-d29b-eed5a4cbb7d3}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{e282ba08-f4da-41f5-88e4-5ab847086b16}" columns="111">
+        <rows>
+          <row>
+            <cell id="{2ce781b7-dc49-4845-b823-0ab116df4557}" showlabel="false" labelid="{d0671a26-0985-4dcf-a739-b2ddc219a21a}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c5d03bcc-30cc-b6c2-e44e-812458385340}" showlabel="true" locklevel="0" labelid="{50edeed1-060e-4f3d-bd19-590baf83f40d}">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{0ddb2917-c2c5-5947-9d4e-5c7c3d248d62}" />
+            </cell>
+            <cell id="{597c85c3-3406-7632-27e1-4b473cd0d9cc}" showlabel="true" locklevel="0" labelid="{cc1bcc9a-289c-480c-8c73-7546047c2a88}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{08187ecd-e167-4654-2247-021265d496a6}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="msdyn_/DefaultCompany.js" libraryUniqueId="{1dc522e9-c64d-00a8-1994-65d750d8a0b5}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="defaultCompany" libraryName="msdyn_/DefaultCompany.js" handlerUniqueId="{d90e34d9-6b8d-b2d0-b325-4e8a0b3aa208}" enabled="true" parameters="'sxp_company'" passExecutionContext="false" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="updateDefaultCompany" libraryName="msdyn_/DefaultCompany.js" handlerUniqueId="{30536bc7-768e-2ed4-78d0-349c084445ee}" enabled="true" parameters="'sxp_company'" passExecutionContext="false" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="CSSP: bank account-2" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

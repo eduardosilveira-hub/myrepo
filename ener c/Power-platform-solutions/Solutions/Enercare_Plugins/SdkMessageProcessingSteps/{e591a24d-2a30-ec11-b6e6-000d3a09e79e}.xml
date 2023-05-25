@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="ECCRM.Plugins.Classess.ExecuteCommisionValidationandCalculationFlow: Update of salesorder" SdkMessageProcessingStepId="{e591a24d-2a30-ec11-b6e6-000d3a09e79e}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>ECCRM.Plugins.Classess.ExecuteCommisionValidationandCalculationFlow, ECCRM.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2d07716ac6d87da5</PluginTypeName>
+  <PluginTypeId>c70d2731-96db-45a3-bee9-c081539ae527</PluginTypeId>
+  <PrimaryEntity>salesorder</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>sxp_agreementstatus</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="preImage">
+      <SdkMessageProcessingStepImageId>{70d85a60-2a30-ec11-b6e6-000d3a09e79e}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
+      <EntityAlias>preImage</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

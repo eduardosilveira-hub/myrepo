@@ -1,0 +1,78 @@
+<script type="module">
+    import { LoadingService as Loading } from "/Loading.js";
+    import { HttpService as Http } from "/http.js";
+    import { UserService } from "/UserService.js";
+    import { Utils as Utils } from "/utils.js";
+
+    const Payments = {
+        init: () => {
+            Payments.renderTabs();
+            Payments.checkCurrentBillHeaderIsPaid();
+            Utils.showToastr("paymentSaved");
+        },
+        renderTabs: async () => {
+            const tabs = document.querySelectorAll('.cssp-tab');
+            const headers = document.querySelectorAll('.cssp-tab-header');
+
+            if (tabs) {
+                Array.from(tabs).slice(1).forEach(x => x.classList.add('d-none'));
+            }
+            if (headers && headers.length > 0) {
+                Array.from(headers).forEach(x => x.addEventListener('click', (ev) => Payments.setTab(ev)));
+                headers[0].classList.add('cssp-active-tab');
+            }
+        },
+        checkCurrentBillHeaderIsPaid: async () => {
+            
+            const userDetails = UserService.getUserDetails();
+            const apiKey = userDetails['api-key'];
+            const serviceUrl = userDetails['service-url'];
+
+            if (!apiKey || !serviceUrl) {
+                alert('Essential config records not created');
+                return;
+            }
+
+            const billHeaderId = userDetails['bill-header'] ? userDetails['bill-header'].id : null;
+            const payNowButton = document.querySelector('#cssp-paid-paynow-btn');
+            if (billHeaderId){
+                let responseText = await Http.get(serviceUrl + '/transaction/invoice/' + billHeaderId, "application/json; charset=utf-8", null, { 'X-API-KEY': apiKey });
+                let response = responseText ? JSON.parse(responseText) : {};
+
+                if (response.status && response.status === 'Paid') {
+                    document.querySelector('#cssp-paid-label').classList.remove('d-none');
+                    payNowButton ? payNowButton.style.display = 'none' : null;
+                }
+                else {
+                    if (payNowButton){
+                        payNowButton.innerText = 'Pay now';
+                        payNowButton.disabled = false;
+                        payNowButton.style.display = 'block';
+                    }
+                }
+            }
+            else {
+                if (payNowButton){
+                    payNowButton.innerText = 'No statement available';
+                    payNowButton.style.display = 'block';
+                }
+            }
+        },
+        setTab: (ev) => {
+            
+            const tabHeader = ev.target;
+            if (!tabHeader || !tabHeader.dataset || !tabHeader.dataset.tabHeaderId) return;
+
+            Array.from(document.querySelectorAll('.cssp-tab-header')).forEach(x => x.classList.remove('cssp-active-tab'));
+            tabHeader.classList.add('cssp-active-tab');
+
+            const tabId = tabHeader.dataset.tabHeaderId;
+
+            Array.from(document.querySelectorAll('.cssp-tab')).forEach(x => x.classList.add('d-none'));
+            
+            const tab = document.querySelector('div[data-tab-id="' + tabId + '"]');
+            tab.classList.remove('d-none');
+        }
+    }
+    Payments.init();
+</script>

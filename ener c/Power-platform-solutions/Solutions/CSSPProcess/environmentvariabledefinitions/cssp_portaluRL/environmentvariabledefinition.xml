@@ -1,0 +1,11 @@
+<environmentvariabledefinition schemaname="cssp_portaluRL">
+  <defaultvalue>https://csspdev.powerappsportals.com</defaultvalue>
+  <displayname default="Portal URL">
+    <label description="Portal URL" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.1.3</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apiManagementServiceName": {
+      "value": "apim-eu2-eapi-infra-dev"
+    },
+    "apiAppInsightsName": {
+      "value": "appin-eu2-eapi-infra-dev"
+    },
+    "regValidationLogicAppKeyValue": {
+      "value": "mj6cvIvEYQX06X5zSRMg_WfMNLTS71Osg09LHk84eLE"
+    },
+    "regValidationApiRelativePath": {
+      "value": "devSalesTax"
+    },
+    "regValidationLogicAppBackendName": {
+      "value": "la-eu2-eapidomain-salestaxcalc-dev"
+    },
+    "regValidationRestAPIName": {
+      "value": "dev-ent-logic_app-salestax"
+    },
+    "regValidationWebURLPath": {
+      "value": "https://prod-20.eastus2.logic.azure.com:443/workflows/8c1288579b8b4ef9b0e625b461f28161/triggers"
+    },
+    "regValidationProductName": {
+      "value": "devSalesTax"
+    },
+    "regValidationApiServiceName": {
+      "value": "performTaxCalculation"
+    },
+    "regValidationApiFunctionName": {
+      "value": "taxcalculate"
+    },
+    "regValidationLogicAppResource_Group_Name": {
+      "value": "rg-eu2-eapidomain-sales-dev"
+    }
+  }
+}

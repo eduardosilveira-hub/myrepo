@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4f557806-279a-46f9-9c4f-53abd5511159}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{64a04a43-9d44-4d84-baa0-73852c48154b}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{42aa35db-aa5a-4a4d-8f1b-23543fb4abb2}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{04e902a6-3169-c143-77d7-2e017ce70952}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_service" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_service" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25939336-a5a2-816e-4a48-2617584b9ad4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Deferral rate" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_deferralrate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_deferralrate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4033a29b-627e-61e4-b376-6e51d7349381}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Periods" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_periods" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sxp_periods" disabled="true" uniqueid="{e16edd3a-1bdc-c80e-e352-6a2c97ea502c}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2e528490-322a-c278-bb09-a36baa47a55c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Bundle Rate" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_bundle" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_bundle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6781735a-3690-e3c5-c807-d72ae188d98a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="From Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_fromamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_fromamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b6768e50-b928-c44d-a332-ad74e19bd116}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="To Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_toamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_toamount" disabled="false" uniqueid="{a60e2774-3ad9-a3c2-4bd7-a940a26a9480}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1833940d-14cd-e2cd-308c-22c5e82c024a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Rate" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_rate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_rate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e61484de-d57d-5b43-b157-c0cccb47d489}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="System rate" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_systemrate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_systemrate" disabled="false" uniqueid="{9be91abb-71e5-8092-a9dc-1267609a76ab}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Miscellaneous" id="{57bdd68d-58d3-d587-eb75-01eb20ae645b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+          <labels>
+            <label description="Miscellaneous" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{bd5e19ed-6b61-3957-c534-c12972431cc5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{966b2d59-6456-47c6-8b1e-e0c74462f962}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{2748ac81-bb2e-432d-b0f5-eff35704e5da}" columns="111">
+        <rows>
+          <row>
+            <cell id="{5a7600c0-671f-41ed-a667-2acae9c7742a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b3258bd1-8e56-a194-9dad-2eb2e997bcee}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" uniqueid="{0b18d58c-6dec-1370-c993-5de728483933}" />
+            </cell>
+            <cell id="{2934bb9c-965a-e3ee-1d6e-3ad63a8a8d5c}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{63419ce2-e59c-0b3d-74c2-0e821c927cd7}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

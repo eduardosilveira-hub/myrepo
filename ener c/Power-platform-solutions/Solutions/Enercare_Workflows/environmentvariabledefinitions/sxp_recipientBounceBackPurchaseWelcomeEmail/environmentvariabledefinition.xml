@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="sxp_recipientBounceBackPurchaseWelcomeEmail">
+  <defaultvalue>donotreply.serviceexperts@enercare.ca</defaultvalue>
+  <description default="Email address to notify when Purchase Agreement Welcome Emails receive a failure notification from Postmaster.">
+    <label description="Email address to notify when Purchase Agreement Welcome Emails receive a failure notification from Postmaster." languagecode="1033" />
+  </description>
+  <displayname default="recipientBounceBackPurchaseWelcomeEmail">
+    <label description="recipientBounceBackPurchaseWelcomeEmail" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.2.1120</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

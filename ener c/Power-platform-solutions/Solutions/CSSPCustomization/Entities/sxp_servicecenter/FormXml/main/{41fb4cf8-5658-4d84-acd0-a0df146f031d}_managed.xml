@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{41fb4cf8-5658-4d84-acd0-a0df146f031d}</formid>
+    <IntroducedVersion>1.0.0.4</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{bcb01188-4134-46be-a602-48ecc5c4889e}" IsUserDefined="1" expanded="true" labelid="{0a3bc1ff-815f-4492-8d73-2636675f2124}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3dd69af9-1b52-4b7a-9ea7-f8f2be3b1d2d}" name="{3dd69af9-1b52-4b7a-9ea7-f8f2be3b1d2d}" columns="11" locklevel="0" labelwidth="100" celllabelalignment="Left" celllabelposition="Left" labelid="{ce23ecb8-f26a-4cf5-ae44-c7f767317cc0}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{092138ac-5b0e-9242-9152-30e14c32864e}" showlabel="true" locklevel="0" labelid="{7c058633-755a-4aab-bd0d-942e08cd350c}">
+                        <labels>
+                          <label description="Center Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_centername" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_centername" disabled="true" uniqueid="{a7b4ad9d-1183-22b6-b1b9-b3578ad89c9d}" />
+                      </cell>
+                      <cell id="{0b268ec4-1ee2-5037-8c0b-8d7916008e00}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="logoURL" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_logourl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_logourl" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6d333210-35e9-11d5-c360-c1dc02b632ab}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{a9806dca-7935-06c7-b0e1-3bc3ee77cc34}" showlabel="true" locklevel="0" labelid="{22491f5c-0dc4-4588-a5bd-7d2fa5aae193}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="true" uniqueid="{713323b1-3951-1de2-be65-516c7879dee7}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ae0b9aab-8b7b-4518-b287-efa313a6ec41}" columns="111">
+        <rows>
+          <row>
+            <cell id="{6907a3ab-03a7-6e13-1e9a-11deb183ce71}" showlabel="true" locklevel="0" labelid="{56f60761-0785-4272-88f2-b2faf68e439f}">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="true" uniqueid="{8771090e-cb23-5a70-d696-be1ce8c82978}" />
+            </cell>
+            <cell id="{c312116d-8005-69a7-9043-0d878ec790ad}" showlabel="true" locklevel="0" labelid="{fe681724-0634-4dde-8018-0b03a2a8ea2a}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{6bb8650c-248a-5333-70e1-bd8786939948}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+            <cell id="{7d72d566-3b57-0b34-eb19-2a120c979b48}" showlabel="true" locklevel="0" labelid="{1207bcc6-3a81-47d1-a99a-ea2bcbaeaea3}">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" uniqueid="{72298191-de9d-e92a-c3da-d56ec0c59cb7}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <footer id="{f66d2e6a-9df9-45a7-b7b5-ab335c23afa9}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{11b10777-31b6-408d-bbd1-6673e190c6cc}" labelid="{8c1ce2d5-4fc9-441a-8575-3a0026272047}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1a31a587-eea5-41bf-8f27-0acb3b74c081}" labelid="{fb44000e-d37b-4309-8d00-5fa191c09bd9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{24756b07-a4a3-465e-8f62-1e19668051ed}" labelid="{77550833-055d-4c68-87e4-9c1680d8b802}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="CSSP: Service Center - Logo" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

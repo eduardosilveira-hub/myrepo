@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{694d57f4-5542-433f-a437-4948b0fed23d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="sxp_name" select="1" icon="1" preview="1">
+        <row name="result" id="sxp_discountid">
+          <cell name="sxp_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="sxp_discount">
+          <attribute name="sxp_discountid" />
+          <attribute name="sxp_name" />
+          <attribute name="createdon" />
+          <order attribute="sxp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="sxp_name" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.1</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Discounts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

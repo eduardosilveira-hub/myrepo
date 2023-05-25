@@ -1,0 +1,133 @@
+<script type="module">
+import { LoadingService as Loading } from "/Loading.js";
+import { HttpService as Http } from "/http.js";
+import { Utils as Utils } from "/utils.js"
+
+const Account = {
+    init: () => {
+        debugger;
+        Utils.showToastr("profileSaved");
+        Utils.showToastr("billingSaved");
+        const accountOptions = document.querySelector('.location-options');
+        accountOptions.addEventListener('click', (event) => {
+            Account.updateLocationOptions(event);
+        });
+
+        const updateProfile = document.querySelector('#cssp-update-profile-btn');
+        updateProfile.addEventListener('click', (event) => {
+            Account.updateProfile(event);
+        });
+
+        const saveProfile = document.querySelector('.saveProfile');
+        saveProfile.addEventListener('click', (event) => {
+            Account.saveProfile(event);
+        });
+
+        const CancelOptions = document.querySelector('.CancelOptions');
+        CancelOptions.addEventListener('click', (event) => {
+            Account.closeProfile(event);
+        });
+
+        const closeProfile = document.querySelector('.closeProfile');
+        closeProfile.addEventListener('click', (event) => {
+            Account.closeProfile(event);
+        });
+
+        const chgPassword = document.querySelector('.chgPassword');
+        chgPassword.addEventListener('click', (event) => {
+            Account.changePassword();
+        });
+
+        const saveBillingOptions = document.querySelector('#SaveBillingOptions');
+        saveBillingOptions.addEventListener('click', (event) => {
+            Account.saveBillingOptions(event);
+        });
+    },
+    updateProfile: (event) => {
+        event.preventDefault();
+        document.querySelector('#cssp-profile-iframe').contentDocument.location.reload()
+        $('#profile-modal').modal('show');
+    },
+    changePassword: () => {
+        Loading.show();
+
+        const host = window.location.host;
+        const getChgPwdConfigURL = `https://${host}/_api/sxp_configurations?$select=sxp_value&$filter=contains(sxp_name,'chgpwd')`
+        Http.get(getChgPwdConfigURL, "application/json", null, null)
+        .then(res => {
+            const response = JSON.parse(res);
+            window.location.href = response.value[0].sxp_value;
+        })
+        .catch(err => {
+            alert("Error loading change password page. Please contact the support team.");
+        });
+    },
+    saveProfile: (event) => {
+        event.preventDefault();
+        Loading.show();
+        const profileIframe = document.querySelector('#cssp-profile-iframe');
+        profileIframe.contentDocument.querySelector('#UpdateButton').click();
+        Account.waitForModal(profileIframe);
+    },
+    closeProfile: (event) => {
+        event.preventDefault();
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+    },
+    updateLocationOptions: (event) => {
+        $('#billing-modal').modal('show');
+    },
+    saveBillingOptions: (event) => {
+        event.preventDefault();
+        Loading.show();
+        const billingOptionsIframe = document.querySelector('#cssp-billing-options-iframe');
+        const saveButton = document.querySelector('#SaveBillingOptions');
+        billingOptionsIframe.contentDocument.querySelector('#UpdateButton').click();
+
+        Account.waitForModal(billingOptionsIframe);
+    },
+    async waitForModal(iframe) {
+        const interval = setTimeout(() => {
+            const success = iframe.contentDocument.querySelector('.alert.alert-success');
+            const danger = iframe.contentDocument.querySelector('.alert.alert-danger');
+            if (!success && (!danger || danger.style.display == "none")) 
+            {
+                Account.waitForModal(iframe);
+                return;
+            }
+            if(success)
+            {
+                success.style.display = 'none';
+                iframe.style.height = "10px";
+                //clearInterval(interval);
+                var queryParameter = '';
+                debugger;
+                if (iframe.id.includes("profile")) queryParameter = "profileSaved=true";
+                if (iframe.id.includes("billing-options")) queryParameter = "billingSaved=true";
+                if (iframe.id.includes("card-selection")) queryParameter = "paymentSaved=true";
+                if (location.href.includes("?"))
+                    window.location = location.href += "&" + queryParameter;
+                else
+                window.location = location.href += "?&" + queryParameter;
+                // const savebutton = document.querySelector('#saveProfile');
+                // const saveBilling = document.querySelector('#SaveBillingOptions');
+                // saveBilling ? saveBilling.style.display = "none" : null;
+                // savebutton ? savebutton.style.display = "none" : null;
+            }
+            if(danger)
+            {
+                iframe.style.height = "850px";
+                Loading.hide();
+            }
+        }, 100);
+    }
+}
+
+document.querySelector('#cssp-billing-options-iframe').addEventListener('load', () => {
+    $('.form-loading').hide();
+    $('#cssp-billing-options-iframe').show();
+});
+
+Account.init();
+</script>

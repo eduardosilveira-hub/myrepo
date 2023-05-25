@@ -1,0 +1,12 @@
+- adx_adddescription: false
+  adx_attributelogicalname: sxp_account
+  adx_entityform: 34134719-c25e-ec11-8f8f-000d3a4d8d74
+  adx_entityformmetadataid: b779971e-ab6f-ec11-8943-00224829cd64
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_prepopulatefromattribute: parentcustomerid
+  adx_prepopulatetype: 100000002
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_type: 100000000
+  adx_useattributedescriptionproperty: true

@@ -1,0 +1,43 @@
+<div class="cssp-navbar cssp-web-component d-none d-md-block">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-3 cssp-logo">
+        <img src="/logo" />
+      </div>
+      <div class="col-9">
+        <div class="cssp-navigation-links">
+          {% if user %}
+          <a href="/{{request.query}}" class="cssp-navigation-link cssp-font-14">Home</a>
+          <a href="/payments{{request.query}}" class="cssp-navigation-link cssp-font-14">Payments</a>
+          <a href="/account{{request.query}}" class="cssp-navigation-link cssp-font-14">Account</a>
+          <a href="/Account/Login/LogOff" class="cssp-navigation-link cssp-font-14">Sign Out</a>
+          {% else %}
+          <a href="" class="cssp-navigation-link cssp-font-14" onclick="CSSP.Common.signIn(event)">Sign In</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-md navbar-light bg-light d-flex d-md-none">
+  <div class="navbar-brand cssp-logo">
+    <img class="imgLogo" src="/logo" />
+  </div>
+
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="justify-content: flex-end;">
+    <div class="navbar-nav">
+      {% if user %}
+      <a href="/{{request.query}}" class="nav-item nav-link cssp-font-14">Home</a>
+      <a href="/payments{{request.query}}" class="nav-item nav-link cssp-font-14">Payments</a>
+      <a href="/account{{request.query}}" class="nav-item nav-link cssp-font-14">Account</a>
+      <a href="/Account/Login/LogOff" class="nav-item nav-link cssp-font-14">Sign Out</a>
+      {% else %}
+      <a href="" class="nav-item nav-link" onclick="CSSP.Common.signIn(event)">Sign In</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3a9b75de-3d0f-45a0-9666-7dcbb0bd7223}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="{ddae5d57-4aa5-4f82-8589-f24b906f31d4}" name="General" showlabel="false" locklevel="0" expanded="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{2d1a1ef9-a723-4bb5-9ec6-fbe945aa28e7}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d250900e-919c-6658-5b03-cd6514680a92}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="false" uniqueid="{2946c023-007e-78d8-0c70-ca7d6c50d1b5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c3e10cc3-a444-adba-854b-3b9949656950}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Order" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_orderid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_orderid" disabled="true" uniqueid="{5ea8213c-5ec3-d630-5452-4c556a841571}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{ABF9E11D-08A5-4F4D-966B-7335A924E9C7}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e17337a8-273b-86bd-b1ab-a5335e463d6a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Down Payment" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_downpayment" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_downpayment" disabled="false" uniqueid="{76a7e4b7-a325-ddde-4d0e-4009a99e2970}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{190c02ad-6c31-294e-dde7-03047a1e417b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Funding Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_fundingtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_fundingtype" disabled="false" uniqueid="{cc8eb03e-3173-59dd-6771-ab1bd5957250}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{186010a1-d652-1509-ac1c-cc665314b4b2}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Financing Options" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_financingoptions" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_financingoptions" disabled="false" uniqueid="{eed95bd2-abe4-e233-52e1-b5657be274d0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a4de1160-94d6-5cd8-7670-ba421a65648e}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Account Reference" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_loannumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_loannumber" disabled="false" uniqueid="{303745cd-a493-d734-0cd7-c6c8b92d0938}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{729e3875-b77c-c8c5-d72d-cd285c548dd3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Credit Card" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_creditcard" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_creditcard" disabled="false" uniqueid="{4836cc49-a8a1-66b1-2d75-823c43d4e760}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>true</DisableQuickFind>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{38F625E1-AEA4-4EA8-8A98-5AF59FB52566}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                            <DependentAttributeType>systemuser</DependentAttributeType>
+                            <AvailableViewIds>{38F625E1-AEA4-4EA8-8A98-5AF59FB52566}</AvailableViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e2687a3d-650d-0be2-3c15-90c1508d8839}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Check Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_checknumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_checknumber" disabled="false" uniqueid="{09477864-8e26-6baa-980a-5738b4a33340}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{77227232-7621-1077-b585-d30c3c6e596b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_amount" disabled="false" uniqueid="{0b9a5c76-bcb1-b2b4-252b-0e01cb4c6a6c}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{6ba8ae6e-4447-4c23-b2e5-ccdd6f6f6938}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{68b72352-ce05-4fa0-b750-308da64db751}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{750da6a9-6f5c-467b-9423-effcbc2c1873}" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2878874c-128b-411e-b0d1-5618f5f7f3f3}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="sxp_agreementfundingline.js" libraryUniqueId="{25673580-4a56-9790-7ac2-7949ddbc3534}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="AgreementFundingLine.OnLoad" libraryName="sxp_agreementfundingline.js" handlerUniqueId="{957d7d8b-7942-59b5-35b6-727a690dd86a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="sxp_downpayment">
+          <Handlers>
+            <Handler functionName="AgreementFundingLine.OnChange" libraryName="sxp_agreementfundingline.js" handlerUniqueId="{28ebebc8-6acb-4881-052c-866ee6a284cc}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="sxp_fundingtype">
+          <Handlers>
+            <Handler functionName="AgreementFundingLine.OnChange" libraryName="sxp_agreementfundingline.js" handlerUniqueId="{2d9c3335-1b00-ca11-7aad-318452acc696}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="1">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

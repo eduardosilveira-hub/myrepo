@@ -1,0 +1,6 @@
+{% if params["template"].size > 0 %}
+    {% capture command %}
+        {%  include   params["template"]  %}
+    {% endcapture %}
+    {{command}}
+{% endif %}

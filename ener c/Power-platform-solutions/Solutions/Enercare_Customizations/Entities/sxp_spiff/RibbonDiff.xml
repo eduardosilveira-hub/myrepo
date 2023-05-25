@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="sxp.sxp_spiff.CpiApproval.Button.CustomAction" Location="Mscrm.Form.sxp_spiff.MainTab.Save.Controls._children" Sequence="85">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_spiff.CpiApproval.Button.Alt" Command="sxp.sxp_spiff.CpiApproval.Command" Id="sxp.sxp_spiff.CpiApproval.Button" LabelText="$LocLabels:sxp.sxp_spiff.CpiApproval.Button.LabelText" Sequence="85" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_spiff.CpiApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_spiff.CpiApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.sxp_spiff.PrimaryApproval.Button.CustomAction" Location="Mscrm.Form.sxp_spiff.MainTab.Save.Controls._children" Sequence="80">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_spiff.PrimaryApproval.Button.Alt" Command="sxp.sxp_spiff.PrimaryApproval.Command" Id="sxp.sxp_spiff.PrimaryApproval.Button" LabelText="$LocLabels:sxp.sxp_spiff.PrimaryApproval.Button.LabelText" Sequence="80" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_spiff.PrimaryApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_spiff.PrimaryApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="sxp.sxp_spiff.CpiApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_spiff.CpiApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Spiff.OnClickCpiApproval" Library="$webresource:sxp_spiff">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.sxp_spiff.PrimaryApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_spiff.PrimaryApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Spiff.OnClickPrimaryApproval" Library="$webresource:sxp_spiff">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="sxp.sxp_spiff.CpiApproval.EnableRule">
+        <CustomRule FunctionName="Spiff.ShowHideCpiApproval" Library="$webresource:sxp_spiff">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_spiff.PrimaryApproval.EnableRule">
+        <CustomRule FunctionName="Spiff.ShowHidePrimaryApproval" Library="$webresource:sxp_spiff">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="sxp.sxp_spiff.CpiApproval.Button.Alt">
+      <Titles>
+        <Title description="CPI Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.CpiApproval.Button.LabelText">
+      <Titles>
+        <Title description="CPI Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.CpiApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click on this button to approve or reject this spiff" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.CpiApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="CPI Approval/Rejection" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.PrimaryApproval.Button.Alt">
+      <Titles>
+        <Title description="Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.PrimaryApproval.Button.LabelText">
+      <Titles>
+        <Title description="Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.PrimaryApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click on this button to approve or reject this spiff" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_spiff.PrimaryApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Primary Approval/Rejection" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

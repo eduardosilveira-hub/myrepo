@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4d29c46d-2d62-4777-9c07-bcb5fc41e8ef}</formid>
+    <IntroducedVersion>1.0.0.1</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{bffb2769-b10f-4189-bf60-cb10bef2b869}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{fcecf972-909d-4c72-9976-5d1ade7c5229}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3449f471-111a-4ea9-b222-b36da465b8b6}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_name" uniqueid="{192dea6a-5083-83ce-d311-ed79cae69031}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9b2707e-ae0e-e7b8-d176-aad395d8ec09}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Trans Amount" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_transamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="cssp_transamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{366266ca-4041-01db-4818-de7ab1bcbcba}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Transaction Date" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_transactiondate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cssp_transactiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{add42963-9a26-d810-0056-81c19b44054c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Trans Type" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_transtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_transtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dc71e9ac-b4e3-6969-5a64-b045623eb40a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Location" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_servicelocation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cssp_servicelocation" disabled="false" uniqueid="{95210cdd-d566-b69a-1da0-a3ddba0a9cdd}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{C61B9023-3105-4B3B-B3ED-CABD113E4171}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a3155af5-8df2-425b-a863-e132630218ad}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0c862f48-dc74-41b5-8aab-f4e2b63a1d0a}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{ba674f4b-9e40-400e-a071-553ec7c80ec6}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65ac2c73-9e10-4c6e-8288-6c2e3a610f52}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a8694896-4cbf-4a3e-ba97-9025ee92a1a6}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a105aabc-a346-1e66-3a45-373a57844169}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Entity" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_entity" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_entity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b99a0cd4-02dd-50b8-ab0a-58720e5b45d1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Program Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_programtype" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_programtype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{685247d5-c058-4250-a200-783973348edd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Value" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_value" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_value" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{6f3d5aba-ff70-4abc-91d6-ecb67b3bb54f}" columns="111">
+        <rows>
+          <row>
+            <cell id="{a7f8f5a1-5ff4-4ce8-92ab-daf4156ce34c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1fba58e5-c44e-42f2-86d1-819f1235f8ef}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a558a00d-bc76-899d-4420-36b1a815d3cb}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,40 @@
+<html><head>
+<title>Select Product Family</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+    <!-- DevExtreme theme -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.2.3/css/dx.light.css">
+ 
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.2.3/js/dx.all.js"></script>
+    
+	<script src="sxp_hierarchy-select.min.js"></script>
+	<link rel="stylesheet" href="sxp_hierarchy-select.min.css">
+	
+<script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+
+<meta><meta><meta></head>
+	<body onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word;">
+   
+<!--
+<script type="text/javascript">
+// No Parent (Root)
+	var root = "?$select=productid,name,_parentproductid_value,productstructure&$filter=productstructure eq 2 and _parentproductid_value eq null"
+
+// Hv Parent (Child)
+	var child = "?$select=productid,name,_parentproductid_value,productstructure&$filter=productstructure eq 2 and _parentproductid_value nq null"
+</script>
+-->
+
+	<div class="dx-viewport demo-container" style="font-family: undefined;">
+	  <div class="form">
+		<div id="simple-treeview"></div>
+		<div id="product-details" class="hidden">
+		  <img src="">
+		  <div class="name"></div>
+		  <div class="price"></div>
+		</div>
+	  </div>
+	</div>
+
+</body></html>

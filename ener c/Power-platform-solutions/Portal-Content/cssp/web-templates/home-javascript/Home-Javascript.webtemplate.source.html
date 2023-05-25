@@ -1,0 +1,63 @@
+<script type="module">
+import { LoadingService as Loading } from "/Loading.js";
+import { HttpService as Http } from "/http.js";
+import { UserService } from "/UserService.js";
+import { Utils as Utils } from "/utils.js";
+
+const firstWrapper = 'first-wrapper';
+const bannerWrapper = 'banner-wrapper';
+
+ const Home = {    
+
+    init: () => {
+        Home.renderGrid();
+        Home.checkCurrentBillHeaderIsPaid();
+        debugger;
+        Utils.showToastr("paymentSaved");
+    },
+    renderGrid: async () => {
+        const firstPanel = document.getElementById('first-panel');
+        const bannerPanel = document.getElementById('banner-panel');
+
+        document.getElementById(firstWrapper)?.insertAdjacentElement('afterbegin', firstPanel);
+        document.getElementById(bannerWrapper)?.insertAdjacentElement('afterbegin', bannerPanel);
+    },
+    checkCurrentBillHeaderIsPaid: async () => {
+        const userDetails = UserService.getUserDetails();
+        const apiKey = userDetails['api-key'];
+        const serviceUrl = userDetails['service-url'];
+
+        if (!apiKey || !serviceUrl) {
+            alert('Essential config records not created');
+            return;
+        }
+
+        const billHeaderId = userDetails['bill-header'] ? userDetails['bill-header'].id : null;
+        const payNowButton = document.querySelector('#cssp-paid-paynow-btn');
+        if (billHeaderId){
+            let responseText = await Http.get(serviceUrl + '/transaction/invoice/' + billHeaderId, "application/json; charset=utf-8", null, { 'X-API-KEY': apiKey });
+            let response = responseText ? JSON.parse(responseText) : {};
+
+            if (response.status && response.status === 'Paid') {
+                document.querySelector('#cssp-paid-label').classList.remove('d-none');
+                payNowButton ? payNowButton.style.display = 'none' : null;
+            }
+            else {
+                if (payNowButton){
+                    payNowButton.innerText = 'Pay now';
+                    payNowButton.disabled = false;
+                    payNowButton.style.display = 'block';
+                }
+            }
+        }
+        else {
+            if (payNowButton){
+                payNowButton.innerText = 'No statement available';
+                payNowButton.style.display = 'block';
+            }
+        }
+    },
+}
+
+Home.init();
+</script>

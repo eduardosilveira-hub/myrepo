@@ -1,0 +1,11 @@
+<environmentvariabledefinition schemaname="cssp_blobURL">
+  <defaultvalue>https://saeu2d3csspinfradev.blob.core.windows.net/</defaultvalue>
+  <displayname default="blobURL">
+    <label description="blobURL" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.3.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

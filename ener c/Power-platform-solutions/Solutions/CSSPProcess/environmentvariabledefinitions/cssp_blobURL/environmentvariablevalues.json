@@ -1,0 +1,9 @@
+{
+  "environmentvariablevalues": {
+    "environmentvariablevalue": {
+      "@environmentvariablevalueid": "acaee6cf-3e84-ec11-8d21-0022481c0f63",
+      "iscustomizable": "1",
+      "value": "https://saeu2d3csspinfradev.blob.core.windows.net/"
+    }
+  }
+}

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="sxp.Mscrm.SubGrid.sxp_commissions.AddExistingAssoc.CustomAction" Location="Mscrm.SubGrid.sxp_commissions.MainTab.Management.Controls._children" Sequence="40">
+      <CommandUIDefinition>
+        <Button Alt="$Resources(EntityDisplayName):Ribbon.SubGrid.AddExisting" Command="Mscrm.AddExistingRecordFromSubGridAssociated" Id="Mscrm.SubGrid.sxp_commissions.AddExistingAssoc" Image32by32="/_imgs/ribbon/AddExistingStandard_32.png" Image16by16="/_imgs/ribbon/AddExistingStandard_16.png" LabelText="$Resources(EntityDisplayName):Ribbon.SubGrid.AddExisting" Sequence="40" TemplateAlias="o1" ToolTipTitle="$Resources(EntityDisplayName):Mscrm_SubGrid_EntityLogicalName_MainTab_Management_AddExistingAssoc_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Mscrm_SubGrid_EntityLogicalName_MainTab_Management_AddExistingAssoc_ToolTipDescription" ModernImage="AddExisting" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.sxp_commissions.CpiApproval.Button.CustomAction" Location="Mscrm.Form.sxp_commissions.MainTab.Save.Controls._children" Sequence="79">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_commissions.CpiApproval.Button.Alt" Command="sxp.sxp_commissions.CpiApproval.Command" Id="sxp.sxp_commissions.CpiApproval.Button" LabelText="$LocLabels:sxp.sxp_commissions.CpiApproval.Button.LabelText" Sequence="79" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_commissions.CpiApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_commissions.CpiApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.sxp_commissions.PrimaryApproval.Button.CustomAction" Location="Mscrm.Form.sxp_commissions.MainTab.Save.Controls._children" Sequence="75">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_commissions.PrimaryApproval.Button.Alt" Command="sxp.sxp_commissions.PrimaryApproval.Command" Id="sxp.sxp_commissions.PrimaryApproval.Button" LabelText="$LocLabels:sxp.sxp_commissions.PrimaryApproval.Button.LabelText" Sequence="75" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_commissions.PrimaryApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_commissions.PrimaryApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button.CustomAction" Location="Mscrm.Form.sxp_commissions.MainTab.Save.Controls._children" Sequence="73">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_commissions.SendBackPrimaryApproval.Button.Alt" Command="sxp.sxp_commissions.SendBackPrimaryApproval.Command" Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button" LabelText="$LocLabels:sxp.sxp_commissions.SendBackPrimaryApproval.Button.LabelText" Sequence="73" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_commissions.SendBackPrimaryApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_commissions.SendBackPrimaryApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.CustomAction" Location="Mscrm.Form.sxp_commissions.MainTab.Save.Controls._children" Sequence="78">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.Alt" Command="sxp.sxp_commissions.TierTwoOrThreeApproval.Command" Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button" LabelText="$LocLabels:sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.LabelText" Sequence="78" TemplateAlias="o2" ToolTipTitle="$LocLabels:sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.ToolTipTitle" ToolTipDescription="$LocLabels:sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddExistingRecordFromSubGridAssociated">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AddExisting" />
+        <DisplayRule Id="Mscrm.ShowForManyToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.AppendPrimary" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.AppendToSelected" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.AddFromSubGrid.addExistingFromSubGridAssociated" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddExistingRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.IsRelationshipEnabledInMocaOffline" />
+        <EnableRule Id="sxp.sxp_commissions.EnableRule4.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AddExisting" />
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.AddFromSubGrid.addExistingFromSubGridStandard" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AddNewRecordFromSubGridStandard">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+        <EnableRule Id="Mscrm.EntityFormIsEnabled" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="sxp.sxp_commissions.EnableRule3.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ShowForOneToManyGrids" />
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.AppendSelected" />
+        <DisplayRule Id="Mscrm.HideAddNewForChildEntities" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.addNewFromSubGridStandard" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.sxp_commissions.CpiApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_commissions.CpiApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Commission.OnClickCpiApproval" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.sxp_commissions.PrimaryApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_commissions.PrimaryApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Commission.OnClickPrimaryApproval" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.sxp_commissions.SendBackPrimaryApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_commissions.SendBackPrimaryApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Commission.SendBackPrimaryApproval" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="sxp.sxp_commissions.TierTwoOrThreeApproval.Command">
+      <EnableRules>
+        <EnableRule Id="sxp.sxp_commissions.TierTwoOrThreeApproval.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Commission.OnClickTierTwoOrThreeApproval" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.AddExisting">
+        <ReferencingAttributeRequiredRule Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendPrimary">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendSelected">
+        <EntityPrivilegeRule PrivilegeType="Append" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToPrimary">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToSelected">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddNewForChildEntities">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <RelationshipTypeRule AppliesTo="SelectedEntity" AllowCustomRelationship="false" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForManyToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="ManyToMany" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForOneToManyGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="OneToMany" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.AppendToPrimary">
+        <RecordPrivilegeRule PrivilegeType="AppendTo" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.EntityFormIsEnabled">
+        <FormStateRule State="Disabled" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsRelationshipEnabledInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsRelationshipEnabledInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.CpiApproval.EnableRule">
+        <CustomRule FunctionName="Commission.ShowHideCpiApprovalButton" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.EnableRule3.EnableRule">
+        <EntityRule EntityName="salesorder" AppliesTo="PrimaryEntity" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.EnableRule4.EnableRule">
+        <EntityRule EntityName="salesorder" AppliesTo="PrimaryEntity" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.PrimaryApproval.EnableRule">
+        <CustomRule FunctionName="Commission.ShowHidePrimaryApprovalButton" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.SendBackPrimaryApproval.EnableRule">
+        <CustomRule FunctionName="Commission.ShowHideSendBackPrimaryApproval" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="sxp.sxp_commissions.TierTwoOrThreeApproval.EnableRule">
+        <CustomRule FunctionName="Commission.ShowHideTierTwoThreeApprovalButton" Library="$webresource:sxp_Commission.js">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="sxp.sxp_commissions.CpiApproval.Button.Alt">
+      <Titles>
+        <Title description="CPI Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.CpiApproval.Button.LabelText">
+      <Titles>
+        <Title description="CPI Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.CpiApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to Accept or Reject the commission" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.CpiApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="CPI Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.PrimaryApproval.Button.Alt">
+      <Titles>
+        <Title description="Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.PrimaryApproval.Button.LabelText">
+      <Titles>
+        <Title description="Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.PrimaryApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to Accept or Reject the commission" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.PrimaryApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button.Alt">
+      <Titles>
+        <Title description="Send Back For Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button.LabelText">
+      <Titles>
+        <Title description="Send Back For Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to send back the commission to primary Approval Team" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.SendBackPrimaryApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Send Back For Primary Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.Alt">
+      <Titles>
+        <Title description="Override 2/3 Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.LabelText">
+      <Titles>
+        <Title description="Override 2/3 Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Click to Accept or Reject the commission" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="sxp.sxp_commissions.TeirTwoOrThreeApproval.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Override 2/3 Approval" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{05dedfe0-b303-4f0b-b311-f68b60afb596}</formid>
+    <IntroducedVersion>1.0.2.1253</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{d590a5a9-b36d-4511-9e0e-2e61a12650f6}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{5a5be92d-8f4f-4ce7-8713-aef764a6aab6}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4712b90c-2819-40a4-a5c6-aa77aeb9a3a3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" uniqueid="{d7caeccc-2edb-0585-3aa1-6900279e1783}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{447da140-2c0d-3514-4e31-535c81bebc2e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount Range Min" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discountrangemin" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="sxp_discountrangemin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ee25e251-9a90-38b3-e028-0221ac3d774a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Discount Range Max" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_discountrangemax" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="sxp_discountrangemax" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{843782d7-b628-80c5-67e9-8b9836ee64c4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commission Rate Reduction (%)" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_commissionratereduction" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sxp_commissionratereduction" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{1b29b62c-eea9-417c-afc9-ce0c2b7d6353}" columns="111">
+        <rows>
+          <row>
+            <cell id="{1a0bca1b-3b16-4709-be2c-d6729173fa2d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2783b53d-7d04-03a4-0c78-0234176db003}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="true" uniqueid="{6a495118-b7ee-8581-7aec-8ee61e95d784}" />
+            </cell>
+            <cell id="{769a3c65-1d2e-482d-8156-dd6e8a39216b}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{1b8691a1-12cc-dd6d-08dc-7c243c0084e6}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

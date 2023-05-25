@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="cssp.cssp_billheader.Button11.DownloadStatement.CustomAction" Location="Mscrm.Form.cssp_billheader.MainTab.Save.Controls._children" Sequence="80">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:cssp.cssp_billheader.Button11.DownloadStatement.Alt" Command="cssp.cssp_billheader.Command1.DownloadStatement" CommandValueId="cssp.cssp_billheader.Command1.DownloadStatement" Id="cssp.cssp_billheader.Button11.DownloadStatement" LabelText="$LocLabels:cssp.cssp_billheader.Button11.DownloadStatement.LabelText" Sequence="80" TemplateAlias="o2" ToolTipTitle="$LocLabels:cssp.cssp_billheader.Button11.DownloadStatement.ToolTipTitle" ToolTipDescription="$LocLabels:cssp.cssp_billheader.Button11.DownloadStatement.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="cssp.cssp_billheader.Button9.AttachToPDFButton.CustomAction" Location="Mscrm.Form.cssp_billheader.MainTab.Save.Controls._children" Sequence="80">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:cssp.cssp_billheader.Button9.AttachToPDFButton.Alt" Command="cssp.cssp_billheader.Command0.AttachToPDF" Id="cssp.cssp_billheader.Button9.AttachToPDFButton" LabelText="$LocLabels:cssp.cssp_billheader.Button9.AttachToPDFButton.LabelText" Sequence="80" TemplateAlias="o2" ToolTipTitle="$LocLabels:cssp.cssp_billheader.Button9.AttachToPDFButton.ToolTipTitle" ToolTipDescription="$LocLabels:cssp.cssp_billheader.Button9.AttachToPDFButton.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="cssp.cssp_billheader.Command0.AttachToPDF">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openNewForm" Library="$webresource:cssp_AttachPDFToEmail">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="cssp.cssp_billheader.Command1.DownloadStatement">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="DownloadBillingStatment" Library="$webresource:cssp_DownloadBillingStatementTemplate.js">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="CommandProperties" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="cssp.cssp_billheader.Button11.DownloadStatement.Alt">
+      <Titles>
+        <Title description="Download Statement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button11.DownloadStatement.LabelText">
+      <Titles>
+        <Title description="Download Statement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button11.DownloadStatement.ToolTipDescription">
+      <Titles>
+        <Title description="Download Statement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button11.DownloadStatement.ToolTipTitle">
+      <Titles>
+        <Title description="Download Statement" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button9.AttachToPDFButton.Alt">
+      <Titles>
+        <Title description="Attach PDF" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button9.AttachToPDFButton.LabelText">
+      <Titles>
+        <Title description="Attach PDF To Email" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button9.AttachToPDFButton.ToolTipDescription">
+      <Titles>
+        <Title description="Attach PDF to Email" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="cssp.cssp_billheader.Button9.AttachToPDFButton.ToolTipTitle">
+      <Titles>
+        <Title description="Attach PDF" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

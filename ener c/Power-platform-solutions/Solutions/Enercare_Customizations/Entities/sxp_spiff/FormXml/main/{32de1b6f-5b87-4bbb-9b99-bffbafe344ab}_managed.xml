@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{32de1b6f-5b87-4bbb-9b99-bffbafe344ab}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{8a6ce019-bbb9-4c59-9905-c7858560b4cc}" IsUserDefined="1" name="tab_General" locklevel="0" expanded="true" showlabel="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{134b2496-32f2-4ceb-84c9-338396c46b17}" name="General" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{88d5aa3c-d6a7-4a48-b8ef-065ccf63bb7f}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_name" uniqueid="{dc9261da-7a40-63e9-2cc9-72401ae50343}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dcbd0783-8801-8d13-16c7-4b62994a7360}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Spiff Program Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_spiffprogramtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_spiffprogramtype" disabled="false" uniqueid="{97a37223-2c9c-a365-b57a-2567ce23ad90}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dc951880-c39a-1208-8cd4-a45e881d2b5d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Spiff Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_spiffamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_spiffamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{505d9e7c-7d0b-73cc-db24-9a9a220a918a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="sxp_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bb082b98-c388-676a-dec4-511cc1d31e31}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Rejection Reason" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_rejectionreason" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_rejectionreason" disabled="false" uniqueid="{d544295b-5d2a-8c2d-e279-4065ea932490}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5541a741-b997-3e5e-0195-cc263cd9305c}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Payout Week" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_payoutweek" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_payoutweek" disabled="false" uniqueid="{a9eb7b6d-a556-6877-048a-73b395da4418}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{6E9749F4-0FAB-42F9-9FF0-ADA29EFB501E}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1928c527-ce46-cb67-991a-d2b59ea68173}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="STARS Ticket Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_starsticketnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_starsticketnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c3b04933-0241-4544-8665-ed7003560bec}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Department Number" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_departmentnumber" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_departmentnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{39a4e17a-6766-d252-e02e-b0a3dddd09ca}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Center" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_servicecenter" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_servicecenter" disabled="false" uniqueid="{a7bd357e-da18-7750-0ca4-b666d46c6a3d}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{1ABD2D27-4739-48E7-BEA7-DDED64180209}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8bb1c617-3188-3795-7573-e5a1e62500ed}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Related Order" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_relatedorder" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_relatedorder" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="Notes" showlabel="true" showbar="false" locklevel="0" id="{84205771-9448-0b27-7c98-e7a608a80290}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{33692c0c-ac24-55a2-7d9e-743a55a05d94}" showlabel="false" rowspan="4" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{380d23dd-06d5-ad9b-d20a-7377a23adc80}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>true</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_ApprovalDetails" id="{7ebe99e0-ce0c-b97a-88d5-93a1e416dae8}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Approver Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="section_PrimaryApproval" showlabel="true" showbar="false" locklevel="0" id="{7b4e6e91-4be4-a296-a1c5-3cc1b3336712}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="Primary Approval" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a7ce86d7-4ccc-0ed3-6d6b-6aa9c3c4a88a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary Approver" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primaryapprover" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_primaryapprover" disabled="true" uniqueid="{a1d5c65e-acde-cadc-9474-e930b3494d4b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{57E39843-404C-48E5-B1D9-1889098FB65C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6384063d-2840-0b05-6e14-9c2427268ed1}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Primary Approver/Rejecter" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primaryapproveruser" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_primaryapproveruser" disabled="true" uniqueid="{271d6487-7e9d-b95b-d89e-27d4131a8420}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8cb462c2-5a48-ca3e-9596-ab52e8706a2b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary Approval Status" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primaryapprovalstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_primaryapprovalstatus" disabled="true" uniqueid="{5162ac2d-a509-e2ae-2d8c-2a55c3a039a7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1180c2ee-4061-77d1-e622-173bc062d74e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary Approval/Rejection Date" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primaryapprovaldate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sxp_primaryapprovaldate" disabled="true" uniqueid="{110e9b95-3a03-a2d2-9d6e-b7c8c9e2ddc0}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="section_CpiApproval" showlabel="true" showbar="false" locklevel="0" id="{b2753d33-2db9-c1e3-2a39-7873ed29d820}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                  <labels>
+                    <label description="CPI Approval" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{729395a5-e5e7-db43-dc78-412be2edd65b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CPI Approver" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_cpiapprover" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_cpiapprover" disabled="true" uniqueid="{ea200096-3dad-8225-450d-e0854c4d3d79}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{57E39843-404C-48E5-B1D9-1889098FB65C}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8abcb6ec-2a14-6ee1-92db-a0138206e419}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="CPI Approver/Rejecter" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_cpiapproveruser" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_cpiapproveruser" disabled="true" uniqueid="{9cd5b20b-968a-b5ba-ea4a-0197320215dc}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{26ec8760-44e1-48de-c94b-ce8c738c9496}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CPI Approval Status" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_cpiapprovalstatus" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_cpiapprovalstatus" disabled="true" uniqueid="{9935c04a-2157-7054-ce31-348ebd61d9d5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9903557e-75c7-4265-e2c4-a0da40570a5a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="CPI Approval/Rejection Date" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_cpiapprovaldate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sxp_cpiapprovaldate" disabled="true" uniqueid="{40187580-b630-25bc-3d9d-0db91429400c}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{058ca0e8-e1cc-4ff2-8d6c-f5e38ad5e251}" columns="111">
+        <rows>
+          <row>
+            <cell id="{d8b1dcb6-e7a3-9522-e0d3-abe69ba8638d}" showlabel="true" locklevel="1">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" uniqueid="{e5ea3129-a8e4-aa70-5e8a-0c8987b911a5}" />
+            </cell>
+            <cell id="{72e27c51-41e3-c19b-7a3c-69751a99e2eb}" showlabel="true" locklevel="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{3391163e-e284-e8e8-9ec7-4e6b18c73081}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+            <cell id="{6c6401e3-3634-c725-1721-922cc271e381}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status Reason" languagecode="1033" />
+              </labels>
+              <control id="header_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" uniqueid="{057ed832-9367-12b2-ab95-3e31b29ee315}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="sxp_commonhelper.js" libraryUniqueId="{9a8dac22-a2a3-84e7-7b75-ab32e0b0e235}" />
+        <Library name="sxp_spiff" libraryUniqueId="{d42e9252-949d-a308-19d7-b8c9c4ca8dcc}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="Spiff.OnLoad" libraryName="sxp_spiff" handlerUniqueId="{1ca9ae96-7cc2-a137-e500-17dea6ed0e1d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="Spiff.OnSave" libraryName="sxp_spiff" handlerUniqueId="{05ba858a-6057-4979-317b-92421bca90d0}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Spiff" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

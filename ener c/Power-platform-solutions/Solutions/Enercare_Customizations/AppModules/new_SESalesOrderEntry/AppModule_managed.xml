@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>new_SESalesOrderEntry</UniqueName>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="62" schemaName="new_SESalesOrderEntry" />
+    <AppModuleComponent type="60" id="{6bd60f54-6b56-ec11-8f8e-000d3af4a312}" />
+    <AppModuleComponent type="60" id="{8f5d1998-be4e-ec11-8f8e-0022486dc00f}" />
+    <AppModuleComponent type="60" id="{a3581a6c-6456-ec11-8f8e-000d3af4a312}" />
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="60" id="{c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b}" />
+    <AppModuleComponent type="60" id="{a3536de2-10e5-4f9b-9e19-af2ac5702cf2}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001002}" />
+    <AppModuleComponent type="26" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001031}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001001}" />
+    <AppModuleComponent type="1" schemaName="sxp_advantagerates" />
+    <AppModuleComponent type="1" schemaName="adobe_agreement" />
+    <AppModuleComponent type="1" schemaName="sxp_agreementfundingline" />
+    <AppModuleComponent type="60" id="{3a9b75de-3d0f-45a0-9666-7dcbb0bd7223}" />
+    <AppModuleComponent type="1" schemaName="sxp_bankaccount" />
+    <AppModuleComponent type="60" id="{c39484ec-25ba-40e3-ae2d-e904ac5af26b}" />
+    <AppModuleComponent type="60" id="{21991ff1-a72f-4fab-97b6-642809224208}" />
+    <AppModuleComponent type="1" schemaName="sxp_commissions" />
+    <AppModuleComponent type="26" id="{a91c843b-0742-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="26" id="{95fca9f3-d42c-ec11-b6e6-0022486dccdd}" />
+    <AppModuleComponent type="26" id="{e00b31c3-c62c-ec11-b6e6-0022486dccdd}" />
+    <AppModuleComponent type="26" id="{7959eb78-de31-ec11-b6e6-000d3a09f6b5}" />
+    <AppModuleComponent type="26" id="{4af9142e-1042-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="26" id="{5d728a7a-7c2a-ec11-b6e6-0022486dc34c}" />
+    <AppModuleComponent type="26" id="{0dc9cc89-1142-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="26" id="{7786ab3e-7c2a-ec11-b6e6-0022486dc34c}" />
+    <AppModuleComponent type="26" id="{6adedb0f-7a2a-ec11-b6e6-0022486dc34c}" />
+    <AppModuleComponent type="26" id="{b91980fd-0842-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="60" id="{f6e1b862-379f-4539-a847-cf3c5c041775}" />
+    <AppModuleComponent type="60" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001004}" />
+    <AppModuleComponent type="26" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001033}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001003}" />
+    <AppModuleComponent type="1" schemaName="rm_creditcardsale" />
+    <AppModuleComponent type="60" id="{bc591efb-71d3-479d-99cc-442e8acafb28}" />
+    <AppModuleComponent type="1" schemaName="sxp_creditcheck" />
+    <AppModuleComponent type="26" id="{a7e6f0b0-f2db-461b-90be-19da97b4cbd4}" />
+    <AppModuleComponent type="26" id="{447c2864-a19d-4157-af70-ac365998f3e9}" />
+    <AppModuleComponent type="1" schemaName="sxp_creditcheckoverride" />
+    <AppModuleComponent type="1" schemaName="sxp_manufacturer" />
+    <AppModuleComponent type="1" schemaName="salesorder" />
+    <AppModuleComponent type="60" id="{cc287fab-10d3-44be-b738-1daf50a2aa03}" />
+    <AppModuleComponent type="60" id="{d598792c-3ff0-43f3-b3e3-bbd70b99e1a5}" />
+    <AppModuleComponent type="26" id="{e6f001df-303c-447b-b184-0f65cd00c3f9}" />
+    <AppModuleComponent type="26" id="{e005dc70-f445-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="26" id="{6bf09da0-f545-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="26" id="{b8a287c2-f045-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="26" id="{ddbaea91-9347-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="26" id="{4b2438f6-4949-484b-a272-6f694a2b2fae}" />
+    <AppModuleComponent type="26" id="{f9b46b89-162d-ec11-b6e6-0022486dc34c}" />
+    <AppModuleComponent type="26" id="{d73f70e4-f145-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="26" id="{a7592001-f545-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="26" id="{3d74b89e-1342-ec11-8c62-000d3a09e210}" />
+    <AppModuleComponent type="26" id="{bc29f750-12a0-4eb5-ac08-698ef528f921}" />
+    <AppModuleComponent type="26" id="{0fb44e7a-1b2d-ec11-b6e6-0022486dc34c}" />
+    <AppModuleComponent type="59" id="{f37c42f7-1442-ec11-8c62-000d3a09e210}" />
+    <AppModuleComponent type="59" id="{288bc4ca-f345-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="59" id="{ae16c59d-f445-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="59" id="{e72daae3-f545-ec11-8c62-000d3a09f0fc}" />
+    <AppModuleComponent type="59" id="{34908aaa-9347-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="59" id="{a7927208-1442-ec11-8c62-000d3a09e210}" />
+    <AppModuleComponent type="59" id="{b05b3496-9247-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="59" id="{044543bd-1342-ec11-8c62-000d3a09e210}" />
+    <AppModuleComponent type="59" id="{b39ce7fc-d542-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="59" id="{fc43f45a-f545-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="59" id="{e7df6448-f345-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="59" id="{55126603-f645-ec11-8c62-000d3a09f88c}" />
+    <AppModuleComponent type="1" schemaName="salesorderdetail" />
+    <AppModuleComponent type="1" schemaName="sxp_partycontact" />
+    <AppModuleComponent type="1" schemaName="pricelevel" />
+    <AppModuleComponent type="1" schemaName="product" />
+    <AppModuleComponent type="60" id="{a640be62-63f6-4027-90d7-48c014a7c6f3}" />
+    <AppModuleComponent type="60" id="{93a5f87a-cc4b-ec11-8f8e-0022486dfdd7}" />
+    <AppModuleComponent type="1" schemaName="sxp_promotion" />
+    <AppModuleComponent type="1" schemaName="sxp_promotionline" />
+    <AppModuleComponent type="60" id="{fcd7ea08-1aee-44f4-a4ef-5af1352aa028}" />
+    <AppModuleComponent type="1" schemaName="sxp_servicecenter" />
+    <AppModuleComponent type="1" schemaName="sxp_spiff" />
+    <AppModuleComponent type="26" id="{3dbc4541-0e42-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="26" id="{ba860def-bc21-ec11-b6e6-0022486da96b}" />
+    <AppModuleComponent type="26" id="{a7a95bed-0d42-ec11-8c62-000d3a09ff93}" />
+    <AppModuleComponent type="26" id="{1e8cbab0-bb21-ec11-b6e6-0022486da96b}" />
+    <AppModuleComponent type="26" id="{2b1752d6-d62c-ec11-b6e6-0022486dccdd}" />
+    <AppModuleComponent type="26" id="{55f6c7a2-d62c-ec11-b6e6-0022486dccdd}" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{69107e32-a026-ec11-b6e6-000d3a09d416}" />
+    <Role id="{1189c086-8926-ec11-b6e6-000d3a09d416}" />
+    <Role id="{d2b9783b-f836-ec11-8c64-0022486dcf1c}" />
+    <Role id="{437fc05d-9726-ec11-b6e6-000d3a09d416}" />
+    <Role id="{9196eebd-a026-ec11-b6e6-000d3a09d416}" />
+    <Role id="{5969e063-9e26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{fc6affed-9526-ec11-b6e6-000d3a09d416}" />
+    <Role id="{47a0b4e7-9726-ec11-b6e6-000d3a09d416}" />
+    <Role id="{d0ddf0e8-9d26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{0e005bf9-9c26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{623ed288-9c26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{28476d8a-9f26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{a0e4dd08-9426-ec11-b6e6-000d3a09d416}" />
+    <Role id="{6f4aea2c-9526-ec11-b6e6-000d3a09d416}" />
+    <Role id="{5f43b747-9226-ec11-b6e6-000d3a09d416}" />
+    <Role id="{1181df14-9f26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{c0ed2f4f-6f92-4691-92ba-78f2931e8fba}" />
+    <Role id="{d0496d6c-9d26-ec11-b6e6-000d3a09d416}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="SE Sales Order Entry" languagecode="1033" />
+  </LocalizedNames>
+</AppModule>

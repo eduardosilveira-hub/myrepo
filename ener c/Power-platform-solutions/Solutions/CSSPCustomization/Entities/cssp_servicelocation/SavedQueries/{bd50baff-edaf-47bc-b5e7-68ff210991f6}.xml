@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{bd50baff-edaf-47bc-b5e7-68ff210991f6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cssp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cssp_servicelocationid">
+          <cell name="cssp_formatteddeliveryaddress" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_8d2f9546ae2bec11b6e5000d3a4f7c7e.name" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_8d2f9546ae2bec11b6e5000d3a4f7c7e.primarycontactid" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="a_8d2f9546ae2bec11b6e5000d3a4f7c7e.emailaddress1" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cssp_phone" width="100" />
+          <cell name="a_8d2f9546ae2bec11b6e5000d3a4f7c7e.sxp_servicecenter" width="125" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cssp_servicelocation">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <link-entity alias="a_8d2f9546ae2bec11b6e5000d3a4f7c7e" name="account" from="accountid" to="cssp_account" link-type="outer" visible="false">
+            <attribute name="primarycontactid" />
+            <attribute name="name" />
+            <attribute name="sxp_servicecenter" />
+            <attribute name="emailaddress1" />
+          </link-entity>
+          <attribute name="cssp_formatteddeliveryaddress" />
+          <attribute name="cssp_servicelocationid" />
+          <attribute name="cssp_phone" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Service Locations" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

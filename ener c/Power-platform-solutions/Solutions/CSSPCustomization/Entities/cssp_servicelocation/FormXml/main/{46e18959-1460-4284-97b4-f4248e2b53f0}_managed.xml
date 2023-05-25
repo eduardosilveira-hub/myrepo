@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{46e18959-1460-4284-97b4-f4248e2b53f0}</formid>
+    <IntroducedVersion>1.0.0.4</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>0</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920">
+      <tabs>
+        <tab verticallayout="true" id="{ad08a287-f696-42ff-8493-bbfc38f985ba}" IsUserDefined="1" labelid="{c1f69ed2-3f3a-4f21-a523-6c38193c56ea}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{bea05381-dc65-4d9a-a659-d14930daece5}" name="{bea05381-dc65-4d9a-a659-d14930daece5}" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left" labelid="{63c547ef-a311-4045-8cef-2dfd1aa838a3}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1d081b29-3d6d-dc91-053c-a4aa53ed00c6}" showlabel="true" locklevel="0" labelid="{4d7c4d52-cb8c-46d7-8d69-d531490ea01d}" colspan="2">
+                        <labels>
+                          <label description="Bill Delivery Method" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billdeliverymethod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cssp_billdeliverymethod" disabled="false" uniqueid="{926de211-3ad2-9116-aa27-3ec34c4a3552}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f4f44d5-2bc4-4f8f-b056-4a6c936e2a71}" labelid="{40d95b12-ca01-429c-ba1a-36308b65053b}" showlabel="true" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{7e7d2bbb-23b6-cb28-e697-cd83cd819933}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{8a05c335-4ae4-570b-084b-0cd7e0963c43}" showlabel="true" locklevel="0" labelid="{c4e80d11-0abc-4dc1-aae1-ace0b6d8b554}">
+                        <labels>
+                          <label description="Bill Notification By Email" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billnotificationbyemail" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="cssp_billnotificationbyemail" disabled="false" uniqueid="{6a49e941-6196-d521-5b52-9ee8938702b3}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1a64997f-dff5-4907-88b7-b9f6e424ad1c}" labelid="{2f20df47-bec0-48da-a2b6-8f47998fa2f7}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cssp_name" uniqueid="{68b353b0-021d-eb14-2a98-880b7e46cdb9}" disabled="false" />
+                      </cell>
+                      <cell id="{3e2b6be7-80a8-0662-676d-d650440ad854}" showlabel="true" locklevel="0" labelid="{91932362-cedf-4c17-a7a0-926a7f7605b4}">
+                        <labels>
+                          <label description="Bill Notification By Mail" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billnotificationbymail" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="cssp_billnotificationbymail" disabled="false" uniqueid="{a832b943-a6e6-a098-b21e-2569cb97a433}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1a24dc5e-3eb2-0787-20d4-43c5aba83645}" showlabel="false" labelid="{08ba4cf8-bd18-42ba-a18e-7f78d1e1fb52}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{3e44447d-99ab-7c9b-32aa-98ada29d9b80}" showlabel="true" locklevel="0" labelid="{3bdd4f6c-b757-4b20-8a02-a3d3fa0a9ce5}">
+                        <labels>
+                          <label description="Bill Notification By Text" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_billnotificationbytext" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="cssp_billnotificationbytext" disabled="false" uniqueid="{5c1db929-1606-9958-45a4-1c6e92e648a2}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ee7a8384-2c1a-35b7-c05e-96e9e6c13640}" showlabel="false" labelid="{5c9e686f-f573-4c36-b675-bf8d3fabf37a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{c61b5232-bac9-dee6-3e98-088d4b7469a0}" showlabel="true" locklevel="0" labelid="{f2d597bd-48f9-4370-89e8-2a8c8475215f}">
+                        <labels>
+                          <label description="Set as primary" languagecode="1033" />
+                        </labels>
+                        <control id="cssp_isprimary" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="cssp_isprimary" disabled="false" uniqueid="{8e42d6b1-da9b-c9cb-582e-e67b34ab83ba}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <DisplayConditions Order="5">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="CSSP Billing Options- 1" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

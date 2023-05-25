@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="sxp_service" localizedName="Type of Service" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.8</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Type of Service" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="275450000">
+      <labels>
+        <label description="HVAC" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="275450001">
+      <labels>
+        <label description="Water Heater" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="275450002">
+      <labels>
+        <label description="Water Treatment" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

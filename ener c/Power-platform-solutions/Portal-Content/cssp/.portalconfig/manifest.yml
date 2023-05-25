@@ -1,0 +1,350 @@
+adx_entityform:
+- RecordId: d1bb036f-3636-ec11-b6e6-00224824cc0c
+  DisplayName: Bill Header
+  CheckSum: 
+  IsDeleted: true
+- RecordId: e88216a5-3636-ec11-b6e6-00224824cc0c
+  DisplayName: Bill Header Edit Form
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 1ba19e3d-2fd1-e511-80df-c4346bac0574
+  DisplayName: Contact Us Form
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 0c16044a-465c-ec11-8f8f-000d3a4d8d74
+  DisplayName: notesTest
+  CheckSum: 
+  IsDeleted: true
+adx_entityformmetadata:
+- RecordId: dd49cf10-5336-ec11-b6e6-00224824cc0c
+  DisplayName: dd49cf10-5336-ec11-b6e6-00224824cc0c
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 346a2a82-465c-ec11-8f8f-000d3a4d8d74
+  DisplayName: 346a2a82-465c-ec11-8f8f-000d3a4d8d74
+  CheckSum: 
+  IsDeleted: true
+adx_pagetemplate:
+- RecordId: 9ef57680-7a6d-ec11-8943-00224829cd64
+  DisplayName: LocationPicker
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 893cb2cf-c436-ec11-b6e6-00224824cc0c
+  DisplayName: Default studio template
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 6e77e95e-4d5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: filetest
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 472bf7d2-2232-ec11-b6e5-00224828d2ee
+  DisplayName: Default Page
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 8278ec04-504d-ec11-8c62-0022482a2f80
+  DisplayName: LoginValidation
+  CheckSum: 
+  IsDeleted: true
+adx_redirect:
+- RecordId: 3347f84b-4b75-ec11-8943-0022482be734
+  DisplayName: /Account/Login/ExternalAuthenticationFailed
+  CheckSum: 
+  IsDeleted: true
+adx_sitesetting:
+- RecordId: 58eeabf0-8b51-ec11-8c62-0022482a2f80
+  DisplayName: Webapi/sxp_servicecenter/enabled
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f3433708-8c51-ec11-8c62-0022482a2f80
+  DisplayName: Webapi/sxp_servicecenter/fields
+  CheckSum: 
+  IsDeleted: true
+adx_webfile:
+- RecordId: f7b58501-a82c-ec11-b6e5-000d3a52d362
+  DisplayName: App Css
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 1802038b-a72c-ec11-b6e5-000d3a52d362
+  DisplayName: App Js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7597f176-6d64-ec11-8f8f-000d3a8dcea4
+  DisplayName: Account.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 101c6091-6d64-ec11-8f8f-000d3a8dcea4
+  DisplayName: Common.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 30179cb3-6d64-ec11-8f8f-000d3a8dcea4
+  DisplayName: Home.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 211917f7-6d64-ec11-8f8f-000d3a8dcea4
+  DisplayName: Init.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 02bcee1c-6e64-ec11-8f8f-000d3a8dcea4
+  DisplayName: Payments.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: adb05303-3132-ec11-b6e5-00224828d2ee
+  DisplayName: Bundle
+  CheckSum: 
+  IsDeleted: true
+adx_weblink:
+- RecordId: fd3ae957-a955-4e09-ae71-df73810fa996
+  DisplayName: Service Center Logos
+  CheckSum: 
+  IsDeleted: true
+- RecordId: d376187a-17f5-4909-9173-5d4a845a7484
+  DisplayName: shownotes
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f5e08323-da80-4a46-8844-92f0bcb4996d
+  DisplayName: filetest
+  CheckSum: 
+  IsDeleted: true
+- RecordId: d8f1c1b9-c18f-4cfb-a5be-82f62fd4dfad
+  DisplayName: GetLogoURL
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 5f082b90-132f-428f-8248-ddd13d4d45dd
+  DisplayName: Parent
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 813bf68f-02fe-478f-928d-4c57341f9f9c
+  DisplayName: API
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 8a08d77f-dbbf-45dd-9378-45e11c880954
+  DisplayName: Bill Header Edit Form
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 9b316809-1131-41f4-af18-b782328698c6
+  DisplayName: Bill Header
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 4077c763-9d30-ec11-b6e5-00224828d5ad
+  DisplayName: Contact Us
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 764c7e6d-9d30-ec11-b6e5-00224828d5ad
+  DisplayName: Sample Pages
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7d86d510-8c74-445c-9599-654b76534e01
+  DisplayName: LoginValidation
+  CheckSum: 
+  IsDeleted: true
+adx_webpage:
+- RecordId: a9808d5c-7a6d-ec11-8943-00224829cd64
+  DisplayName: LocationPicker
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f6808d5c-7a6d-ec11-8943-00224829cd64
+  DisplayName: LocationPicker
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7cdca871-4d5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: filetest
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 4a202824-4f5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: shownotes
+  CheckSum: 
+  IsDeleted: true
+- RecordId: b9dca871-4d5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: filetest
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 4f202824-4f5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: shownotes
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 51bf9921-8532-ec11-b6e5-00224828d2ee
+  DisplayName: Account-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: c90b7e81-2232-ec11-b6e5-00224828d2ee
+  DisplayName: Home-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 1a329a03-8532-ec11-b6e5-00224828d2ee
+  DisplayName: Payments-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 59bf9921-8532-ec11-b6e5-00224828d2ee
+  DisplayName: Account-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: d00b7e81-2232-ec11-b6e5-00224828d2ee
+  DisplayName: Home-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 79329a03-8532-ec11-b6e5-00224828d2ee
+  DisplayName: Payments-old
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7bf34813-504d-ec11-8c62-0022482a2f80
+  DisplayName: LoginValidation
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 70f34813-504d-ec11-8c62-0022482a2f80
+  DisplayName: LoginValidation
+  CheckSum: 
+  IsDeleted: true
+adx_webtemplate:
+- RecordId: 843cb2cf-c436-ec11-b6e6-00224824cc0c
+  DisplayName: Default studio template
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 9ce7db6b-1a38-ec11-b6e6-00224824cc0c
+  DisplayName: Power Virtual Agents
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 962df264-b736-ec11-b6e6-00224824cc0c
+  DisplayName: FetchStatementsAndPayments
+  CheckSum: 
+  IsDeleted: true
+- RecordId: fba62f43-2232-ec11-b6e5-00224828d2ee
+  DisplayName: Landing
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 6f5d7d1a-3836-ec11-b6e6-00224824cc0c
+  DisplayName: Bill Header
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f201e26a-3836-ec11-b6e6-00224824cc0c
+  DisplayName: Bill Header Edit Form
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7c247b4c-4d5c-ec11-8f8f-000d3a4d8d74
+  DisplayName: filetest
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 65268994-954c-ec11-8c62-0022482a246b
+  DisplayName: LoginValidation
+  CheckSum: 
+  IsDeleted: true
+- RecordId: c0d7d72b-8832-ec11-b6e5-00224828d2ee
+  DisplayName: Account
+  CheckSum: 
+  IsDeleted: true
+- RecordId: e09d3c4d-2432-ec11-b6e5-00224828d2ee
+  DisplayName: Default Page
+  CheckSum: 
+  IsDeleted: true
+- RecordId: cd25f2f1-2132-ec11-b6e5-00224828d2ee
+  DisplayName: Home
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 0ee48113-8832-ec11-b6e5-00224828d2ee
+  DisplayName: Payments
+  CheckSum: 
+  IsDeleted: true
+annotation:
+- RecordId: 7bf46140-f0d6-ff61-852d-55266d0abf36
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: ada6a219-f03d-9468-ad70-b9755b645ef1
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 05e8cc17-9c0e-c3ce-9ece-f0214fa6f535
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: d0ed010b-c099-17cc-975d-85d06ce4bdf1
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: bcfe3680-e100-add4-8b0f-ecca34aab2e8
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 0eb60351-dc65-58e0-adac-1d61bca5cb89
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: ccc783fb-9ec1-b2d0-a58a-6943f71618d2
+  DisplayName: SE_logo_leftaligned.png
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f8c97d89-73b0-1a6a-bcfb-be53e8d230fa
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: eeb6ed41-71cf-4e9a-bb14-c7f6784ab3de
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 32d7ba21-4b44-7e34-85d9-468078d4fbf7
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 44c79c72-eea9-da86-95fe-e305300164da
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: cc6408d5-5a14-bdaf-8113-0c8dde31542f
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 7c2d7656-71c1-08b2-8a09-1fc81c8180f5
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 9f6a73ea-6698-0925-87ad-ff52040dbdc0
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: a63042b5-d00e-994e-aa65-88418c686eb1
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: dfd4f3e2-7374-7826-9571-3f9fd9c4d468
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: f5b5c472-6826-cf4d-8471-3c0ad6df2be5
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 9cf3d979-4879-7366-99c5-f30d38533a53
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 4ff053f0-6f95-420e-8334-298d35aab11f
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 216438fb-bc87-99c1-9493-b2cf35402678
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: d62e48bf-9dc8-391b-8099-1c28105e971f
+  DisplayName: Account (2).js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 5e741ca8-b255-67f1-b8e3-abc706700e32
+  DisplayName: bundle.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: c3bbe974-a7f7-abea-9ad9-b56439d5e12c
+  DisplayName: Common.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: 351bf89e-3b69-475f-b609-dbc20841f40a
+  DisplayName: Home.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: b0991ae7-4503-64c3-a0af-24db331cac93
+  DisplayName: Init.js
+  CheckSum: 
+  IsDeleted: true
+- RecordId: b1471cde-0647-d785-8c83-2243c0908d31
+  DisplayName: Payments (1) (1).js
+  CheckSum: 
+  IsDeleted: true

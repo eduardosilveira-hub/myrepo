@@ -1,0 +1,45 @@
+.cssp-account {
+  .tab-title,
+  #UpdateButton {
+    display: none;
+  }
+  .field-label {
+    margin-top: 10px;
+  }
+  #profile-modal {
+    .modal-body {
+      overflow-y: scroll;
+      height: 400px;
+    }
+  }
+  #billing-modal {
+    .modal-body {
+      padding: 0px 30px;
+    }
+  }
+  #billingCycleChange-modal{
+    .modal-body {
+      overflow-y: scroll;
+      height: 400px;
+    }
+  }
+  #error-message {
+    color: #504c4d;
+    display: inline-block;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+  }
+  .cssp-billing-options, .update-my-profile{
+    padding: 0 10px 10px;
+  }
+
+  @media (max-width: 539px) {
+    .cssp-button-account-options{
+        padding-top: 10px !important;
+        display: block;
+        width: 100%;
+    }
+  }
+}

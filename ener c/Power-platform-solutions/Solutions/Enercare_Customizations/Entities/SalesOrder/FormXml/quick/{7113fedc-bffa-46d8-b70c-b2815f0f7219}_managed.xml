@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7113fedc-bffa-46d8-b70c-b2815f0f7219}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="{6c5848dd-afa0-41de-ab6e-eee56cddb1dd}" name="tab_1" showlabel="false">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="{2dcbb046-511a-4798-ba77-ad3dc0ad5e03}" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{981bb2be-5694-851e-d46d-5c830ea5bac1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Order ID" languagecode="1033" />
+                        </labels>
+                        <control id="ordernumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ordernumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5665eb8a-5a09-7b7c-6ba3-224bb3397be9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Center" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_center" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_center" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c19d69a6-06e6-0b91-c1dd-1bd2eec0bb95}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Credit Check" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_creditcheck" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_creditcheck" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bd6b6de9-36d5-e131-24a5-48b005c949e7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_service" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_service" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95a4d02a-8be5-6169-0636-c7a8449057a2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Total Installed Cost" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_totalinstalledcost" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_totalinstalledcost" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b2988814-32b0-b641-e554-527e1362bdd5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Credit Remaining" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_creditremaining" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_creditremaining" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="2">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Credit Check Override Quickview" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

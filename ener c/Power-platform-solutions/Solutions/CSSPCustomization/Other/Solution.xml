@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.22012.140" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>CSSPCustomization</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="CSSP Customization" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Customer Self Service Portal Customizations&#xA;Version1.0.3.3" languagecode="1033" />
+    </Descriptions>
+    <Version>2.0.0.1290</Version>
+    <Managed>1</Managed>
+    <Publisher>
+      <UniqueName>enercare</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Enercare" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Enercare" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>cssp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>68579</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="1" />
+      <RootComponent type="1" schemaName="contact" behavior="1" />
+      <RootComponent type="1" schemaName="cssp_billheader" behavior="0" />
+      <RootComponent type="1" schemaName="cssp_billline" behavior="0" />
+      <RootComponent type="1" schemaName="cssp_billlinehistory" behavior="0" />
+      <RootComponent type="1" schemaName="cssp_billpayment" behavior="0" />
+      <RootComponent type="1" schemaName="cssp_customerinvoice" behavior="0" />
+      <RootComponent type="1" schemaName="cssp_servicelocation" behavior="0" />
+      <RootComponent type="1" schemaName="msdyn_customerpaymentmethod" behavior="0" />
+      <RootComponent type="1" schemaName="sxp_bankaccount" behavior="1" />
+      <RootComponent type="1" schemaName="sxp_servicecenter" behavior="1" />
+      <RootComponent type="9" schemaName="cssp_billdeliverymethod" behavior="0" />
+      <RootComponent type="9" schemaName="cssp_billdeliverytiming" behavior="0" />
+      <RootComponent type="9" schemaName="cssp_billnotification" behavior="0" />
+      <RootComponent type="9" schemaName="cssp_paymentmethod" behavior="0" />
+      <RootComponent type="20" id="{6e60ca3d-924c-ec11-8c62-0022482a246b}" behavior="0" />
+      <RootComponent type="29" id="{dd8bee55-d07c-ec11-8d21-000d3a8d0f36}" behavior="0" />
+      <RootComponent type="60" id="{c142f677-c74e-ec11-8c62-0022482a2f80}" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_AttachPDFToEmail" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_BillingOptionsChange" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_billing_statement_16_16" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_billing_statement_32_32" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_DownloadBillingStatementTemplate.js" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_payments_16_16" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_payments_32_32" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_servicelocation-16_16" behavior="0" />
+      <RootComponent type="61" schemaName="cssp_servicelocation-32_32" behavior="0" />
+      <RootComponent type="61" schemaName="msdyn_/DefaultCompany.js" behavior="0" />
+      <RootComponent type="62" schemaName="cssp_CSRApp" behavior="0" />
+      <RootComponent type="80" schemaName="cssp_CSRApp" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="ava_avalaratax" displayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="10" schemaName="ava_ava_avalaratax_account" displayName="ava_ava_avalaratax_account" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billheader_Company" displayName="cssp_cdm_company_cssp_billheader_Company" parentSchemaName="cssp_billheader" parentDisplayName="Billing Statement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billline_Company" displayName="cssp_cdm_company_cssp_billline_Company" parentSchemaName="cssp_billline" parentDisplayName="Billing Statement Line" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billlinehistory_Company" displayName="cssp_cdm_company_cssp_billlinehistory_Company" parentSchemaName="cssp_billlinehistory" parentDisplayName="Billing Statement history" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billpayment_company" displayName="cssp_cdm_company_cssp_billpayment_company" parentSchemaName="cssp_billpayment" parentDisplayName="Payment History" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_customerinvoice_Company" displayName="cssp_cdm_company_cssp_customerinvoice_Company" parentSchemaName="cssp_customerinvoice" parentDisplayName="Customer Invoice" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_servicelocation_company" displayName="cssp_cdm_company_cssp_servicelocation_company" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cdm_company" displayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" displayName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="createdby" displayName="Created By" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="createdonbehalfby" displayName="Created By (Delegate)" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="modifiedby" displayName="Modified By" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="modifiedonbehalfby" displayName="Modified By (Delegate)" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="owneridtype" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="owningbusinessunit" displayName="Owning Business Unit" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="versionnumber" displayName="Version Number" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_customerpaymentmethod" displayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Payment Method Toggle Logic" id="{dd8bee55-d07c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="rm_creditcardtable" displayName="Credit Card Table" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="1" schemaName="sxp_bankaccount" displayName="Bank Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_bankaccount" displayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="sxp_servicecenter" displayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="1" schemaName="sxp_servicecenter" displayName="Service Center" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="adobe_account_adobe_agreement" displayName="adobe_account_adobe_agreement" parentSchemaName="account" parentDisplayName="Account" solution="AdobeSign (9.5.8.0)">
+          <package>AdobeSign (9.5.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Account Portal" parentDisplayName="Account" id="{0081890e-bb9e-4d0a-b56e-2ed2dc7a596a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="adobe_account_adobe_agreement" displayName="adobe_account_adobe_agreement" parentSchemaName="account" parentDisplayName="Account" solution="AdobeSign (9.5.8.0)">
+          <package>AdobeSign (9.5.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="adobe_account_adobe_agreement" displayName="adobe_account_adobe_agreement" parentSchemaName="account" parentDisplayName="Account" solution="AdobeSign (9.5.8.0)">
+          <package>AdobeSign (9.5.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_account_salesorder_InvoiceCustomerId" displayName="msdyn_account_salesorder_InvoiceCustomerId" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365SupplyChainExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Account Portal" parentDisplayName="Account" id="{0081890e-bb9e-4d0a-b56e-2ed2dc7a596a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_account_salesorder_InvoiceCustomerId" displayName="msdyn_account_salesorder_InvoiceCustomerId" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365SupplyChainExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_account_salesorder_InvoiceCustomerId" displayName="msdyn_account_salesorder_InvoiceCustomerId" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365SupplyChainExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtransaction_customer" displayName="rm_account_rm_creditcardtransaction_customer" parentSchemaName="account" parentDisplayName="Account" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="Account Portal" parentDisplayName="Account" id="{0081890e-bb9e-4d0a-b56e-2ed2dc7a596a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtransaction_customer" displayName="rm_account_rm_creditcardtransaction_customer" parentSchemaName="account" parentDisplayName="Account" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtransaction_customer" displayName="rm_account_rm_creditcardtransaction_customer" parentSchemaName="account" parentDisplayName="Account" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_account_sxp_bankaccount_account" displayName="sxp_account_sxp_bankaccount_account" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_account_sxp_bankaccount_account" displayName="sxp_account_sxp_bankaccount_account" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_account_sxp_bankaccount_account" displayName="sxp_account_sxp_bankaccount_account" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_sxp_servicecenter_account_ServiceCenter" displayName="sxp_sxp_servicecenter_account_ServiceCenter" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="ava_ava_avalaratax_account" displayName="ava_ava_avalaratax_account" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="10" schemaName="ava_ava_avalaratax_account" displayName="ava_ava_avalaratax_account" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="ava_avalaratax_OriginAccount" displayName="ava_avalaratax_OriginAccount" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="60" displayName="Account Portal" parentDisplayName="Account" id="{0081890e-bb9e-4d0a-b56e-2ed2dc7a596a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="ava_avalaratax_OriginAccount" displayName="ava_avalaratax_OriginAccount" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="ava_avalaratax_OriginAccount" displayName="ava_avalaratax_OriginAccount" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_account_contact_AccountNumber" displayName="msdyn_account_contact_AccountNumber" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_cdm_company_contact_company" displayName="msdyn_cdm_company_contact_company" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtable_customer" displayName="rm_account_rm_creditcardtable_customer" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="Account Portal" parentDisplayName="Account" id="{0081890e-bb9e-4d0a-b56e-2ed2dc7a596a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtable_customer" displayName="rm_account_rm_creditcardtable_customer" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="rm_account_rm_creditcardtable_customer" displayName="rm_account_rm_creditcardtable_customer" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.13)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_rm_creditcardtable_Account_Account" displayName="sxp_rm_creditcardtable_Account_Account" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_cdm_company_sxp_bankaccount_company" displayName="sxp_cdm_company_sxp_bankaccount_company" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="sxp_cdm_company_sxp_bankaccount_company" displayName="sxp_cdm_company_sxp_bankaccount_company" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ava_avalaratax" displayName="Avalara Tax" parentSchemaName="account" parentDisplayName="Account" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="2" schemaName="ava_avalaratax" displayName="Avalara Tax" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ava_city" displayName="city" parentSchemaName="account" parentDisplayName="Account" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="26" schemaName="Advantage Alliance Accounts" displayName="Advantage Alliance Accounts" parentSchemaName="account" parentDisplayName="Account" id="{397d73b4-d04e-ec11-8c62-0022482a2f80}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_billingaccount" displayName="Billing Account" parentSchemaName="account" parentDisplayName="Account" solution="FieldServiceCommon (1.0.0.134)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="26" schemaName="My Active Accounts - Portal" displayName="My Active Accounts - Portal" parentSchemaName="account" parentDisplayName="Account" id="{83cda3bd-652c-ec11-b6e5-000d3a4f7c7e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_defaultvendorpaymentmethodname" displayName="Methods of Payment" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="26" schemaName="My Active Accounts - Portal" displayName="My Active Accounts - Portal" parentSchemaName="account" parentDisplayName="Account" id="{83cda3bd-652c-ec11-b6e5-000d3a4f7c7e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_firstname" displayName="First Name" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_lastname" displayName="Last Name" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicecenter" displayName="Service Center" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="26" schemaName="My Active Accounts - Portal" displayName="My Active Accounts - Portal" parentSchemaName="account" parentDisplayName="Account" id="{83cda3bd-652c-ec11-b6e5-000d3a4f7c7e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicecenter" displayName="Service Center" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="26" schemaName="Active Service Locations" displayName="Active Service Locations" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" id="{bd50baff-edaf-47bc-b5e7-68ff210991f6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicecenter" displayName="Service Center" parentSchemaName="account" parentDisplayName="Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ava_avalarataxid" displayName="Avalara Tax Setup" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="10" schemaName="ava_ava_avalaratax_account" displayName="ava_ava_avalaratax_account" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ava_name" displayName="Name" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" solution="AvaTax (9.5.0.0)" />
+        <Dependent type="10" schemaName="ava_ava_avalaratax_account" displayName="ava_ava_avalaratax_account" parentSchemaName="ava_avalaratax" parentDisplayName="Avalara Tax Setup" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billheader_Company" displayName="cssp_cdm_company_cssp_billheader_Company" parentSchemaName="cssp_billheader" parentDisplayName="Billing Statement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billline_Company" displayName="cssp_cdm_company_cssp_billline_Company" parentSchemaName="cssp_billline" parentDisplayName="Billing Statement Line" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billlinehistory_Company" displayName="cssp_cdm_company_cssp_billlinehistory_Company" parentSchemaName="cssp_billlinehistory" parentDisplayName="Billing Statement history" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billpayment_company" displayName="cssp_cdm_company_cssp_billpayment_company" parentSchemaName="cssp_billpayment" parentDisplayName="Payment History" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_customerinvoice_Company" displayName="cssp_cdm_company_cssp_customerinvoice_Company" parentSchemaName="cssp_customerinvoice" parentDisplayName="Customer Invoice" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_servicelocation_company" displayName="cssp_cdm_company_cssp_servicelocation_company" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companycode" displayName="Company Code" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_account_company" displayName="msdyn_cdm_company_account_company" parentSchemaName="account" parentDisplayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billheader_Company" displayName="cssp_cdm_company_cssp_billheader_Company" parentSchemaName="cssp_billheader" parentDisplayName="Billing Statement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billline_Company" displayName="cssp_cdm_company_cssp_billline_Company" parentSchemaName="cssp_billline" parentDisplayName="Billing Statement Line" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billlinehistory_Company" displayName="cssp_cdm_company_cssp_billlinehistory_Company" parentSchemaName="cssp_billlinehistory" parentDisplayName="Billing Statement history" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_billpayment_company" displayName="cssp_cdm_company_cssp_billpayment_company" parentSchemaName="cssp_billpayment" parentDisplayName="Payment History" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_customerinvoice_Company" displayName="cssp_cdm_company_cssp_customerinvoice_Company" parentSchemaName="cssp_customerinvoice" parentDisplayName="Customer Invoice" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_cdm_company_cssp_servicelocation_company" displayName="cssp_cdm_company_cssp_servicelocation_company" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cdm_companyid" displayName="Company" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="adx_organizationname" displayName="Organization Name" parentSchemaName="contact" parentDisplayName="Contact" solution="MicrosoftPortalDependencies (9.2.2103.0)">
+          <package>StarterPortal (9.2.2108.4)</package>
+        </Required>
+        <Dependent type="60" displayName="Profile Web Form" parentDisplayName="Contact" id="{0bd832d5-9d6a-456d-bdc1-21129e82cc0f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_contactpersonid" displayName="Account Number/Contact Person ID" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_telephone1description" displayName="Phone Description" parentSchemaName="contact" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_confirmemailaddress1" displayName="Confirm Email" parentSchemaName="contact" parentDisplayName="Contact" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_company" displayName="Company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" displayName="msdyn_cdm_company_msdyn_customerpaymentmethod_company" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_customerpaymentmethodid" displayName="Customer Payment Method" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" displayName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_customerpaymentmethodid" displayName="Customer Payment Method" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Payment Method Toggle Logic" id="{dd8bee55-d07c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_name" displayName="Name" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="10" schemaName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" displayName="cssp_msdyn_customerpaymentmethod_cssp_servicelocation_customerpaymentmethod" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_name" displayName="Name" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="29" displayName="Payment Method Toggle Logic" id="{dd8bee55-d07c-ec11-8d21-000d3a8d0f36}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Active" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Active" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_account" displayName="Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_account" displayName="Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_bankaccountiden" displayName="Bank Account ID" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_bankaccountiden" displayName="Bank Account ID" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_bankaccountnumber" displayName="Bank Account Number" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="2" schemaName="sxp_bankaccountnumber" displayName="Bank Account Number" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_company" displayName="Company" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_company" displayName="Company" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_defaultbankaccount" displayName="Default Bank Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_defaultbankaccount" displayName="Default Bank Account" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_iban" displayName="IBAN" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_routingnumber" displayName="Routing Number" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_routingnumber" displayName="Routing Number" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_routingnumbertype" displayName="Routing Number Type" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_routingnumbertype" displayName="Routing Number Type" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Active" />
+        <Dependent type="60" displayName="CSSP: Service Center - Logo" parentDisplayName="Service Center" id="{41fb4cf8-5658-4d84-acd0-a0df146f031d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Service Center - Logo" parentDisplayName="Service Center" id="{41fb4cf8-5658-4d84-acd0-a0df146f031d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_centername" displayName="Center Name" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Service Center - Logo" parentDisplayName="Service Center" id="{41fb4cf8-5658-4d84-acd0-a0df146f031d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="10" schemaName="cssp_sxp_servicecenter_cssp_servicelocation" displayName="cssp_sxp_servicecenter_cssp_servicelocation" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_name" displayName="Name" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="60" displayName="CSSP: Service Center - Logo" parentDisplayName="Service Center" id="{41fb4cf8-5658-4d84-acd0-a0df146f031d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="sxp_servicecenterid" displayName="Service Center" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" />
+        <Dependent type="10" schemaName="cssp_sxp_servicecenter_cssp_servicelocation" displayName="cssp_sxp_servicecenter_cssp_servicelocation" parentSchemaName="cssp_servicelocation" parentDisplayName="Service Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Bank Accounts" displayName="Active Bank Accounts" parentSchemaName="sxp_bankaccount" parentDisplayName="Bank Account" solution="Enercare_Customizations (1.0.2.1283)" id="{11e169c4-3798-4bd6-8410-6d0c23163403}" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Service Center Lookup View" displayName="Service Center Lookup View" parentSchemaName="sxp_servicecenter" parentDisplayName="Service Center" solution="Enercare_Customizations (1.0.2.1283)" id="{1abd2d27-4739-48e7-bea7-dded64180209}" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Credit Card Tables" displayName="Active Credit Card Tables" parentSchemaName="rm_creditcardtable" parentDisplayName="Credit Card Table" solution="RedMaple (1.1.0.13)" id="{26617a63-c31b-426e-9d6f-315752c7f137}" />
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Customers" displayName="Customers" parentSchemaName="account" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)" id="{4203fcf9-3c56-e411-80ca-00155db9b402}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="80" schemaName="cssp_CSRApp" displayName="CSSP App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="All Accounts" displayName="All Accounts" parentSchemaName="account" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="80" schemaName="cssp_CSRApp" displayName="CSSP App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Customer Payment Method Lookup View" displayName="Customer Payment Method Lookup View" parentSchemaName="msdyn_customerpaymentmethod" parentDisplayName="Customer Payment Method" solution="Dynamics365FinanceExtended (2.3.0.15)" id="{6e1c5efb-1877-4a5b-8620-61d53de91b6c}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="60" displayName="Service Location" parentDisplayName="Service Location" id="{fcde8e28-add3-4bcc-80ff-0b162f163292}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Company Lookup View" displayName="Company Lookup View" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)" id="{9eda5fb6-d9a6-47cf-bef1-d1dfed3aa7e0}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Company Lookup View" displayName="Company Lookup View" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)" id="{9eda5fb6-d9a6-47cf-bef1-d1dfed3aa7e0}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: bank account" parentDisplayName="Bank Account" id="{7b750130-188b-437b-b90a-8ff89eeee33d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Company Lookup View" displayName="Company Lookup View" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)" id="{9eda5fb6-d9a6-47cf-bef1-d1dfed3aa7e0}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: bank account-2" parentDisplayName="Bank Account" id="{c4cc8e1f-0c92-4fb9-955d-40493416d844}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Company Lookup View" displayName="Company Lookup View" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)" id="{9eda5fb6-d9a6-47cf-bef1-d1dfed3aa7e0}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Company Lookup View" displayName="Company Lookup View" parentSchemaName="cdm_company" parentDisplayName="Company" solution="Dynamics365Company (2.2.2.5)" id="{9eda5fb6-d9a6-47cf-bef1-d1dfed3aa7e0}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+          <package>MicrosoftOperationsVEAnchor (2.7.1.11)</package>
+        </Required>
+        <Dependent type="60" displayName="Service Location" parentDisplayName="Service Location" id="{fcde8e28-add3-4bcc-80ff-0b162f163292}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Profile Web Form" parentDisplayName="Contact" solution="MicrosoftPortalBase (9.2.2103.1)" id="{0bd832d5-9d6a-456d-bdc1-21129e82cc0f}">
+          <package>StarterPortal (9.2.2108.4)</package>
+        </Required>
+        <Dependent type="60" displayName="Profile Web Form" parentDisplayName="Contact" id="{0bd832d5-9d6a-456d-bdc1-21129e82cc0f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Customer Master" parentDisplayName="Account" solution="Dynamics365FinanceExtended (2.3.0.15)" id="{a3536de2-10e5-4f9b-9e19-af2ac5702cf2}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="80" schemaName="cssp_CSRApp" displayName="CSSP App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Contact Master" parentDisplayName="Contact" solution="Dynamics365FinanceExtended (2.3.0.15)" id="{f6e1b862-379f-4539-a847-cf3c5c041775}">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="80" schemaName="cssp_CSRApp" displayName="CSSP App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="AppCommon/Account/Account_main_system_library.js" displayName="AppCommon/Account/Account_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Account Portal-Copy" parentDisplayName="Account" id="{68befd7e-057c-4d52-9775-a37f74c60caa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="AppCommon/Account/Account_main_system_library.js" displayName="AppCommon/Account/Account_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="CSSP: Account" parentDisplayName="Account" id="{d88450de-8c36-44f8-a400-eca1c5996110}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
+          <package>msdynce_AppCommonAnchor (9.0.21122.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Profile Web Form" parentDisplayName="Contact" id="{0bd832d5-9d6a-456d-bdc1-21129e82cc0f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/DefaultCompany.js" displayName="msdyn_/DefaultCompany.js" solution="Dynamics365FinanceExtended (2.3.0.15)">
+          <package>Dynamics365FinanceAndOperationsAnchor (2.3.0.15)</package>
+        </Required>
+        <Dependent type="61" schemaName="msdyn_/DefaultCompany.js" displayName="msdyn_/DefaultCompany.js" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent type="80" schemaName="cssp_CSRApp" displayName="CSSP App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="sxp_contact.js" displayName="sxp_contact.js" solution="Enercare_Webresources (1.0.2.1283)" />
+        <Dependent type="60" displayName="Customer Profile" parentDisplayName="Contact" id="{3a2ce958-b116-44f0-8450-d4cd936cb9b2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2112.4017)" />
+        <Dependent type="60" displayName="Service Location" parentDisplayName="Service Location" id="{fcde8e28-add3-4bcc-80ff-0b162f163292}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

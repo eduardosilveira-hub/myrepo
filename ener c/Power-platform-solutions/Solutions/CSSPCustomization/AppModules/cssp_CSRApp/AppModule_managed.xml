@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>cssp_CSRApp</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="62" schemaName="cssp_CSRApp" />
+    <AppModuleComponent type="60" id="{c142f677-c74e-ec11-8c62-0022482a2f80}" />
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="60" id="{a3536de2-10e5-4f9b-9e19-af2ac5702cf2}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001002}" />
+    <AppModuleComponent type="26" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}" />
+    <AppModuleComponent type="26" id="{4203fcf9-3c56-e411-80ca-00155db9b402}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001031}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001001}" />
+    <AppModuleComponent type="1" schemaName="cssp_billheader" />
+    <AppModuleComponent type="60" id="{3a6ed453-5f36-4eef-99ed-0dbb8561e81f}" />
+    <AppModuleComponent type="1" schemaName="cssp_billline" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="60" id="{f6e1b862-379f-4539-a847-cf3c5c041775}" />
+    <AppModuleComponent type="60" id="{0bd832d5-9d6a-456d-bdc1-21129e82cc0f}" />
+    <AppModuleComponent type="1" schemaName="cssp_billpayment" />
+    <AppModuleComponent type="1" schemaName="sxp_servicecenter" />
+    <AppModuleComponent type="1" schemaName="cssp_servicelocation" />
+    <AppModuleComponent type="60" id="{fcde8e28-add3-4bcc-80ff-0b162f163292}" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="CSSP App" languagecode="1033" />
+  </LocalizedNames>
+</AppModule>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ae3f6c1d-72ec-4199-bef6-b1f443298f2b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="sxp_name" select="1" icon="1" preview="1">
+        <row name="result" id="sxp_commissionsid">
+          <cell name="sxp_servicecenter" width="100" />
+          <cell name="sxp_name" width="175" />
+          <cell name="sxp_totalinstalledcost" width="128" />
+          <cell name="sxp_installdate" width="100" />
+          <cell name="sxp_salesagent" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_totalcommissionamountnew" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="sxp_primaryapproveruser" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="sxp_commissions">
+          <attribute name="sxp_name" />
+          <order attribute="sxp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="sxp_salesagent" />
+          <attribute name="sxp_commissionsid" />
+          <attribute name="sxp_totalcommissionamountnew" />
+          <attribute name="sxp_totalinstalledcost" />
+          <attribute name="sxp_servicecenter" />
+          <attribute name="sxp_primaryapproveruser" />
+          <attribute name="statuscode" />
+          <attribute name="sxp_installdate" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Commissions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

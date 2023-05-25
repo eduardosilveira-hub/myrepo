@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="sxp.AccessChecker.OpenDialog.rm_creditcardsale.Button.Hide" Location="AccessChecker.OpenDialog.rm_creditcardsale.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.rm_creditcardsale.SendCombo.Button.Hide" Location="adobe.ApplicationRibbon.rm_creditcardsale.SendCombo.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.rm_creditcardsale.SendForSignature.Button.Hide" Location="adobe.ApplicationRibbon.rm_creditcardsale.SendForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.rm_creditcardsale.SendReportForSignature.Button.Hide" Location="adobe.ApplicationRibbon.rm_creditcardsale.SendReportForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.adobe.ApplicationRibbon.rm_creditcardsale.SendTemplateForSignature.Button.Hide" Location="adobe.ApplicationRibbon.rm_creditcardsale.SendTemplateForSignature.Button" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Assign.Hide" Location="Mscrm.Form.rm_creditcardsale.Assign" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Delete.Hide" Location="Mscrm.Form.rm_creditcardsale.Delete" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Flows.RefreshCommandBar.Flows.Hide" Location="Mscrm.Form.rm_creditcardsale.Flows.RefreshCommandBar.Flows" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Flows.RefreshCommandBar.Hide" Location="Mscrm.Form.rm_creditcardsale.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Permissions.Sharing.Hide" Location="Mscrm.Form.rm_creditcardsale.Permissions.Sharing" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Reports.Hide" Location="Mscrm.Form.rm_creditcardsale.Reports" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.Save.Hide" Location="Mscrm.Form.rm_creditcardsale.Save" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.SaveAndClose.Hide" Location="Mscrm.Form.rm_creditcardsale.SaveAndClose" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.SendSelected.Hide" Location="Mscrm.Form.rm_creditcardsale.SendSelected" />
+    <HideCustomAction HideActionId="sxp.Mscrm.Form.rm_creditcardsale.WordTemplate.Hide" Location="Mscrm.Form.rm_creditcardsale.WordTemplate" />
+    <HideCustomAction HideActionId="sxp.Mscrm.HomepageGrid.rm_creditcardsale.DeleteMenu.Hide" Location="Mscrm.HomepageGrid.rm_creditcardsale.DeleteMenu" />
+    <HideCustomAction HideActionId="sxp.Mscrm.SubGrid.rm_creditcardsale.Delete.Hide" Location="Mscrm.SubGrid.rm_creditcardsale.Delete" />
+    <HideCustomAction HideActionId="sxp.mscrmaddons.am.form.createworkingitem.rm_creditcardsale.Hide" Location="mscrmaddons.am.form.createworkingitem.rm_creditcardsale" />
+    <HideCustomAction HideActionId="sxp.rm_creditcardsale.retrieveTotal.Button.Hide" Location="rm_creditcardsale.retrieveTotal.Button" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

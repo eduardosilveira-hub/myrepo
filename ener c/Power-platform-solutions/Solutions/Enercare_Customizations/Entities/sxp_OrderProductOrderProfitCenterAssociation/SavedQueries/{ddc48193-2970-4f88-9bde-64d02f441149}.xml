@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ddc48193-2970-4f88-9bde-64d02f441149}</savedqueryid>
+    <layoutxml>
+      <grid name="sxp_orderproductorderprofitcenterassociations" jump="sxp_name" select="1" icon="1" preview="1">
+        <row name="sxp_orderproductorderprofitcenterassociation" id="sxp_orderproductorderprofitcenterassociationid">
+          <cell name="sxp_order" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_orderproduct" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="sxp_orderprofitcenter" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="sxp_orderproductorderprofitcenterassociation">
+          <attribute name="createdon" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="sxp_orderprofitcenter" />
+          <attribute name="sxp_orderproduct" />
+          <attribute name="sxp_order" />
+          <attribute name="sxp_orderproductorderprofitcenterassociationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Order Product Order Department Association Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

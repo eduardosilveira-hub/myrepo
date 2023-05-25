@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ab4877e9-6d01-4d28-84c3-be7564c1bb09}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="productpricelevels" jump="" select="1" icon="1" preview="1">
+        <row name="productpricelevel" id="productpricelevelid">
+          <cell name="a_7562461ea1ddeb11bacd000d3a09d7a7.sxp_pricelistname" width="100" disableSorting="1" />
+          <cell name="productid" width="200" />
+          <cell name="amount" width="100" />
+          <cell name="uomid" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch distinct="false" mapping="logical">
+        <entity name="productpricelevel">
+          <attribute name="productid" />
+          <attribute name="uomid" />
+          <order attribute="productid" descending="false" />
+          <link-entity alias="a_7562461ea1ddeb11bacd000d3a09d7a7" name="pricelevel" from="pricelevelid" to="pricelevelid" link-type="outer" visible="false">
+            <attribute name="sxp_pricelistname" />
+          </link-entity>
+          <attribute name="amount" />
+          <attribute name="productpricelevelid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Price List Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{dc4b96e9-3825-467a-8972-b05ab7f5421d}" Name="Credit Check Override Processing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/CreditCheckOverrideProcessing-DC4B96E9-3825-467A-8972-B05AB7F5421D.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>sxp_creditcheckoverrideprocessing</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <PrimaryEntity>sxp_creditcheckoverride</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Credit Check Override Processing" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{49d1fff7-95f7-449f-9d78-ba2e9578edbf}">
+      <label languagecode="1033" description="Approval" />
+    </steplabels>
+    <steplabels id="{eb44e956-1e07-4718-abd7-0cdfc80a2a6a}">
+      <label languagecode="1033" description="Order" />
+    </steplabels>
+    <steplabels id="{4ef4021b-0730-4b32-8e3a-e85545ee1120}">
+      <label languagecode="1033" description="Credit Score" />
+    </steplabels>
+    <steplabels id="{ca7ac0e8-4db4-41ae-b8e3-f7fabc0abc71}">
+      <label languagecode="1033" description="Income" />
+    </steplabels>
+    <steplabels id="{af781d65-2d0f-43e1-8ca3-86be13759e73}">
+      <label languagecode="1033" description="Percent of Income" />
+    </steplabels>
+    <steplabels id="{f6d081e9-e8c5-4343-b917-3fd444a69e9a}">
+      <label languagecode="1033" description="Increase Amount" />
+    </steplabels>
+    <steplabels id="{ba345505-19e6-4047-98ca-0a4ecdbb2c73}">
+      <label languagecode="1033" description="Service Type" />
+    </steplabels>
+    <steplabels id="{4002ded3-5d32-403b-83fd-16a41c54c05d}">
+      <label languagecode="1033" description="Number of Systems" />
+    </steplabels>
+    <steplabels id="{a7c358ae-726e-4798-bf5d-1824af9552a7}">
+      <label languagecode="1033" description="Pending Approval" />
+    </steplabels>
+    <steplabels id="{efd2c18b-d835-4e24-98e8-5d88bcf5f0b6}">
+      <label languagecode="1033" description="Approval Status" />
+    </steplabels>
+    <steplabels id="{dc09306b-0b66-4536-a75c-9e045d4d8f4c}">
+      <label languagecode="1033" description="Approval link" />
+    </steplabels>
+    <steplabels id="{02a294f2-e852-457a-b151-4b327cf70bde}">
+      <label languagecode="1033" description="Update With Override Amount" />
+    </steplabels>
+    <steplabels id="{d562cc4e-f13c-4118-b860-e04a51830add}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{98c1ed61-d552-ec11-8f8e-0022486dfdd7}">
+      <methodid>{e14bf81b-034e-ec11-8f8e-0022486dc00f}</methodid>
+      <scope>1</scope>
+      <controlname>a7c358ae-726e-4798-bf5d-1824af9552a7</controlname>
+      <event>STAGEENTER</event>
+      <pipelinestage>40</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>sxp_creditcheckoverride</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

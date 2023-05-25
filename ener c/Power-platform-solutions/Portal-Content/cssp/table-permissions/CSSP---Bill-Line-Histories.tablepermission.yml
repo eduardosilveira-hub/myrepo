@@ -1,0 +1,13 @@
+adx_append: false
+adx_appendto: false
+adx_create: false
+adx_delete: false
+adx_entitylogicalname: cssp_billlinehistory
+adx_entityname: CSSP - Bill Line Histories
+adx_entitypermission_webrole:
+- 6f2449bf-9988-4db2-b4b7-42a52c931cc5
+- 844598bc-d0cb-410a-b2de-b6f2c4dbc487
+adx_entitypermissionid: 3481fe43-6741-ec11-8c62-000d3a9d938b
+adx_read: true
+adx_scope: 756150000
+adx_write: false

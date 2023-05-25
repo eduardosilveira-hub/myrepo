@@ -1,0 +1,267 @@
+function openNewForm(primaryControl) {
+    CreateEmail(primaryControl)
+    //primaryControl.data.refresh();
+}
+
+//Create Email record
+function CreateEmail(primaryControl) {
+    var entity = {};
+    var newEntityId; Xrm.WebApi.online.createRecord("email", entity).then(
+        function success(result) {
+            newEntityId = result.id;
+            OpenNewEmailForm(newEntityId, primaryControl);
+            
+        },
+        function (error) {
+            Xrm.Utility.alertDialog(error.message);
+        });
+}
+
+function OpenNewEmailForm(emailEntityId, primaryControl) {
+    var executionContext = primaryControl;
+    PrepopulateAllValues(executionContext, emailEntityId);
+}
+
+
+//Fetch Annotaions from Bill Statement Entity
+function FetchAnnotaionsFromBillingStatement(executionContext) {
+    var billStatementRecordID = executionContext.data.entity.getId();
+    billStatementRecordID = billStatementRecordID.replace("{", "").replace("}", "");
+    var req = new XMLHttpRequest();
+    req.open("GET", Xrm.Page.context.getClientUrl() + "/api/data/v9.1/cssp_billheaders?$expand=cssp_billheader_Annotations($select=createdon,filename,isdocument,notetext,subject,documentbody,mimetype)&$filter=cssp_billheaderid eq '" + billStatementRecordID + "'&$orderby=createdon desc", false);
+    req.setRequestHeader("OData-MaxVersion", "4.0");
+    req.setRequestHeader("OData-Version", "4.0");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    req.setRequestHeader("Prefer", "odata.include-annotations=\"*\",odata.maxpagesize=1");
+    var annotations = null;
+    req.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            req.onreadystatechange = null;
+            if (this.status === 200) {
+                var results = JSON.parse(this.response);
+                annotations = results;
+            } else {
+                Xrm.Utility.alertDialog(this.statusText);
+            }
+        }
+    };
+    req.send();
+    return annotations;
+}
+
+
+function DownloadPDF(emailEntityId, primaryControl) {
+    var fetchAnnotations = FetchAnnotaionsFromBillingStatement(primaryControl); var subject = "";
+    if (fetchAnnotations.value.length > 0) {
+        subject = fetchAnnotations.value[0]["cssp_billheader_Annotations"][0].subject;
+    }
+    else {
+        alert("File was not found in AzureBlob");
+        return;
+    } // Get the environment Name for fetching configuration
+    var getEnvironment = Xrm.Utility.getGlobalContext().getClientUrl();
+    let env = null;
+    switch (true) {
+        case getEnvironment.includes("dev"): env = "blobDev"; break;
+        case getEnvironment.includes("sbx"): env = "blobSBX"; break;
+        case getEnvironment.includes("uat"): env = "blobUAT"; break;
+    } var configartionEntity = FetchConfigrationFiledsValue(env);
+    if (configartionEntity.value.length > 0) {
+        var apiURL = configartionEntity.value[0].sxp_entity;
+        var body = {
+            "blobServer": configartionEntity.value[0].sxp_programtype,
+            "blobURL": subject
+        }
+        var req = new XMLHttpRequest();
+        req.open("POST", apiURL, true);
+        req.responseType = "blob";
+        req.setRequestHeader("OData-MaxVersion", "4.0");
+        req.setRequestHeader("OData-Version", "4.0");
+        req.setRequestHeader("Accept", "application/json");
+        req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+        req.setRequestHeader("Ocp-Apim-Subscription-Key", configartionEntity.value[0].sxp_value);
+        req.setRequestHeader("Ocp-Apim-Trace", "true");
+        req.setRequestHeader("Prefer", "odata.include-annotations=\"*\"");
+        req.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                req.onreadystatechange = null;
+                if (this.status === 200) { 
+                    var newBlob = new Blob([this.response], { type: "application/pdf" });
+                    const fileName = subject?.substring(12);
+                    var entity = {};
+                    entity.subject = subject;
+                    entity.filename = fileName;
+                    //entity.mimetype = this.response.type;
+                    entity.mimetype = "application/pdf";
+                    entity.isdocument = true;
+                    entity.documentbody = null;
+                    var reader = new FileReader();
+                    //reader.readAsDataURL(this.response);
+                    reader.readAsDataURL(newBlob);
+                    reader.onloadend = function () {
+                        debugger; 
+                        var resultReader = reader.result.toString();
+                        var newResultReader = resultReader.substring(28,resultReader.length);
+                        console.log(newResultReader);
+                        entity.documentbody = newResultReader;
+                        entity["objectid_email@odata.bind"] = "/emails(" + emailEntityId + ")";
+                        AttachAnnotations(emailEntityId, primaryControl, entity);
+                        //OnLoad(primaryControl);
+                        
+                    }
+                }
+            }
+        };
+        req.send(JSON.stringify(body));
+    }
+    //primaryControl.data.refresh();
+}
+
+
+function OnLoad(primaryControl) {
+    setTimeout("Refresh(primaryControl);", 2500);
+  }
+  
+  function Refresh(primaryControl) {
+    primaryControl.getControl("notescontrol").addOnLoad(loadFunction(primaryControl));
+  }
+  
+  function loadFunction(primaryControl) {
+    var executionContext = primaryControl;
+    var save = true;
+    executionContext.data.refresh(save);
+  };
+
+function SaveEmail(executionContext)
+{
+   executionContext.data.refresh(true);
+   //executionContext.data.refresh(false).then(successCallback, errorCallback);
+   executionContext.getControl("notescontrol").refresh();
+}
+
+function FetchConfigrationFiledsValue(environment) {
+    var req = new XMLHttpRequest();
+    req.open("GET", Xrm.Page.context.getClientUrl() + "/api/data/v9.2/sxp_configurations?$select=sxp_entity,sxp_name,sxp_programtype,sxp_value&$filter=contains(sxp_name,'" + environment + "')", false);
+    req.setRequestHeader("OData-MaxVersion", "4.0");
+    req.setRequestHeader("OData-Version", "4.0");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    req.setRequestHeader("Prefer", "odata.include-annotations=\"*\"");
+    var config = null;
+    req.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            req.onreadystatechange = null;
+            if (this.status === 200) {
+                var result = JSON.parse(this.response);
+                config = result;
+            } else {
+                Xrm.Utility.alertDialog(this.statusText);
+            }
+        }
+    };
+    req.send();
+    return config;
+}
+
+
+function AttachAnnotations(emailEntityId, primaryControl, entity) {
+    var req = new XMLHttpRequest();
+    req.open("POST", Xrm.Page.context.getClientUrl() + "/api/data/v9.2/annotations", true);
+    req.setRequestHeader("OData-MaxVersion", "4.0");
+    req.setRequestHeader("OData-Version", "4.0");
+    req.setRequestHeader("Accept", "application/json");
+    req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    req.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            req.onreadystatechange = null;
+            if (this.status === 204) {
+                var uri = this.getResponseHeader("OData-EntityId");
+                var regExp = /\(([^)]+)\)/;
+                var matches = regExp.exec(uri);
+                var newEntityId = matches[1];
+            } else {
+                Xrm.Utility.alertDialog(this.statusText);
+            }
+        }
+    };
+    req.send(JSON.stringify(entity));
+}
+
+// This function pre populate values of to, from, Regarding, subject
+function PrepopulateAllValues(executionContext, emailEntityId) {
+    var billStatementRecordID = executionContext.data.entity.getId();
+    billStatementRecordID = billStatementRecordID.replace("{", "").replace("}", "");
+    var _cssp_location_value;
+    var accounts = {};
+    var _cssp_account_value;
+    Xrm.WebApi.online.retrieveRecord("cssp_billheader", billStatementRecordID, "?$select=_cssp_location_value").then(
+        function success(result) {
+            _cssp_location_value = result["_cssp_location_value"];
+            var _cssp_location_value_formatted = result["_cssp_location_value@OData.Community.Display.V1.FormattedValue"];
+            var _cssp_location_value_lookuplogicalname = result["_cssp_location_value@Microsoft.Dynamics.CRM.lookuplogicalname"];
+            if (_cssp_location_value) {
+                Xrm.WebApi.online.retrieveRecord("cssp_servicelocation", _cssp_location_value, "?$select=_cssp_account_value").then(
+                    function success(result) {
+                        accounts = result;
+                        _cssp_account_value = result["_cssp_account_value"];
+                        var _cssp_account_value_formatted = result["_cssp_account_value@OData.Community.Display.V1.FormattedValue"];
+                        var _cssp_account_value_lookuplogicalname = result["_cssp_account_value@Microsoft.Dynamics.CRM.lookuplogicalname"];
+                        if (_cssp_account_value) {
+                            Xrm.WebApi.online.retrieveRecord("account", _cssp_account_value, "?$select=_primarycontactid_value").then(
+                                function success(result) {
+                                    var _primarycontactid_value = result["_primarycontactid_value"];
+                                    var _primarycontactid_value_formatted = result["_primarycontactid_value@OData.Community.Display.V1.FormattedValue"];
+                                    var _primarycontactid_value_lookuplogicalname = result["_primarycontactid_value@Microsoft.Dynamics.CRM.lookuplogicalname"];
+                                    if (_primarycontactid_value) {
+                                        Xrm.WebApi.online.retrieveRecord("contact", _primarycontactid_value, "?$select=emailaddress1,fullname").then(
+                                            function success(result) {
+                                                var emailaddress1 = result["emailaddress1"];
+                                                var fullname = result["fullname"]; var entityFormOptions = {};
+                                                entityFormOptions["entityName"] = "email";
+                                                entityFormOptions["entityId"] = emailEntityId; var today = new Date();
+                                                var dd = today.getDate();
+                                                var mm = today.getMonth() + 1; var yyyy = today.getFullYear();
+                                                var today = dd + '/' + mm + '/' + yyyy; var userName = executionContext.context.getUserName();
+                                                if (result) {
+                                                    var emailaddress1 = result["emailaddress1"];
+                                                    var fullname = result["fullname"];
+                                                    var concat = "" + fullname + " " + today; var formParameters = {};
+                                                    formParameters["subject"] = "Invoice for customer" + " " + concat;
+                                                    formParameters["to"] = emailaddress1;
+                                                    formParameters["from"] = userName; Xrm.Navigation.openForm(entityFormOptions, formParameters).then(
+                                                        function (success) {
+                                                            //executionContext.data.refresh();
+                                                            DownloadPDF(emailEntityId, executionContext);
+                                                            //executionContext.data.refresh();
+                                                            console.log(success);
+                                                        },
+                                                        function (error) {
+                                                            console.log(error);
+                                                        });
+                                                }
+                                            },
+                                            function (error) {
+                                                Xrm.Utility.alertDialog(error.message);
+                                            }
+                                        );
+                                    }
+                                },
+                                function (error) {
+                                    Xrm.Utility.alertDialog(error.message);
+                                }
+                            );
+                        }
+                    },
+                    function (error) {
+                        Xrm.Utility.alertDialog(error.message);
+                    }
+                );
+            }
+        },
+        function (error) {
+            Xrm.Utility.alertDialog(error.message);
+        }
+    );
+}
+

@@ -1,0 +1,28 @@
+@import "../../templates.scss";
+
+.cssp-sign-in {
+  @include cssp-page;
+
+  #api {
+    margin-top: 25px;
+  }
+
+  .forgot-password-placeholder {
+    margin-top: 25px;
+  }
+
+  .forgot-password-placeholder a {
+    font-size: 12px;
+  }
+
+  .new-to-portal {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .modal-footer {
+    padding: 0px !important;
+  }
+  .modal-header {
+    padding: 0.4rem 0.7rem !important;
+  }
+}

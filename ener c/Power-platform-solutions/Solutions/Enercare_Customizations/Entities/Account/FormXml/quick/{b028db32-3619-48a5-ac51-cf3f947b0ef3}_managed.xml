@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b028db32-3619-48a5-ac51-cf3f947b0ef3}</formid>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form hasmargin="false" shownavigationbar="false">
+      <tabs showlabels="false">
+        <tab name="general" verticallayout="true" id="{dc4254d3-733f-4c33-ae1a-0993c9b547e3}" IsUserDefined="0" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="information" labelwidth="90" id="{bab598b4-2ec6-4224-ac89-007cd686eda4}" IsUserDefined="0" showlabel="true" showbar="false" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{5e1d998d-8493-b49d-5284-c86daa6e1107}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{112ae802-2d92-4cac-82bb-0505194e1238}" showlabel="true" locklevel="0" ordinalvalue="10000" solutionaction="Modified">
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" uniqueid="{9820a019-d952-81c2-3568-0b3445828c56}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{31969c7a-ede8-b4c5-2a2c-3455871148c0}" showlabel="true" locklevel="0" ordinalvalue="10002" solutionaction="Removed" />
+                    </row>
+                    <row>
+                      <cell id="{a9378530-4bf2-40fe-84ee-1d1244fd92f4}" showlabel="true" locklevel="0" ordinalvalue="10001" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{ff44fde3-113e-4d69-beb5-b910d2b867b9}" showlabel="true" locklevel="0" ordinalvalue="10002" solutionaction="Modified">
+                        <labels>
+                          <label description="Primary Phone" languagecode="1033" solutionaction="Modified" />
+                        </labels>
+                        <control id="telephone1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="telephone1" disabled="false" uniqueid="{51233a73-e226-ad96-36a4-3473cee0d453}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{03a711ac-db69-8279-b8db-44d7d148be6a}" showlabel="true" locklevel="0" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="Phone Description" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_telephone1description" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msdyn_telephone1description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{45737bff-ad15-49dd-9d19-d5fec6698dff}" rowspan="1" colspan="1" showlabel="true" ordinalvalue="10004" solutionaction="Added">
+                        <labels>
+                          <label description="Contact Information" languagecode="1033" />
+                        </labels>
+                        <control id="contactInformation" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>sxp_partycontact</TargetEntityType>
+                            <ViewId>{2398F92F-8B17-EC11-B6E7-000D3A09D4A7}</ViewId>
+                            <ViewIds>{98E48D64-8DD5-4577-8083-183B16F7B879},{2398F92F-8B17-EC11-B6E7-000D3A09D4A7}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName />
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Cases" labelwidth="90" id="{1d81fbd9-b5a7-455a-a7d5-848cc9d06cdb}" IsUserDefined="0" showlabel="true" showbar="false" height="auto" ordinalvalue="1" solutionaction="Removed" />
+                <section name="Entitlements" labelwidth="90" id="{9dc56114-15f0-4815-b17d-c406de1723a5}" IsUserDefined="0" showlabel="true" showbar="false" height="auto" ordinalvalue="2" solutionaction="Removed" />
+                <section name="general_section_3" id="c3da3492-262f-4355-bccf-9522b853f7a2" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false" ordinalvalue="1" solutionaction="Added">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5e1d998d-8493-b49d-5284-c86daa6e1107}" showlabel="true" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10000">
+                        <labels>
+                          <label description="Company" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_company" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_company" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="account card" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form that displays the account card." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

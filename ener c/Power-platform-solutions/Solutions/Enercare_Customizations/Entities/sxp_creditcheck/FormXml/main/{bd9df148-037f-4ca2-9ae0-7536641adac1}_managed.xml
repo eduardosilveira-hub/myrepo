@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{bd9df148-037f-4ca2-9ae0-7536641adac1}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" showImage="false" maxWidth="1920" headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{7ea6f571-8cfb-48c6-94b9-cec6d27ca084}" IsUserDefined="1" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{ecb861b1-867c-4bb0-a50c-02cd991e7d61}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{592a5b87-1e07-4a4b-90d9-23533d885655}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="sxp_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{025952d4-3cd5-4a6e-9004-c23b98482842}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Sales Rep" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_salesrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_salesrep" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d1ad6d70-7c75-4e28-8e99-1403f20bccd4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reference Id" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_referenceid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="sxp_referenceid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a2e09507-579c-4355-8f88-b438c7493f84}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Service Experts Sales Rep Email Address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_serviceexpertssalesrepemailaddress" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="sxp_serviceexpertssalesrepemailaddress" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{49a64d9c-e1ad-b861-b720-2e0912bbe897}" showlabel="true" locklevel="1">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_amount" disabled="true" uniqueid="{ee67e2b1-c23d-c9da-6729-1e588a1b45c8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f173d8e-de8b-462a-9502-5f98fad4d0c9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reason" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_reason" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="sxp_reason" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{515d557b-b50e-a80d-d2ec-4582e7cae10d}" showlabel="true" locklevel="1">
+                        <labels>
+                          <label description="Date Performed" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_dateperformed" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sxp_dateperformed" disabled="true" uniqueid="{39986d29-8888-8159-b997-730ba745a62c}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{27a7cd2a-d392-b9b9-5700-7b1059791d83}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Remaining Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_remainingamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_remainingamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a25658ee-c2c7-6655-bc9d-ad438260dd71}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Override?" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_override" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" datafieldname="sxp_override" disabled="false" uniqueid="{4d7aea64-e263-6110-1020-288204c2dc9e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c08c211d-9764-4e8a-1a84-6889112dcae3}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Override Amount" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_overrideamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sxp_overrideamount" disabled="false" uniqueid="{a66332da-ad4c-ac7e-b249-6b2ec04c93ab}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4bc2973a-6a14-28c2-5403-577c733b84b4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Override User" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_overrideuser" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_overrideuser" disabled="true" uniqueid="{3b3a2b4c-491c-e88c-e12d-39c0473b3a6d}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="USAFactIntegration" id="7352ba34-52e5-4e14-99d1-6d2f33a8206a" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="USAFact Integration" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" id="56bd57b5-cfca-4167-86c1-46ba93e3f16a" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{53fc6fea-35cf-40a1-9c04-1d7bc5f2d65e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reference Id" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_referenceid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="sxp_referenceid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{920ba5e8-c534-4bc8-9e26-d662f52f1a1c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="ReferenceID" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_referenceidcontroller" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="sxp_referenceidcontroller" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0561c18b-a28b-487d-8ef4-8f3c28f89b92}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Complete" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_complete" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_complete" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="{48290b9a-347c-583e-6d8d-32e1d32347c4}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false">
+          <labels>
+            <label description="Hidden Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{96b48220-4bde-3871-4c82-54ed9715da2c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e808527b-1e87-3864-90a8-b46e2be3059d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_firstname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7089968-9ad6-0018-cdbb-b9e1633134c0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Middle Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_middlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_middlename" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{de4b5091-7b2c-22ee-2e35-787e540376bc}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_lastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4213bbee-0a23-d335-1d37-6b89d7d74be9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_phone" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_phone" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1d60e18-64b2-1ebc-6090-124a00e38906}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Customer Email" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_customeremail" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="sxp_customeremail" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc9511dc-75ba-dd29-7b5b-50b82b1560a8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Current Address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_currentaddress" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_currentaddress" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3d8eb953-8b76-9184-8799-6264abcac476}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_city" disabled="false" uniqueid="{ad58273b-d2ad-4542-0ec3-64aa0714e500}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25c1c864-83c4-2918-3796-e3ea7c377702}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="State" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_state" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_state" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{391e8ad1-6a75-70e6-2851-229d3460c6ba}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_country" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5808905c-3651-e667-eda2-44e5e398d074}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Zip" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_zip" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_zip" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9490835c-cd43-4eb9-c216-54570a581071}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Suffix" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_suffix" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_suffix" disabled="false" uniqueid="{68e9a451-d30c-7d28-0a9e-778927a959dc}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{716b5757-604c-836e-1a89-9b782d908821}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Service Experts Sales Rep Email Address" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_serviceexpertssalesrepemailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="sxp_serviceexpertssalesrepemailaddress" disabled="false" uniqueid="{70ec1e42-061b-67d3-4b91-4ea4de0965c4}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d338782c-0674-37ce-7cb2-91de6491d81e}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Credit Check URL" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_creditcheckurl" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_creditcheckurl" disabled="true" uniqueid="{e5ada007-be27-cdcc-a583-01db7d1ba6b6}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9eee37a0-0d00-4aca-286e-957a6a642d70}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Subscription Key" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_subscriptionkey" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_subscriptionkey" disabled="true" uniqueid="{9e5c242e-4540-e854-786d-e5554de41a48}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{06c0326c-a497-80b9-eb5a-625e8ce9edad}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Account Guid" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_accountguid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_accountguid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{0403932f-fda0-4b90-9288-eb7bac462e8a}" columns="111">
+        <rows>
+          <row>
+            <cell id="{73110c61-8b02-aca1-0540-17c7e51274a0}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status Reason" languagecode="1033" />
+              </labels>
+              <control id="header_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="true" uniqueid="{bc2c0548-16a3-5268-41e1-d6d6aa7c8d99}" />
+            </cell>
+            <cell id="{b39c7495-c71a-a611-e924-ceb56adb23bc}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" uniqueid="{b591deea-6dc2-55b8-7cec-432db409582e}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
+            <cell id="{c28ad427-277d-6b83-dcdd-ca7ea02ac8a1}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" uniqueid="{84e853de-4270-1ddb-9208-a1b98e5cad7c}" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="sxp_creditcheck.js" libraryUniqueId="{4dcecec4-7db2-dc47-67d4-b500cc69eb15}" />
+      </formLibraries>
+      <events>
+        <event name="onsave" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CreditCheck.OnSave" libraryName="sxp_creditcheck.js" handlerUniqueId="{41de1c1e-2714-137b-6942-69504b19a5bd}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="CreditCheck.OnLoad" libraryName="sxp_creditcheck.js" handlerUniqueId="{d5512d19-2ae8-8917-8add-d62d6e69c40a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="sxp_override">
+          <Handlers>
+            <Handler functionName="CreditCheck.OnChange" libraryName="sxp_creditcheck.js" handlerUniqueId="{b85b2818-92be-696b-decb-631caa7e1176}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="sxp_overrideamount">
+          <Handlers>
+            <Handler functionName="CreditCheck.OnChange" libraryName="sxp_creditcheck.js" handlerUniqueId="{412adc5c-1c44-3a72-1283-d3242a510352}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <footer id="{1b034bfa-b483-4192-8486-35454c4fd51d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{1784ba31-2c9d-4e94-a16d-33811dd10bdb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{066ff63b-ea3f-4d20-81b9-a211d9b51a03}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6db3972b-3fa0-4c78-8ddd-1e5ff6aad099}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

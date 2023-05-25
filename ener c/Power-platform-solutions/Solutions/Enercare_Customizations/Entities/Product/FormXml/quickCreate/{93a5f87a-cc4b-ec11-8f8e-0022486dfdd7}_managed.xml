@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{93a5f87a-cc4b-ec11-8f8e-0022486dfdd7}</formid>
+    <IntroducedVersion>1.0.2.958</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1920">
+      <tabs>
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="General" showlabel="false" labelid="{ee08d978-6184-4bef-a8b6-93c45be5a25a}" locklevel="0" expanded="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{96a36849-ba4a-4832-a7a5-7d02498f226f}" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d335aa42-e221-c52e-a4e0-09369329cde1}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Company" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_companyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_companyid" disabled="true" uniqueid="{492c2e80-6caa-6c62-3adb-594b96120605}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{9EDA5FB6-D9A6-47CF-BEF1-D1DFED3AA7E0}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{be4079bc-2eb6-2a2d-a1bd-b3cedd117966}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Product Name" languagecode="1033" />
+                        </labels>
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" uniqueid="{4e1815ab-0bc2-a853-b4ed-723deb234466}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{57ea6066-3465-ba88-6e63-c5788de55e20}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Product Number" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_productnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msdyn_productnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{230c99bb-38e7-35b5-97d1-1b5858322995}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Product Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" uniqueid="{71c7362a-68cd-8282-2832-21cd337083cd}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{357ee9c1-e04c-898b-4527-584d9a234c32}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Product Type" languagecode="1033" />
+                        </labels>
+                        <control id="producttypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="producttypecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4445d9d-9465-6386-50c7-8a11859bc7ae}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Equipment Type" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_equipmenttype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_equipmenttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d365534d-b02e-da42-a141-95db3a91a02d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Advantage Elligible" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantageelligible" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_advantageelligible" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a64ec72b-ddb6-c63b-2793-b9e0566ac07e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Primary" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_primary" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_primary" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3669719a-a5c5-4a81-4072-3d55b8dde166}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Charge on Advantage" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_chargeonadvantage" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_chargeonadvantage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6bcaa4dc-d58b-e580-c203-462013127edd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Non-Standard Product" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_generic" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sxp_generic" disabled="false" uniqueid="{8209bace-a4a5-6230-7ec0-6d6de4221d55}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5439e7e6-6447-203e-697b-812b66d34439}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Manufacturer" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_manufacturer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sxp_manufacturer" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{46c72703-b2cb-34ea-43cb-8563255dc5b3}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Product Family" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_shortmodel" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_shortmodel" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{de912cbd-6831-2061-1316-b689b001b009}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Price Book Page" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_tonnage" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_tonnage" disabled="false" uniqueid="{ed2a391a-3803-7d91-199b-3ea4c4ae8743}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="Administrator" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{e3d9bcd4-8cbc-43bd-816a-dca819569128}" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Administrator" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{49ea578b-e7c1-98b0-608d-89c0133d987b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Parent" languagecode="1033" />
+                        </labels>
+                        <control id="parentproductid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentproductid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{38378ce0-660a-3e73-ac79-67d404eda4d2}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="F&amp;O Item ID" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_advantageid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_advantageid" disabled="false" uniqueid="{97b715eb-009c-c869-33d7-7a7ad5d9a15d}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{07e922e7-8d5a-d9e0-d218-29a534a7d801}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Procurement Id" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_procurementid" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sxp_procurementid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91041c72-181c-9c78-d55c-346c9eb5a779}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commission Tier" languagecode="1033" />
+                        </labels>
+                        <control id="sxp_producttiers" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sxp_producttiers" disabled="false" uniqueid="{c4639311-8ecc-a032-40c4-c212a81114c8}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db5b236a-9aa1-22d1-2620-cc7209a634e0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Tax Code" languagecode="1033" />
+                        </labels>
+                        <control id="ava_taxcode" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ava_taxcode" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{68fe679b-fcfe-4c6e-a068-ef47dae23d4d}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1d17ba58-84e0-3c87-95dd-ca417e326758}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Unit Group" languagecode="1033" />
+                        </labels>
+                        <control id="defaultuomscheduleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomscheduleid" disabled="true" uniqueid="{b3516c9d-543b-870d-5d31-a434e1d47847}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{2D013A3A-07CD-4163-8208-8E8E605492F4}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7599a2ed-94e8-0ba7-9a92-936a10ae5c53}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Default Unit" languagecode="1033" />
+                        </labels>
+                        <control id="defaultuomid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultuomid" disabled="true" uniqueid="{22e2e04a-7089-ec73-771a-9c642bd13962}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4DA6F46B-3649-4D0E-B5D2-CCB590F4227D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="sxp_commonhelper.js" libraryUniqueId="{ae147246-8401-a87b-a791-dda2196acba0}" />
+        <Library name="sxp_product.js" libraryUniqueId="{0e435049-6e81-5684-5830-661158a95099}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="Product.OnLoad" libraryName="sxp_commonhelper.js" handlerUniqueId="{bcd2b0d4-49b7-1274-accc-eb51146d0d71}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="3" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Product from Order" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

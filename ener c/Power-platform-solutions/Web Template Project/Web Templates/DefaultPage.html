@@ -1,0 +1,438 @@
+<!-- Contact Details -->
+{%- fetchxml fetchContacts -%}
+<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='contact'>
+    <attribute name='contactid' />
+    <attribute name='firstname' />
+    <attribute name='lastname' />
+    <attribute name='fullname' />
+    <attribute name='address1_composite' />
+    <attribute name='address1_telephone1' />
+    <attribute name='telephone2' />
+    <attribute name='emailaddress1' />
+    <filter type='and'>
+      <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+      <condition attribute='statecode' operator='eq' value='0' />
+      <condition attribute='contactid' operator='eq' value='{{user.id}}' />
+    </filter>
+    <link-entity name='account' from='accountid' to='parentcustomerid' link-type='inner' alias='acc'>
+      <attribute name='accountid' />
+      <attribute name='address2_composite' />
+      <attribute name='emailaddress1' />
+      <attribute name='telephone1' />
+      <attribute name='accountnumber' />
+      <attribute name='name' />
+      <link-entity name="sxp_servicecenter" from="sxp_servicecenterid" to="sxp_servicecenter" visible="false" link-type="outer" alias="center">
+        <attribute name="cssp_logourl" />
+        <attribute name="sxp_logo" />
+      </link-entity>
+    </link-entity>
+  </entity>
+</fetch>
+{%- endfetchxml -%}
+{% if fetchContacts.results.entities.size > 0 %}
+  {% assign contact = fetchContacts.results.entities[0] %}
+{% else %}
+  {% assign contact = null %}
+{% endif %}
+
+{%- fetchxml fetchConfigs -%}
+<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='sxp_configuration'>
+    <attribute name='sxp_name' />
+    <attribute name='sxp_value' />
+    <filter type='or'>
+      <condition attribute='sxp_name' operator='eq' value='X-API-KEY' />
+      <condition attribute='sxp_name' operator='eq' value='RedMapleServiceUrl' />
+      <condition attribute='sxp_name' operator='eq' value='RedMapleUiUrl' />
+    </filter>
+  </entity>
+</fetch>
+{%- endfetchxml -%}
+
+{% capture contactPayload %}
+{
+  "id": "{{user.contactid}}",
+  "firstname": "{{user.firstname}}",
+  "lastname": "{{user.lastname}}",
+  "fullname": "{{user.fullname}}",
+  "address": "{{user.address1_composite | url_encode}}",
+  "email": "{{user.emailaddress1}}",
+  "phone": "{{user.address1_telephone1}}",
+  "account": {
+    "id": "{{contact['acc.accountid']}}",
+    "number": "{{contact['acc.accountnumber']}}",
+    "address": "{{contact['acc.address1_composite'] | url_encode}}",
+    "name": "{{contact['acc.name']}}",
+    "locations": [
+    {%- fetchxml fetchLocations -%}
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="cssp_servicelocation">
+        <attribute name="cssp_servicelocationid" />
+        <attribute name="cssp_name" />
+        <attribute name="cssp_formatteddeliveryaddress" />
+        <attribute name="createdon" />
+        <attribute name="cssp_paymentoptions" />
+        <attribute name="cssp_billingdate" />
+        <attribute name="cssp_billdeliverytiming" />
+        <attribute name="cssp_billdeliverymethod" />
+        <attribute name="cssp_billnotification" />
+        <attribute name="cssp_paymentmethod" />
+        <attribute name="cssp_isprimary" />
+        <attribute name="cssp_bankaccountnumber" />
+        <attribute name="cssp_institutionnumber" />
+        <attribute name="cssp_billnotificationbyemail" />
+        <attribute name="cssp_billnotificationbytext" />
+        <attribute name="cssp_billnotificationbymail" />
+        <order attribute="createdon" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+          <condition attribute="cssp_account" operator="eq" value="{{contact['acc.accountid']}}" />
+        </filter>
+      </entity>
+    </fetch>
+    {%- endfetchxml -%}
+
+    {% if fetchLocations.results.entities.size > 0 %}
+      {% if params.location %}
+        {% for row in fetchLocations.results.entities %}
+          {% if row.cssp_servicelocationid == params.location %}
+            {% assign serviceLocation = row %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% assign serviceLocation = fetchLocations.results.entities[0] %}
+      {% endif %}
+    {% endif %}
+
+    {% for row in fetchLocations.results.entities %}
+      {
+        "id": "{{row['cssp_servicelocationid']}}",
+        "name": "{{row['cssp_formatteddeliveryaddress']}}"
+      }
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    ]
+    {% if serviceLocation %}
+    ,"selected-location": "{{serviceLocation.cssp_servicelocationid}}"
+    {% endif %}
+  }
+
+  {% if contact['center.cssp_logourl'] %}
+  ,"logo": "{{contact['center.cssp_logourl']}}"
+  {% endif %}
+
+  {% for config in fetchConfigs.results.entities %}
+    {% if config['sxp_name'] == 'X-API-KEY' %}
+    ,"api-key": "{{config['sxp_value']}}"
+    {% elsif config['sxp_name'] == 'RedMapleServiceUrl' %}
+    ,"service-url": "{{config['sxp_value']}}"
+    {% elsif config['sxp_name'] == 'RedMapleUiUrl' %}
+    ,"ui-url": "{{config['sxp_value']}}"
+    {% endif %}
+  {% endfor %}
+
+  {%- fetchxml fetchHeaders -%}
+  <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="cssp_billheader">
+          <attribute name="cssp_billheaderid" />
+          <attribute name="createdon" />
+          <attribute name="cssp_duedate" />
+          <attribute name="cssp_amountdue" />
+          <order attribute="createdon" descending="true" />
+          <filter type="and">
+              <!-- serviceLocation var set by the DefaultPage template -->
+              <condition attribute="cssp_location" operator="eq" value="{{serviceLocation.cssp_servicelocationid}}" />
+              <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+          </filter>
+      </entity>
+  </fetch>
+  {%- endfetchxml -%}
+  {% if fetchHeaders.results.entities.size > 0 %}
+    {% assign billHeader = fetchHeaders.results.entities[0] %}
+    ,"bill-header": {
+      "id": "{{billHeader['cssp_billheaderid']}}",
+      "date": "{{billHeader['cssp_duedate']}}",
+      "amount": "{{billHeader['cssp_amountdue']}}"
+    }
+  {% endif %}
+}
+{% endcapture %}
+
+<!-- Settings -->
+{%- fetchxml fetchB2CConfig -%}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="adx_sitesetting">
+    <attribute name="adx_sitesettingid" />
+    <attribute name="adx_name" />
+    <attribute name="adx_value" />
+    <order attribute="adx_name" descending="false" />
+    <filter type="and">
+      <condition attribute="adx_name" operator="eq" value="Authentication/OpenIdConnect/AAD-B2C_1/Authority" />
+    </filter>
+  </entity>
+</fetch>
+{%- endfetchxml -%}
+{% if fetchB2CConfig.results.entities.size > 0 %}
+  {% assign b2cAuthority = fetchB2CConfig.results.entities[0]['adx_value'] %}
+{% else %}
+  {% assign b2cAuthority = '' %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<style>
+/*
+@font-face {
+  font-family: HelveticaNeue;
+  src: url("/helvetica-neue.ttc") format("truetype");
+}
+*/
+body {
+  background-color: white;
+  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif !important;
+}
+
+.modal-body {
+  padding: 0rem !important;
+}
+
+.dropdown-toggle {
+  white-space: normal !important;
+}
+
+@media (max-width: 539px) {
+  .dropdown-item {
+    width: 85% !important;
+    white-space: normal !important;
+  }
+
+  .dropdown-menu {
+    width: 80% !important;
+  }
+}
+.cssp-page {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (min-width: 1200px) {
+  .cssp-page .container {
+    max-width: 1020px;
+  }
+}
+.cssp-page p {
+  font-size: 14px;
+}
+.cssp-page a:hover {
+  text-decoration: none !important;
+}
+.cssp-page .link,
+.cssp-page .cssp-link {
+  cursor: pointer;
+  color: #007bff;
+}
+.cssp-page .link:hover,
+.cssp-page .cssp-link:hover {
+  color: #0056b3;
+}
+.cssp-page > .container {
+  min-height: 500px;
+}
+.cssp-page ul {
+  list-style: none;
+  padding: 0px;
+}
+.cssp-page .cssp-bold {
+  font-weight: 700;
+}
+.cssp-page .cssp-font-10 {
+  font-size: 10px;
+}
+.cssp-page .cssp-font-12 {
+  font-size: 12px;
+}
+.cssp-page .cssp-font-14 {
+  font-size: 14px;
+}
+.cssp-page .cssp-font-16 {
+  font-size: 16px;
+}
+.cssp-page .cssp-font-18 {
+  font-size: 18px;
+}
+.cssp-page .cssp-font-20 {
+  font-size: 20px;
+}
+.cssp-page .cssp-font-22 {
+  font-size: 22px;
+}
+.cssp-page .cssp-font-24 {
+  font-size: 24px;
+}
+.cssp-page .cssp-font-32 {
+  font-size: 32px;
+}
+.cssp-page .font-bold {
+  font-weight: 600;
+}
+.cssp-page .divider {
+  height: 1px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.cssp-page .vertical-divider-right {
+  border-right: 2px solid #e5e5e5;
+}
+.cssp-page .vertical-divider-left {
+  border-left: 2px solid #e5e5e5;
+}
+.cssp-page .form-control {
+  font-size: 14px;
+  border-radius: 0px;
+  margin-bottom: 5px;
+}
+.cssp-page .card {
+  border-radius: 0px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  -webkit-box-shadow: 2px 2px 15px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 15px 6px rgba(0, 0, 0, 0.15);
+}
+.cssp-page .card .list-group-item {
+  padding: 1.25rem 2.25rem;
+}
+.cssp-page .list-group-item {
+  padding: 1rem 2.25rem;
+}
+.cssp-page .btn {
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+.cssp-page .btn-default {
+  border: 0px;
+  color: #007DC5;
+}
+.cssp-page .btn-outlined {
+  color: #007DC5;
+  border: 2px solid #007DC5;
+}
+.cssp-page .cssp-label {
+  color: #626365;
+  font-size: 14px;
+}
+.cssp-page .cssp-page-title {
+  color: white;
+  margin-bottom: 45px;
+}
+.cssp-page .cssp-account-wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: white;
+}
+.cssp-page .backdrop {
+  height: 250px;
+  width: 100%;
+  z-index: -1;
+  background-color: #003F63;
+  position: absolute;
+}
+.cssp-page .cssp-panel {
+  height: 100%;
+}
+.cssp-page .cssp-panel > div {
+  height: 100%;
+}
+.cssp-page .paid-icon {
+  height: 26px;
+  width: 26px;
+}
+.cssp-page #cssp-paid-label,
+.cssp-page .paid-icon {
+  color: slategrey;
+}
+
+</style>
+
+  <title>CSSP</title>
+
+
+  <!-- <script src="http://localhost:5000/bundle.js"></script> -->
+  <script src="/bundle.js"></script>
+</head>
+
+<body style="display: none;">
+  <style>
+    @media only screen and (max-width: 539px) {
+      /* For mobile phones: */
+      .h1, h1 {
+        font-size: 1.5rem;
+        padding-top: 15px !important;
+      }
+      .cssp-page .cssp-page-title {
+        margin-bottom: 10px;
+      }
+      .cssp-page .cssp-account-wrapper {
+        justify-content: left;
+      }
+
+      .col-3,.col-4,.col-5,.col-6,.col-8,.col-sm-1,.col-sm-2,.col-sm-8,.col-sm-9 {
+          width: 100% !important;
+          max-width: 100% !important;
+          flex: 0 0 100% !important;
+          padding-bottom: 10px !important;
+      }
+      .mt-5, .my-5 {
+          margin-top: 0rem!important;
+      }
+    }
+  </style>
+
+  {% if user %}
+  <input type="hidden" id="signedin" value="true">
+  <input type="hidden" id="contactid" value="{{user.id}}">
+  <input type="hidden" id="contact-name" value="{{user.fullname}}">
+  <input type="hidden" id="contact-payload" value="{{contactPayload | url_encode | replace: '%20%20', '' | replace: '%0D', '' | replace: '%0A', ''}}">
+  {% else %}
+  <input type="hidden" id="signedin" value="false">
+  <input type="hidden" id="b2c-authority" value="{{b2cAuthority}}">
+  {% endif %}
+
+
+  <div class="cssp-page">
+    {% include 'Header' %}
+
+    <div class="backdrop"></div>
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-8 text-left">
+          <h1 class="cssp-page-title font-bold mt-5">{{page.adx_title}}</h1>
+        </div>
+        <div class="col-4 text-right cssp-account-wrapper">
+          <div class="cssp-font-12">
+            {% if user %}
+            <span class="font-bold">Account Number: </span> <span>{{contact['acc.accountnumber']}}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% assign name = page.adx_name %}
+      {% include name %}
+    </div>
+    {% include 'Footer' %}
+  </div>
+</body>
+
+</html>
