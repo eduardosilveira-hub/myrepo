@@ -2,18 +2,20 @@
     {% assign applicationId = request.params['id'] %}
     {% fetchxml fetchApplications %}
     <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
-    <entity name="ava_application">
+    <entity name="cmhc_pocapplication">
         <attribute name="createdon" />
-        <attribute name="ava_taxrate" />
-        <attribute name="ava_loanamount" />
-        <attribute name="ava_applicationid" />
-        <attribute name="ava_period" />
-        <attribute name="ava_name" />
+        <attribute name="cmhc_taxrate" />
+        <attribute name="cmhc_loanamount" />
+        <attribute name="cmhc_applicationid" />
+        <attribute name="cmhc_period" />
+        <attribute name="cmhc_totalunits" />
+        <attribute name="cmhc_totalbeds" />
+        <attribute name="cmhc_name" />
         <order attribute="createdon" descending="true" />
         <filter type="and">
         <condition attribute="statecode" operator="eq" value="0" />
-        <condition attribute="ava_applicationid" operator="eq" value="{{ applicationId }}" />
-        <condition attribute="ava_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}" />
+        <condition attribute="cmhc_pocapplicationid" operator="eq" value="{{ applicationId }}" />
+        <condition attribute="cmhc_contactapplicant" operator="eq" uitype="contact" value="{{ user.id }}" />
         </filter>
     </entity>
     </fetch>
@@ -31,85 +33,36 @@
 
   /*form styles*/
   #msform {
-    text-align: center;
-    position: relative;
-    margin-top: 30px;
-  }
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 
-  #msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0px;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
-    box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            box-shadow: 0 0 20px 1px rgb(0 0 0 / 3%);
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 100%;
+            /* margin: 0 10%; */
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
 
-    /*stacking fieldsets above each other*/
-    position: relative;
-  }
+            /*Hide all except first fieldset*/
+            #msform fieldset:not(:first-of-type) {
+                display: none;
+            }
 
-  /*Hide all except first fieldset*/
-  #msform fieldset:not(:first-of-type) {
-    display: none;
-  }
-
-  #msform label {
-    position: absolute;
-    top: 0.8rem;
-    left: 0;
-    display: block;
-    font-size: 1rem;
-    transition: 0.2s ease-out;
-    opacity: 0.5;
-    will-change: top, font-size;
-  }
+        #msform label {
+            font-weight: normal;
+        }
 
   #msform .fieldgroup {
     margin: 1.5rem 0;
     position: relative;
-  }
-
-  .fieldgroup.required label:after {
-    content:"*";
-    color:red;
-  }
-
-  #msform label:hover {
-    cursor: text;
-  }
-
-  #msform input {
-    border: 1px solid #fff;
-    font-size: 1.2rem;
-    padding: 0.6rem;
-    padding-left: 0;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid #444;
-    transition: 0.2s;
-    width: calc(100% - 0.6rem);
-    /* max-width: 350px; */
-    border-radius: 0;
-  }
-
-  #msform input:focus {
-    outline: none;
-  }
-
-  #msform input:valid {
-    border-color: #444;
-  }
-
-  #msform input:invalid {
-    border-color: #aa3030;
-  }
-
-  #msform input:focus + label,
-  #msform input.hasInput + label {
-    top: -0.8rem;
-    font-size: 0.7rem;
   }
 
   /*buttons*/
@@ -148,20 +101,8 @@
   }
 
   /*headings*/
-  .fs-title {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    font-weight: bold;
-  }
-
-  .fs-subtitle {
-    font-weight: normal;
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 20px;
+  #msform .fs-title, .fs-subtitle, #progressbar, #progressbar li, button {
+      text-align: center;
   }
 </style>
 <!-- <h1 style="text-align: center;">{{ snippets['Application/HeadTitle'] | default: "Start your application"  }}</h1>
@@ -172,43 +113,101 @@
 <div class="row">
   <div class="col-sm-12">
     <form id="msform">
+      {% include 'Loading Spinner' %}
+      <div id="loader">
+          <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Processing...
+      </div>
       <!-- fieldsets -->
       <fieldset>
         <h2 class="fs-title">Personal Details</h2>
         <h3 class="fs-subtitle">Tell us something more about you</h3>
         <div class="row">
           <div class="col-sm-6">
-            <div class="fieldgroup required">
-              <input type="text" name="name" id="name" value="{{ application.ava_name }}"/>
-              <label for="name">Name</label>
+            <div class="form-group required">
+              <label for="comments" class="control-label">Name</label>
+              <input type="text" name="name" class="form-control" id="name"
+                     aria-describedby="name" value="{{ application.cmhc_name }}" />
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="fieldgroup required">
-              <input type="text" name="loanamount" id="loanamount" value="{{ application.ava_loanamount }}"/>
-              <label for="loanamount">Loan Amount</label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="fieldgroup">
-              <input type="text" name="taxrate" id="taxrate" value="{{ application.ava_taxrate }}"/>
-              <label for="taxrate">Email</label>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="fieldgroup">
-              <select name="period" id="period">
-                <!-- <option value="{{ application.ava_period }}">{{ application.ava_period.label }}</option> -->
+            <div class="form-group required">
+              <label for="loanPurpose" class="control-label">Application Purpose</label>
+              <select name="loanPurpose" class="form-control" id="loanPurpose" aria-describedby="loanPurpose">
               </select>
-              <label for="period">Loan Period</label>
             </div>
           </div>
         </div>
         <div class="row">
-            <input type="button" name="reset" class="reset action-button-reset" value="Reset"/>
-            <input type="button" name="submit" class="submit action-button" value="Submit"/>
+          <div class="col-sm-6">
+            <div class="form-group required">
+                <label for="receiveddate" class="control-label">Received Date</label>
+                <input type="date" class="form-control" name="receiveddate" id="receiveddate" aria-describedby="receiveddate" value='{{ application.cmhc_receiveddate | date: "yyyy-MM-dd" }}'>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group required">
+                <label for="shelterModel" class="control-label">Shelter Model</label>
+                <select name="shelterModel" class="form-control" id="shelterModel" aria-describedby="shelterModel">
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group required">
+              <label for="totalunits" class="control-label">Total Units Submitted</label>
+              <input type="text" name="totalunits" class="form-control" id="totalunits"
+                    aria-describedby="totalunits" value="{{ application.cmhc_totalunits }}" />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group required">
+              <label for="totalbeds" class="control-label">Total Beds Submitted</label>
+              <input type="text" name="totalbeds" class="form-control" id="totalbeds"
+                    aria-describedby="totalbeds" value="{{ application.cmhc_totalbeds }}" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group required">
+                <label for="advanceType" class="control-label">Advance Type</label>
+                <select name="advanceType" class="form-control" id="advanceType" aria-describedby="advanceType">
+                </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group required">
+              <label for="loanamount" class="control-label">Total Requested Loan</label>
+              <input type="text" data-type="currency" name="loanamount" class="form-control" id="loanamount"
+                    aria-describedby="loanamount" value="{{ application.cmhc_loanamount }}" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group required">
+                <label for="affordablerentalhousing" class="control-label">Afordable Rental Housing</label>
+                <!-- <select name="affordablerentalhousing" class="form-control" id="affordablerentalhousing" aria-describedby="affordablerentalhousing">
+                </select> -->
+                <div class="control">
+                  <div class="btn-group" data-toggle="buttons">
+                    <label>
+                        <input type="radio" id="affordablerentalhousing_0" name="affordablerentalhousing" value="1" /> Yes
+                    </label> 
+                    <label>
+                        <input type="radio" id="affordablerentalhousing_1" name="affordablerentalhousing" value="0" /> No
+                    </label>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <ul class="pager">
+              <li><input type="button" name="reset" class="reset action-button-reset" value="Reset" /></li>
+              <li><input type="button" name="next" class="submit action-button" value="Submit" /></li>
+          </ul>
         </div>
       </fieldset>
     </form>
@@ -216,99 +215,106 @@
 </div>
 
 <script type="module">
-  import { utils as utils } from "../utils.js";
+  import { utils as utils } from "/utils.js";
   
-  var urlApplications = "/_api/ava_applications";
+  var urlApplications = "/_api/cmhc_pocapplications";
   sessionStorage.setItem(
     "applicationId",
     "{{ application.ava_applicationid }}"
   );
 
   const applicationFields = {
-    name: "ava_name",
-    loanamount: "ava_loanamount",
-    taxrate: "ava_taxrate",
-    period: "ava_period",
+    name: "cmhc_name",
+    loanPurpose: "cmhc_loanpurpose",
+    receiveddate: "cmhc_receiveddate",
+    shelterModel:'cmhc_sheltermodel',
+    totalunits: "cmhc_totalunits",
+    totalbeds: "cmhc_totalbeds",
+    advanceType:'cmhc_advancetype',
+    loanamount: "cmhc_loanamount",
+    affordablerentalhousing:'cmhc_isaffordablerentalhousing',
   };
-  const periodOptions = {
-    "3 Months": 751960000,
-    "6 Months": 751960001,
-    "12 Months": 751960002,
+
+  const shelterModel = {
+    'Retirement Housing' : 0,
+    'Shelter' : 758280000,
+    'Single Room Occupancy' : 1,
+    'Standard Rental Housing' : 2,
+    'Student Housing':3,
+    'Supportive Housing':4,
+    'Transitional Housing':758280001,
   };
+
+  const loanPurpose = {
+    'Purchase' : 758280003,
+    'Purchase with Improvements' : 758280008,
+    'Refinance' : 758280005,
+    'Top Up Financing' : 758280009,
+    'Refinance Existing CMHC':758280010,
+    'Refinance with Improvements':758280011,
+    'RCFi - Conversion':758280012,
+    'Construction Financing':758280001,
+    'Completion Take-Out':758280004,
+    'NHCF - New Construction':758280000,
+    'NHCF - New Construction - Conversion':758280002,
+    'NHCF - Repairs/Renewal':758280006,
+    'NHCF - Repairs/Renewal - Conversion':758280007,
+  };
+
+  const advanceType = {
+    '<=2' : 1,
+    'Unlimited' : 2
+  }
+
+  const yesNo = {
+    'Yes':true,
+    'No': false
+  }
+
+
+  let eventsCurrency = ['keyup','blur'];
+  let currencyFields = document.querySelectorAll('input[data-type="currency"]');
+  eventsCurrency.forEach((event) => {
+    currencyFields.forEach((field) => {
+      field.addEventListener(event, (event) => {
+        if (event.type === 'keyup') 
+          utils.formatCurrency(event.currentTarget);
+        if (event.type === 'blur')
+          utils.formatCurrency(event.currentTarget, event.type);
+      })
+    })
+  })
 
   const application = {
     init: () => {
-      application.setupFloatLabels();
-      application.setupPeriodOptions();
+      application.setupDropDowns(shelterModel, '#shelterModel', '{{ application.cmhc_sheltermodel.value }}');
+      application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ application.cmhc_loanpurpose.value }}');
+      application.setupDropDowns(advanceType, '#advanceType', '{{ application.cmhc_advancetype.value }}');
+      // application.setupTwoOptions(yesNo, '#affordableRentalHousing', '{{ application.cmhc_isaffordablerentalhousing }}');
       application.setupFormAnimation();
+
       // Create a call to open gates to acquire token and make future calls faster
       appAjax({
         type: "GET",
-        url: "/_api/ava_applications?$select=ava_name&$top=1",
+        url: "/_api/cmhc_pocapplications?$select=cmhc_name&$top=1",
         contentType: "application/json",
       });
     },
-    setupFloatLabels: () => {
-      var allInputs = document.querySelector("#msform").elements;
-      Object.keys(allInputs).forEach((key) => {
-        if (
-          allInputs[key].type &&
-          allInputs[key].type.toUpperCase() !== "BUTTON"
-        )
-          application.assignClass(allInputs[key]);
-      });
-
-      // Check the inputs to see if we should keep the label floating or not
-      Object.keys(allInputs).forEach((key) => {
-        if (
-          allInputs[key].type &&
-          allInputs[key].type.toUpperCase() !== "BUTTON"
-        ) {
-          allInputs[key].addEventListener("blur", (element) => {
-            // Different validation for different inputs
-            application.assignClass(element.srcElement);
-          });
-        }
-      });
-
-      return false;
-    },
-    assignClass: (element) => {
-      debugger;
-      // Different validation for different inputs
-      switch (element.type.toUpperCase()) {
-        case "SELECT-ONE":
-          if (element.value > 0) {
-            element.className = "hasInput";
-          } else {
-            element.className = "";
-          }
-          break;
-
-        case "TEXT":
-          if (element.value !== "") {
-            element.className = "hasInput";
-          } else {
-            element.className = "";
-          }
-          break;
-
-        default:
-          break;
-      }
-    },
-    setupPeriodOptions: () => {
-      var selectedPeriod = parseInt("{{ application.ava_period.value }}");
-      let periodField = document.querySelector("#period");
-
-      Object.keys(periodOptions).forEach((key) => {
-        var option = document.createElement("option");
-        if (selectedPeriod && periodOptions[key] === selectedPeriod)
-          option.selected = periodOptions[key];
-        option.value = periodOptions[key];
+    setupDropDowns: (optionSetVar, element, dropDownValue) => {
+      var selectedOption = parseInt(dropDownValue);
+      let optionSetField = document.querySelector(element);
+      Object.keys(optionSetVar).forEach((key) => {
+        var option = document.createElement('option');
+        if (selectedOption && optionSetVar[key] === selectedOption)
+            option.selected = optionSetVar[key];
+        option.value = optionSetVar[key];
         option.text = key;
-        periodField.add(option);
+        optionSetField.add(option);
       });
+
+      if (dropDownValue === ''){
+        optionSetField.selectedIndex = -1;
+      }
     },
     setupFormAnimation: () => {
       var current_fs, reset_fs; //fieldsets
@@ -320,15 +326,16 @@
         current_fs = document.querySelectorAll('.required');
         current_fs.forEach((child) => {
           child.childNodes.forEach((grandChild) => {
-            debugger;
             if (grandChild && (grandChild.value === '')){
-              debugger;
               grandChild.classList.toggle('shake');
-              grandChild.toggleAttribute('required');
+              grandChild.classList.add('required');
               setTimeout(function() {
                 grandChild.classList.toggle('shake');
               }, 300);
               fieldSetValid = false;
+              grandChild.addEventListener('change', (grandChild) => {
+                  grandChild.target.classList.remove('required');
+              });
 
             }
             else {
@@ -336,6 +343,8 @@
             }
           });
         });
+
+        current_fs = document.querySelector('fieldset');
         if (fieldSetValid){        
           if (applicationId === null || applicationId === "")
               application.createOnFirstStep(current_fs, applicationFields);
@@ -353,9 +362,10 @@
       });
     },
     createOnFirstStep: (current_fs, fieldset) => {
+      utils.showHideSpinner(current_fs,true);
       let myJsonObject = {};
       myJsonObject = application.buildMyObject(current_fs,fieldset,myJsonObject);
-      myJsonObject["ava_contactapplicant@odata.bind"] = `/contacts({{ user.id }})`;
+      myJsonObject["cmhc_contactapplicant@odata.bind"] = `/contacts({{ user.id }})`;
 
       let operationType = "POST";
 
@@ -365,15 +375,14 @@
         contentType: "application/json",
         data: JSON.stringify(myJsonObject),
         success: (res, status, xhr) => {
-          sessionStorage.setItem(
-            "applicationId",
-            `${xhr.getResponseHeader("entityid")}`
-          );
+          // sessionStorage.setItem("applicationId",`${xhr.getResponseHeader("entityid")}`);
+          utils.showHideSpinner(current_fs,false);
           utils.showToastr("Data saved");
         },
       });
     },
     updateOnNextSteps: (current_fs, fieldset) => {
+      utils.showHideSpinner(current_fs,true);
       let myJsonObject = {
         ava_applicationid: sessionStorage.getItem("applicationId"),
       };
@@ -388,17 +397,32 @@
         data: JSON.stringify(myJsonObject),
         success: (res, status, xhr) => {
           console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+          utils.showHideSpinner(current_fs,false);
           utils.showToastr("Data updated");
         },
       });
     },
     buildMyObject: (currentTab, fieldset, myJsonObject) => {
       Object.keys(fieldset).forEach((formKey) => {
-        Object.keys(currentTab[0].elements).forEach((objectKey) => {
-          if (currentTab[0].elements[objectKey].name === formKey) {
-            myJsonObject[fieldset[formKey]] =
-              currentTab[0].elements[objectKey].value;
+        Object.keys(currentTab.elements).every((objectKey) => {
+          if (currentTab.elements[objectKey].name === formKey) {
+            if (currentTab.elements[objectKey].value.includes('$')) {
+              myJsonObject[fieldset[formKey]] = currentTab.elements[objectKey].value.slice(1);
+            }
+            else {
+              myJsonObject[fieldset[formKey]] = currentTab.elements[objectKey].value;
+            }
+
+            if (currentTab.elements[objectKey].type === 'radio') {
+              if (currentTab.elements[objectKey].checked)
+                myJsonObject[fieldset[formKey]] = true;
+              else
+                myJsonObject[fieldset[formKey]] = false;
+            }
+            return false;
           }
+          else
+            return true;
         });
       });
       return myJsonObject;

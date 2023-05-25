@@ -4,45 +4,156 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
 <!-- Default studio template. Please do not modify -->
+
+{% fetchxml getProgramMUMLI %}
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="cmhc_program">
+            <attribute name="cmhc_name" />
+            <attribute name="cmhc_programid" />
+            <order attribute="cmhc_name" descending="false" />
+            <filter type="and">
+                <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+                <condition attribute="cmhc_name_en" operator="like" value="%MU MLI%" />
+            </filter>
+        </entity>
+    </fetch>
+{% endfetchxml %}
+{% if getProgramMUMLI.results.entities.size > 0 %}
+  {% assign programMu = getProgramMUMLI.results.entities[0] %}
+{% else %}
+    {% assign programMu = null %}
+{% endif %}
+
+{% if request.params['id'] %}
+    {% assign pocApplicationId = request.params['id'] %}
+    {% fetchxml fetchApplications %}
+        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+            <entity name="cmhc_pocapplication">
+                <attribute name="cmhc_pocapplicationid" />
+
+                <attribute name="cmhc_receiveddate" />
+                <attribute name="cmhc_loanpurpose" />
+                <attribute name="cmhc_requireddocreceiveddate" />
+                <attribute name="cmhc_sheltermodel" />
+
+                <attribute name="cmhc_isdocumentlanguage" />
+                <attribute name="cmhc_islanguageofdocumentsprovided" />
+                <attribute name="cmhc_isaffordablerentalhousing" />
+                <attribute name="cmhc_islongtermcare" />
+                
+                <attribute name="cmhc_advancetype" />
+                <attribute name="cmhc_totalunitssubmitted" />
+                <attribute name="cmhc_totalrequestedloanamount" />
+                <attribute name="cmhc_totalbedssubmitted" />
+                <attribute name="cmhc_comments" />
+
+                <attribute name="cmhc_dwellingstyle" />
+                <attribute name="cmhc_dwellingtype" />
+                <attribute name="cmhc_tenurecode" />
+                <attribute name="cmhc_constructiontype" />
+                <attribute name="cmhc_windowtype" />
+                <attribute name="cmhc_windowtypecondition" />
+                <attribute name="cmhc_windowtypecomment" />
+
+                <attribute name="cmhc_eeandghglevel" />
+                <attribute name="cmhc_accessibilitylevel" />
+
+                <attribute name="cmhc_program" />
+                <attribute name="createdon" />
+                <attribute name="cmhc_originatorlendercontactid" />
+                <attribute name="cmhc_cmhcaccountnumber" />
+                <attribute name="statuscode" />
+                <order attribute="createdon" descending="true" />
+                <filter type="and">
+                    <condition attribute="cmhc_program" operator="eq" uiname="MU MLI" uitype="cmhc_program" value="{{ programMu.cmhc_programid }}" />
+                    <condition attribute="cmhc_originatorlendercontactid" operator="eq" uiname="MU Admin" uitype="contact" value="{{ user.id }}" />
+                    <condition attribute="statecode" operator="eq" value="0" />
+                    <condition attribute="cmhc_pocapplicationid" operator="eq" value="{{ pocApplicationId }}" />
+                </filter>
+            </entity>
+        </fetch>
+    {% endfetchxml %}
+    {% if fetchApplications.results.entities.size >= 1 %}
+        {% assign pocApplication = fetchApplications.results.entities[0] %}
+    {% else %}
+        {% assign pocApplication = null %}
+    {% endif %}
+
+    <!-- Get CMHC Account Number -->
+    {% fetchxml getCmhcAccountNumber %}
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="cmhc_pocapplication">
+        <attribute name="cmhc_pocapplicationid" />
+        <attribute name="cmhc_cmhcaccountnumber" />
+        <filter type="and">
+            <condition attribute="cmhc_pocapplicationid" operator="eq" value="{{ pocApplicationId }}" />
+        </filter>
+        </entity>
+    </fetch>
+    {% endfetchxml %}
+    {% if getCmhcAccountNumber.results.entities.size >= 1 %}
+        {% assign cmhc_number = getCmhcAccountNumber.results.entities[0].cmhc_cmhcaccountnumber %}
+    {% else %}
+        {% assign cmhc_number = null %}
+    {% endif %}
+
+    <!-- Get MU Application ID -->
+    {% if cmhc_number %}
+        {% fetchxml fetchMuApplication %}
+            <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+                <entity name="cmhc_muapplication">
+                    <attribute name="cmhc_muapplicationid" />
+                    <filter type="and">
+                        <condition attribute="cmhc_name" operator="eq" value="{{ cmhc_number }}" />
+                    </filter>
+                </entity>
+            </fetch>
+        {% endfetchxml %}
+        {% if fetchMuApplication.results.entities.size >= 1 %}
+            {% assign applicationId = fetchMuApplication.results.entities[0].cmhc_muapplicationid %}
+        {% else %}
+            {% assign applicationId = null %}
+        {% endif %}
+    {% endif %}
+
+{% endif %}
+
 <div id="mainContent" class="wrapper-body" role="main">
   <div class="cmhc-page">
     <div class="backdrop"></div>
     <div class="container pb-5">
       <div class="container">
         <div class="col-sm-8 text-left">
-          <h1 class="cmhc-page-title font-bold mt-5">
-            {% if page.adx_title == 'Home' %} 
-              Welcome 
-              {% if {{user.firstname}} %}
-                , {{user.firstname}} 
-              {% else %}
-                ! 
-              {% endif %} 
-            {% else %}
-              {{page.adx_title}} 
-            {% endif %}
-          </h1>
+            <h1 class="cmhc-page-title font-bold mt-5">
+                {% if page.adx_title == 'Home' %}
+                  Welcome CMHC Multi-Unit Underwriting Team
+                {% else %}
+                  {{page.adx_title}}
+                {% endif %}
+            </h1>
         </div>
-        <div class="col-sm-4 text-right mt-5 cssp-account-wrapper">
+        <!-- <div class="col-sm-4 text-right mt-5 cssp-account-wrapper">
           <div class="cssp-font-12">
             {% if user %}
             <span class="cmhc-page-subtitle font-bold">Registration #: </span>
             <span>331122</span>
             {% endif %}
           </div>
-        </div>
+        </div> -->
       </div>
+      <div><label>{% include 'Breadcrumbs'%}</label></div>
       {% include 'Page Copy' %}
     </div>
   </div>
 </div>
+
 <script type="module">
-  import {utils as utils} from '../utils.js';
-  function toastr(message){ 
-    utils.showToastr(`Error: ${response.responseJSON.error.message}`, null, 'error');
-  }
+  import {utils as utils} from '/utils.js';
 </script>
 <script>
+  sessionStorage.setItem("pocApplicationId", "{{ pocApplication.cmhc_pocapplicationid }}");
+  sessionStorage.setItem("applicationId", "{{ applicationId }}");
+
  	(function(webapi, $){
 		function safeAjax(ajaxOptions) {
 			var deferredAjax = $.Deferred();
@@ -76,10 +187,12 @@
     // notificationMsg.show(processingMsg);
     return webapi.safeAjax(ajaxOptions)
       .fail(function(response) {
+        // utils.showHideSpinner(null,false);
         if (response.responseJSON) {
+          //utils.showToastr('Error: Web API is not available...', null, error);
           console.error(`Error: ${response.responseJSON.error.message}`);
         } else {
-          // utils.showToastr('Error: Web API is not available...');
+          //utils.showToastr('Error: Web API is not available...', null, error);
           console.error(`Error: Web API is not available...`);
         }
       })

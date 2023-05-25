@@ -1,0 +1,207 @@
+<style>
+    .load-fico{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: #ffffffbf no-repeat center center;
+        z-index: 10000;
+        text-align: center;
+    }
+
+    #jsonResponse {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .decision,.result{
+        font-weight: 600;
+        font-size: large;
+    }
+
+    
+    .fail {
+        color:red;
+    }
+
+    .success{
+        color: green
+    }
+
+    .review{
+        color: #b99909
+    }
+
+    .view-grid-has-pagination {
+      width: 100%;
+      font-family: sans-serif;
+      overflow-x: auto;
+      overflow-y:hidden
+      /* margin: 0px auto; */
+    }
+
+    .crmEntityFormView, .entitylist, .modal-content, .popover-content {
+        background-color: #FFFFFF;
+        color: #000000;
+        border: 1px solid #f2f2f2;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f0f7ff;
+    }
+
+    th:hover{
+        cursor: pointer
+    }
+
+    #payload {
+        width: 100%;
+        min-height: 350px;
+        max-height: 350px;
+        overflow-y: auto;
+        resize: none;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12 ficoResults">
+        <button type="submit" class="next action-button" id="fico-call">Call FICO</button>
+        <div class="decision mt-4 pull-right" style="display: none">
+            Decision: <label class="result"></label>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="load-fico message text-center" style="display: none;">
+            <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Processing...
+        </div>
+        <textarea id="payload" rows="5" cols="130"></textarea>
+        <a href="" id="openResultsModal" hidden class="pull-right" data-toggle="modal" data-target="#resultsModal">
+            <span class="fa-solid fa-circle-plus"></span>&nbsp; Check your result
+        </a>
+    </div>
+</div>
+
+
+<div id="resultsModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="resultsModal-label-" style="padding-right: 17px;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" title="My Modal Title">Your results</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row problemsTable" hidden>
+                        <div class="col-sm-12 entitylist">
+                            <div class="view-grid-has-pagination" id="revenueDetails">
+                                <table id="problems" role="grid" class="table table-striped table-fluid">
+                                    <thead>
+                                        <tr>
+                                            <th>Code</th>
+                                            <th>Field</th>
+                                            <th>index</th>
+                                            <th>type</th>
+                                            <th>value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <pre id="jsonResponse">
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import {utils as utils} from '/utils.js';
+    const fico = {
+        init: () => {
+            document.querySelector('#fico-call').addEventListener('click', fico.getBearerToken);
+        },
+        getBearerToken: () => {
+            document.querySelector('#openResultsModal').setAttribute('hidden','');
+            let payload = document.querySelector('#payload').value;
+            if (payload == ''){
+                utils.showToastr('Enter data before calling FICO', null, 'error');
+                return;
+            }
+            document.querySelector('.load-fico').style.display = 'block';
+            fetch('https://prod-22.canadaeast.logic.azure.com:443/workflows/57eaf0f8ff9647a2bda1b912e88b071e/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JnO9XxY8-Czg4gh8uxdFddi13BtIbz6oA0CvKPC9Rkk', {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            }).then((response) => {
+                return response.text();
+            })
+            .then((data) => {
+                let finalData = JSON.parse(data);
+                let problemsTable = document.querySelector('.problemsTable');
+                delete finalData.claimsAdjudicationTransaction['request'];
+                document.querySelector('#jsonResponse').innerHTML = JSON.stringify(finalData, undefined, 2);
+                document.querySelector('.result').innerHTML = `${finalData.claimsAdjudicationTransaction.response.decision}`;
+                document.querySelector('.result').classList = ['result'];
+                if (finalData.claimsAdjudicationTransaction.response.decision === 'FAIL') {
+                    document.querySelector('#jsonResponse').style.maxHeight = '400px';
+                    document.querySelector('.result').classList.add('fail');
+                }                    
+                
+                if (finalData.claimsAdjudicationTransaction.response.decision === 'REVIEW'){
+                    document.querySelector('#jsonResponse').style.maxHeight = '200px';
+                    document.querySelector('.result').classList.add('review');
+                }
+                
+                if (finalData.claimsAdjudicationTransaction.response.decision === 'PASS') {
+                    document.querySelector('#jsonResponse').style.maxHeight = '400px';
+                    document.querySelector('.result').classList.add('success');
+                }
+
+                document.querySelector('.decision').style.display = 'inline';
+                document.querySelector('.load-fico').style.display = 'none';
+                document.querySelector('#openResultsModal').removeAttribute('hidden');
+
+                let problems = finalData.claimsAdjudicationTransaction.response.problems;
+                problems.length === 0 ? problemsTable.setAttribute('hidden','') : problemsTable.removeAttribute('hidden');
+                let rows = ``;
+                if (problems) {
+                    problems.forEach((problem) => {
+                        rows += `
+                            <tr>
+                                <td>${problem.code}</td>
+                                <td>${problem.field}</td>
+                                <td>${problem.index}</td>
+                                <td>${problem.type}</td>
+                                <td>${problem.value}</td>
+                            </tr>
+                        `;
+                    })
+                    document.querySelector('#problems tbody').innerHTML = rows;
+                }
+
+            })
+            .catch((error) => {
+                utils.showToastr(`${error.message}`, null, 'error');
+            });
+        },
+    }
+
+    fico.init();
+</script>

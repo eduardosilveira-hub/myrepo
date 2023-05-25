@@ -48,23 +48,24 @@
 .box {
     width: 300px;
     height: 0px;
+    max-height: 300px;
     border-radius: 2px;
-    transition: 0.5s;
+    /* transition: 0.5s; */
     position: absolute;
-    overflow-x: hidden;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 0px;
     left: -265px;
     margin-top: 2px;
     background-color: #F4F4F4;
     -webkit-box-shadow: 10px 10px 23px 0px rgb(0 0 0 / 20%);
     -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
-    box-shadow: 10px 10px 23px 0px rgb(0 0 0 / 10%);
+    box-shadow: 10px 10px 23px 0px rgb(0 0 0 / 40%);
     cursor: default;
 }
 
 .box-open {
-    height: 65.5px;
+    height: 65.7px;
 }
 
 .notificationFas {
@@ -76,7 +77,7 @@
 }
 
 .notificationFas:hover {
-  color: #6e8dc7;
+  color: #0069a5;
 }
 
 .display{
@@ -84,7 +85,7 @@
 }
 
 .cont{
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   height: 100%;
@@ -115,13 +116,14 @@
 .sec{
   padding: 15px 10px;
   background-color: #F4F4F4;
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
 .txt{
   vertical-align: top;
   font-size: 1.25rem;
   padding: 0px 0px 0px 5px;
+  color:#0069a5;
 }
 
 .sub{
@@ -140,6 +142,7 @@
 
 .deleteBtn {
     border: none;
+    color:#0069a5;
 }
 </style>
 <div class="notification" id="notificationComponent">
@@ -150,8 +153,14 @@
             <i class="fas fa-bell notificationFas"></i>
             <div class="box">
                 <div class="display">
-                    <div class="nothing"> 
-                        <div class="cent">Looks Like your all caught up!</div>
+                    <div class="navigateMessage"> 
+                        <div class="sec new">
+                            <div class="row">
+                                <div class="col-sm-12" style="cursor: pointer">
+                                    <div class="txt" id="flip" all-or-selected="all">View all notifications >></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="cont">
                         <!-- for read notifications, if thats the case -->
@@ -162,6 +171,8 @@
                             </a>
                         </div> -->
                     </div>
+                    <div class="allMessages d-none">
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,33 +182,75 @@
     var notificationText;
     var numberOfNewNotifications = 0;
     var numberOfOldNotifications = 0;
-    import {utils as utils} from '../utils.js';
+    import {utils as utils} from '/utils.js';
     
     const notifications = {
         init: () => {
-            notifications.getPortalNotification();
+            notifications.getPortalNotification(false);
+            
             let timerSetting = "{{ settings['Home/NotificationTimeout']}}";
-            setInterval(notifications.getPortalNotification, timerSetting);
-            document.querySelector('.notBtn').addEventListener('click', (e) => {
+            setInterval(() => {
+                notifications.getPortalNotification(false);
+            }, timerSetting);
+
+            document.querySelector('.notBtn').addEventListener('mouseover', (e) => {
+                let box = document.querySelector('.box');
                 if (numberOfNewNotifications && numberOfNewNotifications !== 0) {
-                    let box = document.querySelector('.box');
-                    box.classList.toggle('box-open');
+                    box.classList.add('box-open');
                     if (box.classList.contains('box-open')){
                         let heightCounter = 0;
                         document.querySelectorAll('.sec').forEach((sec) => {
                             heightCounter += sec.clientHeight;
                         })
-                        box.style.height = `${heightCounter + (numberOfNewNotifications * 4)}px`;
-                        //box.style.height = `${numberOfNewNotifications * 65.5}px`;
+
+                         if (numberOfNewNotifications > 3)
+                            box.style.height = `248px`;
+                        // else
+                        //     box.style.height = `${heightCounter + (numberOfNewNotifications * 4)}px`;
+                        // if (numberOfNewNotifications < 3)
+                            box.style.height = `${heightCounter + (numberOfNewNotifications * 4.5)}px`;
                     }
                     else
-                    box.style.height = `0px`;
+                        box.style.height = `0px`;
+                }
+                else {
+                    box.style.height = `50px`;
                 }
             })
+
+            document.querySelector('.notBtn').addEventListener('mouseout', (e) => {
+                let box = document.querySelector('.box');
+                box.classList.remove('box-open');
+                box.style.height = `0px`;
+            })
+
+            document.querySelector('#flip').addEventListener('click', (evn) => {
+                if (evn.target.getAttribute('all-or-selected') === 'all') {
+                    evn.target.setAttribute('all-or-selected','selected')
+                    evn.target.innerHTML = `<< Back`;
+                    notifications.getPortalNotification(true);
+                    document.querySelector('.cont').classList.add('d-none');
+                    document.querySelector('.allMessages').classList.remove('d-none');
+                    // document.querySelector('.box').style.height = `248px`;
+                }
+                else {
+                    evn.target.setAttribute('all-or-selected','all')
+                    evn.target.innerHTML = `View all notifications >>`;
+                    notifications.getPortalNotification(false);
+                    document.querySelector('.cont').classList.remove('d-none');
+                    document.querySelector('.allMessages').classList.add('d-none');
+                }
+            });
+
         },
-        getPortalNotification: () => {
+        getPortalNotification: (all) => {
             let operationType = 'GET';
-            let notificationURL = '/_api/cmhc_pocportalnotifications?$select=cmhc_name,cmhc_pocportalnotificationid,createdon&$filter=_cmhc_portalcontact_value eq {{ user.id }} and cmhc_messageread eq false and statecode eq 0';
+            let fieldsToSelect = ['cmhc_name','cmhc_pocportalnotificationid','createdon']
+            let filter = '_cmhc_portalcontact_value eq {{ user.id }} and ';
+            all ? '' : filter += `cmhc_messageread eq false and statecode eq 0 and `;
+            filter += "cmhc_name ne '" + new Date().getUTCHours() + new Date().getUTCMinutes() + new Date().getUTCSeconds() + "'";
+
+            let notificationURL = `/_api/cmhc_pocportalnotifications?$select=${fieldsToSelect}&$orderby=createdon desc&$filter=${filter}`;
             appAjax({
                 type: operationType,
                 url: notificationURL,
@@ -212,42 +265,51 @@
                                         <div class="txt" id="notificationText">${notification.cmhc_name}</div>
                                         <div class="txt sub" id="notificationCreatedon">${notification.createdon}</div>
                                     </div>
+                                    ${all ? `` : `
                                     <div class="col-sm-2">
-                                        <button class="deleteBtn" delete-id="${notification.cmhc_portalnotificationid}">
+                                        <button class="deleteBtn" delete-id="${notification.cmhc_pocportalnotificationid}">
                                             <span class="fa fa-trash"></span>
                                         </button>
-                                    </div>
+                                    </div>`
+                                    }
                                 </div>
                             </div>
                         `;
                     });
+                    
+                    if (all){ 
+                        document.querySelector('.allMessages').innerHTML = rows;
+                        return;
+                    }                        
+                    else {
 
-                    document.querySelector('.cont').innerHTML = rows;
+                        document.querySelector('.cont').innerHTML = rows;
+
+                        numberOfNewNotifications = res.value.length;
+
+                        if (numberOfNewNotifications === 0)
+                            document.querySelector('#notificationCount').textContent = '';
+
+                        if (numberOfNewNotifications > 0)
+                            document.querySelector('#notificationCount').textContent = numberOfNewNotifications;
+
+                        if (numberOfNewNotifications > numberOfOldNotifications){
+                            document.querySelector('#notificationComponent').classList.toggle('shake');
+                            setTimeout(function() {
+                                document.querySelector('#notificationComponent').classList.toggle('shake');
+                            }, 300);
+
+                            numberOfOldNotifications = numberOfNewNotifications;
+                        }
+
+                        numberOfOldNotifications = numberOfNewNotifications;
+                    }
 
                     document.querySelectorAll('.deleteBtn').forEach((btn) => {
                         btn.addEventListener('click', (e) => {
                             notifications.updateNotificationAsRead(e);
                         });
                     });
-
-                    numberOfNewNotifications = res.value.length;
-
-                    if (numberOfNewNotifications === 0)
-                        document.querySelector('#notificationCount').textContent = '';
-
-                    if (numberOfNewNotifications > 0)
-                        document.querySelector('#notificationCount').textContent = numberOfNewNotifications;
-
-                    if (numberOfNewNotifications > numberOfOldNotifications){
-                        document.querySelector('#notificationComponent').classList.toggle('shake');
-                        setTimeout(function() {
-                            document.querySelector('#notificationComponent').classList.toggle('shake');
-                        }, 300);
-
-                        numberOfOldNotifications = numberOfNewNotifications;
-                    }
-                    
-                    numberOfOldNotifications = numberOfNewNotifications;
                 },
             })
         },
@@ -256,7 +318,7 @@
             let operationType = 'PATCH';
             let notificationId = e.target.parentElement.getAttribute('delete-id');
             let myJsonObject = {
-                ava_messageread: true,
+                cmhc_messageread: true,
             };
             let notificationURL = `/_api/cmhc_pocportalnotifications(${notificationId})`;
             appAjax({
@@ -266,7 +328,7 @@
                 contentType: "application/json",
                 success: (res, status, xhr) => {
                     utils.showToastr('Notification cleared.', null, 'info');
-                    notifications.getPortalNotification();
+                    notifications.getPortalNotification(false);
                 },
             });
         }

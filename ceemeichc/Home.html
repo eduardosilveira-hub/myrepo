@@ -59,7 +59,7 @@ iframe {
 </style>
 <div class="cmhc-application cmhc-web-component">
     <div class="row">
-        {% include 'Portal Announcements' %}
+        {% include 'POC Portal Announcements' %}
         <div class="col-sm-8">
             <div id="second-panel">
                 <div class="card">
@@ -71,25 +71,27 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Arrears Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>
+                                            &nbsp;&nbsp;{% editable snippets 'Home/FirstSection' type: 'text' %}
+                                            <span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
                                             <div class="cmhc-font-14 mt-2">
                                                 <div class="cmhc-label mt-1">Quick Links</div>
-                                                <div class="mt-3">
+                                                <!-- <div class="mt-3">
                                                     <a href="/application-upload" id="app-upload"><span class="fa-solid fa-circle-plus"></span>&nbsp; Upload File - Revenue Details</a>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="mt-2">
                                                     <a href="/application-create-custom-minimal" id="new-application-stepped-minimal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Stepped Process - Minimal Application</a>
                                                 </div> -->
                                                 <div class="mt-2">
                                                     <a href="/application-create-custom" id="new-application-stepped"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Custom Form</a>
                                                 </div>
-                                                <div class="mt-2">
+                                                 <!-- <div class="mt-2">
                                                     <a href="/application-create-customsimpleform" id="new-application-simple"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Simple Custom Form</a>
-                                                </div>
+                                                </div> -->
                                                 <div class="mt-2">
-                                                    <a href="/application-create" id="new-application-multistep"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - OOB Form</a>
+                                                    <a href="/application-create" id="new-application-oob"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - OOB Form</a>
                                                 </div>
                                                 <!-- <div class="mt-2">
                                                     <a href="" id="new-application" data-toggle="modal" data-target="#new-application-modal"><span class="fa-solid fa-circle-plus"></span>&nbsp; New Application - Modal Custom Process</a>
@@ -101,18 +103,24 @@ iframe {
                                                     <a href="" id="list-application" data-toggle="modal" data-target="#list-application-modal"><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - Modal</a>
                                                 </div> -->
                                                 <div class="mt-2">
-                                                    <details>
+                                                    <a href="/application-list" id="application-list"><span class="fa-regular fa-file-lines"></span>&nbsp; Your applications</a>
+                                                    <!-- <details>
                                                         <summary>
                                                             <a><span class="fa-regular fa-file-lines"></span>&nbsp; View Applications List - expand</a>
                                                         </summary>
                                                         <p>
                                                             {% include 'entity_list' key: "Application List" %}
                                                         </p>
-                                                    </details>
+                                                    </details> -->
                                                 </div>
-
+                                                <div class="mt-2">
+                                                    <a href="/fico-integration" id="fico-integration"><span class="fa-regular fa-file-lines"></span>&nbsp; FICO</a>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="/my-requests" id="my-requests"><span class="fa-regular fa-file-lines"></span>&nbsp; My Requests</a>
+                                                </div>
                                                 <div class="mt-4">
-                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="cmhc-font-12 font-bold">Need help with Application Submission? Contact CMHC:</div>
                                                     <div class="general-information font-bold">
                                                         Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
                                                     </div>
@@ -125,7 +133,7 @@ iframe {
                         </li>
                     </ul>
                 </div>
-
+                <!-- modal option for custom form -->
                 <div id="new-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="new-application-modal-label" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -157,7 +165,7 @@ iframe {
                       </div>
                     </div>
                 </div>
-
+                <!-- Modal option for oob modal -->
                 <div id="createApplicationModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="new-application-modal-label-oob" style="padding-right: 17px;" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -179,7 +187,7 @@ iframe {
                         </div>
                     </div>
                 </div>
-
+                <!-- Modal option for entity list -->
                 <div id="list-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="list-application-modal-label" aria-hidden="true">
                     <div class="modal-lg modal-dialog" role="document">
                       <div class="modal-content">
@@ -211,7 +219,7 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Default Management Request Submission Tool<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Section Two<span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
                                             <div class="cmhc-font-14 mt-2">
@@ -229,7 +237,7 @@ iframe {
                                                     <a href="" id="newlink3" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 3</a>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="cmhc-font-12 font-bold">Need help with Application Submission? Contact CMHC:</div>
                                                     <div class="general-information font-bold">
                                                         Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
                                                     </div>
@@ -254,7 +262,7 @@ iframe {
                                 <div class="col-sm-12">
                                     <details>
                                         <summary>
-                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Homeowner Claims Submission<span class="fas fa-caret-down first icon"></span>
+                                            <span id="newApplicationSection" class="fa-regular fa-flag"></span>&nbsp;&nbsp;Section three<span class="fas fa-caret-down first icon"></span>
                                         </summary>
                                         <p>
                                             <div class="cmhc-font-14 mt-2">
@@ -272,7 +280,7 @@ iframe {
                                                     <a href="" id="newlink7" data-toggle="modal" data-target="#"><span class="fa-regular fa-file-lines"></span>&nbsp; New link 7</a>
                                                 </div>
                                                 <div class="mt-4">
-                                                    <div class="cmhc-font-12 font-bold">Need help with Arrears Reporting? Contact CMHC:</div>
+                                                    <div class="cmhc-font-12 font-bold">Need help with Application Submission? Contact CMHC:</div>
                                                     <div class="general-information font-bold">
                                                         Monday to Friday 6:30 a.m. to 11 p.m. ET and Saturdays 8:30 a.m. to 7 p.m. ET. 1-866-358-9999 or email CMHC at cpcdocs@cmhc.ca
                                                     </div>
@@ -297,18 +305,17 @@ iframe {
     };
     const dashboard = {
         init: () => {
-            let btnApplicationCreateModal = document.querySelector('#btnApplicationCreateModal');
-            btnApplicationCreateModal.addEventListener('click', (event) => {
-                let createApplicationFrame = document.querySelector('#createApplicationFrame');
-                createApplicationFrame.src = '/_portal/modal-form-template-path/f82dab33-566f-ed11-9562-000d3a8c6ab8?entityformid=ae46f8ae-ee77-ed11-81ab-000d3a8c6ab8&languagecode=1033';
-            })
+            // let btnApplicationCreateModal = document.querySelector('#btnApplicationCreateModal');
+            // btnApplicationCreateModal.addEventListener('click', (event) => {
+            //     let createApplicationFrame = document.querySelector('#createApplicationFrame');
+            //     createApplicationFrame.src = '/_portal/modal-form-template-path/f82dab33-566f-ed11-9562-000d3a8c6ab8?entityformid=ae46f8ae-ee77-ed11-81ab-000d3a8c6ab8&languagecode=1033';
+            // })
         },
 
         saveApplication: (event) => {
             event.preventDefault();
             const applicationIframe = document.querySelector('#application-iframe');
             Object.keys(applicationFields).forEach((iframeField) => {
-                debugger;
                 let crmField = applicationFields[iframeField];
                 applicationIframe.contentDocument.querySelector('#' + iframeField).value = document.querySelector('#' + crmField).value;
             });

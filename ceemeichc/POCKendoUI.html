@@ -1,0 +1,701 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script crossorigin="anonymous" src="https://kendo.cdn.telerik.com/2023.1.117/js/jszip.min.js"></script>
+<script crossorigin="anonymous" src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+<link rel="stylesheet" crossorigin="anonymous" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+<style>
+    #drop_zone {
+        border: 5px solid blue;
+        width: 200px;
+        height: 100px;
+    }
+
+    .kendo-drop-area {
+        text-align: center;
+        position: relative;
+        border: 2px dashed #ccc;
+        border-radius: 20px;
+        width: auto;
+        font-family: sans-serif;
+        padding: 20px;
+        min-height: 220px;
+        display: grid;
+        align-items: center;
+    }
+
+        .kendo-drop-area.highlight {
+            border-color: #29649c;
+        }
+
+    .delete-expense {
+        border-color: transparent !important;
+        background-color: transparent !important;
+    }
+</style>
+
+<!-- Get Totals from Summary -->
+{% fetchxml getTotals %}
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="cmhc_revenuestreamsummary">
+        <attribute name="cmhc_revenuestreamsummaryid" />
+        <attribute name="cmhc_type" />
+        <attribute name="cmhc_totalcount" />
+        <attribute name="cmhc_totalannualrent" />
+        <attribute name="cmhc_category" />
+        <order attribute="cmhc_category" descending="false" />
+        <filter type="and">
+            <condition attribute="cmhc_muapplicationid" operator="eq" value="{{ applicationId }}" />
+            <condition attribute="cmhc_category" operator="eq" value="758280008" />
+        </filter>
+    </entity>
+</fetch>
+{% endfetchxml %}
+{% if getTotals.results.entities.size > 0 %}
+    {% assign totalUnits = getTotals.results.entities[0].cmhc_totalcount %}
+    {% assign totalRent = getTotals.results.entities[0].cmhc_totalannualrent %}
+{% endif %}
+
+<div class="col-sm-12 kendo-dropcol">
+    <div class="kendo-drop-area">
+        <p>Drag and drop the file here</p>
+        <div class="fieldgroup required">
+            <div id="kendo-dropzone" class="hasInput">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kendo">
+    <div id="example">
+        <div id="spreadsheet" style="width: 100%;"></div>
+        <div class="mt-3 dropdown action">
+            <button class="next action-button pull-right" style="width: 150px" id="submitKendoGrid">Submit Data</button>
+            <!-- <input type="button" name="submit" class="next action-button" value="Reset" id="resetKendoTable" /> -->
+        </div>
+    </div>
+</div>
+
+<div class="expenses" hidden>
+    <div class="col-sm-12 expenseTable">
+        <div class="table-area">
+            <div class="entitylist">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="form-group required">
+                            <label for="type" class="control-label">Type</label>
+                            <select name="type" class="form-control" id="type" aria-describedby="type">
+                                <option value="">-- Select --</option>
+                                <option value="taxes">Taxes</option>
+                                <option value="insurance">Insurance</option>
+                                <option value="water">Water</option>
+                                <option value="electricity">Electricity</option>
+                                <option value="heat">Heat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group required">
+                            <label for="amount" class="control-label">Amount</label>
+                            <input type="text" name="amount" class="form-control" id="amount"
+                                decimal-type="yes" aria-describedby="amount" data-type="currency"
+                                value="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="next action-button" id="addExpense"><span class="fa fa-plus-circle"></span> Add</button>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="form-group pull-right">
+                        <p>
+                            <b>Total Units:</b> <label for="" id="totalUnitsValue" class="cmhc-data"></label> &nbsp;&nbsp; <b>Total Rental: </b>$ <label for="" id="totalRentalValue" class="cmhc-data"></label>
+                        </p>
+                    </div>
+                    <div class="view-grid-has-pagination">
+                        <!-- <div id="loader"></div> -->
+                        <table role="grid" class="table table-striped table-fluid" id="importedExpense">
+                            <thead>
+                                <tr>
+                                    <th class="cmhc-font-12" data-sort="type">
+                                        Type
+                                    </th>
+                                    <th class="cmhc-font-12" data-sort="amount">
+                                        $
+                                    </th>
+                                    <th class="cmhc-font-12" data-sort="amount">
+                                        %
+                                    </th>
+                                    <th class="cmhc-font-12" data-sort="amount">
+                                        Unit/Year
+                                    </th>
+                                    <th class="cmhc-font-12" data-sort="actions" style="width: 20px">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="input-group pull-right view-search entitylist-search">
+                            <input type="button" name="submit" class="next action-button" value="Submit" id="submitKendoTable" />
+                            <!-- <input type="button" name="submit" class="next action-button" value="Reset" id="resetKendoTable" /> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import {utils as utils} from "/utils.js"    
+    let table, sortCol;
+    var XL_row_object;
+    // var tableRows = document.querySelector('#importedrows tbody');
+    var tableRows = document.querySelector('#importedExpense tbody')
+    let sortAsc = false;
+    const pageSize = 10;
+    let curPage = 1;
+    var current = document.querySelector('#currentpage');
+    var fs;
+    var white = '#fff';
+    var gray = '#a3a3a3';
+    var black = '#000'
+    var lightgreen = '#d5e3d4'
+    var lightblue = '#cbdde1'
+    var alignLeft = 'left';
+    var alignCenter = 'center';
+    var taxes = 0.00;
+    var insurance = 0.00;
+    var water = 0.00;
+    var electricity = 0.00;
+    var heat = 0.00;
+    var multiConsistencyId = '';
+    var isFileDataValid = true;
+    var totalUnits = parseInt('{{totalUnits}}');
+    var totalRent = parseFloat('{{totalRent | round: 2 }}');
+    var rowCount = 0;
+    var typesArray = ['taxes','insurance','water','electricity','heat'];
+
+    const kendo = {
+        init:() => {
+            let appId = '{{ applicationId }}';
+            appId !== '' ? sessionStorage.setItem('applicationId',appId) : null;
+            if (sessionStorage.getItem('applicationId') === null || sessionStorage.getItem('applicationId') === '')
+                return;
+
+            // get multi-consistency ID
+            appAjax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: `/_api/cmhc_valueassessments?$select=cmhc_valueassessmentid&$filter=_cmhc_muapplicationid_value eq ${appId} and (contains(cmhc_name,'Lender') or (cmhc_name eq null))`,
+                success: (res, status, xhr) => {
+                    if (res.value.length > 0)
+                        multiConsistencyId = res.value[0].cmhc_valueassessmentid
+                },
+                error: (res, status, xhr) => {
+                    utils.showToastr(`Unable to get MC id: ${res.responseJSON.error.innererror.message}`, null, 'error');
+                }
+            });
+
+            ['dragenter','dragover'].forEach((eventName) => {
+                document.querySelector('.kendo-drop-area').addEventListener(eventName, kendo.fileBeingDropped, false);
+            });
+
+            ['dragleave','drop'].forEach((eventName) => {
+                document.querySelector('.kendo-drop-area').addEventListener(eventName, kendo.readFromFile, false);
+                document.querySelector('.kendo-drop-area').addEventListener(eventName, kendo.readFromFileKendo, false);
+            });
+
+            document.querySelector('#addExpense').addEventListener('click', kendo.addExpense);
+            document.querySelector('#submitKendoTable').addEventListener('click', kendo.submitTable);
+            
+            document.querySelector('#submitKendoGrid').addEventListener('click', kendo.submitKendoGrid, false);
+
+            document.querySelector('#totalRentalValue').textContent = Number(totalRent).toLocaleString('en');
+            document.querySelector('#totalUnitsValue').textContent = totalUnits;
+        },
+        fileBeingDropped: (eventName) => {
+            document.querySelector('.kendo-drop-area').classList.add('highlight');
+            eventName.stopPropagation();
+            eventName.preventDefault();
+        },
+        readFromFile: (eventName) => {
+            isFileDataValid = true;
+            let dropbox = document.getElementById("kendo-dropzone");
+            document.querySelector('.kendo-drop-area').classList.remove('highlight');
+            eventName.stopPropagation();
+            eventName.preventDefault();
+
+            if (eventName.type === 'drop' && eventName.dataTransfer.files[0]) {
+                document.querySelector('.kendo-dropcol').setAttribute('hidden','true');
+                const dt = eventName.dataTransfer.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    var data = e.target.result;
+                    var workbook = XLSX.read(data, {
+                        type: 'binary'
+                    });
+
+                    workbook.SheetNames.forEach(function(sheetName) {
+                        XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                        kendo.renderTable();
+                    });
+                    document.querySelectorAll('.delete-expense').forEach((btn) => {
+                        btn.addEventListener('click', (component) => {
+                            kendo.removeTableLine(component);
+                        });
+                    })
+                    document.querySelector('.tablecol').removeAttribute('hidden');
+                };
+
+                reader.onerror = function(ex) {
+                    console.log(ex);
+                };
+                reader.readAsBinaryString(dt);
+            }
+        },
+        removeTableLine: (component) => {
+            component.preventDefault();
+            component.stopPropagation();
+            component.target.closest('tr').remove();
+        },
+        renderTable: () => {
+            let result = '';
+            XL_row_object.forEach((row) => {
+                    result += `
+                    <tr>
+                        <td contenteditable="true" data-name="${'type_'.concat(rowCount)}">${row.type === undefined || row.type === null ? '' : row.type}</td>
+                        <td contenteditable="true" data-name="${'amount_'.concat(rowCount)}">$ ${row.amount === undefined || row.amount === null ? '' : kendo.convertToNumber(row.amount)}</td>
+                        <td data-name="${'pc_'.concat(rowCount)}">${row.amount === undefined || row.amount === null ? '' : kendo.convertToNumber((row.amount/totalRent)*100)}</td>
+                        <td data-name="${'unityear_'.concat(rowCount)}">$ ${row.amount === undefined || row.amount === null ? '' : kendo.convertToNumber(row.amount/totalUnits)}</td>
+                        <td aria-label="action menu">
+                            <div class="dropdown action">
+                                <button class="btn btn-default btn-xs aria-exp fa fa-trash delete-expense" delete-id="${rowCount}">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                rowCount++;
+            });
+            tableRows.innerHTML = result;
+            document.querySelector('.tablecol').removeAttribute('hidden');
+            // current.innerHTML = curPage;
+        },
+        addExpense: (btn) => {
+            btn.preventDefault();
+            btn.stopPropagation();
+
+            if (document.querySelector('#type').value === '' || document.querySelector('#type').value === null ||
+                document.querySelector('#amount').value === '' || document.querySelector('#amount').value === null) {
+                utils.showToastr('Please enter a type and an amount.', null, 'error');
+                return;
+            }
+                
+
+            let addrow = true;
+            // Do we have all types entered?
+            let tableLines = document.querySelectorAll('#importedExpense tbody tr');
+            if (tableLines) {
+                Object.keys(tableLines).forEach((line) => {
+                    if (tableLines[line].children[0].textContent === document.querySelector('#type').value) {
+                        addrow = false;
+                        return;
+                    }
+                    if (!addrow)
+                        return;
+                });
+            }
+
+            if (addrow) {
+                let newTr = document.createElement('tr');
+                newTr.innerHTML = `
+                    <td contenteditable="true" data-name="${'type_'.concat(rowCount)}">${document.querySelector('#type').value}</td>
+                    <td contenteditable="true" data-name="$ ${'amount_'.concat(rowCount)}">$ ${kendo.convertToNumber(document.querySelector('#amount').value.slice(1).replaceAll(',',''))}</td>
+                    <td data-name="${'pc_'.concat(rowCount)}">${kendo.convertToNumber((document.querySelector('#amount').value.slice(1).replaceAll(',','')/totalRent)*100)}</td>
+                    <td data-name="$ ${'unityear_'.concat(rowCount)}">$ ${kendo.convertToNumber(document.querySelector('#amount').value.slice(1).replaceAll(',','')/totalUnits)}</td>
+                    <td aria-label="action menu">
+                        <div class="dropdown action">
+                            <button class="btn btn-default btn-xs aria-exp fa fa-trash delete-expense" delete-id="${rowCount}">
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tableRows.insertAdjacentElement('beforeend',newTr);
+                
+                document.querySelector('button[delete-id="' + rowCount + '"]').addEventListener('click', (btn) => {
+                    kendo.removeTableLine(btn);
+                });
+
+                rowCount++;
+            }
+            else {
+                utils.showToastr('You already created an expense of this type.', null, 'error');
+            }
+
+            document.querySelector('#type').value = '';
+            document.querySelector('#amount').value = '';
+        },
+        submitTable: (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (multiConsistencyId === '') {
+                utils.showToastr('Your multi consistency has not been created yet.', null, 'error');
+                return;
+            }
+
+            if (document.querySelectorAll("#importedExpense tbody tr").length < 1) {
+                utils.showToastr('You need at least one expense before you can submit.', null, 'error');
+                return;
+            }
+
+            var myobj = {}
+            debugger;
+            document.querySelectorAll("#importedExpense tbody tr").forEach((tr) => {
+                switch (tr.children[0].textContent) {
+                    case 'water':
+                        myobj['cmhc_resopexpwaterseweramount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexpwatersewerpercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexpwatersewerunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                    case 'taxes':
+                        myobj['cmhc_resopexptaxesamount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexptaxespercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexptaxesunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                    case 'insurance':
+                        myobj['cmhc_resopexpinsuranceamount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexpinsurancepercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexpinsuranceunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                    case 'heat':
+                        myobj['cmhc_resopexpheatamount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexpheatpercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexpheatunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                    case 'electricity':
+                        myobj['cmhc_resopexpelectricityamount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexpelectricitypercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexpelectricityunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                    case 'utilities':
+                        myobj['cmhc_resopexputilitiesamount'] = kendo.convertToNumber(tr.children[1].textContent);
+                        myobj['cmhc_resopexputilitiespercent'] = kendo.convertToNumber(tr.children[2].textContent);
+                        myobj['cmhc_resopexputilitiesunityear'] = kendo.convertToNumber(tr.children[3].textContent);
+                        break;
+                }
+            });
+
+            // assign sheet cell values to vars
+            // appAjax call to PATCH
+            debugger;
+            appAjax({
+                type: 'PATCH',
+                url: `/_api/cmhc_valueassessments(${multiConsistencyId})`,
+                contentType: 'application/json',
+                data: JSON.stringify(myobj),
+                success: (res, status, xhr) => {
+                    utils.showToastr('Data submitted successfuly', null, 'info');
+                },
+                error: (res, status, xhr) => {
+                    utils.showToastr(`Error submitting data: ${res.responseJSON.error.innererror.message}`, null, 'error');
+                }
+            })  
+        },
+        convertToNumber:(value) => {
+            return new Number(parseFloat(String(value).replace('$','').replace(',','')).toFixed(2));
+        },
+
+        // KENDO ONLY
+        readFromFileKendo: (eventName) => {
+            isFileDataValid = true;
+            let dropbox = document.getElementById("kendo-dropzone");
+            document.querySelector('.kendo-drop-area').classList.remove('highlight');
+            eventName.stopPropagation();
+            eventName.preventDefault();
+
+            if (eventName.type === 'drop' && eventName.dataTransfer.files[0]) {
+                document.querySelector('.kendo-dropcol').setAttribute('hidden','true');
+                const dt = eventName.dataTransfer.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    var data = e.target.result;
+                    var workbook = XLSX.read(data, {
+                        type: 'binary'
+                    });
+
+                    workbook.SheetNames.forEach(function(sheetName) {
+                        XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                        kendo.renderTableKendo();
+                        kendo.showKendo();
+                    });
+                };
+
+                reader.onerror = function(ex) {
+                    console.log(ex);
+                };
+                reader.readAsBinaryString(dt);
+            }
+        },
+        renderTableKendo: () => {
+            let result = '';
+            XL_row_object.forEach((row) => {
+                debugger;
+                switch(row.type) {
+                    case 'taxes':
+                        taxes = row.amount;
+                        break;
+                    case 'insurance':
+                        insurance = row.amount;
+                        break;
+                    case 'water':
+                        water = row.amount;
+                        break;
+                    case 'electricity':
+                        electricity = row.amount;
+                        break;
+                    case 'heat':
+                        heat = row.amount;
+                        break;                    
+                }
+                // taxes = row.taxes;
+                // insurance = row.insurance;
+                // water = row.water;
+                // electricity = row.electricity;
+                // heat = row.heat;
+            });
+            document.querySelector('.kendo').removeAttribute('hidden');
+        },
+        showKendo: () => {
+            $("#spreadsheet").kendoSpreadsheet({
+                toolbar: {
+                    home: []
+                },
+                excel: {                
+                    // Required to enable saving files in older browsers
+                    proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                },
+                pdf: {                
+                    proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                },
+                sheets: [
+                    {
+                        name: "Loan Analysis",
+                        rows: [
+                            {
+                                height: 25,
+                                //Header
+                                cells: [
+                                    {
+                                        value: "Residential Revenues", background: `${gray}`, textAlign: `${alignCenter}`, color: `${black}`,fontWeight: 600
+                                    },
+                                    {
+                                        value: "$", background: `${gray}`, textAlign: `${alignCenter}`, color: `${black}`,fontWeight: 600
+                                    },
+                                    {
+                                        value: "%", background: `${gray}`, textAlign: `${alignCenter}`, color: `${black}`,fontWeight: 600, enable: false
+                                    },
+                                    {
+                                        value: "unit/Year", background: `${gray}`, textAlign: `${alignCenter}`, color: `${black}`,fontWeight: 600, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                //taxes
+                                cells: [
+                                    {
+                                        value: "Taxes", textAlign: `${alignLeft}`
+                                    },
+                                    {
+                                        value: taxes, format: "$#,##0.00",background: `${lightblue}`
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B2=0, 0, B2/B10), 0)", format: "%0.00",background: `${lightgreen}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B2=0, 0, B2/B9)", format: "$#,##0.00",background: `${lightgreen}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                // insurance
+                                cells: [
+                                    {
+                                        value: "Insurance", textAlign: `${alignLeft}`, background: `${white}`, color: `${black}`
+                                    },
+                                    {
+                                        value: insurance, format: "$#,##0.00",background: `${lightblue}`
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B3=0, 0, B3/B10), 0)", format: "%#0.00",background: `${lightgreen}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B3=0, 0, B3/B9)", format: "$#,##0.00",background: `${lightgreen}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                // water and sewer
+                                cells: [
+                                    {
+                                        value: "Water & Sewer", textAlign: `${alignLeft}`
+                                    },
+                                    {
+                                        value: water, format: "$#,##0.00",background: `${lightblue}`
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B4=0, 0, B4/B10), 0)", format: "%#0.00",background: `${lightgreen}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B4=0, 0, B4/B9)", format: "$#,##0.00",background: `${lightgreen}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                // electriity
+                                cells: [
+                                    {
+                                        value: "Electricity", textAlign: `${alignLeft}`
+                                    },
+                                    {
+                                        value: electricity, format: "$#,##0.00",background: `${lightblue}`
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B5=0, 0, B5/B10), 0)", format: "%#0.00",background: `${lightgreen}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B5=0, 0, B5/B9)", format: "$#,##0.00",background: `${lightgreen}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                // heat
+                                cells: [
+                                    {
+                                        value: "Heat", textAlign: `${alignLeft}`
+                                    },
+                                    {
+                                        value: heat, format: "$#,##0.00",background: `${lightblue}`
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B6=0, 0, B6/B10), 0)", format: "%#0.00",background: `${lightgreen}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B6=0, 0, B6/B9)", format: "$#,##0.00",background: `${lightgreen}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                // utilities
+                                cells: [
+                                    {
+                                        value: "Utilities", textAlign: "center", background: `${gray}`, color: `${black}`, enable: false
+                                    },
+                                    {
+                                        formula: "SUM(B3:B6)", format: "$#,##0.00", background: `${gray}`, color: `${black}`, enable: false
+                                    },
+                                    {
+                                        formula: "IFERROR(IF(B7=0, 0, B7/B10), 0)", format: "%#0.00", background: `${gray}`, color: `${black}`, enable: false
+                                    },
+                                    {
+                                        formula: "IF(B7=0, 0, B7/B9)", format: "$#,##0.00", background: `${gray}`, color: `${black}`, enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                cells: []
+                            },
+                            {
+                                cells: [
+                                    {
+                                        value: "Total Numer of Units", background: `${gray}`, textAlign: `${alignLeft}`, enable: false
+                                    },
+                                    {
+                                        value: totalUnits, format: "#,##", enable: false
+                                    }
+                                ]
+                            },
+                            {
+                                cells: [
+                                    {
+                                        value: "Residential Effective Gross Income (EGI)", background: `${gray}`, textAlign: `${alignLeft}`, enable: false
+                                    },
+                                    {
+                                        value: totalRent, format: "$#,##0.00", enable: false
+                                    }
+                                ]
+                            }
+                        ],
+                        columns: [
+                            {
+                                width: 250
+                            },
+                            {
+                                width: 115
+                            },
+                            {
+                                width: 115
+                            },
+                            {
+                                width: 150
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            var spreadsheet = $("#spreadsheet").data("kendoSpreadsheet"); // The widget instance.
+
+            var sheet = spreadsheet.activeSheet(); // The current active sheet.
+            sheet._showGridLines = false;
+        },
+        submitKendoGrid: (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (multiConsistencyId === '') {
+                utils.showToastr('Your multi consistency has not been created yet.', null, 'error');
+                return;
+            }                
+
+            var spreadsheet = $("#spreadsheet").data("kendoSpreadsheet"); // The widget instance.
+            var sheet = spreadsheet.activeSheet(); // The current active sheet.
+            var sheetObj = {
+                'cmhc_resopexptaxesamount': kendo.convertToNumber(sheet.range("B2").value()),
+                'cmhc_resopexptaxespercent': kendo.convertToNumber(sheet.range("C2").value()) * 100,
+                'cmhc_resopexptaxesunityear': kendo.convertToNumber(sheet.range("D2").value()),
+                'cmhc_resopexpinsuranceamount': kendo.convertToNumber(sheet.range("B3").value()),
+                'cmhc_resopexpinsurancepercent': kendo.convertToNumber(sheet.range("C3").value()) * 100,
+                'cmhc_resopexpinsuranceunityear': kendo.convertToNumber(sheet.range("D3").value()),
+                'cmhc_resopexpwaterseweramount': kendo.convertToNumber(sheet.range("B4").value()),
+                'cmhc_resopexpwatersewerpercent': kendo.convertToNumber(sheet.range("C4").value()) * 100,
+                'cmhc_resopexpwatersewerunityear': kendo.convertToNumber(sheet.range("D4").value()),
+                'cmhc_resopexpelectricityamount': kendo.convertToNumber(sheet.range("B5").value()),
+                'cmhc_resopexpelectricitypercent': kendo.convertToNumber(sheet.range("C5").value()) * 100,
+                'cmhc_resopexpelectricityunityear': kendo.convertToNumber(sheet.range("D5").value()),
+                'cmhc_resopexpheatamount': kendo.convertToNumber(sheet.range("B6").value()),
+                'cmhc_resopexpheatpercent': kendo.convertToNumber(sheet.range("C6").value()) * 100,
+                'cmhc_resopexpheatunityear': kendo.convertToNumber(sheet.range("D6").value()),
+                'cmhc_resopexputilitiesamount': kendo.convertToNumber(sheet.range("B7").value()),
+                'cmhc_resopexputilitiespercent': kendo.convertToNumber(sheet.range("C7").value()) * 100,
+                'cmhc_resopexputilitiesunityear': kendo.convertToNumber(sheet.range("D7").value()),
+            }
+            // assign sheet cell values to vars
+            // appAjax call to PATCH
+            appAjax({
+                type: 'PATCH',
+                url: `/_api/cmhc_valueassessments(${multiConsistencyId})`,
+                contentType: 'application/json',
+                data: JSON.stringify(sheetObj),
+                success: (res, status, xhr) => {
+                    utils.showToastr('Data submitted successfuly', null, 'info');
+                },
+                error: (res, status, xhr) => {
+                    utils.showToastr(`Error submitting data: ${res.responseJSON.error.innererror.message}`, null, 'error');
+                }
+            })  
+        },
+    }
+    kendo.init();
+</script>

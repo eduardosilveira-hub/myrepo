@@ -1,0 +1,13 @@
+<div id='requests' style='display: none'>
+    {% include 'entity_list' key: "POC Request List" %}
+</div>
+
+<script>
+    let list = document.querySelector('div.entity-grid.entitylist');
+
+    $(list).on('loaded', () => {
+        //list.querySelector('.view-toolbar').style.display = 'none';
+        document.querySelector('a[title="Create"]').style = 'display: none';
+        document.querySelector('#requests').style.display = 'block';
+    });
+</script>

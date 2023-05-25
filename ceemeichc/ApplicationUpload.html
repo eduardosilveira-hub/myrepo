@@ -1,49 +1,4 @@
-{% include 'Loading Spinner' %}
 <style>
-    #msform {
-        text-align: center;
-        position: relative;
-    }
-
-    #msform fieldset {
-        background: white;
-        border: 0 none;
-        border-radius: 0px;
-        padding: 20px 30px;
-        box-sizing: border-box;
-        width: 80%;
-        margin: 0 10%;
-
-        /*stacking fieldsets above each other*/
-        position: relative;
-    }
-
-    /*Hide all except first fieldset*/
-    #msform fieldset:not(:first-of-type) {
-        display: none;
-    }
-
-    #msform label {
-        position: absolute;
-        top: 0.8rem;
-        left: 0;
-        display: block;
-        font-size: 1rem;
-        transition: 0.2s ease-out;
-        opacity: 0.5;
-        will-change: top, font-size;
-    }
-
-    #msform .fieldgroup {
-        margin: 1.5rem 0;
-        position: relative;
-    }
-    
-    #msform input:focus + label, #msform input.hasInput + label {
-        top: -0.8rem;
-        font-size: 0.7rem;
-    }
-
     #drop_zone {
         border: 5px solid blue;
         width: 200px;
@@ -51,20 +6,33 @@
     }
 
     .drop-area {
+        text-align: center;
+        position: relative;
         border: 2px dashed #ccc;
         border-radius: 20px;
         width: auto;
         font-family: sans-serif;
         padding: 20px;
+        min-height: 220px;
+        display: grid;
+        align-items: center;
     }
 
-    .drop-area.highlight {
-        border-color: #29649c;
-    }
+        .drop-area.highlight {
+            border-color: #29649c;
+        }
 
     .table-area {
         width: 100%;
         font-family: sans-serif;
+        /*overflow:auto;*/
+        /* margin: 0px auto; */
+    }
+
+    .view-grid-has-pagination {
+        width: 100%;
+        font-family: sans-serif;
+        overflow: auto;
         /* margin: 0px auto; */
     }
 
@@ -72,82 +40,115 @@
         background-color: #FFFFFF;
         color: #000000;
         border: 1px solid #f2f2f2;
-        border-radius: 14px;
+        border-radius: 20px;
         padding: 20px;
     }
 
-    table tr:nth-child(even){
+    table tr:nth-child(even) {
         background-color: #f0f7ff;
     }
 
-    .pagination li:hover{
+    #uploadPagination.pagination li:hover {
         cursor: pointer;
     }
 
-    table tbody tr {
-        display: none;
+    th:hover {
+        cursor: pointer
     }
 
-    nav ul {
+    /* nav ul {
         background: #1e1e1e !important;
+    } */
+
+    #uploadPagination.pagination > .active > span {
+        background-color: #007bff;
     }
 
-    .pagination>.active>span {
-        background-color: #29649c;
+    #uploadPagination.pagination {
+        background: #ffffff !important;
+    }
+    .validationField {
+        background-color: #F4D0B3;
     }
 
-    .pagination {
-        background: #f0f7ff !important;
+    .view-loading-upload {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: #ffffffbf no-repeat center center;
+        z-index: 10000;
+        text-align: center;
+    }   
+    
+    .view-loading-upload span.fa-spinner {
+      margin-top: 20%;
     }
-
 </style>
-<div class="overlay"></div>
 <div class="row">
-    <div class="col-sm-4">
-        <div class="row drop-area">
-            <div class="col-sm-12">
-                <form id="msform">
-                    <fieldset>
-                        <p>Drag and drop the file here</p>
-                        <div class="fieldgroup required">
-                            <div id="dropzone" class="hasInput">
-                                <p>drop zone</i>.</p>
-                            </div>                    
-                        </div>
-                    </fieldset>
-                </form>
+    <div class="col-sm-12 dropcol">
+        <div class="drop-area">
+            <p>Drag and drop the file here</p>
+            <div class="fieldgroup required">
+                <div id="dropzone" class="hasInput">
+                    <p>&nbsp;</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="view-loading-upload message text-center">
+        <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Processing...
+    </div>
+    <div class="col-sm-12 tablecol" hidden>
         <div class="table-area">
             <div class="entitylist">
                 <div class="view-toolbar grid-actions clearfix">
                     <div class="pull-left toolbar-actions">
                         <div class="input-group pull-left view-search entitylist-search">
-                            <input type="button" name="submit" class="next action-button" value="Submit" id="submitTable"/>
-                            <!-- <div class="input-group-btn">
-                            </div> -->
+                            <input type="button" name="submit" class="next action-button" value="Submit" id="submitTable" />
+                            <input type="button" name="submit" class="next action-button" value="Reset" id="resetTable" />
                         </div>
-                    </div>				
+                    </div>
                     <div class="pull-right toolbar-actions">
                         <div class="input-group pull-left view-search entitylist-search">
                             <input placeholder="Search" class="form-control">
                         </div>
                     </div>
                 </div>
-                <div class="view-grid has-pagination">
+                <div class="view-grid-has-pagination">
+                    <!-- <div id="loader"></div> -->
                     <table role="grid" class="table table-striped table-fluid" id="importedrows">
                         <thead>
                             <tr>
-                                <th class="sort-enabled cmhc-font-12" data-sort="name">
-                                    Name
+                                <th class="sort-enabled cmhc-font-12" data-sort="RevenueStreamType">
+                                    Revenue Stream Type
                                 </th>
-                                <th class="sort-enabled cmhc-font-12" data-sort="loanamount">
-                                    Loan Amount
+                                <th class="sort-enabled cmhc-font-12" data-sort="ResStreamUnitBedMonthType">
+                                    Res.Stream Unit/Bed Month Type
                                 </th>
-                                <th class="sort-enabled cmhc-font-12" data-sort="taxamount">
-                                    Tax rate
+                                <th class="sort-enabled cmhc-font-12" data-sort="MonthlyRevSubmitted">
+                                    Monthly Rev.Submitted
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="MonthlyRevAccepted">
+                                    Monthly Rev.Accepted
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="Market">
+                                    Market
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="AffordableUnit">
+                                    Affordable Unit
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="SubsidizedUnit">
+                                    Subsidized Unit
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="CareServices">
+                                    Care Services
+                                </th>
+                                <th class="sort-enabled cmhc-font-12" data-sort="AffordableCare">
+                                    Affordable Care
                                 </th>
                             </tr>
                         </thead>
@@ -155,29 +156,22 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="view-loading message text-center" style="display: none;">
-                    <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Loading...
-                </div>
                 <!-- New Pagination -->
-                <div class='pagination-container' >
-                    <nav>
-                        <ul class="pagination">
-                            <li data-page="prev" >
-                                <span> << <span class="sr-only">(current)</span></span>
-                            </li>
-                            <!--	Here the JS Function Will Add the Rows -->
-                            <li data-page="next" id="prev">
-                                <span> >> <span class="sr-only">(current)</span></span>
-                            </li>
-                        </ul>
-                    </nav>
+                <div class='pagination-container'>
+                    <ul id="uploadPagination" class="pagination">
+                        <li data-page="prev">
+                            <span> << <span class="sr-only">(current)</span></span>
+                        </li>
+                        <!--	Here the JS Function Will Add the Rows -->
+                        <li data-page="next" id="prev">
+                            <span> >> <span class="sr-only">(current)</span></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -189,6 +183,13 @@
     const pageSize = 10;
     let curPage = 1;
     var current = document.querySelector('#currentpage');
+    var fs;
+    var isFileDataValid = true;
+    var countOfDataInvalidTD = 0;
+    var isRowUpdated =null;
+    var isCoumnUpdated = null;
+    var isPreSubmittedField = false;
+    var headersArray = ['RevenueStreamType', 'ResStreamUnitBedMonthType', 'MonthlyRevSubmitted', 'MonthlyRevAccepted', 'Market', 'AffordableUnit', 'SubsidizedUnit', 'CareServices', 'AffordableCare'];
     
     const upload = {
 
@@ -204,48 +205,176 @@
             document.querySelectorAll('#importedrows thead tr th').forEach(t => {
                 t.addEventListener('click', upload.sort, false);
             });
-
             document.querySelector('#submitTable').addEventListener('click', (event) => {
                 upload.submitData();
             })
 
-            // document.querySelector('#importedrows').addEventListener('click', (item) => {
-                // var cell = item.path[0];
-                // alert(cell);
-  
-                // for (var j = 0; j < row.cells.length; j++) {
-  
-                //     cell_value += row.cells[j].innerHTML;
-                //     cell_value += " | ";
-                // }
-            // });
+            document.querySelector('#resetTable').addEventListener('click', (event) => {
+                upload.resetTable();
+            });
+
+            document.querySelector('#importedrows').addEventListener('click', (item) => {
+
+                const cell = item.target.closest('td');
+                const row = cell != null && cell != undefined ? cell.parentElement : null;
+
+                if (cell != null && row != null) {
+                    var rowNum = row.rowIndex - 1;
+                    var cellNum = cell.cellIndex;
+                    if (isPreSubmittedField) {
+                        rowNum = isRowUpdated != null & isRowUpdated != rowNum ? isRowUpdated : rowNum;
+                        cellNum = isCoumnUpdated != null & isCoumnUpdated != cellNum ? 2 : 2;
+                    }
+                    var datasetname = tableRows.rows[rowNum].cells[cellNum].dataset.name
+                    if (datasetname == "MonthlyRevSubmitted") {
+                        isPreSubmittedField = true;
+                        isRowUpdated = rowNum;
+                        isCoumnUpdated = cellNum;
+                        var currentValue = tableRows.rows[rowNum].cells[cellNum].innerHTML != '' && tableRows.rows[rowNum].cells[cellNum].innerHTML != null ? tableRows.rows[rowNum].cells[cellNum].innerHTML.toString() : null;
+                        var fileValue = XL_row_object[rowNum][datasetname].toString();
+                        if (currentValue != fileValue) {
+                            var regex = /^[1-9]\d*(((,\d{3}){1})?(\.\d{0,2})?)$/;
+                            if (datasetname == "MonthlyRevSubmitted") {
+                                isPreSubmittedField = false;
+                                if (regex.test(tableRows.rows[rowNum].cells[cellNum].innerHTML)) {
+                                    XL_row_object[rowNum][datasetname] = currentValue;
+                                    tableRows.rows[rowNum].cells[cellNum].className = null;
+                                    countOfDataInvalidTD = countOfDataInvalidTD - 1;
+                                }
+                                else {
+                                    utils.showToastr('Please enter valid data in Monthly Rev Submitted.', null, 'error');
+                                    tableRows.rows[rowNum].cells[cellNum].innerHTML = fileValue;
+                                    return;
+                                }
+                            }
+                            else {
+                                isPreSubmittedField = false;
+                                XL_row_object[rowNum][datasetname] = currentValue;
+                            }
+                        }
+                    }
+                }
+             });
 
         },
+        resetTable: () => {
+            countOfDataInvalidTD = 0;
+            isPreSubmittedField = false;
+            document.querySelector('.tablecol').setAttribute('hidden','');
+            document.querySelector('.dropcol').removeAttribute('hidden');
+            document.querySelector('#importedrows tbody').innerHTML = '';
+        },
         submitData: () => {
-            upload.showHideLoader();
+            if (countOfDataInvalidTD > 0) {
+                utils.showToastr('There is an invalid data in uploaded file, please upload proper file', null, 'error');
+                return;
+            }
+            upload.showHideLoading(true);
+            var applicationId = sessionStorage.getItem("applicationId");
+            var projectAnalysisID = "";
+            if (applicationId != null && applicationId != "") {
+                var req = new XMLHttpRequest();
+                req.open("GET", "/_api/cmhc_muprojectanalysises?$filter=_cmhc_muapplicationid_value eq " + applicationId + "", true);
+                req.setRequestHeader("OData-MaxVersion", "4.0");
+                req.setRequestHeader("OData-Version", "4.0");
+                req.setRequestHeader("Accept", "application/json");
+                req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+                req.setRequestHeader("Prefer", "odata.include-annotations=\"*\"");
+                req.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        req.onreadystatechange = null;
+                        if (this.status === 200) {
+                            var results = JSON.parse(this.response);
+                            for (var i = 0; i < results.value.length; i++) {
+                                projectAnalysisID = results.value[0]["cmhc_muprojectanalysisid"];
+                            }
+                        } else {
+                            utils.showToastr('Error in retreiving the project analysis record');
+                            upload.showHideLoading(false);
+                        }
+                    }
+                };
+                req.send();
+            }
             var tableRows = document.querySelectorAll('#importedrows tbody tr');
-            if (tableRows.length === 0){
-                upload.showHideLoader();
+            if (tableRows.length === 0) {
                 utils.showToastr('Please import the file before submitting the data.', null, 'error');
                 return;
             }
             var jsonObjectArray = [];
             let counter = 0;
+            var optionSetText = null;
             Object.keys(tableRows).forEach(line => {
                 var jsonObject = {};
                 jsonObject["contactid"] = '{{ user.id }}';
+                jsonObject['cmhc_MUProjectAnalysisId@odata.bind'] = projectAnalysisID;
+                jsonObject['cmhcaccountid'] = applicationId;
                 let tdObject = tableRows[line].children;
                 Object.keys(tdObject).forEach(child => {
                     console.log(`"${tableRows[line].children[child].dataset.name}" : "${tdObject[child].innerText}"`);
-                    jsonObject[tableRows[line].children[child].dataset.name] = tdObject[child].innerText;
+                    if (tableRows[line].children[child].dataset.name == "ResStreamUnitBedMonthType") {
+                        optionSetText = tdObject[child].innerText;
+                        switch (optionSetText) {
+                            case "1 Bedroom":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280005";
+                                break;
+                            case "2 Bedrooms":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280006";
+                                break;
+                            case "3 Bedrooms":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280007";
+                                break;
+                            case "4+ Bedrooms":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280008";
+                                break;
+                            default:
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280005";
+                                break;
+                        }
+
+                    }
+                    else if (tableRows[line].children[child].dataset.name == "Market" || tableRows[line].children[child].dataset.name == "AffordableUnit" ||
+                        tableRows[line].children[child].dataset.name == "SubsidizedUnit" ) {
+                        optionSetText = tdObject[child].innerText;
+                        switch (optionSetText) {
+                            case "Yes":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "1";
+                                break;
+                            case "No":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "0";
+                                break;
+                            default:
+                                jsonObject[tableRows[line].children[child].dataset.name] = "0";
+                                break;
+                        }
+
+                    }
+                    else if ( tableRows[line].children[child].dataset.name == "AffordableCare") {
+                        optionSetText = tdObject[child].innerText;
+                        switch (optionSetText) {
+                            case "Yes":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280000";
+                                break;
+                            case "No":
+                                jsonObject[tableRows[line].children[child].dataset.name] = "758280001";
+                                break;
+                            default:
+                                jsonObject[tableRows[line].children[child].dataset.name] = "0";
+                                break;
+                        }
+
+                    }
+                    else {
+                        jsonObject[tableRows[line].children[child].dataset.name] = tdObject[child].innerText;
+                    }
                 });
                 jsonObjectArray.push(jsonObject);
             });
             console.log(jsonObjectArray);
 
             let operationType = "POST";
-            // URL for Power Automate to process the data
-            var urlApplications = "";
+            // URL for LogicApp to process the data
+            var urlApplications = "https://prod-29.canadaeast.logic.azure.com:443/workflows/f6d0d2127a4b40bfa991a3ac93ef085f/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=S60s4uek312wVxVQpXHqsYI5UwFSVGk-Z_KFgig-psI";
             fetch(urlApplications, {
                 method: 'POST',
                 headers: {
@@ -253,18 +382,27 @@
                 },
                 body: JSON.stringify(jsonObjectArray)
             })
-            .then((response) => { 
+            .then((response) => {
                 if (response.ok) {
-                    upload.showHideLoader();
+                    upload.resetTable();
                     utils.showToastr('Load sent successfuly. It will be processed by a workflow in the backend');
                     tableRows.innerHTML = '';
                 }
-                else
+                else {
                     utils.showToastr('There was an error processing the file. Please contact your advisor.', null, 'error');
+                }
+            })
+            .finally(() => {
+                upload.showHideLoading(false);
             });
         },
-        showHideLoader: (event) => {
-            document.querySelector('body').classList.toggle('loading');
+        showHideLoading: (display) => {
+            if (display){
+                document.querySelector('.view-loading-upload').style.display = 'block';
+            }
+            else{
+                document.querySelector('.view-loading-upload').style.display = 'none';
+            }
         },
         fileBeingDropped: (eventName) => {
             document.querySelector('.drop-area').classList.add('highlight');
@@ -272,15 +410,15 @@
             eventName.preventDefault();
         },
         readFromFile: (eventName) => {
-            upload.showHideLoader();
+            isFileDataValid = true;
             let dropbox = document.getElementById("dropzone");
             document.querySelector('.drop-area').classList.remove('highlight');
             eventName.stopPropagation();
             eventName.preventDefault();
 
             tableRows = document.querySelector('#importedrows tbody')
-
-            if (eventName.type === 'drop') {
+            if (eventName.type === 'drop' && eventName.dataTransfer.files[0]) {
+                document.querySelector('.dropcol').setAttribute('hidden','true');
                 const dt = eventName.dataTransfer.files[0];
                 var reader = new FileReader();
 
@@ -297,7 +435,7 @@
                         //var json_object = JSON.stringify(XL_row_object);
                         //console.log(json_object);
                     });
-
+                    document.querySelector('.tablecol').removeAttribute('hidden');
                 };
 
                 reader.onerror = function(ex) {
@@ -305,21 +443,73 @@
                 };
                 reader.readAsBinaryString(dt);
             }
-            upload.showHideLoader();
         },
         renderTable: () => {
             let result = '';
 
+            var col = [];
+            for (var i = 0; i < XL_row_object.length; i++) {
+                for (var key in XL_row_object[i]) {
+                    if (col.indexOf(key) === -1) {
+                        col.push(key);
+                    }
+                }
+            }               
+
+            for (var i = 0; i < col.length; i++) {
+                if (!headersArray.includes(col[i]) || headersArray.length != col.length) {
+                    utils.showToastr('Missing required headers in the imported file  .', null, 'error');
+                    upload.resetTable();
+                    return;
+                }
+            }
+
             XL_row_object.forEach((row) => {
-                result += `
+                var regex = /^[0-9]\d*(((,\d{3}){1})?(\.\d{0,2})?)$/;
+                var isDataValid = true;
+               
+                if (regex.test(row.MonthlyRevSubmitted)) {
+                    isDataValid = true;
+                }
+                else{
+                    isDataValid = false;
+                    isFileDataValid = false;
+                    countOfDataInvalidTD++;
+                }
+                if (isDataValid) {
+                    result += `
                     <tr>
-                    <td contentEditable data-name="name">${row.name}</td>
-                    <td contentEditable data-name="loanamount">${row.loanamount}</td>
-                    <td contentEditable data-name="taxamount">${row.taxamount}</td>
+                    <td contentEditable data-name="RevenueStreamType">${row.RevenueStreamType === undefined || row.RevenueStreamType === null ? '' : row.RevenueStreamType}</td>
+                    <td contentEditable data-name="ResStreamUnitBedMonthType">${row.ResStreamUnitBedMonthType === undefined || row.ResStreamUnitBedMonthType === null ? '' : row.ResStreamUnitBedMonthType}</td>
+                    <td contentEditable data-type="currency" data-name="MonthlyRevSubmitted">${row.MonthlyRevSubmitted === undefined || row.MonthlyRevSubmitted === null ? '' : row.MonthlyRevSubmitted}</td>
+                    <td contentEditable data-name="MonthlyRevAccepted">${row.MonthlyRevAccepted === undefined || row.MonthlyRevAccepted === null ? '' : row.MonthlyRevAccepted}</td>
+                    <td contentEditable data-name="Market">${row.Market === undefined || row.Market === null ? '' : row.Market}</td>
+                    <td contentEditable data-name="AffordableUnit">${row.AffordableUnit === undefined || row.AffordableUnit === null ? '' : row.AffordableUnit}</td>
+                    <td contentEditable data-name="SubsidizedUnit">${row.SubsidizedUnit === undefined || row.SubsidizedUnit === null ? '' : row.SubsidizedUnit}</td>
+                    <td contentEditable data-name="CareServices">${row.CareServices === undefined || row.CareServices === null ? '' : row.CareServices}</td>
+                    <td contentEditable data-name="AffordableCare">${row.AffordableCare === undefined || row.AffordableCare === null ? '' : row.AffordableCare}</td>
                     </tr>
                 `;
+                }
+                else {
+                    result += `
+                    <tr>
+                    <td contentEditable data-name="RevenueStreamType">${row.RevenueStreamType === undefined || row.RevenueStreamType === null ? '' : row.RevenueStreamType}</td>
+                    <td contentEditable data-name="ResStreamUnitBedMonthType">${row.ResStreamUnitBedMonthType === undefined || row.ResStreamUnitBedMonthType === null ? '' : row.ResStreamUnitBedMonthType}</td>
+                    <td class ="validationField" contentEditable data-type="currency" data-name="MonthlyRevSubmitted">${row.MonthlyRevSubmitted === undefined || row.MonthlyRevSubmitted === null ? '' : row.MonthlyRevSubmitted}</td>
+                    <td contentEditable data-name="MonthlyRevAccepted">${row.MonthlyRevAccepted === undefined || row.MonthlyRevAccepted === null ? '' : row.MonthlyRevAccepted}</td>
+                    <td contentEditable data-name="Market">${row.Market === undefined || row.Market === null ? '' : row.Market}</td>
+                    <td contentEditable data-name="AffordableUnit">${row.AffordableUnit === undefined || row.AffordableUnit === null ? '' : row.AffordableUnit}</td>
+                    <td contentEditable data-name="SubsidizedUnit">${row.SubsidizedUnit === undefined || row.SubsidizedUnit === null ? '' : row.SubsidizedUnit}</td>
+                    <td contentEditable data-name="CareServices">${row.CareServices === undefined || row.CareServices === null ? '' : row.CareServices}</td>
+                    <td contentEditable data-name="AffordableCare">${row.AffordableCare === undefined || row.AffordableCare === null ? '' : row.AffordableCare}</td>
+                    </tr>
+                `;
+                }
+
             });
             tableRows.innerHTML = result;
+            document.querySelector('.tablecol').removeAttribute('hidden');
             upload.getPagination('#importedrows');
             // current.innerHTML = curPage;
         },
@@ -336,7 +526,7 @@
         },
         getPagination: (table) => {
             var lastPage = 1;
-            $('.pagination')
+            $('#uploadPagination.pagination')
                 .find('li')
                 .slice(1, -1)
                 .remove();
@@ -344,9 +534,9 @@
             var maxRows = 10;
 
             if (maxRows == 5000) {
-                $('.pagination').hide();
+                $('#uploadPagination.pagination').hide();
             } else {
-                $('.pagination').show();
+                $('#uploadPagination.pagination').show();
             }
 
             var totalRows = $(table + ' tbody tr').length; // numbers of rows
@@ -363,13 +553,13 @@
             if (totalRows > maxRows) {
                 var pagenum = Math.ceil(totalRows / maxRows);
                 for (var i = 1; i <= pagenum; ) {
-                    $('.pagination #prev')
+                    $('#uploadPagination.pagination #prev')
                     .before('<li data-page="' + i + '"><span>' + i++ + '<span class="sr-only">(current)</span></span></li>')
                     .show();
                 }
             }
-            $('.pagination [data-page="1"]').addClass('active');
-            $('.pagination li').on('click', function(evt) {
+            $('#uploadPagination.pagination [data-page="1"]').addClass('active');
+            $('#uploadPagination.pagination li').on('click', function(evt) {
                 evt.stopImmediatePropagation();
                 evt.preventDefault();
                 var pageNum = $(this).attr('data-page'); // get it's number
@@ -388,7 +578,11 @@
                         pageNum = --lastPage;
                 }
                 if (pageNum == 'next') {
-                    if (lastPage == $('.pagination li').length - 2) {
+                    if ($('#uploadPagination.pagination li').length - 2 === 0) {
+                        pageNum = 1;
+                        return;
+                    }
+                    if (lastPage == $('#uploadPagination.pagination li').length - 2) {
                         return;
                     }
                     else
@@ -397,10 +591,10 @@
 
                 lastPage = pageNum;
                 var trIndex = 0;
-                $('.pagination li').removeClass('active');
-                $('.pagination [data-page="' + lastPage + '"]').addClass('active');
+                $('#uploadPagination.pagination li').removeClass('active');
+                $('#uploadPagination.pagination [data-page="' + lastPage + '"]').addClass('active');
                 upload.limitPagging();
-                
+
                 $(table + ' tr:gt(0)').each(function() {
                     trIndex++;
                     if (
@@ -412,21 +606,21 @@
                         $(this).show();
                     }
                 });
-            }); 
+            });
             upload.limitPagging();
         },
         limitPagging:() => {
-            if($('.pagination li').length > 7 ){
-                if( $('.pagination li.active').attr('data-page') <= 3 ){
-                    $('.pagination li:gt(5)').hide();
-                    $('.pagination li:lt(5)').show();
-                    $('.pagination [data-page="next"]').show();
+            if($('#uploadPagination.pagination li').length > 7 ){
+                if( $('#uploadPagination.pagination li.active').attr('data-page') <= 3 ){
+                    $('#uploadPagination.pagination li:gt(5)').hide();
+                    $('#uploadPagination.pagination li:lt(5)').show();
+                    $('#uploadPagination.pagination [data-page="next"]').show();
                 }
-                if ($('.pagination li.active').attr('data-page') > 3){
-                    $('.pagination li:gt(0)').hide();
-                    $('.pagination [data-page="next"]').show();
-                    for( let i = ( parseInt($('.pagination li.active').attr('data-page'))  -2 )  ; i <= ( parseInt($('.pagination li.active').attr('data-page'))  + 2 ) ; i++ ){
-                        $('.pagination [data-page="'+i+'"]').show();
+                if ($('#uploadPagination.pagination li.active').attr('data-page') > 3){
+                    $('#uploadPagination.pagination li:gt(0)').hide();
+                    $('#uploadPagination.pagination [data-page="next"]').show();
+                    for( let i = ( parseInt($('#uploadPagination.pagination li.active').attr('data-page'))  -2 )  ; i <= ( parseInt($('#uploadPagination.pagination li.active').attr('data-page'))  + 2 ) ; i++ ){
+                        $('#uploadPagination.pagination [data-page="'+i+'"]').show();
                     }
                 }
             }

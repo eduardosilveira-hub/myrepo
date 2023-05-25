@@ -1,0 +1,590 @@
+<style>
+    label {
+        font-weight: 400 !important;
+    }
+
+    .tab-content{
+        padding: 15px 10px 10px 10px;
+    }
+
+    .advancing{
+        background-color: #f8fdff;
+    }
+
+    .crmEntityFormView {
+        border: 0px !important;
+    }
+
+    .crmEntityFormView .cell {
+        padding: 0 0px 20px;
+    }
+
+    .crmEntityFormView .tab {
+        margin-bottom: 0px;
+    }
+
+    .action-button {
+        margin: 0px !important;
+    }
+
+    .nav-tabs>li.active>a {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .nav>li>a {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .appView {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background: white;
+        border: 0 none;
+        border-radius: 0px;
+        box-shadow: 0 0 20px 1px rgb(0 0 0 / 5%);
+        padding: 20px 30px;
+        box-sizing: border-box;
+        width: 100%;
+        /* margin: 0 10%; */
+        /*stacking fieldsets above each other*/
+        position: relative;
+    }
+
+</style>
+<div id="loader"></div>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Application Info</a></li>
+    <li><a data-toggle="tab" href="#revnuedetails">Revenue Stream Details</a></li>
+    <li><a data-toggle="tab" href="#summary">Revenue Summary</a></li>
+    <li><a data-toggle="tab" href="#requests">Requests</a></li>
+    <li><a data-toggle="tab" href="#advancing" class="advancing" style="display: none">Advancing</a></li>
+</ul>
+
+{% include 'Loading Spinner'%}
+
+<div class="tab-content" id="allInfo" style="display: none">
+    <div id="home" class="tab-pane fade in active">
+        <div class="row address-fields">
+            <div class="col-sm-12">
+                <div class="cmhc-label mt-2">Selected Address </div>
+                <div class="col-sm-5">
+                    <div class="cmhc-label mt-2">
+                        Address:
+                        <label for="" data-id="cmhc_name_en" class="cmhc-data"></label>
+                        <label for="" data-id="cmhc_streetnumbersuffix" class="cmhc-data"></label>
+                        <label for="" data-id="cmhc_streetnumber" class="cmhc-data "></label>
+                        <label for="" data-id="cmhc_streetname" class="cmhc-data "></label>
+                        <label for="" data-id="cmhc_streetnumber" class="cmhc-data "></label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="cmhc-label  mt-2">Unit #: <label for="" data-id="cmhc_unitnumber" class="cmhc-data "></label></div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="cmhc-label  mt-2">Postal Code #: <label for="" data-id="cmhc_postalcode" class="cmhc-data "></label></div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="application-fields">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="cmhc-label  mt-2">Application Detail </div>
+                    <div class="col-sm-6">
+                        <div class="cmhc-label  mt-2">
+                            CMHC Account #
+                            <label for="" data-id="cmhc_cmhcaccountnumber" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Received Date
+                            <label for="" data-id="cmhc_receiveddate" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Language of Preference
+                            <label for="" data-id="cmhc_isdocumentlanguage" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Shelter Model
+                            <label for="" data-id="cmhc_sheltermodel" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Long-Term Care
+                            <label for="" data-id="cmhc_islongtermcare" class="cmhc-data "></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cmhc-label  mt-2">
+                            Loan Purpose
+                            <label for="" data-id="cmhc_loanpurpose" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Required Doc Received Date
+                            <label for="" data-id="cmhc_requireddocreceiveddate" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Language of Documents
+                            <label for="" data-id="cmhc_isdocumentlanguage" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Affordable Rental Housing
+                            <label for="" data-id="cmhc_isaffordablerentalhousing" class="cmhc-data "></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="cmhc-label  mt-2">
+                            Advance Type
+                            <label for="" data-id="cmhc_advancetype" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Total Beds Submitted
+                            <label for="" data-id="cmhc_totalbedssubmitted" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Total Requested Amount
+                            <label for="" data-id="cmhc_totalrequestedloanamount" class="cmhc-data "></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cmhc-label  mt-2">
+                            EE & GHG Level
+                            <label for="" data-id="cmhc_eeandghglevelname" class="cmhc-data "></label>
+                        </div>
+
+                        <div class="cmhc-label  mt-2">
+                            Total Units Submitted
+                            <label for="" data-id="cmhc_totalunitssubmitted" class="cmhc-data "></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-12">
+                        <div class="cmhc-label  mt-2">Comments</div>
+                        <label for="" data-id="cmhc_comments" class="cmhc-data "></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="application-fields">
+            <div class="col-sm-12">
+                <div class="cmhc-label mt-2">Project Details</div>
+                <div class="col-sm-6">
+                    <div class="cmhc-label  mt-2">
+                        Dwelling Style
+                        <label for="" data-id="cmhc_dwellingstyle" class="cmhc-data "></label>
+                    </div>
+
+                    <div class="cmhc-label  mt-2">
+                        Dwelling Type
+                        <label for="" data-id="cmhc_dwellingtype" class="cmhc-data "></label>
+                    </div>
+
+                    <div class="cmhc-label  mt-2">
+                        Window Type
+                        <label for="" data-id="cmhc_windowtype" class="cmhc-data "></label>
+                    </div>
+
+                        <div class="cmhc-label  mt-2">
+                    Window Type Condition <label for="" data-id="cmhc_windowtypecondition" class="cmhc-data ">
+                            </label>
+                        </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="cmhc-label  mt-2">
+                        Tenure Code
+                        <label for="" data-id="cmhc_tenurecode" class="cmhc-data "></label>
+                    </div>
+
+                    <div class="cmhc-label  mt-2">
+                        Construction Type
+                        <label for="" data-id="cmhc_constructiontype" class="cmhc-data "></label>
+                    </div>
+                                
+                        <div class="cmhc-label  mt-2">
+                    Window Type Comment 
+                    <label for="" data-id="cmhc_windowtypecomment" class="cmhc-data "></label>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="revnuedetails" class="tab-pane fade">
+        <div class="row">
+            <div class="col-sm-12">
+                {% include 'entity_list' key: "POC Revenue Details" %}
+            </div>
+        </div>
+    </div>
+    <div id="summary" class="tab-pane fade">
+        <div class="row loan-fields">
+            <div class="col-sm-12">
+                <div class="cmhc-label  mt-2">Loan Details </div>
+                <div class="col-sm-5">
+                    <div class="cmhc-label  mt-2">Total Requested Loan </div>
+                    <label for="" data-id="cmhc_totalrequestedloanamount" class="cmhc-data "></label>
+                </div>
+                <div class="col-sm-5">
+                    <div class="cmhc-label  mt-2">Total Fees Payable </div>
+                    <label for="" data-id="cmhc_totalapplicationfee" class="cmhc-data "></label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="button" name="submit" class="next action-button pull-right" value="Submit Application" id="submitApplication" style="width: 150px;">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="alert alert-warning" id="summaryMessage" style='display: none;'>
+                We are retrieving your Summary information. Please wait.
+            </div>
+            <div class="cmhc-font-14 mt-2">
+                {% include 'entity_list' key: "POC Revenue Summary" %}
+            </div>
+        </div>
+    </div>
+    <div id="requests" class="tab-pane fade request">
+        <div class="row">
+            <div class="col-sm-12">
+                {% include 'entity_list' key: "POC Request List" %}
+            </div>
+        </div>
+    </div>    
+    <div id="advancing" class="tab-pane fade advancing" style="display: none">
+        <div class="row">
+            <div class="col-sm-12">
+                {% include 'entity_list' key: "POC Advancing List" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% if request.params['id'] %}
+{% assign pocapplicationId = request.params['id'] %}
+{% else %}
+{% assign pocapplicationId = '' %}
+{% endif %}
+<script type="module">
+    import { utils as utils } from '/utils.js';
+    var pocapplicationId = '{{ pocapplicationId }}';
+    var applicationStatus;
+    var showAdvancingTab = false;
+    var retriveApplicationNumber = null;
+    var muapplicationid = null;
+    var pocApplicationData = null;
+    var fs = document.querySelector('#allInfo');
+    var refreshGrid = false;
+    var urlApplications = '/_api/cmhc_pocapplications'
+    const applicationList = {
+        init: () => {
+            applicationList.showHideLoading(fs,true);
+            applicationList.showDetails();
+            // Submit application
+            document.querySelector('#submitApplication').addEventListener('click', async () => {
+                showAdvancingTab = true;
+                await applicationList.submitApplication();
+                //await applicationList.GenerateSummary(null);
+                applicationList.showDetails();
+            });
+        },
+        showHideLoading: (fs, display) => {
+            if (display){
+                document.querySelector('.view-loading').style.display = 'block';
+                fs.style.display = 'none';
+            }
+            else{
+                document.querySelector('.view-loading').style.display = 'none';
+                fs.style.display = 'block';
+            }
+        },
+        showDetails: async () => {
+            let data = await applicationList.retrieveData(pocapplicationId);
+            let appdata = await applicationList.retrieveApplicationData(pocapplicationId);
+            
+            let runSyncInterval = setInterval( async () => {
+                await applicationList.excuteApplicationBPFWorkflow(muapplicationid);
+                clearInterval(runSyncInterval);
+            }, 500);
+            
+            applicationList.showAdvancing(appdata);
+            applicationList.renderData(data);
+            applicationList.showHideLoading(fs, false);
+            applicationList.GenerateSummary(null);
+        },
+        retrieveData: (rowId) => {
+            let muApplicationFields = 'cmhc_cmhcaccountnumber,statuscode,cmhc_receiveddate,cmhc_loanpurpose,cmhc_requireddocreceiveddate,cmhc_sheltermodel,cmhc_windowtype,cmhc_windowtypecomment,cmhc_eeandghglevel,cmhc_windowtypecondition,cmhc_tenurecode,cmhc_dwellingstyle,cmhc_dwellingtype,cmhc_constructiontype,cmhc_name,';
+            muApplicationFields += 'cmhc_isdocumentlanguage,cmhc_isaffordablerentalhousing,cmhc_islanguageofdocumentsprovided,cmhc_islongtermcare,';
+            muApplicationFields += 'cmhc_advancetype,cmhc_totalunitssubmitted,cmhc_totalbedssubmitted,cmhc_totalrequestedloanamount,';//cmhc_totalapplicationfee,cmhc_comments,';
+            // muApplicationFields += 'cmhc_accessibilitylevelname,cmhc_eeandghglevelname,cmhc_name';
+            muApplicationFields += '&$expand=cmhc_LocationId($select=cmhc_streetnumber,cmhc_streetnumbersuffix,cmhc_streetname,cmhc_unitnumber,cmhc_postalcode';
+            muApplicationFields += ';$expand=cmhc_StreetType($select=cmhc_name_en))';
+            let filter = "cmhc_cmhcaccountnumber ne '" + new Date().getUTCHours() + new Date().getUTCMinutes() + new Date().getUTCSeconds() + "'";
+
+            let operationType = 'GET';
+            return new Promise(
+                resolve => appAjax({
+                    type: operationType,
+                    url: `${urlApplications}(${rowId})?$select=${muApplicationFields}&$filter=${filter}`,
+                    contentType: "application/json",
+                    success: (res, status, xhr) => {
+                        
+                        pocApplicationData = res;
+                        retriveApplicationNumber = res.cmhc_cmhcaccountnumber;
+                        applicationStatus = res.statuscode;
+                        resolve(res);
+                    },
+                    error: (response) => {
+                        applicationList.showHideLoading(fs, false);
+                        if (response.responseJSON) {
+                            utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                        } else {
+                            utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                        }
+                    }
+                })
+            );
+        },
+        retrieveApplicationData: (rowId) => {
+            if (retriveApplicationNumber == null) return;
+            let muApplicationFields = 'cmhc_name,statuscode,cmhc_receiveddate,cmhc_loanpurpose,cmhc_requireddocreceiveddate,cmhc_sheltermodel,';
+            muApplicationFields += 'cmhc_isdocumentlanguage,cmhc_isaffordablerentalhousing,cmhc_islanguageofdocumentsprovided,cmhc_islongtermcare,';
+            muApplicationFields += 'cmhc_advancetype,cmhc_totalunitssubmitted,cmhc_totalbedssubmitted,cmhc_totalrequestedloanamount,cmhc_muapplicationid';//cmhc_totalapplicationfee,cmhc_comments,';
+            // muApplicationFields += 'cmhc_accessibilitylevelname,cmhc_eeandghglevelname,cmhc_name';
+            // muApplicationFields += '&$expand=cmhc_LocationId($select=cmhc_streetnumber,cmhc_streetnumbersuffix,cmhc_streetname,cmhc_unitnumber,cmhc_postalcode';
+            // muApplicationFields += ';$expand=cmhc_StreetType($select=cmhc_name_en))';
+            let filter = "cmhc_name eq '" + retriveApplicationNumber + "'";
+            let urlMUApplications = '/_api/cmhc_muapplications';
+
+            let operationType = 'GET';
+            return new Promise(
+                resolve => appAjax({
+                    type: operationType,
+                    url: `${urlMUApplications}?$select=${muApplicationFields}&$filter=${filter}`,
+                    contentType: "application/json",
+                    success: (res, status, xhr) => {
+                        applicationStatus = res.value[0].statuscode;
+                        muapplicationid = res.value[0].cmhc_muapplicationid;
+                        //retriveApplicationNumber = res.cmhc_cmhcaccountnumber;
+                        resolve(res);
+                    },
+                    error: (response) => {
+                        applicationList.showHideLoading(fs, false);
+                        if (response.responseJSON) {
+                            utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                        } else {
+                            utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                        }
+                    }
+                })
+            );
+        },
+        renderData: (data) => {
+            let addressFields = document.querySelectorAll('.address-fields label');
+            let applicationFields = document.querySelectorAll('.application-fields label');
+            let loanFields = document.querySelectorAll('.loan-fields label');
+
+            [applicationFields, loanFields].forEach((fsFields) => {
+                Object.keys(fsFields).forEach((key) => {
+                    if (data[fsFields[key].getAttribute('data-id')]) {
+                        if (data[fsFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'])
+                            fsFields[key].innerText = data[fsFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'];
+                        else
+                            fsFields[key].innerText = data[fsFields[key].getAttribute('data-id')];
+                    }
+                });
+            });
+
+            Object.keys(addressFields).forEach((key) => {
+                if (data.cmhc_LocationId[addressFields[key].getAttribute('data-id')]) {
+                    if (data.cmhc_LocationId[addressFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'])
+                        addressFields[key].innerText = data.cmhc_LocationId[addressFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'];
+                    else
+                        addressFields[key].innerText = data.cmhc_LocationId[addressFields[key].getAttribute('data-id')];
+                }
+                if (data.cmhc_LocationId.cmhc_StreetType[addressFields[key].getAttribute('data-id')]) {
+                    if (data.cmhc_LocationId.cmhc_StreetType[addressFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'])
+                        addressFields[key].innerText = data.cmhc_LocationId.cmhc_StreetType[addressFields[key].getAttribute('data-id') + '@OData.Community.Display.V1.FormattedValue'];
+                    else
+                        addressFields[key].innerText = data.cmhc_LocationId.cmhc_StreetType[addressFields[key].getAttribute('data-id')];
+                }
+            });
+
+        },
+        showAdvancing: (data) => {
+            if (data != null && data != undefined && data.value[0]['statuscode@OData.Community.Display.V1.FormattedValue'] !== 'Approved') {
+                document.querySelector('a[href="#advancing"').style.display = 'none';
+                document.querySelector('#advancing').style.display = 'none';
+            }
+            else {
+                document.querySelector('#submitApplication').remove();
+                document.querySelector('a[href="#advancing"').style.display = 'block';
+                document.querySelector('#advancing').style.display = 'block';
+            }
+            // if (showAdvancingTab) {
+            //     document.querySelector('#submitApplication').remove();
+            //     document.querySelector('a[href="#advancing"').style.display = 'block';
+            //     document.querySelector('#advancing').style.display = 'block';
+            // }
+        },
+        submitApplication: () => {
+            applicationList.showHideLoading(fs, true);
+            applicationList.retrieveApplicationData();
+
+            let myJsonObject = {
+                'statuscode': 758280001,
+            }
+
+            appAjax({
+                type: 'PATCH',
+                url: `${urlApplications}(${pocapplicationId})`,
+                contentType: "application/json",
+                data: JSON.stringify(myJsonObject),
+                success: (res, status, xhr) => {
+                    // utils.showToastr(`Your application was submitted successfuly`, null, 'info');
+                    // resolve(res);
+                },
+                error: (response) => {
+                    applicationList.showHideLoading(fs, false);
+                    if (response.responseJSON) {
+                        utils.showToastr(`Error POC App: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                    } else {
+                        utils.showToastr(`Error POC App: Web API is not available...`, null, 'error');
+                    }
+                }
+            });
+
+            myJsonObject = {
+                'statuscode': 758280011,
+            }
+
+            return new Promise(
+                resolve => appAjax({
+                    type: 'PATCH',
+                    url: `/_api/cmhc_muapplications(${muapplicationid})`,
+                    contentType: "application/json",
+                    data: JSON.stringify(myJsonObject),
+                    success: (res, status, xhr) => {
+                        utils.showToastr(`Your application was submitted successfuly`, null, 'info');
+                        resolve(res);
+                    },
+                    error: (response) => {
+                        applicationList.showHideLoading(fs, false);
+                        if (response.responseJSON) {
+                            utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                        } else {
+                            utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                        }
+                    }
+                })
+            )
+
+            //let muapplicationurl = '/_api/cmhc_muapplications';
+        },
+        GenerateSummary: (btn) => {
+            //utils.showHideSpinner(document.querySelector('.revenueDetailsDiv'),true);
+            // var applicationId = sessionStorage.getItem("applicationId");
+            var projectAnalysisID = "";
+            if (muapplicationid != null && muapplicationid != "") {
+
+                return new Promise(
+                    resolve => appAjax({
+                        type: 'GET',
+                        url: "/_api/cmhc_muprojectanalysises?$filter=_cmhc_muapplicationid_value eq " + muapplicationid + "",
+                        contentType: "application/json",
+                        success: (res, status, xhr) => {
+                            for (var i = 0; i < res.value.length; i++) {
+                                projectAnalysisID = res.value[0]["cmhc_muprojectanalysisid"];
+                                applicationList.updateMUProjectAnalysis(projectAnalysisID);
+                            }
+                            // utils.showToastr('Your application is being submitted.');
+                            resolve('generated');
+                        },
+                        error: (response) => {
+                            if (response.responseJSON) {
+                                utils.showToastr('Error in retreiving the project analysis record');
+                            } else {
+                                utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                            }
+                        }
+                    })
+                )
+            }
+        },
+        updateMUProjectAnalysis: (projectId) => {
+            var urlApplications = '/_api/cmhc_muprojectanalysises';
+            let myJsonObject = {
+                cmhc_muprojectanalysisid: projectId,
+                cmhc_dwellingtypecomment: 'Test Functionapp',
+                cmhc_isportalfieldupdated: false,
+                cmhc_constructiontype: pocApplicationData.cmhc_constructiontype,
+                cmhc_dwellingstyle: pocApplicationData.cmhc_dwellingstyle,
+                cmhc_dwellingtype: pocApplicationData.cmhc_dwellingtype,
+                cmhc_tenurecode: pocApplicationData.cmhc_tenurecode,
+                cmhc_windowtype: pocApplicationData.cmhc_windowtype,
+                cmhc_windowtypecomment: pocApplicationData.cmhc_windowtypecomment,
+                cmhc_windowtypecondition: pocApplicationData.cmhc_windowtypecondition,
+            };
+            //myJsonObject = application.buildMyObject(current_fs, fieldset, myJsonObject);
+
+            let operationType = 'PATCH';
+
+            appAjax({
+                type: operationType,
+                url: `${urlApplications}(${myJsonObject.cmhc_muprojectanalysisid})`,
+                contentType: "application/json",
+                data: JSON.stringify(myJsonObject),
+                success: (res, status, xhr) => {
+                    console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+                    //utils.showToastr('Data updated');
+                }
+            });
+        },
+        excuteApplicationBPFWorkflow: (businessprocessflowinstanceid) => {
+            {
+                var u = "/_services/execute-workflow/d16de309-e57f-ed11-81ad-002248ae5430"; // execute workflow request url
+                var params = {};
+                var workflow = {};
+                workflow.LogicalName = "workflow";
+                workflow.Id = "090c89dc-52ae-ed11-aad1-002248ae5430"; // guid of the workflow you wish to execute. This will be consistent across your environments
+                var data = {};
+                data.LogicalName = "cmhc_muapplication";
+                data.Id = businessprocessflowinstanceid; // guid of the account record.
+                params.workflow = workflow;
+                params.entity = data;
+                var jData = JSON.stringify(params);
+                shell.ajaxSafePost({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: u,
+                    data: jData
+                }).done(function (r) {
+                    //
+                }).fail(function (n) {
+                    //
+                });
+            }
+        },
+    };
+
+    applicationList.init();
+
+</script>

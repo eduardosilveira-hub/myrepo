@@ -16,11 +16,20 @@
   object-fit: contain;
 }
 
+.logoTitle {
+  color: #000 !important;
+  font-weight: 500 !important;
+  font-size: 25px !important;
+}
+
 @media (max-width: 768px) {
     /* For mobile phones: */
     .cssp-logo img {
       height: 100px !important;
       margin-top: -30px !important;
+    }
+    .logoTitle {
+      display:none;
     }
   }
   @media (max-width: 539px) {
@@ -146,10 +155,10 @@ nav ul li a span.rotate {
   transform: translateY(-50%) rotate(-180deg);
 }
 
-.content .header {
-  font-size: 45px;
-  font-weight: 600;
-}
+    .content .header {
+        font-size: 30px;
+        font-weight: 400;
+    }
 </style>
 {% assign defaultlang = settings['LanguageLocale/Code'] | default: 'en-us' %} 
 
@@ -170,10 +179,10 @@ nav ul li a span.rotate {
   </div>
   <div class="container">
     <div class="visible-sm-block visible-md-block visible-lg-block visible-xs-block navbar-brand cmhc-logo">
-      <a href="/"><img class="imgLogo" src="/Logo.png" /></a>
+      <a href="/"><img class="imgLogo" src="/Logo.png" /></a> <label class="logoTitle">Multi-Unit Underwriting</label>
     </div>
     {% if user %}
-      {% include 'Notification Component' %}
+      {% include 'POC Notification Component' %}
     {% endif %}
     <div class="menubtn">
       <i class="fa-solid fa-bars-staggered"></i>
@@ -210,7 +219,7 @@ nav ul li a span.rotate {
                 </li>
               {% endif %}
               <li>
-                <a aria-label="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}" aria-roledescription="link" href="{% if homeurl%}/{{ homeurl }}{% endif %}{{ website.sign_out_url_substitution }}" title="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}">
+                <a aria-label="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}" aria-roledescription="link" href="{% if homeurl%}/{{ homeurl }}{% endif %}/Account/Login/LogOff?returnUrl=/" title="{{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}">
                     {{ snippets["links/logout"] | default:resx["Sign_Out"] | escape }}
                 </a>
               </li>
@@ -267,9 +276,9 @@ nav ul li a span.rotate {
         {% endif %}
       </ul>
     </nav>
-    <div class="content">
-      <div class="header">CMHC</div>
-    </div>
+    <!-- <div class="content">
+        <div class="header">Multiple Underwriting</div>
+    </div> -->
   </div>
 </div>
 {% substitution %} 
@@ -343,11 +352,15 @@ nav ul li a span.rotate {
   
   // When a menu with submenus clicked - rotate the down arrow
   // and show the submenu items
-  let dropdownClicked = document.querySelectorAll('.fas.fa-caret-down');
-  if (dropdownClicked) {
-    dropdownClicked.forEach((caret) => {
+  let menuClicked = document.querySelectorAll('.fas.fa-caret-down');
+  if (menuClicked) {
+    menuClicked.forEach((caret) => {
+      caret.parentElement.addEventListener('click', (event) => {
+        event.target.nextElementSibling.classList.toggle("show");
+        event.target.querySelector('span').classList.toggle("rotate");
+      });
+      
       caret.addEventListener('click', (event) => {
-        debugger;
         event.target.parentNode.nextElementSibling.classList.toggle("show");
         event.target.classList.toggle("rotate");
       });

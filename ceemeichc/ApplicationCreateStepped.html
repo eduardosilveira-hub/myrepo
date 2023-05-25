@@ -1,63 +1,3 @@
-{% fetchxml getProgramMUMLI %}
-<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
-    <entity name="cmhc_program">
-      <attribute name="cmhc_name" />
-      <attribute name="cmhc_programid" />
-      <order attribute="cmhc_name" descending="false" />
-      <filter type="and">
-        <condition attribute="cmhc_name_en" operator="like" value="%MU MLI%" />
-      </filter>
-    </entity>
-  </fetch>
-{% endfetchxml %}
-{% if getProgramMUMLI.results.entities.size > 0 %}
-  {% assign programMu = getProgramMUMLI.results.entities[0] %}
-{% else %}
-    {% assign programMu = null %}
-{% endif %}
-
-{% if request.params['id'] %}
-    {% assign applicationId = request.params['id'] %}
-    {% fetchxml fetchApplications %}
-        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
-            <entity name="cmhc_muapplication">
-            <attribute name="cmhc_muapplicationid" />
-            <attribute name="cmhc_totalunitssubmitted" />
-            <attribute name="cmhc_totalrequestedloanamount" />
-            <attribute name="cmhc_totalbedssubmitted" />
-            <attribute name="cmhc_sheltermodel" />
-            <attribute name="cmhc_requireddocreceiveddate" />
-            <attribute name="cmhc_receiveddate" />
-            <attribute name="cmhc_programid" />
-            <attribute name="createdon" />
-            <attribute name="cmhc_originatorlendercontactid" />
-            <attribute name="cmhc_locationid" />
-            <attribute name="cmhc_islongtermcare" />
-            <attribute name="cmhc_isdocumentlanguage" />
-            <attribute name="cmhc_islanguageofdocumentsprovided" />
-            <attribute name="cmhc_eeandghglevelname" />
-            <attribute name="cmhc_comments" />
-            <attribute name="cmhc_loanpurpose" />
-            <attribute name="cmhc_isaffordablerentalhousing" />
-            <attribute name="cmhc_advancetype" />
-            <attribute name="cmhc_accessibilitylevelname" />
-            <order attribute="createdon" descending="true" />
-            <filter type="and">
-                <condition attribute="cmhc_programid" operator="eq" uiname="MU MLI" uitype="cmhc_program" value="{{ programMu.cmhc_programid }}" />
-                <condition attribute="cmhc_originatorlendercontactid" operator="eq" uiname="MU Admin" uitype="contact" value="{{ user.id }}" />
-                <condition attribute="statecode" operator="eq" value="0" />
-                <condition attribute="cmhc_muapplicationid" operator="eq" uiname="00000000" uitype="cmhc_muapplication" value="{{ applicationId }}" />
-            </filter>
-            </entity>
-        </fetch>
-    {% endfetchxml %}
-    {% if fetchApplications.results.entities.size >= 1 %}
-        {% assign application = fetchApplications.results.entities[0] %}
-    {% else %}
-        {% assign application = null %}
-    {% endif %}
-{% endif %}
-
 <style>
     #msform {
         position: relative;
@@ -65,49 +5,32 @@
         margin-bottom: 30px;
     }
 
-    #msform fieldset {
-        background: white;
-        border: 0 none;
-        border-radius: 0px;
-        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-        padding: 20px 30px;
-        box-sizing: border-box;
-        width: 100%;
-        /* margin: 0 10%; */
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 1px rgb(0 0 0 / 10%);
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 100%;
+            /* margin: 0 10%; */
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
 
-        /*stacking fieldsets above each other*/
-        position: relative;
-    }
+            /*Hide all except first fieldset*/
+            #msform fieldset:not(:first-of-type) {
+                display: none;
+            }
 
-    /*Hide all except first fieldset*/
-    #msform fieldset:not(:first-of-type) {
-        display: none;
-    }
+        #msform label {
+            font-weight: normal;
+        }
 
-    #msform label {
-        font-weight:normal;
-    }
-
-    /*headings*/
-    #msform .fs-title,.fs-subtitle, #progressbar,#progressbar li, button {
-        text-align: center;
-    }
-
-    .fs-title {
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #2C3E50;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-        font-weight: bold;
-    }
-
-    .fs-subtitle {
-        font-weight: normal;
-        font-size: 13px;
-        color: #777;
-        margin-bottom: 20px;
-    }
+        /*headings*/
+        #msform .fs-title, .fs-subtitle, #progressbar, #progressbar li, button {
+            text-align: center;
+        }
 
     /*progressbar*/
     #progressbar {
@@ -119,77 +42,122 @@
         justify-content: center;
     }
 
-    #progressbar li {
-        list-style-type: none;
-        color: #0c0505;
-        text-transform: uppercase;
-        font-size: 9px;
-        width: 25%;
-        float: left;
-        position: relative;
-        letter-spacing: 1px;
-    }
+        #progressbar li {
+            list-style-type: none;
+            color: #0c0505;
+            text-transform: uppercase;
+            width: -webkit-fill-available;
+            float: left;
+            position: relative;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
 
-    #progressbar li:before {
-        content: counter(step);
-        counter-increment: step;
-        width: 25px;
-        height: 24px;
-        line-height: 26px;
-        display: block;
-        font-size: 12px;
-        color: #333;
-        background: white;
-        border-radius: 25px;
-        margin: 0 auto 10px auto;
-    }
+            #progressbar li:before {
+                content: counter(step);
+                counter-increment: step;
+                width: 25px;
+                height: 24px;
+                line-height: 26px;
+                display: block;
+                font-size: 12px;
+                color: #333;
+                background: white;
+                border-radius: 25px;
+                margin: 0 auto 10px auto;
+            }
 
-    /*progressbar connectors*/
-    #progressbar li:after {
-        content: '';
-        width: 100%;
-        height: 2px;
-        background: rgb(229 229 229);
-        position: absolute;
-        left: -50%;
-        top: 11px;
-        z-index: -1; /*put it behind the numbers*/
-    }
+            /*progressbar connectors*/
+            #progressbar li:after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: rgb(229 229 229);
+                position: absolute;
+                left: -50%;
+                top: 11px;
+                z-index: -1; /*put it behind the numbers*/
+            }
 
-    #progressbar li:first-child:after {
-        /*connector not needed before the first step*/
-        content: none;
-    }
+            #progressbar li:first-child:after {
+                /* connector not needed before the first step */
+                content: none;
+            }
 
-    /*marking active/completed steps green*/
-    /*The number of the step and the connector before it = green*/
-    #progressbar li.active:before, #progressbar li.active:after {
-        background: #0056b3;
-        color: white;
-    }
-
+            /* marking active/completed steps blue*/
+            /* The number of the step and the connector before it = blue*/
+            #progressbar li.active:before, #progressbar li.active:after {
+                background: #0056b3;
+                color: white;
+            }
 </style>
-<!-- MultiStep Form -->
+
+<!-- Display message to check Application list -->
+{% if pocApplication.statuscode.value == '1' or pocApplication.statuscode.value == Nil or pocApplication.statuscode == Nil  %}
+<!-- Show steps for application process -->
 <div class="row">
     <div class="col-sm-12">
         <form id="msform" class="form-group">
+            {% include 'Loading Spinner' %}
+            <div id="loader">
+                <span class="fa fa-spinner fa-spin" aria-hidden="true"></span> Processing...
+            </div>
             <!-- progressbar -->
             <ul id="progressbar">
                 <!-- fetch to query application ID for editting -->
                 <li class="active">Initial Application Info</li>
                 <li>MLI Flex Info</li>
+                <li>Revenue</li>
+                <li>Expenses</li>
                 <!-- <li>Tax Information</li>
                 <li>Period Information</li> -->
             </ul>
             <!-- fieldsets -->
-            <fieldset>
-                <h2 class="fs-title">Initial Application Info</h2>
-                <h3 class="fs-subtitle">Tell us something more about your application</h3>
+            <fieldset class="selected">
+                <!-- <h2 class="fs-title">Initial Application Info</h2>
+                <h3 class="fs-subtitle">Tell us something more about your application</h3> -->
+                <p class="mt-5 font-bold">Applications Info</p>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id='printoutPanel'></div>
+                        <div class="form-group" id="addressContainer">
+                            <label for="address" class="control-label">Address</label>
+                            <input type="text" class="form-control" id="address">
+                            <script type='text/javascript'>
+                                function loadMapScenario() {
+                                    Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', {
+                                        callback: onLoad,
+                                        errorCallback: onError
+                                    });
+                                    function onLoad() {
+                                        let bingMaxResults = parseInt("{{ settings['Home/BingMaxResults']}}");
+                                        var options = { maxResults: bingMaxResults };
+                                        var manager = new Microsoft.Maps.AutosuggestManager(options);
+                                        manager.attachAutosuggest('#address', '#addressContainer', null); //selectedSuggestion as callback
+                                        document.querySelector('#address').style = '';
+                                    }
+                                    function onError(message) {
+                                        document.getElementById('printoutPanel').innerHTML = message;
+                                    }
+                                    function selectedSuggestion(suggestionResult) {
+                                        document.getElementById('printoutPanel').innerHTML =
+                                            'Suggestion: ' + suggestionResult.formattedSuggestion +
+                                                '<br> Lat: ' + suggestionResult.location.latitude +
+                                                '<br> Lon: ' + suggestionResult.location.longitude;
+                                    }
+                                    
+                                }
+                            </script>
+                            <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key={{ settings["Home/BingApiKey"]}}&callback=loadMapScenario' async defer></script>
+                        </div>                        
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group required">
                             <label for="receivedDate" class="control-label">Received Date</label>
-                            <input type="date" class="form-control" name="receivedDate" id="receivedDate" aria-describedby="receivedDate" value='{{ application.cmhc_receiveddate | date: "yyyy-MM-dd" }}'>
+                            <input type="date" class="form-control" name="receivedDate" id="receivedDate" aria-describedby="receivedDate" value='{{ pocApplication.cmhc_receiveddate | date: "yyyy-MM-dd" }}'>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -204,7 +172,7 @@
                     <div class="col-sm-6">
                         <div class="form-group required">
                             <label for="docReceivedDate" class="control-label">Doc Received Date</label>
-                            <input type="date" name="docReceivedDate" id="docReceivedDate" class="form-control" value='{{ application.cmhc_requireddocreceiveddate | date: "yyyy-MM-dd" }}'>
+                            <input type="date" name="docReceivedDate" id="docReceivedDate" class="form-control" value='{{ pocApplication.cmhc_requireddocreceiveddate | date: "yyyy-MM-dd" }}'>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -216,76 +184,72 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group required">
+                    <div class="col-sm-3">
+                        <!-- <div class="form-group required">
                             <label for="languagePreference" class="control-label">Language of Preference</label>
                             <select name="languagePreference" class="form-control" id="languagePreference" aria-describedby="languagePreference">
                             </select>
-                        </div>
-                        <!-- <div class="col">
-                            <div class="form-group required">
-                                <label for="languagePreferenceenglish" class="control-label">Language of Preference &nbsp;&nbsp;</label>
-                                <input class="form-check-input" type="radio" name="languagePreference" id="languagePreferenceenglish" value="">
-                                <label class="form-check-label" for="languagePreferenceenglish"></label>
-                                &nbsp;&nbsp;
-                                <input class="form-check-input" type="radio" name="languagePreference" id="languagePreferencefrench" value="">
-                                <label class="form-check-label" for="languagePreferencefrench"></label>
-                            </div>
                         </div> -->
+                        <div class="form-group required">
+                            <label for="languagePreference" class="control-label">Language of Preference</label>
+                            <div class="control">
+                              <div class="btn-group required" group-name="languagePreference" data-toggle="buttons">
+                                <input type="radio" id="languagePreference_0" name="languagePreference" value="0" /> French
+                                <input type="radio" id="languagePreference_1" name="languagePreference" value="1" /> English
+                              </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
+                    <div class="col-sm-3">
+                        <!-- <div class="form-group">
                             <label for="languageOfDocs" class="control-label">Language of Documents</label>
                             <select name="languageOfDocs" class="form-control" id="languageOfDocs" aria-describedby="languageOfDocs">
                             </select>
-                        </div>
-                        <!-- <div class="col">
-                            <div class="form-group">
-                                <label for="languageOfDocs" class="control-label">Language of Documents &nbsp;&nbsp;</label>
-                                <input class="form-check-input" type="radio" name="languageOfDocs" id="languageOfDocsenglish" value="">
-                                <label class="form-check-label" for="languageOfDocsenglish"></label>
-                                &nbsp;&nbsp;
-                                <input class="form-check-input" type="radio" name="languageOfDocs" id="languageOfDocsfrench" value="">
-                                <label class="form-check-label" for="languageOfDocsfrench"></label>
-                            </div>
                         </div> -->
-                    </div>
-                    <div class="col-sm-4">
                         <div class="form-group required">
+                            <label for="languageOfDocs" class="control-label">Language of Documents</label>
+                            <div class="control">
+                              <div class="btn-group required" group-name="languageOfDocs" data-toggle="buttons">
+                                <input type="radio" id="languageOfDocs_0" name="languageOfDocs" value="0" /> French
+                                <input type="radio" id="languageOfDocs_1" name="languageOfDocs" value="1" /> English
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <!-- <div class="form-group required">
                             <label for="affordableRentalHousing" class="control-label">Afordable Rental Housing</label>
                             <select name="affordableRentalHousing" class="form-control" id="affordableRentalHousing" aria-describedby="affordableRentalHousing">
                             </select>
-                        </div>
-                        <!-- <div class="col">
-                            <div class="form-group required">
-                                <label for="affordableRentalHousing" class="control-label">Afordable Rental Housing &nbsp;&nbsp;</label>
-                                <input class="form-check-input" type="radio" name="affordableRentalHousing" id="languagePreferenceYes" value="">
-                                <label class="form-check-label" for="languagePreferenceYes"></label>
-                                &nbsp;&nbsp;
-                                <input class="form-check-input" type="radio" name="affordableRentalHousing" id="languagePreferenceNo" value="">
-                                <label class="form-check-label" for="languagePreferenceNo"></label>
-                            </div>
                         </div> -->
+                        <div class="form-group required">
+                            <label for="affordableRentalHousing" class="control-label">Afordable Rental Housing</label>
+                            <div class="control">
+                              <div class="btn-group required" group-name="affordableRentalHousing" data-toggle="buttons">
+                                <input type="radio" id="affordablerentalhousing_0" name="affordableRentalHousing" value="0" /> Yes
+                                <input type="radio" id="affordablerentalhousing_1" name="affordableRentalHousing" value="1" /> No
+                              </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
+                    <div class="col-sm-3">
+                        <!-- <div class="form-group">
                             <label for="longTermCare" class="control-label">Long Term Care</label>
                             <select name="longTermCare" class="form-control" id="longTermCare" aria-describedby="longTermCare">
                             </select>
-                        </div>
-                        <!-- <div class="col">
-                            <div class="form-group">
-                                <label for="longTermCare" class="control-label">Long Term Care &nbsp;&nbsp;</label>
-                                <input class="form-check-input" type="radio" name="longTermCare" id="longTermCareYes" value="">
-                                <label class="form-check-label" for="longTermCareYes"></label>
-                                &nbsp;&nbsp;
-                                <input class="form-check-input" type="radio" name="longTermCare" id="longTermCareNo" value="">
-                                <label class="form-check-label" for="longTermCareNo"></label>
-                            </div>
                         </div> -->
+                        <div class="form-group required">
+                            <label for="longTermCare" class="control-label">Long Term Care</label>
+                            <div class="control">
+                              <div class="btn-group required" group-name="longTermCare" data-toggle="buttons">
+                                <input type="radio" id="longTermCare_0" name="longTermCare" value="0" /> Yes
+                                <input type="radio" id="longTermCare_1" name="longTermCare" value="1" /> No
+                              </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group required">
                             <label for="advanceType" class="control-label">Advance Type</label>
@@ -293,22 +257,11 @@
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group required">
                             <label for="totalunitsSubmitted" class="control-label">Total Units Submitted</label>
-                            <input type="text" name="totalunitsSubmitted" class="form-control" 
-                                id="totalunitsSubmitted" decimal-type="yes" aria-describedby="totalunitsSubmitted" value="{{ application.cmhc_totalunitssubmitted }}"
-                            />
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group required">
-                            <label for="totalBedsSubmitted" class="control-label">Total Beds Submitted</label>
-                            <input type="text" name="totalBedsSubmitted" class="form-control" id="totalBedsSubmitted" 
-                                decimal-type="yes" aria-describedby="totalBedsSubmitted" value="{{ application.cmhc_totalbedssubmitted }}"
-                            />
+                            <input type="text" name="totalunitsSubmitted" class="form-control"
+                                id="totalunitsSubmitted" aria-describedby="totalunitsSubmitted" value="{{ pocApplication.cmhc_totalunitssubmitted }}" />
                         </div>
                     </div>
                 </div>
@@ -316,9 +269,16 @@
                     <div class="col-sm-6">
                         <div class="form-group required">
                             <label for="totalRequestedLoan" class="control-label">Total Requested Loan</label>
-                            <input type="text" name="totalRequestedLoan" class="form-control" id="totalRequestedLoan" 
-                                decimal-type="yes" aria-describedby="totalRequestedLoan" value="{{ application.cmhc_totalrequestedloanamount | round: 2 }}" 
-                            />
+                            <input type="text" name="totalRequestedLoan" class="form-control" id="totalRequestedLoan"
+                                decimal-type="yes" aria-describedby="totalRequestedLoan" data-type="currency"
+                                value="{{ pocApplication.cmhc_totalrequestedloanamount | round: 2 }}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="totalBedsSubmitted" class="control-label">Total Beds Submitted</label>
+                            <input type="text" name="totalBedsSubmitted" class="form-control" id="totalBedsSubmitted"
+                                aria-describedby="totalBedsSubmitted" value="{{ pocApplication.cmhc_totalbedssubmitted }}" />
                         </div>
                     </div>
                 </div>
@@ -326,109 +286,315 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="comments" class="control-label">Additional Comments</label>
-                            <input type="text" name="comments" class="form-control" id="comments" 
-                                aria-describedby="comments" value="{{ application.cmhc_comments }}"
-                            />
+                            <input type="text" name="comments" class="form-control" id="comments"
+                                   aria-describedby="comments" value="{{ pocApplication.cmhc_comments }}" />
                         </div>
                     </div>
                 </div>
+                <p class="mt-5 font-bold">Project Info</p>
+                <hr />
                 <div class="row">
-                    <ul class="pager">
-                        <li><input type="button" name="next" class="next action-button" value="Next"/></li>
-                    </ul>
-                </div>
-            </fieldset>
-            <fieldset>
-                <h2 class="fs-title">MLI Flex Info</h2>
-                <h3 class="fs-subtitle">Additional info for your application</h3>
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-4">
                         <div class="form-group required">
-                            <label for="loanamount" class="control-label">Loan Amount</label>
-                            <input type="text" class="form-control" id="loanamount" aria-describedby="loanamount" value="{{ application.ava_loanamount }}" />
+                            <label for="dwellingstyle" class="control-label">Dwelling Style</label>
+                            <select name="dwellingstyle" class="form-control" id="dwellingstyle" aria-describedby="dwellingstyle">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="dwellingtype" class="control-label">Dwelling Type</label>
+                            <select name="dwellingtype" class="form-control" id="dwellingtype" aria-describedby="dwellingtype">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="tenurecode" class="control-label">Tenure Code</label>
+                            <select name="tenurecode" class="form-control" id="tenurecode" aria-describedby="tenurecode">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="constructiontype" class="control-label">Construction Type</label>
+                            <select name="constructiontype" class="form-control" id="constructiontype" aria-describedby="constructiontype">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="windowtype" class="control-label">Window Type</label>
+                            <select name="windowtype" class="form-control" id="windowtype" aria-describedby="windowtype">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label for="windowtypecondition" class="control-label">Window Type Condition</label>
+                            <select name="windowtypecondition" class="form-control" id="windowtypecondition" aria-describedby="windowtypecondition">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="windowtypecomment" class="control-label">Window Type Comment</label>
+                            <input type="text" name="windowtypecomment" class="form-control" id="windowtypecomment"
+                                   aria-describedby="windowtypecomment" value="{{ pocApplication.cmhc_windowtypecomment }}" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <ul class="pager">
-                        <li><input type="button" name="previous" class="previous action-button-previous" value="Previous"/></li>
-                        <li><input type="button" name="next" class="next action-button" value="Complete"/></li>
+                        <li><input type="button" name="next" class="flip action-button" value="Next" /></li>
                     </ul>
                 </div>
             </fieldset>
-            <!--<fieldset>
-                <h2 class="fs-title">Tax Information</h2>
-                <h3 class="fs-subtitle">Provide tax information</h3>
+            <fieldset>
+                <!-- <h2 class="fs-title">MLI Flex Info</h2>
+                <h3 class="fs-subtitle">Additional info for your application</h3> -->
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="fieldgroup">
-                            <input type="text" name="taxrate" id="taxrate" value="{{ application.ava_taxrate }}"/>
-                            <label for="taxrate">Email</label>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="accessibilityLevel" class="control-label">Accessibility Level</label>
+                            <select name="accessibilityLevel" class="form-control" id="accessibilityLevel" aria-describedby="accessibilityLevel">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="eeandghgLevel" class="control-label">EE & GHG Level</label>
+                            <select name="eeandghgLevel" class="form-control" id="eeandghgLevel" aria-describedby="eeandghgLevel">
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Next"/>
+                    <ul class="pager">
+                        <li><input type="button" name="previous" class="flip action-button-previous" value="Previous" /></li>
+                        <li><input type="button" name="next" class="flip action-button" value="Next" /></li>
+                    </ul>
                 </div>
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Period Information</h2>
-                <h3 class="fs-subtitle">Enter period for Loan</h3>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="fieldgroup">
-                            <select name="period" id="period">
-                            </select>
-                            <label for="period">Loan Period</label>
-                        </div>
+                <!-- <h2 class="fs-title">Revenue Stream</h2>
+                <h3 class="fs-subtitle">Details about your Revenue Stream</h3> -->
+                <div id="uploadRevenueDetails">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item-header">&nbsp;
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <details>
+                                            <summary>
+                                                Upload Revenue Details
+                                                <!-- &nbsp;&nbsp;{% editable snippets 'Home/FirstSection' default: resx["Discover_Contoso"] %} -->
+                                                <span class="fas fa-caret-down first icon"></span>
+                                            </summary>
+                                            <p>
+                                                {% include 'Application Upload' %}
+                                            </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Complete"/>
+                <div id="viewRevenueDetails">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item-header">&nbsp;
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <details>
+                                            <summary>
+                                                View Revenue Details
+                                                <span class="fas fa-caret-down first icon"></span>
+                                            </summary>
+                                            <p>
+                                                <div class="cmhc-font-14 mt-2">
+                                                    {% include 'POC Application Revenue Details' %}
+                                                </div>
+                                            </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </fieldset> -->
+                <!-- <div id="viewRevenueSummary">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item-header">&nbsp;
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <details>
+                                            <summary>
+                                                View Revenue Summary
+                                                <span class="fas fa-caret-down first icon"></span>
+                                            </summary>
+                                            <p>
+                                                <div class="cmhc-font-14 mt-2">
+                                                    {% include 'entity_list' key: "MU - Revenue Stream Summary" %}
+                                                </div>
+                                            </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <ul class="pager">
+                        <li><input type="button" name="previous" class="flip action-button-previous" value="Previous" /></li>
+                    </ul>
+                </div>
+            </fieldset>
             <fieldset>
-                <h2 class="fs-title">Success</h2>
-                <h3 class="fs-subtitle"></h3>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="fieldgroup">
-                            <div class="alert alert-success" role="alert">
-                                Your application was submitted!
-                                You can follow up by <a href="/">listing your applications</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include 'POC KendoUI' %}
             </fieldset>
         </form>
     </div>
 </div>
+{% else %}
+<fieldset>
+    <h2 class="fs-title">This application is {{ pocApplication.statuscode.label }}!</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="fieldgroup">
+                <div class="alert alert-success" role="alert">
+                    You can follow up your application going to <a href="/">your applications</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+{% endif %}
+
+<!-- MultiStep Form -->
 
 <script type="module">
-    import { utils as utils } from '../utils.js';
+    import { utils as utils } from '/utils.js';
 
-    var urlApplications = '/_api/cmhc_muapplications';
-    sessionStorage.setItem("applicationId", "{{ application.cmhc_muapplicationid }}");
+    var urlApplications = '/_api/cmhc_pocapplications';
     var errMessageDisplay = false;
+
+    let eventsCurrency = ['keyup','blur'];
+    let currencyFields = document.querySelectorAll('input[data-type="currency"]');
+
+    // Format cureency field on first load.
+    currencyFields.forEach((field) => {
+        utils.formatCurrency(field);
+    });
+
+    eventsCurrency.forEach((event) => {
+        currencyFields.forEach((field) => {
+            field.addEventListener(event, (event) => {
+                if (event.type === 'keyup') 
+                    utils.formatCurrency(event.currentTarget);
+                if (event.type === 'blur')
+                    utils.formatCurrency(event.currentTarget, event.type);
+            })
+        })
+    });
 
     const applicationFields = {
         'receivedDate':'cmhc_receiveddate',
-        'loanPurpose' : 'cmhc_loanpurpose',
-        'docReceivedDate' : 'cmhc_requireddocreceiveddate',
+        'loanPurpose' :'cmhc_loanpurpose',
+        'docReceivedDate':'cmhc_requireddocreceiveddate',
         'shelterModel':'cmhc_sheltermodel',
+        'totalBedsSubmitted':'cmhc_totalbedssubmitted',
+        'totalunitsSubmitted':'cmhc_totalunitssubmitted',
+        'totalRequestedLoan':'cmhc_totalrequestedloanamount',
         'languagePreference':'cmhc_isdocumentlanguage',
-        'affordableRentalHousing':'cmhc_isaffordablerentalhousing',
         'languageOfDocs':'cmhc_islanguageofdocumentsprovided',
+        'affordableRentalHousing':'cmhc_isaffordablerentalhousing',
         'longTermCare':'cmhc_islongtermcare',
         'advanceType':'cmhc_advancetype',
-        'totalunitsSubmitted':'cmhc_totalunitssubmitted',
-        'totalBedsSubmitted':'cmhc_totalbedssubmitted',
-        'totalRequestedLoan':'cmhc_totalrequestedloanamount',
         'comments':'cmhc_comments',
+
+        // project fields
+        'dwellingstyle':'cmhc_dwellingstyle',
+        'dwellingtype':'cmhc_dwellingtype',
+        'tenurecode':'cmhc_tenurecode',
+        'constructiontype':'cmhc_constructiontype',
+        'windowtype':'cmhc_windowtype',
+        'windowtypecondition':'cmhc_windowtypecondition',
+        'windowtypecomment':'cmhc_windowtypecomment',
+
+        // check 
+        'accessibilityLevel':'cmhc_accessibilitylevel',
+        'eeandghgLevel':'cmhc_eeandghglevel'
     };
+
+    const dwellingstyle = {
+        '1 STOREY':'758280001',
+        '1 1/2 STOREYS':'758280000',
+        '2 STOREYS':'758280003',
+        '2 1/2 STOREYS':'758280002',
+        '3 STOREYS':'758280004',
+        'MORE THAN 3 STOREYS':'758280005',
+        'OTHER':'993710000'
+    }
+
+    const dwellingtype = {
+        'APT':'758280000',
+        'DUPLEX':'758280001',
+        'FOUR PLEX':'758280002',
+        'HOSTEL':'758280003',
+        'LONG-TERM CARE':'758280004',
+        'MODULAR':'758280005',
+        'OTHER':'758280006',
+        'RETIREMENT HOMES':'758280007',
+        'ROW':'758280008',
+        'STACKED':'758280009',
+        'Student Housing On Campus':'758280010',
+        'Student Housing Off Campus':'758280011',
+        'Student Housing Off Campus':'758280012',
+    }
+
+    const tenurecode = {
+        'Condominium':'758280000',
+        'Freehold':'758280001',
+        'Leasehold':'758280002',
+        'On Reserve':'758280003'
+    }
+
+    const constructiontype = {
+        'Concrete Structure':'0',
+        'Wood Frame':'1',
+        'Masonry':'2',
+        'Steel Frame':'3',
+        'Factory Built':'4',
+        'Other':'5',
+    }
+
+    const windowtype = {
+        'Metal':'758280000',
+        'Wood':'758280001',
+        'Vinyl':'758280002',
+        'Other':'758280003',
+    }
+
+    const windowtypecondition = {
+        'Very Good':'758280000',
+        'Good':'758280001',
+        'Fair':'758280002',
+        'Poor':'758280003',
+    }
 
     const shelterModel = {
         'Retirement Housing' : 0,
@@ -439,7 +605,7 @@
         'Supportive Housing':4,
         'Transitional Housing':758280001,
     };
-    
+
     const loanPurpose = {
         'Purchase' : 758280003,
         'Purchase with Improvements' : 758280008,
@@ -455,6 +621,19 @@
         'NHCF - Repairs/Renewal':758280006,
         'NHCF - Repairs/Renewal - Conversion':758280007,
     };
+
+    const accessibilityLevel = {
+        'Level 1':758280000,
+        'Level 2':758280001,
+        'Not Applicable':758280002,
+    }
+
+    const eeandghgLevel = {
+        'Level 1':758280000,
+        'Level 2':758280001,
+        'Level 3':758280002,
+        'Not Applicable':758280003,
+    }
 
     const advanceType = {
         '<=2' : 1,
@@ -473,48 +652,77 @@
 
     const application = {
         init: () => {
-            debugger;
-            application.setupDropDowns(shelterModel, '#shelterModel', '{{ application.cmhc_sheltermodel.value }}');
-            application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ application.cmhc_loanpurpose.value }}');
-            application.setupDropDowns(advanceType, '#advanceType', '{{ application.cmhc_advancetype.value }}');
-            application.setupDropDowns(language, '#languagePreference', '{{ application.cmhc_isdocumentlanguage }}');
-            application.setupDropDowns(language, '#languageOfDocs', '{{ application.cmhc_islanguageofdocumentsprovided }}');
-            application.setupDropDowns(yesNo, '#affordableRentalHousing', '{{ application.cmhc_isaffordablerentalhousing }}');
-            application.setupDropDowns(yesNo, '#longTermCare', '{{ application.cmhc_islongtermcare }}');
+            // Create a call to open gates to acquire token and make future calls faster
+            appAjax({
+                type: "GET",
+                url: "/_api/cmhc_pocapplications?$select=cmhc_name&$top=1",
+                contentType: "application/json"
+            });
+
+            application.setupDropDowns(shelterModel, '#shelterModel', '{{ pocApplication.cmhc_sheltermodel.value }}');
+            application.setupDropDowns(loanPurpose, '#loanPurpose', '{{ pocApplication.cmhc_loanpurpose.value }}');
+            application.setupDropDowns(advanceType, '#advanceType', '{{ pocApplication.cmhc_advancetype.value }}');
+            application.setupDropDowns(accessibilityLevel, '#accessibilityLevel', '{{ pocApplication.cmhc_accessibilitylevel.value }}');
+            application.setupDropDowns(eeandghgLevel, '#eeandghgLevel', '{{ pocApplication.cmhc_eeandghglevel.value }}');
+            application.setupTwoOptions('input[name="affordableRentalHousing"]', '{{ pocApplication.cmhc_isaffordablerentalhousing }}');
+            application.setupTwoOptions('input[name="longTermCare"]', '{{ pocApplication.cmhc_islongtermcare }}');
+            application.setupTwoOptions('input[name="languageOfDocs"]', '{{ pocApplication.cmhc_islanguageofdocumentsprovided }}');
+            application.setupTwoOptions('input[name="languagePreference"]', '{{ pocApplication.cmhc_isdocumentlanguage }}');
             
-            // application.setupTwoOptions(language, 'input[name=languagePreference]', '{{ application.cmhc_isdocumentlanguage.value }}');
-            // application.setupTwoOptions(language, 'input[name=languageOfDocs]', '{{ application.cmhc_islanguageofdocumentsprovided.value }}');            
-            // application.setupTwoOptions(yesNo, 'input[name=affordableRentalHousing]', '{{ application.cmhc_isaffordablerentalhousing.value }}');
-            // application.setupTwoOptions(yesNo, 'input[name=longTermCare]', '{{ application.cmhc_islongtermcare.value }}');
+            // project optionsets
+            application.setupDropDowns(dwellingstyle, '#dwellingstyle', '{{ pocApplication.cmhc_dwellingstyle.value }}');
+            application.setupDropDowns(dwellingtype, '#dwellingtype', '{{ pocApplication.cmhc_dwellingtype.value }}');
+            application.setupDropDowns(tenurecode, '#tenurecode', '{{ pocApplication.cmhc_tenurecode.value }}');
+            application.setupDropDowns(constructiontype, '#constructiontype', '{{ pocApplication.cmhc_constructiontype.value }}');
+            application.setupDropDowns(windowtype, '#windowtype', '{{ pocApplication.cmhc_windowtype.value }}');
+            application.setupDropDowns(windowtypecondition, '#windowtypecondition', '{{ pocApplication.cmhc_windowtypecondition.value }}');
 
             // Event listeners for date field changes
+            // This will trigger the change event on them and data will be updated
             document.querySelectorAll('input[type=date]').forEach((dateField) => {
                 dateField.addEventListener('change', (dateField) => {
                     console.log(dateField.value);
                 });
             })
 
-            // Add event Listeners to the next buttons
-            document.querySelectorAll('.next').forEach((button) => {
-                button.addEventListener('click', (btn) => {
-                    application.onNextClick(btn);
-                })
+            // Add event Listeners to the LI items on the progress bar
+            if (sessionStorage.getItem('pocApplicationId') !== '') {
+                // Add event Listeners to the next and previous buttons
+                document.querySelectorAll('.flip').forEach((button) => {
+                    if (button.classList.contains('action-button-previous'))
+                        button.hidden = true;
+                    else {
+                        button.value = 'Update';
+                        button.addEventListener('click', async (btn) => {
+                            let current_fs = document.querySelector('fieldset.selected');
+                            let message = await application.updateOnNextSteps(current_fs, null);
+                            utils.showToastr(message);
+                        })
+                    }
+                });
+                application.allowProgressBarClick();
+            }
+            else {
+                // Add event Listeners to the next and previous buttons
+                document.querySelectorAll('.flip').forEach((button) => {
+                    button.addEventListener('click', (btn) => {
+                        application.flipPage(btn, null);
+                    })
+                });
+            }
+        },
+        allowProgressBarClick: () => {
+            document.querySelector('#progressbar').style.cursor = 'pointer';
+            document.querySelectorAll('#progressbar>li').forEach((li) => {
+                li.addEventListener('click', (li) => {
+                    application.onProgressBarClick(li);
+                });                
             });
-
-            // Add event Listeners to the previous buttons
-            document.querySelectorAll('.previous').forEach((button) => {
-                button.addEventListener('click', (btn) => {
-                    application.onPreviousClick(btn);
-                })
-            });
-
-            // Create a call to open gates to acquire token and make future calls faster
-            appAjax({
-                type: "GET",
-                url: "/_api/cmhc_muapplications?$select=_cmhc_programid_value&$top=1",
-                contentType: "application/json"
-            });
-
+        },
+        onProgressBarClick: (li) => {
+            let liClickedIndex = $("#progressbar>li").index(li.target);
+            let fieldset = $('fieldset')[$("#progressbar>li").index(li.target)];
+            application.flipPage(null, fieldset, liClickedIndex)
         },
         setupDropDowns: (optionSetVar, element, dropDownValue) => {
             var selectedOption = parseInt(dropDownValue);
@@ -532,197 +740,275 @@
                 optionSetField.selectedIndex = -1;
             }
         },
-        // setupTwoOptions: (twoOptionVar, element, value) => {
-        //     var radios = document.querySelectorAll(element);
-        //     Object.keys(radios).forEach((key) => {
-
-        //         if (value === ''){
-        //             radios[key].value = key;
-        //             radios[key].nextElementSibling.innerText = twoOptionVar[key];
-        //         }
-        //         else {
-        //             radios[key].value = value;
-        //             radios[key].nextElementSibling.innerText = twoOptionVar[value];
-        //         }
-        //     });
-        // },
-        onNextClick: (button) => {
+        setupTwoOptions: (element, optionValue) => {
+            let radio = document.querySelectorAll(element);
+            if (optionValue === '')
+                return;
+            else optionValue === 'true' ? radio[0].checked = true : radio[1].checked = true
+        },
+        flipPage: async (button = null, fieldset = null, liClickedIndex = null) => {
+            // variables for progress bar and next/previous buttons
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
-            let applicationId = sessionStorage.getItem("applicationId");
-
+            var previousProgressbarLi;
+            var pocApplicationId = sessionStorage.getItem("pocApplicationId");
+            
             if(animating) return false;
-            animating = true;
-            current_fs = button.target.closest('fieldset');
-            next_fs = button.target.closest('fieldset').nextElementSibling;
+            animating = true;            
 
-            let isFormValid = application.validateForm(current_fs);
-            if (isFormValid){
-                // choose to create or update existing
-                // if statement checking sessionStorage applicationId
-                console.log(`index: ${$("fieldset").index(next_fs)}`);
-                if($("fieldset").index(next_fs) === 1 && (applicationId === null || applicationId === ""))
-                    application.createOnFirstStep(current_fs);
-                else
-                    application.updateOnNextSteps(current_fs);
+            if (button !== null) {
+                let nextOrPrevious = button.target.name;
+                current_fs = button.target.closest('fieldset');
 
-                //activate next step on progressbar using the index of next_fs
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                
-                //show the next fieldset
-                $(next_fs).show(); 
-                
-                //hide the current fieldset with style
-                $(current_fs).animate({opacity: 0}, {
-                    step: function(now, mx) {
-                        //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale current_fs down to 80%
-                        scale = 1 - (1 - now) * 0.2;
-                        //2. bring next_fs from the right(50%)
-                        left = (now * 50)+"%";
-                        //3. increase opacity of next_fs to 1 as it moves in
-                        opacity = 1 - now;
-                        $(current_fs).css({
-                            'transform': 'scale('+scale+')',
-                            'position': 'absolute'
-                        });
-                        $('.footer').css('position','fixed');
-                        $(next_fs).css({'left': left, 'opacity': opacity});
-                    }, 
-                    duration: 800, 
-                    complete: function(){
-                        $(current_fs).hide();
-                        animating = false;
-                        $('.footer').css('position','');
-                    }, 
-                    //this comes from the custom easing plugin
-                    easing: 'easeInOutBack'
-                });
+                if (button.target.name == 'next') {
+                    next_fs = button.target.closest('fieldset').nextElementSibling;    
+                    
+                    let isFormValid = application.validateForm(current_fs);
+                    let message;
+                    if (isFormValid){
+                        if($("fieldset").index(next_fs) === 1 && (pocApplicationId === null || pocApplicationId === "")){
+                            message = await application.createOnFirstStep(current_fs);
+                            if (sessionStorage.getItem('pocApplicationId') !== '') {
+                                application.allowProgressBarClick();
+                            }
+                        }
+                        else {
+                            application.allowProgressBarClick();
+                            message = await application.updateOnNextSteps(current_fs);
+                        }
+
+                        //activate next step on progressbar using the index of next_fs
+                        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                        //hide the current fieldset with style
+                        // $(current_fs).animate({opacity: 0}, nextOptions);
+                        utils.showToastr(message);
+                    }
+                    else
+                        return;
+                }
+
+                if (button.target.name == 'previous'){
+                    next_fs = button.target.closest('fieldset').previousElementSibling;
+                    //de-activate current step on progressbar
+                    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+                    //hide the current fieldset with style
+                    // $(current_fs).animate({opacity: 0}, prevOptions);
+                }
+
             }
+            // when clicking the progress bar numbers directly
+            if (button === null) {
+                next_fs = fieldset;
+                current_fs = document.querySelector('fieldset.selected');
+                var stepsCount = document.querySelectorAll('#progressbar>li').length -1;
+                
+                if (liClickedIndex < $("fieldset").index(current_fs)) {
+                    for (let i = stepsCount; i > liClickedIndex; i--){
+                        document.querySelectorAll('#progressbar>li')[i].classList.remove("active");
+                    }
+                }
+                else{
+                    for(let i = 0; i <= liClickedIndex; i++){
+                        document.querySelectorAll('#progressbar>li')[i].classList.add("active");
+                    }
+                }
+            }
+            $(current_fs).hide();
+            $(current_fs).removeClass('selected');
+            //show the previous fieldset
+            $(next_fs).show();
+            $(next_fs).addClass('selected');
         },
         validateForm: (current_fs) => {
             let isValid = true;
             current_fs.querySelectorAll('.required').forEach((child) => {
                 child.childNodes.forEach((grandChild) => {
                     if (grandChild && (grandChild.value === '' || grandChild.value === null)){
-                        grandChild.classList.toggle('shake');
-                        grandChild.classList.add('required');
-                        setTimeout(function() {
-                            grandChild.classList.toggle('shake');
-                        }, 300);
-                        isValid = false;
-                        grandChild.addEventListener('change', (grandChild) => {
-                            grandChild.target.classList.remove('required');
-                        });
+                        isValid = application.showFormValidation(grandChild);
                     }
-                    // else {
-                    //     grandChild.classList && grandChild.classList.contains('required') ? grandChild.classList.remove('required') : null;
-                    // }
+                    if (grandChild.type === 'radio') {
+                        let anyRadioSelected = false;
+                        let radios = document.querySelectorAll('div[group-name="' + grandChild.name + '"]')[0].childNodes.forEach((radio) => {
+                            radio.checked ? anyRadioSelected = !anyRadioSelected : '';
+                        });
+                        if (!anyRadioSelected) {
+                            isValid = application.showFormValidation(grandChild);
+                        }
+                    }
                 });
             });
             return isValid;
         },
-        onPreviousClick: (button) => {
-            var current_fs, next_fs, previous_fs; //fieldsets
-            var left, opacity, scale; //fieldset properties which we will animate
-            var animating; //flag to prevent quick multi-click glitches
-            let applicationId = sessionStorage.getItem("applicationId");
-            if(animating) return false;
-            animating = true;
-            
-            current_fs = button.target.closest('fieldset');
-            previous_fs = button.target.closest('fieldset').previousElementSibling;
-            
-            //de-activate current step on progressbar
-            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-            
-            console.log(`index: ${$("fieldset").index(previous_fs)}`);
-
-            //show the previous fieldset
-            $(previous_fs).show();
-
-            //hide the current fieldset with style
-            $(current_fs).animate({opacity: 0}, {
-                step: function(now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale previous_fs from 80% to 100%
-                    scale = 0.8 + (1 - now) * 0.2;
-                    //2. take current_fs to the right(50%) - from 0%
-                    left = ((1-now) * 50)+"%";
-                    //3. increase opacity of previous_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    $('.footer').css('position','fixed');
-                    $(current_fs).css({'left': left});
-                    $(previous_fs).css({'transform': 'scale('+scale+')', 'opacity': opacity});
-                }, 
-                duration: 800, 
-                complete: function(){
-                    $(current_fs).hide();
-                    animating = false;
-                    $(previous_fs).removeAttr('style');
-                    $('.footer').css('position','');
-                }, 
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
+        showFormValidation: (grandChild) => {
+            grandChild.classList.toggle('shake');
+            grandChild.classList.add('required');
+            setTimeout(function() {
+                grandChild.classList.toggle('shake');
+            }, 300);
+            grandChild.addEventListener('change', (grandChild) => {
+                grandChild.target.classList.remove('required');
             });
+            return false;
         },
         createOnFirstStep: (current_fs) => {
+            utils.showHideSpinner(current_fs,true);
             let myJsonObject = {};
             myJsonObject = application.buildMyObject(current_fs, myJsonObject);
             myJsonObject['cmhc_OriginatorLenderContactId@odata.bind']  = `/contacts({{ user.id }})`;
-            myJsonObject['cmhc_PrimaryBorrowerProponentId@odata.bind']  = `/cmhc_proponents(bd21d9db-9edd-eb11-bacb-000d3ae8bb2b)`;
-            myJsonObject['cmhc_OriginatorLenderId@odata.bind']  = `/accounts(e8cf6fde-3e6e-eb11-a812-000d3af30d7f)`;
-            console.log(JSON.stringify(myJsonObject));
+            myJsonObject['cmhc_originatorlenderid@odata.bind']  = `/accounts(e8cf6fde-3e6e-eb11-a812-000d3af30d7f)`;
+            myJsonObject['cmhc_program@odata.bind'] = `/cmhc_programs({{ programMu.cmhc_programid }})`;
+
             let operationType = 'POST';
 
-            appAjax({
-                type: operationType,
-                url: `${urlApplications}`,
-                contentType: "application/json",
-                data: JSON.stringify(myJsonObject),
-                success: (res, status, xhr) => {
-                    sessionStorage.setItem('applicationId', `${xhr.getResponseHeader("entityid")}`);
-                    utils.showToastr('Data saved');
-                }
-            })
+            return new Promise(
+                resolve => appAjax({
+                    type: operationType,
+                    url: `${urlApplications}`,
+                    contentType: "application/json",
+                    data: JSON.stringify(myJsonObject),
+                    success: (res, status, xhr) => {
+                        sessionStorage.setItem('pocApplicationId', `${xhr.getResponseHeader("entityid")}`);
+                        //application.getApplicationData(sessionStorage.getItem('pocApplicationId'));
+                        if (sessionStorage.getItem('pocApplicationId') !== '') {
+                            application.allowProgressBarClick();
+                        }
+                        utils.showHideSpinner(current_fs,false);
+                        resolve('Application Created');
+                    },
+                    error: (response) => {
+                        utils.showHideSpinner(current_fs, false);
+                        if (response.responseJSON) {
+                            utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                        } else {
+                            utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                        }
+                    }
+                })
+            );
+
+            // appAjax({
+            //     type: operationType,
+            //     url: `${urlApplications}`,
+            //     contentType: "application/json",
+            //     data: JSON.stringify(myJsonObject),
+            //     success: (res, status, xhr) => {
+            //         sessionStorage.setItem('pocApplicationId', `${xhr.getResponseHeader("entityid")}`);
+            //         //added for demo
+            //         if (sessionStorage.getItem('pocApplicationId') !== '') {
+            //             application.allowProgressBarClick();
+            //         }
+            //     },
+            //     error: (response) => {
+            //         utils.showHideSpinner(current_fs, false);
+            //         if (response.responseJSON) {
+            //             utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+            //         } else {
+            //             utils.showToastr(`Error: Web API is not available...`, null, 'error');
+            //         }
+            //     }
+            // })
+
+            // return new Promise(
+            //     resolve => {
+            //         setTimeout(() => {
+            //             utils.showHideSpinner(current_fs,false);
+            //             resolve('Application is being created');
+            //         }, 1500);
+            //     }
+            // )
         },
         updateOnNextSteps: (current_fs) => {
+            utils.showHideSpinner(current_fs,true);
             let myJsonObject = {
-                cmhc_muapplicationid: sessionStorage.getItem("applicationId")
+                cmhc_pocapplicationid: sessionStorage.getItem("pocApplicationId")
             };
             myJsonObject = application.buildMyObject(current_fs, myJsonObject);
-            
+
             let operationType = 'PATCH';
 
-            appAjax({
-                type: operationType,
-                url: `${urlApplications}(${myJsonObject.cmhc_muapplicationid})`,
-                contentType: "application/json",
-                data: JSON.stringify(myJsonObject),
-                success: (res, status, xhr) => {
-                    console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
-                    utils.showToastr('Data updated');
-                }
-            });
+            return new Promise( 
+                resolve => appAjax({
+                    type: operationType,
+                    url: `${urlApplications}(${myJsonObject.cmhc_pocapplicationid})`,
+                    contentType: "application/json",
+                    data: JSON.stringify(myJsonObject),
+                    success: (res, status, xhr) => {
+                        utils.showHideSpinner(current_fs,false);
+                        console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+                        resolve('Application Updated');                        
+                    },
+                    error: (response) => {
+                        utils.showHideSpinner(current_fs, false);
+                        if (response.responseJSON) {
+                            utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+                        } else {
+                            utils.showToastr(`Error: Web API is not available...`, null, 'error');
+                        }
+                    }
+                })
+            );
+
+            // appAjax({
+            //     type: operationType,
+            //     url: `${urlApplications}(${myJsonObject.cmhc_pocapplicationid})`,
+            //     contentType: "application/json",
+            //     data: JSON.stringify(myJsonObject),
+            //     success: (res, status, xhr) => {
+            //         // utils.showHideSpinner(current_fs,false);
+            //         console.log(`Entity ID: ${xhr.getResponseHeader("entityid")}`);
+            //     },
+            //     error: (response) => {
+            //         utils.showHideSpinner(current_fs, false);
+            //         if (response.responseJSON) {
+            //             utils.showToastr(`Error: ${response.responseJSON.error.innererror.message}`, null, 'error');
+            //         } else {
+            //             utils.showToastr(`Error: Web API is not available...`, null, 'error');
+            //         }
+            //     }
+            // });
+
+            // return new Promise(
+            //     resolve => {
+            //         setTimeout(() => {
+            //             utils.showHideSpinner(current_fs,false);
+            //             resolve('Application Updated');
+            //         }, 1500);
+            //     }
+            // )
         },
         buildMyObject: (currentTab, myJsonObject) => {
             Object.keys(applicationFields).forEach((formKey) => {
-                Object.keys(currentTab.elements).forEach((objectKey) => {
+                Object.keys(currentTab.elements).every((objectKey) => {
                     if (currentTab.elements[objectKey].name === formKey){
                         if (currentTab.elements[objectKey].value === '')
                             myJsonObject[applicationFields[formKey]] = null;
                         else {
-                            if (currentTab.elements[objectKey].hasAttribute('decimal-type'))
-                                myJsonObject[applicationFields[formKey]] = parseFloat(currentTab.elements[objectKey].value);
-                            else 
+                            if (currentTab.elements[objectKey].hasAttribute('decimal-type')) {
+                                myJsonObject[applicationFields[formKey]] = parseFloat(currentTab.elements[objectKey].value.slice(1).replaceAll(',',''));
+                            }
+                            else
                                 myJsonObject[applicationFields[formKey]] = currentTab.elements[objectKey].value;
                         }
+
+                        if (currentTab.elements[objectKey].type === 'radio') {
+                            if (currentTab.elements[objectKey].checked)
+                                myJsonObject[applicationFields[formKey]] = true;
+                            else
+                                myJsonObject[applicationFields[formKey]] = false;
+                        }
+                        return false;
                     }
+                    else
+                        return true;
                 })
             });
             return myJsonObject;
         },
     }
-    application.init();
+
+    // let applicationStatus = '{{ application.statuscode.value }}';
+    // if (applicationStatus === '758280003' || applicationStatus === '')
+         application.init();
+    
 </script>

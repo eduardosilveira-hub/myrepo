@@ -8,22 +8,99 @@
         <attribute name='cmhc_from' />
         <order attribute='createdon' descending='true' />
         <filter type='and'>
-        <condition attribute='statecode' operator='eq' value='0' />
+            <condition attribute="createdon" operator="le" value='{{ "today" | date: "yyyy-MM-dd HH:mm:ss.sss" }}' />
+            <condition attribute='statecode' operator='eq' value='0' />
         </filter>
     </entity>
 </fetch>
 {%- endfetchxml -%}
+<style>
+    .globalMessages {
+        background: white;
+        border: 0 none;
+        border-radius: 10px !important;
+        box-shadow: 0 0 20px 1px rgb(0 0 0 / 10%);
+        padding: 20px 30px !important;
+    }
+    blockquote {
+        padding: 10px 0px !important;
+        margin: 0 0 21px;
+    }
 
+    blockquote .bottom{
+        text-align: right !important;
+    }
+
+    #quote-carousel {
+        padding: 0px;
+    }
+
+    /* Control buttons  */
+    #quote-carousel .carousel-control{
+        background: none;
+        color: #222;
+        font-size: 2.3em;
+        text-shadow: none;
+        margin-top: 30px;
+    }
+
+    /* Previous button  */
+    #quote-carousel .carousel-control.left {
+        left: -12px;
+    }
+
+    /* Next button  */
+    #quote-carousel .carousel-control.right {
+        right: -12px !important;
+    }
+
+    /* Changes the position of the indicators */
+    #quote-carousel .carousel-indicators {
+        right: 50%;
+        top: auto;
+        bottom: 0px;
+        margin-right: -19px;
+    }
+
+    /* Changes the color of the indicators */
+    #quote-carousel .carousel-indicators li {
+        background: #c0c0c0;
+    }
+
+    #quote-carousel .carousel-indicators .active {
+        background: #333333;
+    }
+
+    .item blockquote {
+        border-left: none; 
+        margin: 0;
+        height: 170px;
+        min-height: 170px;
+    }
+
+    .announcementText {
+        height: 125px;
+    }
+
+    @media (min-width:768px) and (max-width:992px) {
+        .item blockquote {
+            height: 275px;
+        }
+
+        .announcementText {
+            height: 245px;
+        }
+    }
+</style>
 <div class='col-sm-4'>
     <div id='first-panel'>
-        <h3 class='font-bold cmhc-font-18'>CHMC Announcements</h3>
+        <!-- <h3 class='font-bold cmhc-font-18'>CHMC Announcements</h3> -->
         <div class='card'>
             <ul class='list-group list-group-flush'>
-                <li class='list-group-item'>
-                    <div class='cmhc-label mt-1'>Welcome</div>
+                <li class='list-group-item globalMessages'>
                     <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                         <!-- Carousel Slides / Quotes -->
-                        <div class="carousel-inner">
+                        <div class="carousel-inner d-none">
                           <!-- Quote 1 -->
                             {% if fetchAnnouncements.results.entities.size > 1 %}
                             {% for announcement in fetchAnnouncements.results.entities %}
@@ -32,11 +109,12 @@
                                 {% else %}
                                     <div class="item">
                                 {% endif %}
+                                    <div class='cmhc-label mt-1'>{{ announcement.cmhc_name }}</div>
                                     <blockquote>
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                            <p>{{ announcement.ava_announcement }}</p>
-                                            <small>{{ announcement.ava_from }}</small>
+                                        <div class="col-sm-12 messageBody">
+                                            <p class="announcementText">{{ announcement.cmhc_announcement }}</p>
+                                            <small>{{ announcement.cmhc_from }}</small>
                                             <hr class='solid'>
                                             <div class='cmhc-font-10 bottom'>
                                                 {{ announcement.createdon }}
@@ -48,12 +126,13 @@
                             {% endfor %}
                             {% else if fetchAnnouncements.results.entities.size == 1 %}
                                 {% assign announcement = fetchAnnouncements.results.entities | first %}
+                                <div class='cmhc-label mt-1'>{{ announcement.cmhc_name }}</div>
                                 <div class="item active">
                                     <blockquote>
                                         <div class="row">
-                                            <div class="col-sm-12">
-                                                <p>{{ announcement.ava_announcement }}</p>
-                                                <small>{{ announcement.ava_from }}</small>
+                                            <div class="col-sm-12 messageBody">
+                                                <p class="announcementText">{{ announcement.cmhc_announcement }}</p>
+                                                <small>{{ announcement.cmhc_from }}</small>
                                                 <hr class='solid'>
                                                 <div class='cmhc-font-10 bottom'>
                                                     {{ announcement.createdon }}
@@ -66,8 +145,8 @@
                                 <div class="item active">
                                     <blockquote>
                                         <div class="row">
-                                            <div class="col-sm-12">
-                                                <p>No announcements for today</p>
+                                            <div class="col-sm-12 messageBody">
+                                                <p class="announcementText">No announcements for today</p>
                                                 <small></small>
                                                 <hr class='solid'>
                                                 <div class='cmhc-font-10 bottom'>
@@ -78,9 +157,6 @@
                                     </blockquote>
                                 </div>
                             {% endif %}
-                        <!-- Carousel Buttons Next/Prev -->
-                        <!-- <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a> -->
                     </div>
                 </li>
             </ul>
@@ -88,81 +164,21 @@
     </div>  
 </div>
 
-<style>
-
-blockquote {
-    padding: 10px 0px !important;
-    margin: 0 0 21px;
-}
-
-blockquote .bottom{
-    text-align: right !important;
-}
-
-#quote-carousel 
-{
-  padding: 0px;
-}
-
-/* Control buttons  */
-#quote-carousel .carousel-control
-{
-  background: none;
-  color: #222;
-  font-size: 2.3em;
-  text-shadow: none;
-  margin-top: 30px;
-}
-/* Previous button  */
-#quote-carousel .carousel-control.left 
-{
-  left: -12px;
-}
-/* Next button  */
-#quote-carousel .carousel-control.right 
-{
-  right: -12px !important;
-}
-/* Changes the position of the indicators */
-#quote-carousel .carousel-indicators 
-{
-  right: 50%;
-  top: auto;
-  bottom: 0px;
-  margin-right: -19px;
-}
-/* Changes the color of the indicators */
-#quote-carousel .carousel-indicators li 
-{
-  background: #c0c0c0;
-}
-#quote-carousel .carousel-indicators .active 
-{
-  background: #333333;
-}
-
-/* End carousel */
-
-.item blockquote {
-    border-left: none; 
-    margin: 0;
-}
-
-</style>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.announcementText').forEach((item) => {
+            item.remove();
+        });
+
+        document.querySelectorAll('.messageBody').forEach((message) => {
+            message.firstElementChild.classList.add('announcementText');
+        })
+
+        document.querySelector('.carousel-inner').classList.remove('d-none');
         let timerSetting = "{{ settings['Home/AnnouncementTimeout']}}";
         $('#quote-carousel').carousel({
             pause: true,
             interval: timerSetting,
         });
     });
-// $(document).ready(function() {
-//   //Set the carousel options
-//   $('#quote-carousel').carousel({
-//     pause: true,
-//     interval: {{ settings['announcement-timeout']}},
-//   });
-// });
 </script>
