@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="CharacterCounterNS" constructor="CharacterCounterProject" version="0.0.1" display-name-key="This is the character counter" description-key="Counts Characters" control-type="standard" >
+    <property name="charCounterDataInput" display-name-key="Data input" description-key="Control that contains the data from the host where it is bound" of-type="Multiple" usage="bound" required="true" />
+    <property name="charCounterLimit" display-name-key="Char limit" description-key="This defines the upper limit of characters that a control can accept" of-type="Whole.None" usage="input" required="true" />
+    <resources>
+      <code path="index.ts" order="1"/>
+    </resources>
+  </control>
+</manifest>
