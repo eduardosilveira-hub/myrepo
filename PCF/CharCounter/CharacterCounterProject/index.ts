@@ -30,10 +30,11 @@ export class CharacterCounterProject implements ComponentFramework.StandardContr
         // and it will reflect the change on the host field
         this.theNotifyOutputChanged = notifyOutputChanged;
         this.maxCharacterLimit = context.parameters.charCounterLimit.raw || 0;
+        
         this.mainDiv = document.createElement("div");
         this.textbox = document.createElement("textarea");
-
         this.outputLabel = document.createElement("label");
+
         this.textbox.value = context.parameters.charCounterDataInput.raw || "";
         this.textbox.addEventListener("keydown", this.onKeyDown.bind(this));
 

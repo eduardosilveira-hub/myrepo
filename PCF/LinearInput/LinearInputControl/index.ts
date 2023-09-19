@@ -5,7 +5,7 @@ export class LinearInputControl implements ComponentFramework.StandardControl<II
     private myDivArea: HTMLDivElement; //Div we are building on the screen
     private userInput: HTMLInputElement; // Text area where user will input their data
     private charCountLabel: HTMLLabelElement; // Label that will show characterCount/Max
-    private maxCharCount: number; // This is a local var that will store the users input in dataverse for max chars
+    private maxCharLimit: number; // This is a local var that will store the users input in dataverse for max chars
     private _notifyOutputChanged: () => void; // This variable will hold any changes notification from the control (UI) to the host (dataverse field)
 
     /**
@@ -26,17 +26,29 @@ export class LinearInputControl implements ComponentFramework.StandardControl<II
      */
     public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement): void
     {
-        this.maxCharCount = context.parameters.maxChar.raw || 0;
+        this._notifyOutputChanged = notifyOutputChanged;
+        this.maxCharLimit = context.parameters.maxChar.raw || 0;
 
         this.myDivArea = document.createElement("div");
         this.userInput = document.createElement("input");
         this.charCountLabel = document.createElement("label");
 
+        this.userInput.value = context.parameters.UserInputField.raw || "";
+        this.userInput.addEventListener("change", this.OnChange.bind(this));
+
         this.myDivArea.appendChild(this.userInput);
         this.myDivArea.appendChild(this.charCountLabel);
         container.appendChild(this.myDivArea);
+
+        this.OnChange();
     }
 
+    private OnChange(): void {
+        var remainingChars = this.maxCharLimit - this.userInput.value.length;
+        this.charCountLabel.innerHTML = `${remainingChars}/${this.maxCharLimit}`;
+
+        this._notifyOutputChanged();
+    }
 
     /**
      * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
@@ -45,7 +57,11 @@ export class LinearInputControl implements ComponentFramework.StandardControl<II
     public updateView(context: ComponentFramework.Context<IInputs>): void
     {
         // Add code to update control view
-        // this._container.innerHTML = "aaa ".concat(context.parameters.mobileNumber.raw!);
+        const charCounterChanged = context.parameters.maxChar.raw || 0;
+        if (this.maxCharLimit !== charCounterChanged) {
+            this.maxCharLimit = charCounterChanged;
+            this.OnChange();
+        }
     }
 
     /**
@@ -54,7 +70,9 @@ export class LinearInputControl implements ComponentFramework.StandardControl<II
      */
     public getOutputs(): IOutputs
     {
-        return {};
+        return {
+            UserInputField: this.userInput.value
+        };
     }
 
     /**

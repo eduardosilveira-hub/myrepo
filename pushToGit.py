@@ -8,8 +8,7 @@ comment = str(input("Comment: "))
 
 while True:
     time.sleep(1)
-    print(f"Iteration {str(iterations)} : Pushing")
-    print("=======================================")
+    print(f"======== Iteration {str(iterations)} : Pushing ========")
     os.system("git add .")
 
     os.system("git commit -m " + comment)
@@ -21,4 +20,4 @@ while True:
         os.system("cls")
     else:
         os.system("clear")
-        
+    print("=======================================")
