@@ -58,31 +58,4 @@ else:
     os.rename(path_to_pdf, invoiceFolder + '\\' + nameOfFile)
 
 
-
-# Read from timesheet file
-timesheetBaseDir = 'D:\OneDrive\Documents\Contracts\Timesheets\\'
-
-excelFile = invoiceBaseDir + 'Invoice_Template.xlsx'
-today = datetime.today().strftime('%d/%m/%Y')
-dt = datetime.strptime(today, '%d/%m/%Y')
-start = dt - timedelta(days=dt.weekday())
-end = start + timedelta(days=6)
-
-wb = openpyxl.load_workbook(excelFile)
-sheet = wb.active
-
-# set end week date on Date field
-sheet[f'E4'].value = end.strftime('%B %d, %Y')
-
-# set end week date on the invoice line
-sheet[f'B17'].value = end.strftime('%B %d, %Y')
-
-# Set invoice #
-invoiceNumber = 'EC2ML_'+ str(calendar.month_abbr[datetime.today().month].upper()) + str(end.day) + str(datetime.today().year)
-sheet[f'E7'].value = invoiceNumber
-
-#counter = sheet[f'B30'].value
-#sheet[f'B30'].value = counter + 1
-
-wb.save(excelFile)
-wb.close()
+# Complete code to auto execute timesheet
