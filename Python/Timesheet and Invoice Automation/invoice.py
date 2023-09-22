@@ -4,7 +4,7 @@ import win32com.client
 import calendar
 import os
 
-invoiceBaseDir = 'D:\OneDrive\Documents\Contracts\Invoices\\'
+invoiceBaseDir = 'D:\OneDrive\Contracts\Invoices\\'
 
 excelFile = invoiceBaseDir + 'Invoice_Template.xlsx'
 today = datetime.today().strftime('%d/%m/%Y')

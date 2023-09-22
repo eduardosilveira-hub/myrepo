@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.33927.289
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar", "Calendar\Calendar.csproj", "{D8E3BE00-6A7B-4B42-AF73-A6BBEF1275C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmPackage", "CrmPackage\CrmPackage.csproj", "{88BCD228-080E-4D6C-86F7-CE11B1D0BA1E}"
+Project("{88A30576-7583-4F75-8136-5EFD2C14ADFF}") = "CrmPackage", "CrmPackage\CrmPackage.csproj", "{88BCD228-080E-4D6C-86F7-CE11B1D0BA1E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D8E3BE00-6A7B-4B42-AF73-A6BBEF1275C4} = {D8E3BE00-6A7B-4B42-AF73-A6BBEF1275C4}
 	EndProjectSection
