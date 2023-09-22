@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
+  <Solutions>
+    <Solution Assembly="Calendar.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database">
+      <PluginTypes>
+        <clear />
+        <Plugin Description="Plug-in to OnFundCreateCheckCalendarDates" FriendlyName="OnFundCreateCheckCalendarDates" Name="Calendar.PostOperationsample_fundraiserCreate" Id="00000000-0000-0000-0000-000000000000" TypeName="Calendar.PostOperationsample_fundraiserCreate">
+          <Steps>
+            <clear />
+            <Step AsyncAutoDelete="false" Name="OnFundCreateCheckCalendarDates" Description="Create of sample_fundraiser" FilteringAttributes="ls_startdate" Id="00000000-0000-0000-0000-000000000000" ImpersonatingUserId="00000000-0000-0000-0000-000000000000" MessageName="Create" Mode="Synchronous" PrimaryEntityName="sample_fundraiser" Rank="1" Stage="PostOutsideTransaction" SupportedDeployment="ServerOnly" MessageEntityId="00000000-0000-0000-0000-000000000000">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+      </PluginTypes>
+    </Solution>
+  </Solutions>
+  <XamlWorkflows />
+  <DataProviders />
+</Register>
