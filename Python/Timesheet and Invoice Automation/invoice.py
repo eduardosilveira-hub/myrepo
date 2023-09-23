@@ -4,7 +4,7 @@ import win32com.client
 import calendar
 import os
 
-invoiceBaseDir = 'D:\OneDrive\Contracts\Invoices\\'
+invoiceBaseDir = 'D:\OneDrive\Contracts\EC2ML\Invoices\\'
 
 excelFile = invoiceBaseDir + 'Invoice_Template.xlsx'
 today = datetime.today().strftime('%d/%m/%Y')
@@ -25,9 +25,6 @@ sheet[f'B17'].value = end.strftime('%B %d, %Y')
 invoiceNumber = 'EC2ML_'+ str(calendar.month_abbr[datetime.today().month].upper()) + str(end.day) + str(datetime.today().year)
 sheet[f'E7'].value = invoiceNumber
 
-#counter = sheet[f'B30'].value
-#sheet[f'B30'].value = counter + 1
-
 wb.save(excelFile)
 wb.close()
 
@@ -38,6 +35,10 @@ o.Visible = False
 wb_path = invoiceBaseDir + 'Invoice_Template.xlsx'
 wb = o.Workbooks.Open(wb_path)
 
+# for ordering files on directory
+counter = sheet[f'B30'].value
+sheet[f'B30'].value = counter + 1
+
 nameOfFile = str(calendar.month_name[datetime.today().month]) + str(end.day) + '_' + str(datetime.today().year) + '.pdf'
 path_to_pdf = invoiceBaseDir + nameOfFile
 print('path to initial pdf: ',path_to_pdf)
@@ -46,7 +47,8 @@ wb.WorkSheets([1]).Select()
 wb.ActiveSheet.ExportAsFixedFormat(0, path_to_pdf)
 wb.Close(True, wb_path)
 
-invoiceFolder = invoiceBaseDir + str(calendar.month_name[datetime.today().month]) + str(datetime.today().year)
+# Set invoice folder name
+invoiceFolder = invoiceBaseDir + str(datetime.today().year) + "_" + str(calendar.month_name[datetime.today().month])
 print('path to new pdf: ',invoiceFolder)
 
 if os.path.exists(invoiceFolder):

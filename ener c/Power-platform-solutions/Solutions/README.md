@@ -1,1 +1,0 @@
-To hold unpacked Dynamics CE solutions

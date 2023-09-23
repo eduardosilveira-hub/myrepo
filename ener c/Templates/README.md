@@ -1,1 +1,0 @@
-This folder will hold the signup/signin/passwordReset templates project files

@@ -1,1 +1,0 @@
-This folder will hold the template for portal load testing using JMeter
