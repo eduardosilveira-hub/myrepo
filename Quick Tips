@@ -1,0 +1,22 @@
+https://docs.microsoft.com/en-us/powerapps/maker/portals/configure-notes
+
+https://docs.microsoft.com/en-us/powerapps/maker/portals/add-web-resource
+
+https://www.youtube.com/watch?v=8QdAsJnBGOk - dcp powerautomate
+
+{{ my_query.xml | escape }}
+{{ my_query.results.total_record_count }}
+{{ my_query.results.more_records }}
+{{ my_query.results.paging_cookie | escape }}
+{% for result in my_query.results.entities %}
+  {{ result.id | escape }}
+{% endfor %}
+
+
+navigator.storage.estimate().then((data) => {
+    debugger;
+    const percentUsed = Math.round(data.usage / data.quota * 100);
+    const usageInMib = Math.round(data.usage / (1024 * 1024));
+    const quotaInMib = Math.round(data.quota / (1024 * 1024));
+    console.log(`${usageInMib} out of ${quotaInMib} MiB used (${percentUsed}%)`);
+});
